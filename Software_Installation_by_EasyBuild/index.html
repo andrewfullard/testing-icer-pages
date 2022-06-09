@@ -1,0 +1,2264 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/icer-small-logo-white.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.3">
+    
+    
+      
+        <title>Software Installation by EasyBuild - MSU HPCC User Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4a0965b7.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../overrides/assets/stylesheets/footer.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#software-installation-by-easybuild" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+
+<header class="md-header" data-md-component="header">
+    <nav
+    class="md-header__inner md-grid"
+    aria-label="Header"
+  >
+    
+    <!-- <H1>HERE</H1> -->
+    <a href="." class="md-header__button md-logo" data-md-component="logo">
+    
+  <img src="../assets/icer-small-logo-white.png" alt="logo">
+
+    </a>
+        <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+
+    <div class="md-header__title" data-md-component="header-title">
+        <div class="md-header__ellipsis">
+          <div class="md-header__topic">
+            <span class="md-ellipsis">
+              ICER
+            </span>
+          </div>
+          <div class="md-header__topic" data-md-component="header-topic">
+            <span class="md-ellipsis">
+              
+                Software Installation by EasyBuild
+              
+            </span>
+          </div>
+        </div>
+    </div>
+
+        <!-- Button to open search modal -->
+        
+        <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        </label>
+
+        <!-- Search interface -->
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+  </nav>
+
+</header>
+
+<div class="MSUwrapper" id="MSUheader">
+    <div id="MSUmasthead" role="banner">
+        <!-- <a href="http://www.msu.edu"> -->
+            <!-- if using a dark background change the img src to images/masthead-helmet-white.png-->
+            <img class="screen-msugraphic" alt="ICER masthead graphic"
+                src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/Header_Banner_small.jpg" />
+        <!-- </a> -->
+    </div>
+    
+</div>
+    
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="MSU HPCC User Documentation" class="md-nav__button md-logo" aria-label="MSU HPCC User Documentation" data-md-component="logo">
+      
+  <img src="../assets/icer-small-logo-white.png" alt="logo">
+
+    </a>
+    MSU HPCC User Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Access the HPCC
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Access the HPCC" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Access the HPCC
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obtain_an_hpcc_account/" class="md-nav__link">
+        Obtain an HPCC account
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install_ssh_client/" class="md-nav__link">
+        Install an SSH client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_to_HPCC_System/" class="md-nav__link">
+        Connect to the HPCC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          HPCC resources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="HPCC resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          HPCC resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2018_cluster_resources/" class="md-nav__link">
+        Cluster resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development_nodes/" class="md-nav__link">
+        Development nodes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Computing environment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Computing environment" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Computing environment
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux_Shell/" class="md-nav__link">
+        Linux shells
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_Permissions_on_HPCC/" class="md-nav__link">
+        File permissions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Change_Primary_Group/" class="md-nav__link">
+        Change primary group
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Collaborative_Research/" class="md-nav__link">
+        Collaborative research
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          File systems
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="File systems" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          File systems
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Home_Space/" class="md-nav__link">
+        Home space
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Research_Space/" class="md-nav__link">
+        Research space
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scratch_File_Systems/" class="md-nav__link">
+        Scratch space
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Local_File_Systems/" class="md-nav__link">
+        Local file system
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ufs18_File_Systems/" class="md-nav__link">
+        UFS18 file system
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Guidelines_for_Choosing_File_Storage_and_I_O/" class="md-nav__link">
+        Guidelines for choosing file systems and I/O
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sensitive_Data_on_the_HPCC/" class="md-nav__link">
+        Sensitive data storage
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          File transfer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="File transfer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          File transfer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_transfer/" class="md-nav__link">
+        File transfer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Transferring_data_with_Globus/" class="md-nav__link">
+        Using Globus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rclone_-_rsync_for_cloud_storage/" class="md-nav__link">
+        Using Rclone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping_HPC_drives_with_SSHFS/" class="md-nav__link">
+        Mapping drives using Samba
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping_HPC_drives_with_Samba/" class="md-nav__link">
+        Mapping drives using SSHFS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SFTP_Mapping_on_HPCC_file_systems/" class="md-nav__link">
+        Mapping drives using SFTP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Science_DMZ/" class="md-nav__link">
+        Science DMZ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Software module system
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software module system" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Software module system
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How_to_find_and_load_software_modules/" class="md-nav__link">
+        Loading software modules
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Powertools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Powertools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Powertools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getexample/" class="md-nav__link">
+        getexample
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bi/" class="md-nav__link">
+        bi - buyin information
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qs/" class="md-nav__link">
+        qs - display job list
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Job submission by SLURM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Job submission by SLURM" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Job submission by SLURM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SLURM_overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm_Environment_Variables/" class="md-nav__link">
+        SLURM environment variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job_Script_and_Job_Submission/" class="md-nav__link">
+        General rules for writing a job script
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job_Constraints/" class="md-nav__link">
+        Job constraints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Example_SLURM_scripts/" class="md-nav__link">
+        Example job scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_6" type="checkbox" id="__nav_9_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_6">
+          Job policies
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Job policies" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_6">
+          <span class="md-nav__icon md-icon"></span>
+          Job policies
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../job_policies/" class="md-nav__link">
+        Job policies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../job_priority_factors/" class="md-nav__link">
+        Job priority factors
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_7" type="checkbox" id="__nav_9_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_7">
+          Torque vs. SLURM comparisons
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Torque vs. SLURM comparisons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_7">
+          <span class="md-nav__icon md-icon"></span>
+          Torque vs. SLURM comparisons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Torque_vs._SLURM/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Specifications_of_Job_submission/" class="md-nav__link">
+        Specifications of job submission
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System_Commands/" class="md-nav__link">
+        System commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Environment_Variables/" class="md-nav__link">
+        Environment variables
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scavenger_Queue/" class="md-nav__link">
+        Scavenger Queue
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Software tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Software tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_1" type="checkbox" id="__nav_10_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_1">
+          Bioinformatics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bioinformatics" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_1">
+          <span class="md-nav__icon md-icon"></span>
+          Bioinformatics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ABySS/" class="md-nav__link">
+        ABySS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Assembly_of_PacBio_long_reads_with_Canu/" class="md-nav__link">
+        Assembly of PacBio long reads with Canu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLAST_BLAST%2B_with_Multiple_Processors/" class="md-nav__link">
+        BLAST/BLAST+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GATK4/" class="md-nav__link">
+        GATK4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTSeq/" class="md-nav__link">
+        HTSeq
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mothur/" class="md-nav__link">
+        Mothur
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NCBI_Entrez_Direct_tools/" class="md-nav__link">
+        NCBI eDirect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL_configuration/" class="md-nav__link">
+        MySQL configuration for OrthoMCL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orthomcl-pipeline/" class="md-nav__link">
+        OrthoMCL pipeline
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QIIME_2/" class="md-nav__link">
+        QIIME 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RNA_seq_example/" class="md-nav__link">
+        RNA-seq
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trimmomatic/" class="md-nav__link">
+        Trimmomatic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trinity_for_RNA-seq_de_novo_assembly/" class="md-nav__link">
+        Trinity for RNA-seq de novo assembly
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_2" type="checkbox" id="__nav_10_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_2">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="R" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_2">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RCentOS7generalinfo/" class="md-nav__link">
+        General information
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R_others/" class="md-nav__link">
+        Some packages and other information
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R_workshop_tutorial/" class="md-nav__link">
+        R workshop
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_3" type="checkbox" id="__nav_10_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_3">
+          TensorFlow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="TensorFlow" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_3">
+          <span class="md-nav__icon md-icon"></span>
+          TensorFlow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installing_TensorFlow_1.x_with_virtualenv/" class="md-nav__link">
+        Installing TF 1.x
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow_2.5_installation_as_of_Jul_2021_/" class="md-nav__link">
+        Installing TF 2.5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installing_TensorFlow_using_anaconda/" class="md-nav__link">
+        Installing TF using anaconda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Submitting_a_TensorFlow_job/" class="md-nav__link">
+        Submitting a TF job
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4" type="checkbox" id="__nav_10_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_4">
+          Gaussian
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gaussian" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_4">
+          <span class="md-nav__icon md-icon"></span>
+          Gaussian
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Access/" class="md-nav__link">
+        Gaussian access
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Running_Gaussian_by_Command_Lines/" class="md-nav__link">
+        Running Gaussian from command line
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Job_Script/" class="md-nav__link">
+        Gaussian job script
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Job_with_Checkpointing_Run/" class="md-nav__link">
+        Gaussian job with checkpointing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_on_HPCC/" class="md-nav__link">
+        Gaussian workshop slides
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" type="checkbox" id="__nav_10_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_5">
+          COMSOL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="COMSOL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_5">
+          <span class="md-nav__icon md-icon"></span>
+          COMSOL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../COMSOL/" class="md-nav__link">
+        COMSOL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          HPC tutorial series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="HPC tutorial series" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          HPC tutorial series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_over_SSH_with_atom/" class="md-nav__link">
+        Connect over SSH with Atom
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_over_SSH_with_VS_Code/" class="md-nav__link">
+        Connect over SSH with VS_Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../singularity_01/" class="md-nav__link">
+        Singularity: I. Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using_DDD/" class="md-nav__link">
+        Using DDD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../make/" class="md-nav__link">
+        make
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3._Expansion/" class="md-nav__link">
+        Expansion
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ebf" class="md-nav__link">
+    ebF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs" class="md-nav__link">
+    ebS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebm" class="md-nav__link">
+    ebM
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="software-installation-by-easybuild">Software Installation by EasyBuild</h1>
+<p>FOR CENTOS 7 ONLY</p>
+<p>EasyBuild is a python program installed on HPCC and can be used to
+do software installation. Since it is easy to use, HPCC users can load a
+EasyBuild module to build their software and module system, and they can
+work together with HPCC software system. To use EasyBuild after you log
+into Centos 7 nodes, please run</p>
+<div class="code panel pdl" style="border-width: 1px;">
+
+<div class="codeContent panelContent pdl">
+
+
+<pre><code class="language-bash">$ module purge; module load EasyBuild; module list
+
+Currently Loaded Modules:
+  1) EasyBuild/3.6.2
+</code></pre>
+
+
+</div>
+
+</div>
+
+<p>The commands remove any loaded module (by <strong>module purge</strong>) and load the
+EasyBuild module of the current version. The purge of loaded modules is
+strongly suggested since any loaded module might affect software
+installation by Easybuild. (Warning will also show during installation
+if any module created by EasyBuild is loaded.) After the module is
+loaded, EasyBuild commands (such as eb, easy_install, ...) can function
+normally.</p>
+<p>By default, software is set to be built under each user's home
+directory with the path $HOME/software and module system built in
+$HOME/modules. (For users with helpdesk group, the default directories
+are /opt/software and /opt/modules respectively.) If you would like to
+choose different directories, you can reset the environment variables
+EASYBUILD_INSTALLPATH_SOFTWARE and EASYBUILD_INSTALLPATH_MODULES to your
+preferred places:</p>
+<div class="code panel pdl" style="border-width: 1px;">
+
+<div class="codeContent panelContent pdl">
+
+
+<pre><code class="language-bash">$ export EASYBUILD_INSTALLPATH_SOFTWARE=&lt;path to the directory where software is installed&gt;
+$ export EASYBUILD_INSTALLPATH_MODULES=&lt;path to the directory where module system is installed&gt;
+</code></pre>
+
+
+</div>
+
+</div>
+
+<p>Please make sure the directories are built (by mkdir -p command) and run
+module use command so your module system
+($EASYBUILD_INSTALLPATH_MODULES) is used with HPCC system
+(/opt/modules):</p>
+<div class="code panel pdl" style="border-width: 1px;">
+
+<div class="codeContent panelContent pdl">
+
+
+<pre><code class="language-bash">$ mkdir -p $EASYBUILD_INSTALLPATH_SOFTWARE $EASYBUILD_INSTALLPATH_MODULES
+$ module use $EASYBUILD_INSTALLPATH_MODULES /opt/modules
+</code></pre>
+
+
+</div>
+
+</div>
+
+<p>In order to make the installation conveniently, three commands are
+created in our system and they are introduced here:</p>
+<h3 id="ebf">ebF</h3>
+<p>EasyBuild can install software according to the information from a
+eb file. EasyBuild has many eb files created for many different software
+installations with any possible compilers and libraries. If a eb file is
+provided without any path, EasyBuild will try to find it from EasyBuild
+default paths. Since the path names are long and many directories and
+files are inside, you can use ebF command to find eb files associated
+with a input software name:</p>
+<div class="code panel pdl" style="border-width: 1px;">
+
+<div class="codeContent panelContent pdl">
+
+
+<pre><code class="language-bash">$ ebF Intel
+
+ebF_PATH=/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs
+
+====== $ebF_PATH/i/IntelClusterChecker/
+IntelClusterChecker-2017.1.016.eb
+
+====== $ebF_PATH/c/CrayIntel/
+CrayIntel-2015.06.eb  CrayIntel-2015.11.eb  CrayIntel-2016.06.eb
+</code></pre>
+
+
+</div>
+
+</div>
+
+<p>The command tries to find the software directories with the name
+containing the input keyword <strong>Intel</strong> and all eb files inside
+(including any possible compilers). If you are not sure the name of a
+software with lower or upper case, you can use -i option to see them
+all:</p>
+<div class="code panel pdl" style="border-width: 1px;">
+
+<div class="codeContent panelContent pdl">
+
+
+<pre><code class="language-bash">$ ebF -i Intel
+
+ebF_PATH=/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs
+
+====== $ebF_PATH/i/IntelClusterChecker/
+IntelClusterChecker-2017.1.016.eb
+
+====== $ebF_PATH/i/intelcuda/
+intelcuda-2016.10.eb
+
+====== $ebF_PATH/i/intel/
+intel-2014.06.eb  intel-2015.08.eb  intel-2016.02-GCC-4.9.eb  intel-2016a.eb    intel-2017.09.eb  intel-2018a.eb
+intel-2014.10.eb  intel-2015a.eb    intel-2016.02-GCC-5.3.eb  intel-2016b.eb    intel-2017a.eb
+intel-2014.11.eb  intel-2015b.eb    intel-2016.03-GCC-4.9.eb  intel-2017.00.eb  intel-2017b.eb
+intel-2014b.eb    intel-2016.00.eb  intel-2016.03-GCC-5.3.eb  intel-2017.01.eb  intel-2018.00.eb
+intel-2015.02.eb  intel-2016.01.eb  intel-2016.03-GCC-5.4.eb  intel-2017.02.eb  intel-2018.01.eb
+
+====== $ebF_PATH/c/CrayIntel/
+CrayIntel-2015.06.eb  CrayIntel-2015.11.eb  CrayIntel-2016.06.eb
+
+====== $ebF_PATH/__archive__/i/intel-para/
+intel-para-2014.12.eb
+</code></pre>
+
+
+</div>
+
+</div>
+
+<p>where any software with name containing lower and upper case of the
+keyword <strong>Intel</strong> is shown. If you know the exact name of the software
+and would like to list less eb files, you can use -w option:</p>
+<div class="code panel pdl" style="border-width: 1px;">
+
+<div class="codeContent panelContent pdl">
+
+
+<pre><code class="language-bash">$ ebF -w intel
+
+ebF_PATH=/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs
+
+====== $ebF_PATH/i/intel/
+intel-2014.06.eb  intel-2015.08.eb  intel-2016.02-GCC-4.9.eb  intel-2016a.eb    intel-2017.09.eb  intel-2018a.eb
+intel-2014.10.eb  intel-2015a.eb    intel-2016.02-GCC-5.3.eb  intel-2016b.eb    intel-2017a.eb
+intel-2014.11.eb  intel-2015b.eb    intel-2016.03-GCC-4.9.eb  intel-2017.00.eb  intel-2017b.eb
+intel-2014b.eb    intel-2016.00.eb  intel-2016.03-GCC-5.3.eb  intel-2017.01.eb  intel-2018.00.eb
+intel-2015.02.eb  intel-2016.01.eb  intel-2016.03-GCC-5.4.eb  intel-2017.02.eb  intel-2018.01.eb
+
+====== $ebF_PATH/__archive__/i/intel-para/
+intel-para-2014.12.eb
+</code></pre>
+
+
+</div>
+
+</div>
+
+<p>The command now shows all eb files of the software related to the exact
+keyword <strong>intel</strong>. If you would like to see eb files just for the exact
+name <strong>intel</strong> only (no related software), you can use the symbol <strong>$</strong>
+at the end of the software name:</p>
+<div class="code panel pdl" style="border-width: 1px;">
+
+<div class="codeContent panelContent pdl">
+
+
+<pre><code class="language-bash">$ ebF -w intel$
+
+ebF_PATH=/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs
+
+====== $ebF_PATH/i/intel/
+intel-2014.06.eb  intel-2015.08.eb  intel-2016.02-GCC-4.9.eb  intel-2016a.eb    intel-2017.09.eb  intel-2018a.eb
+intel-2014.10.eb  intel-2015a.eb    intel-2016.02-GCC-5.3.eb  intel-2016b.eb    intel-2017a.eb
+intel-2014.11.eb  intel-2015b.eb    intel-2016.03-GCC-4.9.eb  intel-2017.00.eb  intel-2017b.eb
+intel-2014b.eb    intel-2016.00.eb  intel-2016.03-GCC-5.3.eb  intel-2017.01.eb  intel-2018.00.eb
+intel-2015.02.eb  intel-2016.01.eb  intel-2016.03-GCC-5.4.eb  intel-2017.02.eb  intel-2018.01.eb
+</code></pre>
+
+
+</div>
+
+</div>
+
+<p>where only eb files of the software name <strong>intel</strong> are show. If no eb
+file can be found for a particular software installation, you can also
+try to modify a similar one. Copy the file using the path name (leading
+with $ebF_PATH) and file name. Modify the installation information
+inside and give it a try.</p>
+<h3 id="ebs">ebS</h3>
+<p>After a eb file is found or created, you can use ebS command to
+install the software and create the module file. Since ebS will try to
+build or rebuild software (and its module file) no matter whether it
+exists in /opt/software, please check if you just need a module file
+before you run the command. If EasyBuild can not find a module file of a
+dependent software listed in the eb file, it will also try to built or
+rebuilt the dependence (and its module file) automatically. To use ebS
+command with input of a eb file found in the default paths, you can just
+use the name without the path:</p>
+<div class="code panel pdl" style="border-width: 1px;">
+
+<div class="codeContent panelContent pdl">
+
+
+<pre><code class="language-bash">$ ebS intel-2018a.eb
+== temporary log file in case of crash /tmp/eb-lxUlvt/easybuild-maTXAl.log
+== resolving dependencies ...
+== processing EasyBuild easyconfig /opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs/i/intel/intel-2018a.eb
+== building and installing Core/intel/2018a...
+== fetching files...
+== creating build dir, resetting environment...
+== unpacking...
+== patching...
+== preparing...
+== configuring...
+== building...
+== testing...
+== installing...
+== taking care of extensions...
+== postprocessing...
+== sanity checking...
+== cleaning up...
+== creating module...
+== permissions...
+== packaging...
+== COMPLETED: Installation ended successfully
+== Results of the build can be found in the log file(s) /opt/software/intel/2018a/easybuild/easybuild-intel-2018a-20180330.141146.log
+== Build succeeded for 1 out of 1
+== Temporary log file(s) /tmp/eb-lxUlvt/easybuild-maTXAl.log* have been removed.
+== Temporary directory /tmp/eb-lxUlvt has been removed.
+</code></pre>
+
+
+</div>
+
+</div>
+
+<p>If the eb file is not in the default path, please provide the path and
+file name to install the software. After it is installed successfully,
+you may check if the software is in /opt/software directory and if the
+module file is in the proper place by <strong>module spider</strong> command.</p>
+<h3 id="ebm">ebM</h3>
+<p>If a software is installed and functions properly but its module
+file is missed and can not be found by module spider command, you can
+use ebM command to recreate the module file. The command also needs
+input of a eb file name as ebS command:</p>
+<div class="code panel pdl" style="border-width: 1px;">
+
+<div class="codeContent panelContent pdl">
+
+
+<pre><code class="language-bash">$ ebM intel-2018a.eb
+== temporary log file in case of crash /tmp/eb-ZTyyR3/easybuild-XiMfNO.log
+== resolving dependencies ...
+== processing EasyBuild easyconfig /opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs/i/intel/intel-2018a.eb
+== building and installing Core/intel/2018a...
+== fetching files [skipped]
+== creating build dir, resetting environment...
+== backup of existing module file stored at /opt/modules/Core/intel/2018a.lua.bak_20180330141928
+== unpacking [skipped]
+== patching [skipped]
+== preparing...
+== configuring [skipped]
+== building [skipped]
+== testing [skipped]
+== installing [skipped]
+== taking care of extensions [skipped]
+== postprocessing [skipped]
+== sanity checking [skipped]
+== cleaning up [skipped]
+== creating module...
+== comparing module file with backup /opt/modules/Core/intel/2018a.lua.bak_20180330141928; no differences found
+== permissions [skipped]
+== packaging [skipped]
+== COMPLETED: Installation ended successfully
+== Results of the build can be found in the log file(s) /opt/software/intel/2018a/easybuild/easybuild-intel-2018a-20180330.141933.log
+== Build succeeded for 1 out of 1
+== Temporary log file(s) /tmp/eb-ZTyyR3/easybuild-XiMfNO.log* have been removed.
+== Temporary directory /tmp/eb-ZTyyR3 has been removed.
+</code></pre>
+
+
+</div>
+
+</div>
+
+<p>It will also try to build or rebuilt the module file no matter whether
+it exists in the proper directory. While using ebM command, if you see
+an error message of failed to copy the new eb file to the software
+directory:</p>
+<div class="code panel pdl" style="border-width: 1px;">
+
+<div class="codeContent panelContent pdl">
+
+
+<pre><code class="language-bash">$ ebM GCCcore-7.2.0.eb
+== temporary log file in case of crash /tmp/eb-W5U4vp/easybuild-F9E32g.log
+== resolving dependencies ...
+== processing EasyBuild easyconfig /opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs/g/GCCcore/GCCcore-7.2.0.eb
+== building and installing Core/GCCcore/7.2.0...
+== fetching files [skipped]
+== creating build dir, resetting environment...
+== backup of existing module file stored at /opt/modules/Core/GCCcore/7.2.0.lua.bak_20180330143152
+== unpacking [skipped]
+== patching [skipped]
+== preparing...
+== configuring [skipped]
+== building [skipped]
+== testing [skipped]
+== installing [skipped]
+== taking care of extensions [skipped]
+== postprocessing [skipped]
+== sanity checking [skipped]
+== cleaning up [skipped]
+== creating module...
+== comparing module file with backup /opt/modules/Core/GCCcore/7.2.0.lua.bak_20180330143152; diff is:
+--- /opt/modules/Core/GCCcore/7.2.0.lua.bak_20180330143152
++++ /opt/modules/Core/GCCcore/7.2.0.lua
+@@ -23,7 +23,6 @@
+ prepend_path(&quot;CPATH&quot;, pathJoin(root, &quot;include&quot;))
+ prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(root, &quot;lib&quot;))
+ prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(root, &quot;lib64&quot;))
+-prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(root, &quot;lib/gcc/x86_64-pc-linux-gnu/7.2.0&quot;))
+ prepend_path(&quot;LIBRARY_PATH&quot;, pathJoin(root, &quot;lib&quot;))
+ prepend_path(&quot;LIBRARY_PATH&quot;, pathJoin(root, &quot;lib64&quot;))
+ prepend_path(&quot;MANPATH&quot;, pathJoin(root, &quot;share/man&quot;))
+
+== permissions [skipped]
+== packaging [skipped]
+ERROR: Traceback (most recent call last):
+  File &quot;/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_framework-3.5.2-py2.7.egg/easybuild/main.py&quot;, line 128, in build_and_install_software
+    (ec_res['success'], app_log, err) = build_and_install_one(ec, init_env, hooks=hooks)
+  File &quot;/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_framework-3.5.2-py2.7.egg/easybuild/framework/easyblock.py&quot;, line 2751, in build_and_install_one
+    copy_file(spec, newspec)
+  File &quot;/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_framework-3.5.2-py2.7.egg/easybuild/tools/filetools.py&quot;, line 1575, in copy_file
+    raise EasyBuildError(&quot;Failed to copy file %s to %s: %s&quot;, path, target_path, err)
+EasyBuildError: &quot;Failed to copy file /opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs/g/GCCcore/GCCcore-7.2.0.eb to /opt/software/GCCcore/7.2.0/easybuild/GCCcore-7.2.0.eb: [Errno 1] Operation not permitted: '/opt/software/GCCcore/7.2.0/easybuild/GCCcore-7.2.0.eb'&quot;
+</code></pre>
+
+
+</div>
+
+</div>
+
+<p>please remove the old eb file under the software directory:</p>
+<div class="code panel pdl" style="border-width: 1px;">
+
+<div class="codeContent panelContent pdl">
+
+
+<pre><code class="language-bash">$ rm /opt/software/GCCcore/7.2.0/easybuild/GCCcore-7.2.0.eb
+</code></pre>
+
+
+</div>
+
+</div>
+
+<p>and try again. It should resolve the error. For more details about
+EasyBuild program, please refer to the
+<a href="https://easybuild.readthedocs.io/en/latest/"
+rel="nofollow">EasyBuild documentation web site</a>.</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+
+    <footer class="MSUwrapper light-background" id="MSUstandardFooter" role="contentinfo">
+        <!-- class ’light-background' sets link colors -->
+        <div class="fourMSUcolumns" id="standard-footer-MSU-wordmark">
+            <a href="http://www.msu.edu">
+                <!-- Use green MSU wordmark -->
+                <img alt="Michigan State University Wordmark" class="screen-msuwordmark"
+                    src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/msu-wordmark-green.png" height="47" width="221" />
+            </a>
+        </div>
+        <div class="twelveMSUcolumns">
+            <!-- change the css to using nth child instead of classes!!!!!!-->
+            <div id="standard-footer-site-links">
+                <ul>
+            <li><a href="http://icer.msu.edu/contact">Contact Information</a></li>
+            <li><a href="https://msu.edu/privacy">Privacy Policy</a></li>
+            <li><a href="https://msu.edu/accessibility">Site Accessibility</a></li>
+		</ul>
+            </div>
+            <div id="standard-footer-MSU-info">
+                <ul>
+    
+    
+                    
+                    <li>Call MSU: <span class="msu-phone"><strong>(517) 355-1855</strong></span></li>
+                    <li>Visit: <strong><a href="http://msu.edu">msu.edu</a></strong></li>
+                    <li>MSU is an affirmative-action, equal-opportunity employer.</li>
+                    <li><a href="http://oie.msu.edu/"><strong>Notice of Nondiscrimination</strong></a></li>
+                </ul>
+                <ul>
+                    <li class="spartans-will">Spartans Will.</li>
+                    <li>© Michigan State University</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f758a944.min.js"></script>
+      
+    
+  </body>
+</html>

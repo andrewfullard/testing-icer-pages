@@ -1,0 +1,2344 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/icer-small-logo-white.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.3">
+    
+    
+      
+        <title>Regular Expressions - MSU HPCC User Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4a0965b7.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../overrides/assets/stylesheets/footer.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#regular-expressions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+
+<header class="md-header" data-md-component="header">
+    <nav
+    class="md-header__inner md-grid"
+    aria-label="Header"
+  >
+    
+    <!-- <H1>HERE</H1> -->
+    <a href="." class="md-header__button md-logo" data-md-component="logo">
+    
+  <img src="../assets/icer-small-logo-white.png" alt="logo">
+
+    </a>
+        <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+
+    <div class="md-header__title" data-md-component="header-title">
+        <div class="md-header__ellipsis">
+          <div class="md-header__topic">
+            <span class="md-ellipsis">
+              ICER
+            </span>
+          </div>
+          <div class="md-header__topic" data-md-component="header-topic">
+            <span class="md-ellipsis">
+              
+                Regular Expressions
+              
+            </span>
+          </div>
+        </div>
+    </div>
+
+        <!-- Button to open search modal -->
+        
+        <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        </label>
+
+        <!-- Search interface -->
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+  </nav>
+
+</header>
+
+<div class="MSUwrapper" id="MSUheader">
+    <div id="MSUmasthead" role="banner">
+        <!-- <a href="http://www.msu.edu"> -->
+            <!-- if using a dark background change the img src to images/masthead-helmet-white.png-->
+            <img class="screen-msugraphic" alt="ICER masthead graphic"
+                src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/Header_Banner_small.jpg" />
+        <!-- </a> -->
+    </div>
+    
+</div>
+    
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="MSU HPCC User Documentation" class="md-nav__button md-logo" aria-label="MSU HPCC User Documentation" data-md-component="logo">
+      
+  <img src="../assets/icer-small-logo-white.png" alt="logo">
+
+    </a>
+    MSU HPCC User Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Access the HPCC
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Access the HPCC" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Access the HPCC
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obtain_an_hpcc_account/" class="md-nav__link">
+        Obtain an HPCC account
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install_ssh_client/" class="md-nav__link">
+        Install an SSH client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_to_HPCC_System/" class="md-nav__link">
+        Connect to the HPCC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          HPCC resources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="HPCC resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          HPCC resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2018_cluster_resources/" class="md-nav__link">
+        Cluster resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development_nodes/" class="md-nav__link">
+        Development nodes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Computing environment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Computing environment" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Computing environment
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux_Shell/" class="md-nav__link">
+        Linux shells
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_Permissions_on_HPCC/" class="md-nav__link">
+        File permissions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Change_Primary_Group/" class="md-nav__link">
+        Change primary group
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Collaborative_Research/" class="md-nav__link">
+        Collaborative research
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          File systems
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="File systems" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          File systems
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Home_Space/" class="md-nav__link">
+        Home space
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Research_Space/" class="md-nav__link">
+        Research space
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scratch_File_Systems/" class="md-nav__link">
+        Scratch space
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Local_File_Systems/" class="md-nav__link">
+        Local file system
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ufs18_File_Systems/" class="md-nav__link">
+        UFS18 file system
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Guidelines_for_Choosing_File_Storage_and_I_O/" class="md-nav__link">
+        Guidelines for choosing file systems and I/O
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sensitive_Data_on_the_HPCC/" class="md-nav__link">
+        Sensitive data storage
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          File transfer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="File transfer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          File transfer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_transfer/" class="md-nav__link">
+        File transfer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Transferring_data_with_Globus/" class="md-nav__link">
+        Using Globus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rclone_-_rsync_for_cloud_storage/" class="md-nav__link">
+        Using Rclone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping_HPC_drives_with_SSHFS/" class="md-nav__link">
+        Mapping drives using Samba
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping_HPC_drives_with_Samba/" class="md-nav__link">
+        Mapping drives using SSHFS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SFTP_Mapping_on_HPCC_file_systems/" class="md-nav__link">
+        Mapping drives using SFTP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Science_DMZ/" class="md-nav__link">
+        Science DMZ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Software module system
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software module system" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Software module system
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How_to_find_and_load_software_modules/" class="md-nav__link">
+        Loading software modules
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Powertools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Powertools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Powertools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getexample/" class="md-nav__link">
+        getexample
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bi/" class="md-nav__link">
+        bi - buyin information
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qs/" class="md-nav__link">
+        qs - display job list
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Job submission by SLURM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Job submission by SLURM" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Job submission by SLURM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SLURM_overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm_Environment_Variables/" class="md-nav__link">
+        SLURM environment variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job_Script_and_Job_Submission/" class="md-nav__link">
+        General rules for writing a job script
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job_Constraints/" class="md-nav__link">
+        Job constraints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Example_SLURM_scripts/" class="md-nav__link">
+        Example job scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_6" type="checkbox" id="__nav_9_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_6">
+          Job policies
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Job policies" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_6">
+          <span class="md-nav__icon md-icon"></span>
+          Job policies
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../job_policies/" class="md-nav__link">
+        Job policies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../job_priority_factors/" class="md-nav__link">
+        Job priority factors
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_7" type="checkbox" id="__nav_9_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_7">
+          Torque vs. SLURM comparisons
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Torque vs. SLURM comparisons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_7">
+          <span class="md-nav__icon md-icon"></span>
+          Torque vs. SLURM comparisons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Torque_vs._SLURM/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Specifications_of_Job_submission/" class="md-nav__link">
+        Specifications of job submission
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System_Commands/" class="md-nav__link">
+        System commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Environment_Variables/" class="md-nav__link">
+        Environment variables
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scavenger_Queue/" class="md-nav__link">
+        Scavenger Queue
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Software tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Software tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_1" type="checkbox" id="__nav_10_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_1">
+          Bioinformatics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bioinformatics" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_1">
+          <span class="md-nav__icon md-icon"></span>
+          Bioinformatics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ABySS/" class="md-nav__link">
+        ABySS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Assembly_of_PacBio_long_reads_with_Canu/" class="md-nav__link">
+        Assembly of PacBio long reads with Canu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLAST_BLAST%2B_with_Multiple_Processors/" class="md-nav__link">
+        BLAST/BLAST+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GATK4/" class="md-nav__link">
+        GATK4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTSeq/" class="md-nav__link">
+        HTSeq
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mothur/" class="md-nav__link">
+        Mothur
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NCBI_Entrez_Direct_tools/" class="md-nav__link">
+        NCBI eDirect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL_configuration/" class="md-nav__link">
+        MySQL configuration for OrthoMCL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orthomcl-pipeline/" class="md-nav__link">
+        OrthoMCL pipeline
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QIIME_2/" class="md-nav__link">
+        QIIME 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RNA_seq_example/" class="md-nav__link">
+        RNA-seq
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trimmomatic/" class="md-nav__link">
+        Trimmomatic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trinity_for_RNA-seq_de_novo_assembly/" class="md-nav__link">
+        Trinity for RNA-seq de novo assembly
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_2" type="checkbox" id="__nav_10_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_2">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="R" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_2">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RCentOS7generalinfo/" class="md-nav__link">
+        General information
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R_others/" class="md-nav__link">
+        Some packages and other information
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R_workshop_tutorial/" class="md-nav__link">
+        R workshop
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_3" type="checkbox" id="__nav_10_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_3">
+          TensorFlow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="TensorFlow" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_3">
+          <span class="md-nav__icon md-icon"></span>
+          TensorFlow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installing_TensorFlow_1.x_with_virtualenv/" class="md-nav__link">
+        Installing TF 1.x
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow_2.5_installation_as_of_Jul_2021_/" class="md-nav__link">
+        Installing TF 2.5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installing_TensorFlow_using_anaconda/" class="md-nav__link">
+        Installing TF using anaconda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Submitting_a_TensorFlow_job/" class="md-nav__link">
+        Submitting a TF job
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4" type="checkbox" id="__nav_10_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_4">
+          Gaussian
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gaussian" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_4">
+          <span class="md-nav__icon md-icon"></span>
+          Gaussian
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Access/" class="md-nav__link">
+        Gaussian access
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Running_Gaussian_by_Command_Lines/" class="md-nav__link">
+        Running Gaussian from command line
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Job_Script/" class="md-nav__link">
+        Gaussian job script
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Job_with_Checkpointing_Run/" class="md-nav__link">
+        Gaussian job with checkpointing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_on_HPCC/" class="md-nav__link">
+        Gaussian workshop slides
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" type="checkbox" id="__nav_10_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_5">
+          COMSOL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="COMSOL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_5">
+          <span class="md-nav__icon md-icon"></span>
+          COMSOL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../COMSOL/" class="md-nav__link">
+        COMSOL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          HPC tutorial series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="HPC tutorial series" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          HPC tutorial series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_over_SSH_with_atom/" class="md-nav__link">
+        Connect over SSH with Atom
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_over_SSH_with_VS_Code/" class="md-nav__link">
+        Connect over SSH with VS_Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../singularity_01/" class="md-nav__link">
+        Singularity: I. Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using_DDD/" class="md-nav__link">
+        Using DDD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../make/" class="md-nav__link">
+        make
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3._Expansion/" class="md-nav__link">
+        Expansion
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-anchor-characters-the-starting-anchor-and-the-end-anchor" class="md-nav__link">
+    The anchor characters: the starting anchor ^ and the end anchor $
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matching-a-character-with-character-sets" class="md-nav__link">
+    Matching a character with character sets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specifying-a-range-of-characters" class="md-nav__link">
+    Specifying a range of characters: [ ]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exceptions-in-character-sets" class="md-nav__link">
+    Exceptions in character sets: [ ]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wildcard" class="md-nav__link">
+    Wildcard: .
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repeating-character-sets" class="md-nav__link">
+    Repeating character sets: *
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matching-a-specific-number-of-sets-and" class="md-nav__link">
+    Matching a specific number of sets: \{ and \}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-examples" class="md-nav__link">
+    more examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extended-regular-expressions" class="md-nav__link">
+    Extended regular expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poxis-character-sets" class="md-nav__link">
+    POXIS character sets
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="regular-expressions">Regular Expressions</h1>
+<p>A regular expression is a powerful tool to  match patterns. With this
+tool, you can validate text input, search/replace text within a file,
+batch rename files, test for patterns within strings etc.</p>
+<p>There are two types of regular expressions: the basic regular
+expressions (BRE), and the extended regular expressions (ERE). Most
+utilities (including vi, sed, and grep) use the basic regular
+expression. awk and egrep use the extended expression.</p>
+<p>There are three parts to a regular expression: anchors, character sets,
+and modifiers. Anchors are used to specify the position of the pattern
+in relation to a line of text. Character sets match one or more
+characters in a single position. Modifiers specify how many times the
+previous character set is repeated.</p>
+<h3 id="the-anchor-characters-the-starting-anchor-and-the-end-anchor">The anchor characters: the starting anchor ^ and the end anchor $</h3>
+<p>"^" is the starting anchor, and the character "$" is the end anchor. The
+regular expression "^A" will match all lines that start with a capital
+A. The expression "A$" will match all lines that end with the capital
+A. The anchor characters works only if there are located in a proper
+location. Otherwise,  they no longer act as anchors. For example, the
+"^" is only an anchor if it is the first character in a regular
+expression. The "$" is only an anchor if it is the last character. The
+expression "$1" and "1^"do not have an anchor. If you want to match a
+"^" at the beginning of the line, or a "$" at the end of a line, you
+must escape the special characters with a backslash.</p>
+<table>
+<thead>
+<tr>
+<th>pattern</th>
+<th>Matches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^A</td>
+<td>A at the beginning of a line</td>
+</tr>
+<tr>
+<td>A$</td>
+<td>A at the end of a line</td>
+</tr>
+<tr>
+<td>A^</td>
+<td>A^ anywhere on a line</td>
+</tr>
+<tr>
+<td>$A</td>
+<td>$A anywhere on a line</td>
+</tr>
+<tr>
+<td>^^</td>
+<td>^ at the begging of a line</td>
+</tr>
+<tr>
+<td>$$</td>
+<td>$ at the end of a line</td>
+</tr>
+</tbody>
+</table>
+<h3 id="matching-a-character-with-character-sets">Matching a character with character sets</h3>
+<p>The regular expression "the" has three characters: "t," "h" and "e". It
+will match any line with the string "the" inside it. However, it will
+also match the word "there" or "them". To prevent this, put spaces
+before and after the pattern as " the ". You can combine the string with
+an anchor such as "^HPCC".</p>
+<h3 id="specifying-a-range-of-characters">Specifying a range of characters: [ ]</h3>
+<p>If you want to match specific characters, you can use the square
+brackets to identify the exact characters you are searching for. The
+pattern that will match any line of text that contains exactly one
+number is "^[0123456789]$"</p>
+<p>You can use the hyphen between two characters to specify a range
+"^[0-9]$"</p>
+<p>You can intermix explicit characters with character ranges. This pattern
+will match a single character that is a letter, number, or underscore
+"[A-Za-z0-9_]".</p>
+<h3 id="exceptions-in-character-sets">Exceptions in character sets: [ ]</h3>
+<p>[^] matches a single character that is not contained within the
+brackets. For example, [^abc]matches any character other than "a",
+"b", or "c". [^a-z] matches any single character that is not a
+lowercase letter from "a" to "z". Likewise, literal characters and
+ranges can be mixed. To match all characters except vowels use
+"[^aeiou]".</p>
+<table>
+<thead>
+<tr>
+<th>Regular Expression</th>
+<th>Matches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[]</td>
+<td>The characters "[]"</td>
+</tr>
+<tr>
+<td>[0]</td>
+<td>The character "0"</td>
+</tr>
+<tr>
+<td>[0-9]</td>
+<td>Any number</td>
+</tr>
+<tr>
+<td>[^0-9]</td>
+<td>Any character other than a number</td>
+</tr>
+<tr>
+<td>[-0-9]</td>
+<td>Any number or a "-"</td>
+</tr>
+<tr>
+<td>[0-9-]</td>
+<td>Any number or a "-"</td>
+</tr>
+<tr>
+<td>[^-0-9]</td>
+<td>Any character except a number or a "-"</td>
+</tr>
+<tr>
+<td>[]0-9]</td>
+<td>Any number or a "]"</td>
+</tr>
+<tr>
+<td>[0-9]]</td>
+<td>Any number followed by a "]"</td>
+</tr>
+<tr>
+<td>[0-9-z]</td>
+<td>Any number, or any character between "9" and "z".</td>
+</tr>
+<tr>
+<td>[0-9\-a\]]</td>
+<td>Any number, or a "-", a "a", or a "]"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="wildcard">Wildcard: <strong>.</strong></h3>
+<p>A dot "." is a special meta-characters. It will match any character,
+except the end-of-line character. For example, the pattern that will
+match a line with a single characters is "<strong>^.$</strong>", and two characters
+is "^..$". You can use
+"<a href="https://regexone.com/lesson/wildcards_dot"><code>...\.</code></a>"
+to match the first three (wildcard)
+characters, and escape the final wildcard meta-character to match the
+period instead. </p>
+<h3 id="repeating-character-sets">Repeating character sets: *</h3>
+<p>"*" matches the preceding element zero or more times. For example,
+ab*c matches "ac", "abc", "abbbc", etc. [xyz]* matches "", "x", "y",
+"z", "zx", "zyx", "xyzzy", and so on. (ab)*matches "", "ab", "abab",
+"ababab", and so on.</p>
+<h3 id="matching-a-specific-number-of-sets-and">Matching a specific number of sets: \{ and \}</h3>
+<p>You cannot specify a maximum number of sets with the "*" modifier.
+There is a special pattern you can use to specify the minimum and
+maximum number of repeats. This is done by putting those two numbers
+between "\{" and "\}".</p>
+<p>"\{m, n\}" matches the preceding element at least m and not more than
+n times. For example, a\{3,5\}matches only "aaa", "aaaa", and "aaaaa"
+(the extended regular expression is {m, n}). Another example
+is [a-z]\{4,8\} which matches 4, 5, 6, 7 or 8 lower case letters.</p>
+<h3 id="more-examples">more examples</h3>
+<table>
+<thead>
+<tr>
+<th>Regular expression</th>
+<th>matches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.og</td>
+<td>any three-character string ending with "og", including "dog", "fog", and "hog".</td>
+</tr>
+<tr>
+<td>[df]og</td>
+<td>"dog" and "fog".</td>
+</tr>
+<tr>
+<td>[^d]og</td>
+<td>all strings matched by .at except "dog".</td>
+</tr>
+<tr>
+<td>[^df]og</td>
+<td>all strings matched by .at other than "dog" and "fog".</td>
+</tr>
+<tr>
+<td>^[df]og</td>
+<td>"dog" and "fog", but only at the beginning of the string or line.</td>
+</tr>
+<tr>
+<td>[df]og$ </td>
+<td>"dog" and "fog", but only at the end of the string or line.</td>
+</tr>
+<tr>
+<td>\[.\]</td>
+<td>any single character surrounded by "[" and "]" since the brackets are escaped, for example: "[a]" and "[b]".</td>
+</tr>
+<tr>
+<td>b.* </td>
+<td>b followed by zero or more characters, for example: "b" and "boy" and "bowl".</td>
+</tr>
+</tbody>
+</table>
+<h3 id="extended-regular-expressions">Extended regular expressions</h3>
+<p><strong>egrep</strong> and <strong>awk</strong> use the extended regular expressions. In extended
+extensions, special characters preceded by a backslash  or period no
+longer have the special meaning as well as '\digit'.</p>
+<p>Therefore, \{…\} becomes {…} and \(…\) becomes (…).</p>
+<p>Examples:</p>
+<ul>
+<li>"[hc]+at" matches with "hat", "cat", "hhat", "chat", "hcat",
+    "ccchat" etc</li>
+<li>"[hc]?at" matches "hat", "cat" and "at"</li>
+<li>"([cC]at)|([dD]og)" matches "cat", "Cat", "dog" and "Dog"</li>
+<li>The characters (,),[,],.,*,?,+,|,^ and $ are special symbols and
+    have to be escaped with a backslash symbol in order to be treated as
+    literal characters. For example:</li>
+<li>"a\.(\(|\))" matches with the string "a.)" or "a.("</li>
+</ul>
+<p>Modern regular expression tools allow a quantifier to be specified as
+non-greedy, by putting a question mark after the quantifier:
+(\[\[.*?\]\]).</p>
+<table>
+<thead>
+<tr>
+<th>BRE</th>
+<th>ERE</th>
+<th>matches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\( \)</td>
+<td>( )</td>
+<td>a marked subexpression. The string matched within the parentheses can be recalled later.</td>
+</tr>
+<tr>
+<td>\+</td>
+<td>+</td>
+<td>the preceding element one or more times.</td>
+</tr>
+<tr>
+<td>\?</td>
+<td>?</td>
+<td>the preceding element one or zero times.</td>
+</tr>
+<tr>
+<td>\|</td>
+<td>|</td>
+<td>the preceding element or the following element.</td>
+</tr>
+<tr>
+<td>\{m, n\}</td>
+<td>{m, n}</td>
+<td>the preceding element at least <em>m</em> and not more than <em>n</em> times.</td>
+</tr>
+<tr>
+<td>\{m\}</td>
+<td>{m}</td>
+<td>the preceding element exactly <em>m</em> times.</td>
+</tr>
+<tr>
+<td>\{m,\}</td>
+<td>{m,}</td>
+<td>the preceding element at least <em>m</em> times.</td>
+</tr>
+<tr>
+<td>\{,n\}</td>
+<td>{,n}</td>
+<td>the preceding element not more than <em>n</em> times.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples">examples</h3>
+<table>
+<thead>
+<tr>
+<th>BRE</th>
+<th>ERE</th>
+<th>matched results</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(ab\)*</td>
+<td>(ab)*</td>
+<td>"", "ab", "abab", "ababab" etc.</td>
+</tr>
+<tr>
+<td>ab\+c</td>
+<td>ab+c</td>
+<td>"abc", "abbbc", etc, but not "ac".</td>
+</tr>
+<tr>
+<td>[xyz]|+</td>
+<td>xyz+</td>
+<td>"x", "y", "z", "zx", "zyx", "xyzzy", etc.</td>
+</tr>
+<tr>
+<td>\(ab\)</td>
+<td>(ab)+</td>
+<td>"ab", "abab", "ababab" etc.</td>
+</tr>
+<tr>
+<td>ab\?c</td>
+<td>ab?c</td>
+<td>"ac" or "abc".</td>
+</tr>
+<tr>
+<td>\(ab\)\?</td>
+<td>(ab)?</td>
+<td>"" or "ab".</td>
+</tr>
+<tr>
+<td>abc\|def</td>
+<td>abc|def</td>
+<td>"abc" or "def".</td>
+</tr>
+<tr>
+<td>a\{3,5\}</td>
+<td>a{3,5}</td>
+<td>"aaa", "aaaa", and "aaaaa".</td>
+</tr>
+<tr>
+<td>ba\{,2\}b</td>
+<td>ba{,2}b</td>
+<td>"bb", "bab", "baab".</td>
+</tr>
+</tbody>
+</table>
+<h3 id="poxis-character-sets">POXIS character sets</h3>
+<p>POXIS has added newer and more convenient ways to search for character
+sets. For example, you can use [:upper:] instead of [A-Z]. In fact,
+[A-Z] can be different based on LC_COLLATE value. For further
+discussion, check <a href="https://unix.stackexchange.com/questions/227070/why-does-a-z-match-lowercase-letters-in-bash">here</a>.
+In HPC at MSU, the default of [A-Z] is  a, A,
+b, B, c, C, ....y, Y, z, Z, which is standard collations (en_US). </p>
+<p>You can use [[:upper:]] instead of [:upper:]. You can mix the old
+style and POSIX styles, such as [1-9[:upper:]].</p>
+<table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>matches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[:alnum:]</td>
+<td>Alphanumeric</td>
+</tr>
+<tr>
+<td>[:alpha:]</td>
+<td>Alphabetic</td>
+</tr>
+<tr>
+<td>[:blank:]</td>
+<td>Whitespace, tabs, etc</td>
+</tr>
+<tr>
+<td>[:cntrl:]</td>
+<td>Control character</td>
+</tr>
+<tr>
+<td>[:digit:]</td>
+<td>digit</td>
+</tr>
+<tr>
+<td>[:graph:]</td>
+<td>Printable and visible characters</td>
+</tr>
+<tr>
+<td>[:lower:]</td>
+<td>Lower case character</td>
+</tr>
+<tr>
+<td>[:print:]</td>
+<td>Printable character</td>
+</tr>
+<tr>
+<td>[:punct:]</td>
+<td>Punctuation</td>
+</tr>
+<tr>
+<td>[:space:]</td>
+<td>Whitespace</td>
+</tr>
+<tr>
+<td>[:upper:]</td>
+<td>Upper case character</td>
+</tr>
+<tr>
+<td>[:xdigit:]</td>
+<td>Extended digit</td>
+</tr>
+</tbody>
+</table>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+
+    <footer class="MSUwrapper light-background" id="MSUstandardFooter" role="contentinfo">
+        <!-- class ’light-background' sets link colors -->
+        <div class="fourMSUcolumns" id="standard-footer-MSU-wordmark">
+            <a href="http://www.msu.edu">
+                <!-- Use green MSU wordmark -->
+                <img alt="Michigan State University Wordmark" class="screen-msuwordmark"
+                    src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/msu-wordmark-green.png" height="47" width="221" />
+            </a>
+        </div>
+        <div class="twelveMSUcolumns">
+            <!-- change the css to using nth child instead of classes!!!!!!-->
+            <div id="standard-footer-site-links">
+                <ul>
+            <li><a href="http://icer.msu.edu/contact">Contact Information</a></li>
+            <li><a href="https://msu.edu/privacy">Privacy Policy</a></li>
+            <li><a href="https://msu.edu/accessibility">Site Accessibility</a></li>
+		</ul>
+            </div>
+            <div id="standard-footer-MSU-info">
+                <ul>
+    
+    
+                    
+                    <li>Call MSU: <span class="msu-phone"><strong>(517) 355-1855</strong></span></li>
+                    <li>Visit: <strong><a href="http://msu.edu">msu.edu</a></strong></li>
+                    <li>MSU is an affirmative-action, equal-opportunity employer.</li>
+                    <li><a href="http://oie.msu.edu/"><strong>Notice of Nondiscrimination</strong></a></li>
+                </ul>
+                <ul>
+                    <li class="spartans-will">Spartans Will.</li>
+                    <li>© Michigan State University</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f758a944.min.js"></script>
+      
+    
+  </body>
+</html>

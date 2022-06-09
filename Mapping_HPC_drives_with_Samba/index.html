@@ -1,0 +1,2713 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/icer-small-logo-white.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.3">
+    
+    
+      
+        <title>Mapping drives using SSHFS - MSU HPCC User Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4a0965b7.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../overrides/assets/stylesheets/footer.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mapping-hpc-drives-with-samba" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+
+<header class="md-header" data-md-component="header">
+    <nav
+    class="md-header__inner md-grid"
+    aria-label="Header"
+  >
+    
+    <!-- <H1>HERE</H1> -->
+    <a href="." class="md-header__button md-logo" data-md-component="logo">
+    
+  <img src="../assets/icer-small-logo-white.png" alt="logo">
+
+    </a>
+        <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+
+    <div class="md-header__title" data-md-component="header-title">
+        <div class="md-header__ellipsis">
+          <div class="md-header__topic">
+            <span class="md-ellipsis">
+              ICER
+            </span>
+          </div>
+          <div class="md-header__topic" data-md-component="header-topic">
+            <span class="md-ellipsis">
+              
+                Mapping drives using SSHFS
+              
+            </span>
+          </div>
+        </div>
+    </div>
+
+        <!-- Button to open search modal -->
+        
+        <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        </label>
+
+        <!-- Search interface -->
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+  </nav>
+
+</header>
+
+<div class="MSUwrapper" id="MSUheader">
+    <div id="MSUmasthead" role="banner">
+        <!-- <a href="http://www.msu.edu"> -->
+            <!-- if using a dark background change the img src to images/masthead-helmet-white.png-->
+            <img class="screen-msugraphic" alt="ICER masthead graphic"
+                src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/Header_Banner_small.jpg" />
+        <!-- </a> -->
+    </div>
+    
+</div>
+    
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="MSU HPCC User Documentation" class="md-nav__button md-logo" aria-label="MSU HPCC User Documentation" data-md-component="logo">
+      
+  <img src="../assets/icer-small-logo-white.png" alt="logo">
+
+    </a>
+    MSU HPCC User Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Access the HPCC
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Access the HPCC" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Access the HPCC
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obtain_an_hpcc_account/" class="md-nav__link">
+        Obtain an HPCC account
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install_ssh_client/" class="md-nav__link">
+        Install an SSH client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_to_HPCC_System/" class="md-nav__link">
+        Connect to the HPCC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          HPCC resources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="HPCC resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          HPCC resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2018_cluster_resources/" class="md-nav__link">
+        Cluster resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development_nodes/" class="md-nav__link">
+        Development nodes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Computing environment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Computing environment" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Computing environment
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux_Shell/" class="md-nav__link">
+        Linux shells
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_Permissions_on_HPCC/" class="md-nav__link">
+        File permissions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Change_Primary_Group/" class="md-nav__link">
+        Change primary group
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Collaborative_Research/" class="md-nav__link">
+        Collaborative research
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          File systems
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="File systems" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          File systems
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Home_Space/" class="md-nav__link">
+        Home space
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Research_Space/" class="md-nav__link">
+        Research space
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scratch_File_Systems/" class="md-nav__link">
+        Scratch space
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Local_File_Systems/" class="md-nav__link">
+        Local file system
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ufs18_File_Systems/" class="md-nav__link">
+        UFS18 file system
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Guidelines_for_Choosing_File_Storage_and_I_O/" class="md-nav__link">
+        Guidelines for choosing file systems and I/O
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sensitive_Data_on_the_HPCC/" class="md-nav__link">
+        Sensitive data storage
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          File transfer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="File transfer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          File transfer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_transfer/" class="md-nav__link">
+        File transfer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Transferring_data_with_Globus/" class="md-nav__link">
+        Using Globus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rclone_-_rsync_for_cloud_storage/" class="md-nav__link">
+        Using Rclone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping_HPC_drives_with_SSHFS/" class="md-nav__link">
+        Mapping drives using Samba
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Mapping drives using SSHFS
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SFTP_Mapping_on_HPCC_file_systems/" class="md-nav__link">
+        Mapping drives using SFTP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Science_DMZ/" class="md-nav__link">
+        Science DMZ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Software module system
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software module system" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Software module system
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How_to_find_and_load_software_modules/" class="md-nav__link">
+        Loading software modules
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Powertools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Powertools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Powertools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getexample/" class="md-nav__link">
+        getexample
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bi/" class="md-nav__link">
+        bi - buyin information
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qs/" class="md-nav__link">
+        qs - display job list
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Job submission by SLURM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Job submission by SLURM" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Job submission by SLURM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SLURM_overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm_Environment_Variables/" class="md-nav__link">
+        SLURM environment variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job_Script_and_Job_Submission/" class="md-nav__link">
+        General rules for writing a job script
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job_Constraints/" class="md-nav__link">
+        Job constraints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Example_SLURM_scripts/" class="md-nav__link">
+        Example job scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_6" type="checkbox" id="__nav_9_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_6">
+          Job policies
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Job policies" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_6">
+          <span class="md-nav__icon md-icon"></span>
+          Job policies
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../job_policies/" class="md-nav__link">
+        Job policies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../job_priority_factors/" class="md-nav__link">
+        Job priority factors
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_7" type="checkbox" id="__nav_9_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_7">
+          Torque vs. SLURM comparisons
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Torque vs. SLURM comparisons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_7">
+          <span class="md-nav__icon md-icon"></span>
+          Torque vs. SLURM comparisons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Torque_vs._SLURM/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Specifications_of_Job_submission/" class="md-nav__link">
+        Specifications of job submission
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System_Commands/" class="md-nav__link">
+        System commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Environment_Variables/" class="md-nav__link">
+        Environment variables
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scavenger_Queue/" class="md-nav__link">
+        Scavenger Queue
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Software tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Software tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_1" type="checkbox" id="__nav_10_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_1">
+          Bioinformatics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bioinformatics" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_1">
+          <span class="md-nav__icon md-icon"></span>
+          Bioinformatics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ABySS/" class="md-nav__link">
+        ABySS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Assembly_of_PacBio_long_reads_with_Canu/" class="md-nav__link">
+        Assembly of PacBio long reads with Canu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLAST_BLAST%2B_with_Multiple_Processors/" class="md-nav__link">
+        BLAST/BLAST+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GATK4/" class="md-nav__link">
+        GATK4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTSeq/" class="md-nav__link">
+        HTSeq
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mothur/" class="md-nav__link">
+        Mothur
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NCBI_Entrez_Direct_tools/" class="md-nav__link">
+        NCBI eDirect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL_configuration/" class="md-nav__link">
+        MySQL configuration for OrthoMCL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orthomcl-pipeline/" class="md-nav__link">
+        OrthoMCL pipeline
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QIIME_2/" class="md-nav__link">
+        QIIME 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RNA_seq_example/" class="md-nav__link">
+        RNA-seq
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trimmomatic/" class="md-nav__link">
+        Trimmomatic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trinity_for_RNA-seq_de_novo_assembly/" class="md-nav__link">
+        Trinity for RNA-seq de novo assembly
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_2" type="checkbox" id="__nav_10_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_2">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="R" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_2">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RCentOS7generalinfo/" class="md-nav__link">
+        General information
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R_others/" class="md-nav__link">
+        Some packages and other information
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R_workshop_tutorial/" class="md-nav__link">
+        R workshop
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_3" type="checkbox" id="__nav_10_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_3">
+          TensorFlow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="TensorFlow" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_3">
+          <span class="md-nav__icon md-icon"></span>
+          TensorFlow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installing_TensorFlow_1.x_with_virtualenv/" class="md-nav__link">
+        Installing TF 1.x
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow_2.5_installation_as_of_Jul_2021_/" class="md-nav__link">
+        Installing TF 2.5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installing_TensorFlow_using_anaconda/" class="md-nav__link">
+        Installing TF using anaconda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Submitting_a_TensorFlow_job/" class="md-nav__link">
+        Submitting a TF job
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4" type="checkbox" id="__nav_10_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_4">
+          Gaussian
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gaussian" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_4">
+          <span class="md-nav__icon md-icon"></span>
+          Gaussian
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Access/" class="md-nav__link">
+        Gaussian access
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Running_Gaussian_by_Command_Lines/" class="md-nav__link">
+        Running Gaussian from command line
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Job_Script/" class="md-nav__link">
+        Gaussian job script
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Job_with_Checkpointing_Run/" class="md-nav__link">
+        Gaussian job with checkpointing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_on_HPCC/" class="md-nav__link">
+        Gaussian workshop slides
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" type="checkbox" id="__nav_10_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_5">
+          COMSOL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="COMSOL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_5">
+          <span class="md-nav__icon md-icon"></span>
+          COMSOL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../COMSOL/" class="md-nav__link">
+        COMSOL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          HPC tutorial series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="HPC tutorial series" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          HPC tutorial series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_over_SSH_with_atom/" class="md-nav__link">
+        Connect over SSH with Atom
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_over_SSH_with_VS_Code/" class="md-nav__link">
+        Connect over SSH with VS_Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../singularity_01/" class="md-nav__link">
+        Singularity: I. Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using_DDD/" class="md-nav__link">
+        Using DDD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../make/" class="md-nav__link">
+        make
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3._Expansion/" class="md-nav__link">
+        Expansion
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="mapping-hpc-drives-with-samba">Mapping HPC drives with Samba</h1>
+<!--
+<div>
+
+<div>
+-->
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ol>
+<li>
+<p>Samba now uses campus AD for user authentication, if you are unable
+to login and have not updated your netid password recently please try
+updating your netid password before opening a ticket</p>
+</li>
+<li>
+<p>This will only work if your computer has a university IP address. If
+you are off campus, you can use
+<a href="https://vpn.msu.edu/dana-na/auth/url_default/welcome.cgi"
+rel="nofollow">MSU VPN</a> to obtain an MSU IP, which is available to
+all graduate students, staff and faculty. </p>
+</li>
+<li>
+<p>If file transfer speed is a concern please use the sftp protocol for
+transferring large data sets, or use our Globus endpoint</p>
+</li>
+</ol>
+</div>
+<!--
+</div>
+
+</div>
+
+
+<div>
+
+<div>
+
+
+</div>
+
+</div>
+
+-->
+
+<p>The following tutorial will show you how to map your HPC home or
+research directory using
+<a href="http://en.wikipedia.org/wiki/Cifs" rel="nofollow">SMB or CIFS
+File Sharing</a>.</p>
+<ul>
+<li><a href="#MappingHPCdriveswithSamba-DeterminingyourNetworkPath">Determining your Network
+    Path</a></li>
+<li><a href="#MappingHPCdriveswithSamba-Windows10">Windows 10</a><ul>
+<li><a href="#MappingHPCdriveswithSamba-Step1.EnableNetBIOSoverTCP/IPonWindows:">Step 1. Enable NetBIOS over TCP/IP on
+    Windows:</a></li>
+<li><a href="#MappingHPCdriveswithSamba-Step2.DisableSMB1">Step 2. Disable
+    SMB1</a><ul>
+<li><a href="#MappingHPCdriveswithSamba-DisableSambaV1protocolwithPowerShell">Disable Samba V1 protocol with
+    PowerShell</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#MappingHPCdriveswithSamba-Command-lineWindowsNetBIOSCommands">Command-line Windows NetBIOS
+    Commands</a></li>
+<li><a href="#MappingHPCdriveswithSamba-MacOSExample">MacOS Example</a></li>
+<li><a href="#MappingHPCdriveswithSamba-Linux">Linux</a></li>
+<li><a href="#MappingHPCdriveswithSamba-UbuntuMountExample">Ubuntu Mount
+    Example</a></li>
+<li><a href="#MappingHPCdriveswithSamba-UbuntuExample(OlderVersions)">Ubuntu Example (Older
+    Versions)</a></li>
+<li><a href="#MappingHPCdriveswithSamba-MoreInformation:">More Information:</a></li>
+</ul>
+<h1 id="determining-your-network-path">Determining your Network Path</h1>
+<p>We have the powertools command <strong><code>show-samba-paths</code></strong> to show all
+paths of your home and research space:</p>
+<div class="code panel pdl" style="border-width: 1px;">
+
+<div class="codeContent panelContent pdl">
+
+
+<pre><code class="language-bash">$ ml powertools                    # if powertools is not loaded
+$ show-samba-paths
+
+  HOME      |        Samba Path
+===================================================================
+  username  |  \\ufs.hpcc.msu.edu\home-021\username      (Windows)
+            |  smb://ufs.hpcc.msu.edu/home-021/username      (Mac)
+
+
+  RESEARCH        |        Samba Path
+===============================================================================
+  helpdesk        |  \\ufs.hpcc.msu.edu\rs-011\helpdesk              (Windows)
+                  |  smb://ufs.hpcc.msu.edu/rs-011/helpdesk              (Mac)
+------------------+------------------------------------------------------------
+  common-data     |  \\ufs-12-b.hpcc.msu.edu\common-data             (Windows)
+                  |  smb://ufs-12-b.hpcc.msu.edu/common-data             (Mac)
+------------------+------------------------------------------------------------
+  BiCEP           |  \\ufs.hpcc.msu.edu\rs-001\BiCEP                 (Windows)
+                  |  smb://ufs.hpcc.msu.edu/rs-001/BiCEP                 (Mac)
+------------------+------------------------------------------------------------
+  education-data  |  \\ufs-12-b.hpcc.msu.edu\education-data          (Windows)
+                  |  smb://ufs-12-b.hpcc.msu.edu/education-data          (Mac)
+</code></pre>
+
+
+</div>
+
+</div>
+
+<p>where the paths are the same for Mac and Window computers but with
+different formats.</p>
+<!--
+removed
+# Windows 7 Example
+
+Video Tutorial - Map Home directory using Windows
+
+1.  First, enable NetBIOS over TCP/IP on Windows, follow these steps:
+    1.  Click **Start**, and then click **Network**. (Or you type
+        **ncpa.cpl** into the search box, and press ENTER).
+    2.  Click on the **Network and Sharing Center**, and then click
+        Manage Network Connections.
+    3.  Right click on the Local Area Connection or the connection you
+        are using, and then select **Properties**.
+    4.  Select the **Internet Protocol version 4 (TCP/IPv4)**
+    5.  Click the **Advanced** button under the General tab.
+    6.  Click the **WINS** tab.  
+        <img src="http://ecross.mvps.org/images/vista-netbt.jpg"
+        class="img-responsive"
+        data-image-src="http://ecross.mvps.org/images/vista-netbt.jpg" />
+    7.  Click the **Enable NetBIOS Over TCP/IP** button.
+    8.  Click **Ok  
+        **
+
+2.  **Disable Samba V1 protocol  (all file systems)**
+
+
+
+    1.  Press the windows start button
+
+    2.  Type "power shell" in the search box  
+        <img src="attachments/11895818/11895789.png"
+        data-image-src="attachments/11895818/11895789.png"
+        data-unresolved-comment-count="0" data-linked-resource-id="11895789"
+        data-linked-resource-version="1" data-linked-resource-type="attachment"
+        data-linked-resource-default-alias="win7-pshell.png"
+        data-base-url="https://wiki.hpcc.msu.edu"
+        data-linked-resource-content-type="image/png"
+        data-linked-resource-container-id="11895818"
+        data-linked-resource-container-version="12" />
+
+    3.  Right click on the "Windows PowerShell" icon and select "Run as
+        Administrator"  
+        <img src="attachments/11895818/11895790.png"
+        data-image-src="attachments/11895818/11895790.png"
+        data-unresolved-comment-count="0" data-linked-resource-id="11895790"
+        data-linked-resource-version="1" data-linked-resource-type="attachment"
+        data-linked-resource-default-alias="win7-admin.png"
+        data-base-url="https://wiki.hpcc.msu.edu"
+        data-linked-resource-content-type="image/png"
+        data-linked-resource-container-id="11895818"
+        data-linked-resource-container-version="12" />
+
+    4.  Select yes when window comes up  
+        <img src="attachments/11895818/11895791.png"
+        data-image-src="attachments/11895818/11895791.png"
+        data-unresolved-comment-count="0" data-linked-resource-id="11895791"
+        data-linked-resource-version="1" data-linked-resource-type="attachment"
+        data-linked-resource-default-alias="Win7-sec.png"
+        data-base-url="https://wiki.hpcc.msu.edu"
+        data-linked-resource-content-type="image/png"
+        data-linked-resource-container-id="11895818"
+        data-linked-resource-container-version="12" />
+
+    5.  DISABLE Samba V1 by entering the following command into the
+        windows power shell (if you enabled it in the past )
+
+        <div class="code panel pdl" style="border-width: 1px;">
+
+        <div class="codeContent panelContent pdl">
+
+        ``` bash
+        Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 -Force
+        ```
+
+        </div>
+
+        </div>
+
+    6.  Ensure SMB V2 and SMB V3 are ENABLED by entering the following
+        command (if you previously disabled these protocols prior to
+        August 2017 to connect to our old systems).
+
+        <div class="code panel pdl" style="border-width: 1px;">
+
+        <div class="codeContent panelContent pdl">
+
+        ``` bash
+        Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB2 -Type DWORD -Value 1 -Force
+        ```
+
+        </div>
+
+        </div>
+
+        <div>
+
+        <div>
+
+        Prior to September 2017, we required the reverse of this step
+        for Windows 7 users to connect to our system. If you followed
+        step to limit to SMB v1, you must follow these instructions to
+        reverse that.    We apologize for requiring this change but it
+        enhances the security of our SMB connections.    Unless you
+        connect to other file systems that use low-security protocals,
+        it does not hurt to disable "SMBv1 with the command above. If
+        you still can't connect, you can contact us or consider using <a
+        href="https://wiki.hpcc.msu.edu/display/hpccdocs/Mapping+HPC+drives+with+SSHFS"
+        rel="nofollow">SSHFS</a> to map these drives (unfortunately not
+        the most stable method but may work) or use methods described in
+        Transferring Files to the HPCC to copy files between your
+        computer and the HPC
+
+        </div>
+
+        </div>
+
+3.  Navigate to "Computer" and click on the text labeled "Map Network
+    Drive" at the top of the screen.  
+    <img src="attachments/11895818/11895816.png"
+    data-image-src="attachments/11895818/11895816.png"
+    data-unresolved-comment-count="0" data-linked-resource-id="11895816"
+    data-linked-resource-version="1" data-linked-resource-type="attachment"
+    data-linked-resource-default-alias="network.PNG"
+    data-base-url="https://wiki.hpcc.msu.edu"
+    data-linked-resource-content-type="image/png"
+    data-linked-resource-container-id="11895818"
+    data-linked-resource-container-version="12" />
+
+4.  From this menu you need to type your Network Path. Please see
+    [#Determining your Network
+    Path](#MappingHPCdriveswithSamba-DeterminingyourNetworkPath) for
+    help.
+
+5.  Once you have typed in your Network Path you need to click on the
+    box "Connect using different credentials." This will open a window
+    where you type in your MSU netid and password:  
+    <img src="attachments/11895818/11895783.png"
+    data-image-src="attachments/11895818/11895783.png"
+    data-unresolved-comment-count="0" data-linked-resource-id="11895783"
+    data-linked-resource-version="1" data-linked-resource-type="attachment"
+    data-linked-resource-default-alias="win7mapping1.png"
+    data-base-url="https://wiki.hpcc.msu.edu"
+    data-linked-resource-content-type="image/png"
+    data-linked-resource-container-id="11895818"
+    data-linked-resource-container-version="12" height="400" />
+
+    <div>
+
+    If you aren't able to sign in
+
+    <div>
+
+    You will need to add "CAMPUSAD\\" to the beginning of your username.
+    An indicator of this issue is if Windows displays the error "The
+    specified network password is not correct" in the username dialog
+    window.
+
+    For example: substitute "CAMPUSAD\\sparty" for username "sparty" in
+    the username field. The slash character is a backslash. A forward
+    slash character will not work.
+
+    </div>
+
+    </div>
+
+    Finally, select "Finish" and you will see your system trying to
+    connect
+
+6.  <img src="attachments/11895818/11895782.png"
+    data-image-src="attachments/11895818/11895782.png"
+    data-unresolved-comment-count="0" data-linked-resource-id="11895782"
+    data-linked-resource-version="1" data-linked-resource-type="attachment"
+    data-linked-resource-default-alias="win7mount2.png"
+    data-base-url="https://wiki.hpcc.msu.edu"
+    data-linked-resource-content-type="image/png"
+    data-linked-resource-container-id="11895818"
+    data-linked-resource-container-version="12" height="400" />
+
+    <img src="plugins/servlet/confluence/placeholder/unknown-macro"
+    class="wysiwyg-unknown-macro" /><img src="plugins/servlet/confluence/placeholder/unknown-macro"
+    class="wysiwyg-unknown-macro" /><img src="plugins/servlet/confluence/placeholder/unknown-macro"
+    class="wysiwyg-unknown-macro" />
+
+# Windows 8 
+
+-   Enable NetBIOS over TCP/IP on Windows:
+-   Click on Desktop icon on your Windows 8 screen
+-   Right click on Network icon on start bar at right hand side and
+    click on open network and sharing center  
+    <img src="http://geekflare.com/images/blog/startbar.png"
+    class="alignnone"
+    data-image-src="http://geekflare.com/images/blog/startbar.png"
+    height="250" /><img src="http://geekflare.com/images/blog/open-network-sharing.png"
+    class="alignnone"
+    data-image-src="http://geekflare.com/images/blog/open-network-sharing.png"
+    width="266" height="44" />
+-   Click on Change adapter settings
+-   Right click on your Network interface and click on Properties
+-   Follow the steps from 1d. in the Windows 7 instruction above to
+    enable NetBIOS over TCP/IP.
+
+Disable Samba V1 protocol
+
+<div>
+
+<div>
+
+This step must be completed or your client will not be able to map the
+drive. If you have other mounts on on the HPC cluster and they are using
+samba V1 they will stop working. In this case please use SSHFS .
+
+</div>
+
+</div>
+
+1.  Press the windows start button
+
+2.  In the search box type "power shell"  
+    <img src="attachments/11895818/11895794.png"
+    data-image-src="attachments/11895818/11895794.png"
+    data-unresolved-comment-count="0" data-linked-resource-id="11895794"
+    data-linked-resource-version="1" data-linked-resource-type="attachment"
+    data-linked-resource-default-alias="win8powershell1.png"
+    data-base-url="https://wiki.hpcc.msu.edu"
+    data-linked-resource-content-type="image/png"
+    data-linked-resource-container-id="11895818"
+    data-linked-resource-container-version="12" />
+
+3.  Right click on the "Windows PowerShell" icon and select "Run as
+    Administrator"  
+    <img src="attachments/11895818/11895792.png"
+    data-image-src="attachments/11895818/11895792.png"
+    data-unresolved-comment-count="0" data-linked-resource-id="11895792"
+    data-linked-resource-version="1" data-linked-resource-type="attachment"
+    data-linked-resource-default-alias="win8powershell2.png"
+    data-base-url="https://wiki.hpcc.msu.edu"
+    data-linked-resource-content-type="image/png"
+    data-linked-resource-container-id="11895818"
+    data-linked-resource-container-version="12" height="400" />
+
+4.  Select Ok when security warning appears  
+    <img src="attachments/11895818/11895793.png"
+    data-image-src="attachments/11895818/11895793.png"
+    data-unresolved-comment-count="0" data-linked-resource-id="11895793"
+    data-linked-resource-version="1" data-linked-resource-type="attachment"
+    data-linked-resource-default-alias="win8powershell3.png"
+    data-base-url="https://wiki.hpcc.msu.edu"
+    data-linked-resource-content-type="image/png"
+    data-linked-resource-container-id="11895818"
+    data-linked-resource-container-version="12" height="400" />
+
+5.  Disable Samba V1 by entering the following command into the windows
+    power shell
+
+    <div class="code panel pdl" style="border-width: 1px;">
+
+    <div class="codeContent panelContent pdl">
+
+    ``` bash
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 -Force
+    ```
+
+    </div>
+
+    </div>
+
+6.  Ensure SMB V2 and SMB V3 are enabled by entering the follwoing
+    command
+
+    <div class="code panel pdl" style="border-width: 1px;">
+
+    <div class="codeContent panelContent pdl">
+
+    ``` bash
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB2 -Type DWORD -Value 1 -Force
+    ```
+
+    </div>
+
+    </div>
+
+7.  Navigate to "Computer" and click on the text labeled "Map Network
+    Drive" at the top of the screen.
+
+<img src="attachments/11895818/11895816.png"
+data-image-src="attachments/11895818/11895816.png"
+data-unresolved-comment-count="0" data-linked-resource-id="11895816"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="network.PNG"
+data-base-url="https://wiki.hpcc.msu.edu"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="11895818"
+data-linked-resource-container-version="12" />
+
+
+
+From this menu you need to type your Network Path. Please
+see [#Determining your Network
+Path](#MappingHPCdriveswithSamba-DeterminingyourNetworkPath) for help
+
+8\. Once you have typed in your Network Path you need to click on the
+box "Connect using different credentials." This will open a window where
+you type in your MSU netid and
+password:<img src="attachments/11895818/11895783.png"
+data-image-src="attachments/11895818/11895783.png"
+data-unresolved-comment-count="0" data-linked-resource-id="11895783"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="win7mapping1.png"
+data-base-url="https://wiki.hpcc.msu.edu"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="11895818"
+data-linked-resource-container-version="12" height="400" />
+
+
+
+<div>
+
+If you aren't able to sign in
+
+<div>
+
+You will need to add "CAMPUSAD\\" to the beginning of your username. An
+indicator of this issue is if Windows displays the error "The specified
+network password is not correct" in the username dialog window.
+
+For example: substitute "CAMPUSAD\\sparty" for username "sparty" in the
+username field. The slash character is a backslash. A forward slash
+character will not work.
+
+</div>
+
+</div>
+
+Finally, select "Finish" and you will see your system trying to connect
+
+<img src="attachments/11895818/11895782.png"
+data-image-src="attachments/11895818/11895782.png"
+data-unresolved-comment-count="0" data-linked-resource-id="11895782"
+data-linked-resource-version="1" data-linked-resource-type="attachment"
+data-linked-resource-default-alias="win7mount2.png"
+data-base-url="https://wiki.hpcc.msu.edu"
+data-linked-resource-content-type="image/png"
+data-linked-resource-container-id="11895818"
+data-linked-resource-container-version="12" height="400" />
+
+
+
+<img src="plugins/servlet/confluence/placeholder/unknown-macro"
+class="wysiwyg-unknown-macro" /><img src="plugins/servlet/confluence/placeholder/unknown-macro"
+class="wysiwyg-unknown-macro" /><img src="plugins/servlet/confluence/placeholder/unknown-macro"
+class="wysiwyg-unknown-macro" />
+
+
+-->
+
+<h1 id="windows-10">Windows 10</h1>
+<h3 id="step-1-enable-netbios-over-tcpip-on-windows">Step 1. Enable NetBIOS over TCP/IP on Windows:</h3>
+<ul>
+<li>Click on Desktop icon on your Windows 8 screen</li>
+<li>Right click on Network icon on start bar at right hand side and
+    click on open network and sharing center<br />
+<img alt="img!" src="../attachments/11895818/11895785.png" /> <img alt="img!" src="../attachments/11895818/11895784.png" /></li>
+<li>Click on Change adapter settings</li>
+<li>Right click on your Network interface and click on Properties</li>
+<li>Follow the steps from 1d. in the Windows 7 instruction above to
+    enable NetBIOS over TCP/IP.</li>
+</ul>
+<h3 id="step-2-disable-smb1">Step 2. Disable SMB1</h3>
+<h4 id="disable-samba-v1-protocol-with-powershell">Disable Samba V1 protocol with PowerShell</h4>
+<div>
+
+<div>
+
+This step must be completed or your client will not be able to map the
+drive. If you have other mounts on on the HPC cluster and they are using
+samba V1 they will stop working.
+
+</div>
+
+</div>
+
+<ol>
+<li>
+<p>Press the windows start button</p>
+</li>
+<li>
+<p>In the search box type "power shell"<br />
+<img alt="img!" src="../attachments/11895818/11895787.png" /></p>
+</li>
+<li>
+<p>Right click on the "Windows PowerShell" icon and select "Run as
+    Administrator"<br />
+<img alt="img!" src="../attachments/11895818/11895788.png" /></p>
+</li>
+<li>
+<p>Select Ok when security warning appears<br />
+<img alt="img!" src="../attachments/11895818/11895786.png" /></p>
+</li>
+<li>
+<p>Disable Samba V1 by entering the following command into the windows
+    power shell. </p>
+<pre><code>Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 -Force
+</code></pre>
+</li>
+<li>
+<p>Ensure SMB V2 and SMB V3 are enabled by entering the follwoing
+    command.  In the past, on some versions of windows and for some file
+    systems we recommended the opposite of this setting.  Running this
+    ensures it's enabled again. </p>
+<pre><code>Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB2 -Type DWORD -Value 1 -Force
+</code></pre>
+</li>
+<li>
+<p>Navigate to "Computer" and click on the text labeled "Map Network
+    Drive" at the top of the screen.</p>
+<p><img alt="img!" src="../attachments/11895818/11895816.png" /></p>
+<p>From this menu you need to type your Network Path. Please
+see <a href="#MappingHPCdriveswithSamba-DeterminingyourNetworkPath">#Determining your Network
+Path</a> for
+help</p>
+</li>
+<li>
+<p>Once you have typed in your Network Path you need to click on
+    the box "Connect using different credentials." This will open a
+    window where you type in your MSU netid and
+    password:
+    <img alt="img!" src="../attachments/11895818/11895783.png" /></p>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you aren't able to sign in, 
+You will need to add "CAMPUSAD\" to the beginning of your username.
+An indicator of this issue is if Windows displays the error "The
+specified network password is not correct" in the username dialog
+window.</p>
+<p>For example: substitute "CAMPUSAD\sparty" for username "sparty" in
+the username field. The slash character is a backslash. A forward
+slash character will not work.</p>
+</div>
+<ol>
+<li>
+<p>Finally, select "Finish" and you will see your system trying to
+    connect</p>
+<p><img alt="img!" src="../attachments/11895818/11895782.png" /></p>
+</li>
+</ol>
+<!--
+    <img src="plugins/servlet/confluence/placeholder/unknown-macro"
+    class="wysiwyg-unknown-macro" /><img src="plugins/servlet/confluence/placeholder/unknown-macro"
+    class="wysiwyg-unknown-macro" /><img src="plugins/servlet/confluence/placeholder/unknown-macro"
+    class="wysiwyg-unknown-macro" />
+
+-->
+
+<h1 id="command-line-windows-netbios-commands">Command-line Windows NetBIOS Commands</h1>
+<p>If you're working in Windows, you can use command line tools to manage
+your drive mapping.  These commands also work in .bat files, if you're
+so inclined to connect/disconnect drives in that manner.  Note you may
+also have to Disable SMBV1 and Enable SMB2 per instructions above. </p>
+<ol>
+<li>From the Start Menu -> Run -> type 'cmd' in the box and hit enter,
+    the command shell should open.  You can then use the following
+    commands to diagnose, disconnect and connect drives.</li>
+</ol>
+<div class="code panel pdl" style="border-width: 1px;">
+
+<div class="codeContent panelContent pdl">
+
+
+<pre><code class="language-text"># to show all mapped connections/drives
+# use 'net use'
+
+C:\Documents and Settings\Administrator&gt;net use
+New connections will not be remembered.
+
+
+Status       Local     Remote                    Network
+
+-------------------------------------------------------------------------------
+Unavailable  J:        \\MachineA\consult$    Microsoft Windows Network
+Unavailable  P:        \\MachineB\everyone$    Microsoft Windows Network
+             Z:        \\vmware-host\Shared Folders
+                                                 VMware Shared Folders
+The command completed successfully.
+
+# to map a drive use:
+# net use &lt;drive_letter&gt;: \\&lt;hostname&gt;\&lt;mount&gt; /user:hpcc\&lt;net_id&gt;
+# where &lt;hostname&gt; and &lt;mount&gt; were determined from above 'Determining Your Network Path' and &lt;net_id&gt; is your MSU Net ID
+
+C:\Documents and Settings\Administrator&gt;net use m: \\ufs-10-a.hpcc.msu.edu\jal /user:hpcc\jal
+The command completed successfully.
+
+# You can use 'net use' again to show the drive mapping status.
+
+C:\Documents and Settings\Administrator&gt;net use
+New connections will not be remembered.
+
+
+Status       Local     Remote                    Network
+
+-------------------------------------------------------------------------------
+Unavailable  J:        \\MachineA\consult$    Microsoft Windows Network
+OK           M:        \\ufs-10-a.hpcc.msu.edu\jal
+                                                 Microsoft Windows Network
+Unavailable  P:        \\MachineB\everyone$    Microsoft Windows Network
+             Z:        \\vmware-host\Shared Folders
+                                                 VMware Shared Folders
+The command completed successfully.
+
+# To disconnect a drive use:
+# net use &lt;drive_letter&gt;: /delete
+## NOTE: this will only drop the connection, not delete the share or any data on the share ##
+
+C:\Documents and Settings\Administrator&gt;net use m: /delete
+m: was deleted successfully.
+
+# you can now use 'net use' again to show your mapping status after the delete to ensure it's gone.
+
+C:\Documents and Settings\Administrator&gt;net use
+New connections will not be remembered.
+
+
+Status       Local     Remote                    Network
+
+-------------------------------------------------------------------------------
+Unavailable  J:        \\MachineA\consult$    Microsoft Windows Network
+Unavailable  P:        \\MachineB\everyone$    Microsoft Windows Network
+             Z:        \\vmware-host\Shared Folders
+                                                 VMware Shared Folders
+The command completed successfully.
+
+
+C:\Documents and Settings\Administrator&gt;
+</code></pre>
+
+
+</div>
+
+</div>
+
+<h1 id="macos-example">MacOS Example</h1>
+<p>Video Tutorial - Map Home directory using MacOS</p>
+<ol>
+<li>Open the Finder.<br />
+<img alt="img!" src="../attachments/11895818/11895809.png" /></li>
+<li>Under "GO" click on "Connect to Server"<br />
+<img alt="img!" src="../attachments/11895818/11895808.png" /></li>
+<li>From this menu you need to type your Network Path. Please
+    see <a href="#MappingHPCdriveswithSamba-DeterminingyourNetworkPath">#Determining your Network
+    Path</a> for
+    help.<br />
+<img alt="img!" src="../attachments/11895818/11895811.png" /></li>
+<li>Enter your MSU NeID and password for authentication and click
+    "Connect".<br />
+<img alt="img!" src="../attachments/11895818/11895810.png" /></li>
+</ol>
+<h1 id="linux">Linux</h1>
+<ol>
+<li>
+<p>Install smb-client</p>
+<p><strong>Ubuntu / Debian</strong></p>
+<pre><code>apt install smbclient
+</code></pre>
+<p><strong>Red Hat / Fedora</strong></p>
+<pre><code>yum install samba-client
+</code></pre>
+</li>
+<li>
+<p>Edit /etc/samba/smb.conf</p>
+<pre><code>sudo vi  /etc/samba/smb.conf
+</code></pre>
+</li>
+<li>
+<p>Add the following lines to disable samba V1</p>
+<p>This step must be completed or your client will not be able to map
+the drive. If you have other mounts on on the HPC cluster and they
+are using samba V1 they will stop working. In this case please use
+SSHFS .</p>
+<pre><code>client min protocol = SMB2
+client max protocol = SMB3
+</code></pre>
+</li>
+</ol>
+<h1 id="ubuntu-mount-example">Ubuntu Mount Example</h1>
+<ol>
+<li>Open a File Browser window. In the "File" menu, select "Connect to
+    Server..."<br />
+<img alt="img!" src="../attachments/11895818/11895803.png" /></li>
+<li>
+<p>Type your network path in the server address box.   (Format is the
+    same as the Mac format)  </p>
+<p><img alt="img!" src="../attachments/11895818/11895797.png" />
+3.  Enter your userid and password and click connect.<br />
+<img alt="img!" src="../attachments/11895818/11895796.png" />
+4.  If connected properly the drive should appear in the file manager
+screen.<br />
+<img alt="img!" src="../attachments/11895818/11895795.png" /></p>
+</li>
+</ol>
+<h1 id="ubuntu-example-older-versions">Ubuntu Example (Older Versions)</h1>
+<ol>
+<li>Open a File Browser window. In the "File" menu, select "Connect to
+    Server..."<br />
+<img alt="img!" src="../attachments/11895818/11895803.png" /></li>
+<li>In the window that appears, select "SSH" from the drop-down menu
+    next to "Service type," enter "hpcc.msu.edu" for "Server," enter
+    "/mnt/home/username" (where username is your NetID) for "Folder,"
+    and type your username next to "User Name." For quick access to the
+    drive in future sessions, check the "Add bookmark" box and enter a
+    descriptive label for "Bookmark name." Once all of this information
+    has been entered, click "Connect."<br />
+<img alt="img!" src="../attachments/11895818/11895804.png" /></li>
+<li>After a brief delay, a new window will appear, asking for your
+    password. Enter it, choose whether or not your password should be
+    saved using the radio buttons, and click "Connect."<br />
+<img alt="img!" src="../attachments/11895818/11895802.png" /></li>
+<li>The password window will then close, giving way to a File Browser
+    window displaying the contents of your home directory. During future
+    sessions, access the bookmark you added to reconnect. This can be
+    done from the "Bookmarks" menu in a File Browser window.<br />
+<img alt="img!" src="../attachments/11895818/11895805.png" /></li>
+</ol>
+<h1 id="more-information">More Information:</h1>
+<ul>
+<li><a href="http://us3.samba.org/samba/"
+    rel="nofollow">http://us3.samba.org/samba/</a></li>
+</ul>
+<!--  
+
+<div class="pageSectionHeader">
+
+## Attachments:
+
+</div>
+
+<div class="greybox" align="left">
+
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[win7mount2.png](attachments/11895818/11895782.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[win7mapping1.png](attachments/11895818/11895783.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[win10-networkcenter2.png](attachments/11895818/11895784.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[win10-network.png](attachments/11895818/11895785.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[win10-security.png](attachments/11895818/11895786.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[win10-start.png](attachments/11895818/11895787.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[win10-admin.png](attachments/11895818/11895788.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[win7-pshell.png](attachments/11895818/11895789.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[win7-admin.png](attachments/11895818/11895790.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[Win7-sec.png](attachments/11895818/11895791.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[win8powershell2.png](attachments/11895818/11895792.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[win8powershell3.png](attachments/11895818/11895793.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[win8powershell1.png](attachments/11895818/11895794.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[image2016-2-3 16:47:1.png](attachments/11895818/11895795.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[image2016-2-3 16:44:39.png](attachments/11895818/11895796.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[image2016-2-3 16:43:47.png](attachments/11895818/11895797.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[image2016-2-3 16:40:42.png](attachments/11895818/11895798.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[image2016-2-3 16:36:1.png](attachments/11895818/11895799.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[image2016-2-3 16:35:33.png](attachments/11895818/11895800.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[Screenshot from 2016-02-03
+16-29-43.png](attachments/11895818/11895801.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[ubuntumap3.png](attachments/11895818/11895802.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[ubuntumap1.png](attachments/11895818/11895803.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[ubuntumap2.png](attachments/11895818/11895804.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[ubuntumap4.png](attachments/11895818/11895805.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[loginbox.PNG](attachments/11895818/11895806.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[loginbox2.PNG](attachments/11895818/11895807.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" /> [Screen
+shot 2010-04-16 at 8.56.27 AM.png](attachments/11895818/11895808.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" /> [Screen
+shot 2010-04-16 at 8.55.43 AM.png](attachments/11895818/11895809.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" /> [Screen
+shot 2010-04-16 at 9.13.42 AM.png](attachments/11895818/11895810.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" /> [Screen
+shot 2010-04-16 at 8.57.19 AM.png](attachments/11895818/11895811.png)
+(image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[MapNetworkDrive2.jpg](attachments/11895818/11895812.jpg) (image/jpeg)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[MapNetworkDrive.jpg](attachments/11895818/11895813.jpg) (image/jpeg)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[Connecting3.JPG](attachments/11895818/11895814.jpg) (image/jpeg)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[ConnectAs.jpg](attachments/11895818/11895815.jpg) (image/jpeg)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[network.PNG](attachments/11895818/11895816.png) (image/png)  
+<img src="images/icons/bullet_blue.gif" width="8" height="8" />
+[Success.jpg](attachments/11895818/11895817.jpg) (image/jpeg)  
+
+</div>
+-->
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+
+    <footer class="MSUwrapper light-background" id="MSUstandardFooter" role="contentinfo">
+        <!-- class ’light-background' sets link colors -->
+        <div class="fourMSUcolumns" id="standard-footer-MSU-wordmark">
+            <a href="http://www.msu.edu">
+                <!-- Use green MSU wordmark -->
+                <img alt="Michigan State University Wordmark" class="screen-msuwordmark"
+                    src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/msu-wordmark-green.png" height="47" width="221" />
+            </a>
+        </div>
+        <div class="twelveMSUcolumns">
+            <!-- change the css to using nth child instead of classes!!!!!!-->
+            <div id="standard-footer-site-links">
+                <ul>
+            <li><a href="http://icer.msu.edu/contact">Contact Information</a></li>
+            <li><a href="https://msu.edu/privacy">Privacy Policy</a></li>
+            <li><a href="https://msu.edu/accessibility">Site Accessibility</a></li>
+		</ul>
+            </div>
+            <div id="standard-footer-MSU-info">
+                <ul>
+    
+    
+                    
+                    <li>Call MSU: <span class="msu-phone"><strong>(517) 355-1855</strong></span></li>
+                    <li>Visit: <strong><a href="http://msu.edu">msu.edu</a></strong></li>
+                    <li>MSU is an affirmative-action, equal-opportunity employer.</li>
+                    <li><a href="http://oie.msu.edu/"><strong>Notice of Nondiscrimination</strong></a></li>
+                </ul>
+                <ul>
+                    <li class="spartans-will">Spartans Will.</li>
+                    <li>© Michigan State University</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f758a944.min.js"></script>
+      
+    
+  </body>
+</html>

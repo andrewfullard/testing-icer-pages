@@ -1,0 +1,2362 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/icer-small-logo-white.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.3">
+    
+    
+      
+        <title>Docker - MSU HPCC User Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4a0965b7.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../overrides/assets/stylesheets/footer.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#docker" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+
+<header class="md-header" data-md-component="header">
+    <nav
+    class="md-header__inner md-grid"
+    aria-label="Header"
+  >
+    
+    <!-- <H1>HERE</H1> -->
+    <a href="." class="md-header__button md-logo" data-md-component="logo">
+    
+  <img src="../assets/icer-small-logo-white.png" alt="logo">
+
+    </a>
+        <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+
+    <div class="md-header__title" data-md-component="header-title">
+        <div class="md-header__ellipsis">
+          <div class="md-header__topic">
+            <span class="md-ellipsis">
+              ICER
+            </span>
+          </div>
+          <div class="md-header__topic" data-md-component="header-topic">
+            <span class="md-ellipsis">
+              
+                Docker
+              
+            </span>
+          </div>
+        </div>
+    </div>
+
+        <!-- Button to open search modal -->
+        
+        <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        </label>
+
+        <!-- Search interface -->
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+  </nav>
+
+</header>
+
+<div class="MSUwrapper" id="MSUheader">
+    <div id="MSUmasthead" role="banner">
+        <!-- <a href="http://www.msu.edu"> -->
+            <!-- if using a dark background change the img src to images/masthead-helmet-white.png-->
+            <img class="screen-msugraphic" alt="ICER masthead graphic"
+                src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/Header_Banner_small.jpg" />
+        <!-- </a> -->
+    </div>
+    
+</div>
+    
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="MSU HPCC User Documentation" class="md-nav__button md-logo" aria-label="MSU HPCC User Documentation" data-md-component="logo">
+      
+  <img src="../assets/icer-small-logo-white.png" alt="logo">
+
+    </a>
+    MSU HPCC User Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Access the HPCC
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Access the HPCC" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Access the HPCC
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obtain_an_hpcc_account/" class="md-nav__link">
+        Obtain an HPCC account
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install_ssh_client/" class="md-nav__link">
+        Install an SSH client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_to_HPCC_System/" class="md-nav__link">
+        Connect to the HPCC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          HPCC resources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="HPCC resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          HPCC resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2018_cluster_resources/" class="md-nav__link">
+        Cluster resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development_nodes/" class="md-nav__link">
+        Development nodes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Computing environment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Computing environment" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Computing environment
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux_Shell/" class="md-nav__link">
+        Linux shells
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_Permissions_on_HPCC/" class="md-nav__link">
+        File permissions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Change_Primary_Group/" class="md-nav__link">
+        Change primary group
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Collaborative_Research/" class="md-nav__link">
+        Collaborative research
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          File systems
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="File systems" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          File systems
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Home_Space/" class="md-nav__link">
+        Home space
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Research_Space/" class="md-nav__link">
+        Research space
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scratch_File_Systems/" class="md-nav__link">
+        Scratch space
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Local_File_Systems/" class="md-nav__link">
+        Local file system
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ufs18_File_Systems/" class="md-nav__link">
+        UFS18 file system
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Guidelines_for_Choosing_File_Storage_and_I_O/" class="md-nav__link">
+        Guidelines for choosing file systems and I/O
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sensitive_Data_on_the_HPCC/" class="md-nav__link">
+        Sensitive data storage
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          File transfer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="File transfer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          File transfer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_transfer/" class="md-nav__link">
+        File transfer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Transferring_data_with_Globus/" class="md-nav__link">
+        Using Globus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rclone_-_rsync_for_cloud_storage/" class="md-nav__link">
+        Using Rclone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping_HPC_drives_with_SSHFS/" class="md-nav__link">
+        Mapping drives using Samba
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping_HPC_drives_with_Samba/" class="md-nav__link">
+        Mapping drives using SSHFS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SFTP_Mapping_on_HPCC_file_systems/" class="md-nav__link">
+        Mapping drives using SFTP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Science_DMZ/" class="md-nav__link">
+        Science DMZ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Software module system
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software module system" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Software module system
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How_to_find_and_load_software_modules/" class="md-nav__link">
+        Loading software modules
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Powertools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Powertools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Powertools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getexample/" class="md-nav__link">
+        getexample
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bi/" class="md-nav__link">
+        bi - buyin information
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qs/" class="md-nav__link">
+        qs - display job list
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Job submission by SLURM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Job submission by SLURM" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Job submission by SLURM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SLURM_overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm_Environment_Variables/" class="md-nav__link">
+        SLURM environment variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job_Script_and_Job_Submission/" class="md-nav__link">
+        General rules for writing a job script
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job_Constraints/" class="md-nav__link">
+        Job constraints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Example_SLURM_scripts/" class="md-nav__link">
+        Example job scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_6" type="checkbox" id="__nav_9_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_6">
+          Job policies
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Job policies" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_6">
+          <span class="md-nav__icon md-icon"></span>
+          Job policies
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../job_policies/" class="md-nav__link">
+        Job policies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../job_priority_factors/" class="md-nav__link">
+        Job priority factors
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_7" type="checkbox" id="__nav_9_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_7">
+          Torque vs. SLURM comparisons
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Torque vs. SLURM comparisons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_7">
+          <span class="md-nav__icon md-icon"></span>
+          Torque vs. SLURM comparisons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Torque_vs._SLURM/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Specifications_of_Job_submission/" class="md-nav__link">
+        Specifications of job submission
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System_Commands/" class="md-nav__link">
+        System commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Environment_Variables/" class="md-nav__link">
+        Environment variables
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scavenger_Queue/" class="md-nav__link">
+        Scavenger Queue
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Software tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Software tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_1" type="checkbox" id="__nav_10_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_1">
+          Bioinformatics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bioinformatics" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_1">
+          <span class="md-nav__icon md-icon"></span>
+          Bioinformatics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ABySS/" class="md-nav__link">
+        ABySS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Assembly_of_PacBio_long_reads_with_Canu/" class="md-nav__link">
+        Assembly of PacBio long reads with Canu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLAST_BLAST%2B_with_Multiple_Processors/" class="md-nav__link">
+        BLAST/BLAST+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GATK4/" class="md-nav__link">
+        GATK4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTSeq/" class="md-nav__link">
+        HTSeq
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mothur/" class="md-nav__link">
+        Mothur
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NCBI_Entrez_Direct_tools/" class="md-nav__link">
+        NCBI eDirect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL_configuration/" class="md-nav__link">
+        MySQL configuration for OrthoMCL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orthomcl-pipeline/" class="md-nav__link">
+        OrthoMCL pipeline
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QIIME_2/" class="md-nav__link">
+        QIIME 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RNA_seq_example/" class="md-nav__link">
+        RNA-seq
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trimmomatic/" class="md-nav__link">
+        Trimmomatic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trinity_for_RNA-seq_de_novo_assembly/" class="md-nav__link">
+        Trinity for RNA-seq de novo assembly
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_2" type="checkbox" id="__nav_10_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_2">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="R" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_2">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RCentOS7generalinfo/" class="md-nav__link">
+        General information
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R_others/" class="md-nav__link">
+        Some packages and other information
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R_workshop_tutorial/" class="md-nav__link">
+        R workshop
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_3" type="checkbox" id="__nav_10_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_3">
+          TensorFlow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="TensorFlow" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_3">
+          <span class="md-nav__icon md-icon"></span>
+          TensorFlow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installing_TensorFlow_1.x_with_virtualenv/" class="md-nav__link">
+        Installing TF 1.x
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow_2.5_installation_as_of_Jul_2021_/" class="md-nav__link">
+        Installing TF 2.5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installing_TensorFlow_using_anaconda/" class="md-nav__link">
+        Installing TF using anaconda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Submitting_a_TensorFlow_job/" class="md-nav__link">
+        Submitting a TF job
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4" type="checkbox" id="__nav_10_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_4">
+          Gaussian
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gaussian" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_4">
+          <span class="md-nav__icon md-icon"></span>
+          Gaussian
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Access/" class="md-nav__link">
+        Gaussian access
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Running_Gaussian_by_Command_Lines/" class="md-nav__link">
+        Running Gaussian from command line
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Job_Script/" class="md-nav__link">
+        Gaussian job script
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Job_with_Checkpointing_Run/" class="md-nav__link">
+        Gaussian job with checkpointing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_on_HPCC/" class="md-nav__link">
+        Gaussian workshop slides
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" type="checkbox" id="__nav_10_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_5">
+          COMSOL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="COMSOL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_5">
+          <span class="md-nav__icon md-icon"></span>
+          COMSOL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../COMSOL/" class="md-nav__link">
+        COMSOL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          HPC tutorial series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="HPC tutorial series" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          HPC tutorial series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_over_SSH_with_atom/" class="md-nav__link">
+        Connect over SSH with Atom
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_over_SSH_with_VS_Code/" class="md-nav__link">
+        Connect over SSH with VS_Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../singularity_01/" class="md-nav__link">
+        Singularity: I. Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using_DDD/" class="md-nav__link">
+        Using DDD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../make/" class="md-nav__link">
+        make
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3._Expansion/" class="md-nav__link">
+        Expansion
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-installation" class="md-nav__link">
+    Docker installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-docker-installation" class="md-nav__link">
+    Testing Docker installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-docker-containers-from-prebuilt-images" class="md-nav__link">
+    Running Docker containers from prebuilt images
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-docker-images-which-contain-your-own-code" class="md-nav__link">
+    Build Docker images which contain your own code
+  </a>
+  
+    <nav class="md-nav" aria-label="Build Docker images which contain your own code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-images" class="md-nav__link">
+    Docker images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-your-first-docker-image" class="md-nav__link">
+    Building your first Docker image
+  </a>
+  
+    <nav class="md-nav" aria-label="Building your first Docker image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-working-directory" class="md-nav__link">
+    Creating working directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-script" class="md-nav__link">
+    Python script
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerfile" class="md-nav__link">
+    Dockerfile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-image" class="md-nav__link">
+    Build the image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-your-image" class="md-nav__link">
+    Run your image
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-and-jupyter-notebook" class="md-nav__link">
+    Docker and Jupyter notebook
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="docker">Docker</h1>
+<p><a href="https://en.wikipedia.org/wiki/Docker_(software)">What is Docker?</a>
+Docker is a tool to make it easier to
+create, deploy and run application by using containers. Containers allow
+developers to package up an application with all of the dependencies
+such as libraries and tools, and deploy it as one package. The
+application will run on most OS machines (Mac/Windows/Linux) regardless
+of any customized settings. Overall, this page covers how you can
+running on the development environments using Docker containers.</p>
+<ul>
+<li><a href="#docker-installation">Docker installation</a></li>
+<li><a href="#testing-docker-installation">Testing Docker installation</a></li>
+<li><a href="#running-docker-containers-from-prebuilt-images">Running Docker containers from prebuilt
+    images</a></li>
+<li><a href="#build-docker-images-which-contain-your-own-code">Build Docker images which contain your own
+    code</a><ul>
+<li><a href="#docker-images">Docker images</a></li>
+<li><a href="#building-your-first-docker-image">Building your first Docker
+    image</a><ul>
+<li><a href="#creating-working-directory">Creating working
+    directory</a></li>
+<li><a href="#python-script">Python script</a></li>
+<li><a href="#dockerfile">Dockerfile</a></li>
+<li><a href="#build-the-image">Build the image</a></li>
+<li><a href="#run-your-image">Run your image</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#docker-and-jupyter-notebook">Docker and Jupyter notebook</a></li>
+</ul>
+<h3 id="docker-installation">Docker installation</h3>
+<p>Docker supports various OS (Mac/Windows/Linux) and, installation of
+Docker and running on your OS is very easy.</p>
+<p>For installation, click
+here: <a href="https://docs.docker.com/docker-for-mac/install/">Mac</a>/<a href="https://docs.docker.com/docker-for-windows/install/">Windows</a>/<a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">Linux</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>If you are a Windows user, please make sure you
+    have <a href="https://docs.docker.com/docker-for-windows/#shared-drives"
+    style="text-decoration: none;" rel="nofollow">shared your drive</a>.</li>
+<li>You have to log into Docker to use images from Docker repository.</li>
+</ul>
+</div>
+<h3 id="testing-docker-installation">Testing Docker installation</h3>
+<p>When you installed Docker, test your Docker installation by running the
+following command:</p>
+<pre><code class="language-bash">$ docker --version
+Docker version 19.03.8, build afacb8b
+</code></pre>
+<p>When you run <strong>docker</strong> command without <strong>--version</strong>, you would see
+whole options available with docker. Alternatively, you can test your
+installation by running the following (you have to log into Docker to
+use this test):</p>
+<pre><code class="language-bash">$ docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+0e03bdcc26d7: Pull complete
+Digest: sha256:6a65f928fb91fcfbc963f7aa6d57c8eeb426ad9a20c7ee045538ef34847f44f1
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+1. The Docker client contacted the Docker daemon.
+2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
+(amd64)
+3. The Docker daemon created a new container from that image which runs the
+executable that produces the output you are currently reading.
+4. The Docker daemon streamed that output to the Docker client, which sent it
+to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+$ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+https://hub.docker.com/
+
+For more examples and ideas, visit:
+https://docs.docker.com/get-started/
+</code></pre>
+<h3 id="running-docker-containers-from-prebuilt-images">Running Docker containers from prebuilt images</h3>
+<p>Now, you setup everything, and it is time to use Docker seriously. You
+will run a container from
+<a href="https://www.alpinelinux.org/">Alpine Linux</a>
+image on your system and will learn <strong>run docker</strong> command. However, you
+first would like to know what containers and images are , and the
+difference between containers and an images.</p>
+<p><strong>Images</strong>: The file system and configuration of applications which are
+created and distributed by developers. Of course, you can create and
+distribute images.</p>
+<p><strong>Containers</strong>: Running instances of Docker images. You can have many
+containers for a same image. </p>
+<p>Now you know what containers and images are, and let's run <strong>docker run
+alpine ls -l</strong> command in your terminal.</p>
+<pre><code class="language-bash">$ docker run alpine ls -l
+Unable to find image 'alpine:latest' locally
+latest: Pulling from library/alpine
+cbdbe7a5bc2a: Pull complete
+Digest: sha256:9a839e63dad54c3a6d1834e29692c8492d93f90c59c978c1ed79109ea4fb9a54
+Status: Downloaded newer image for alpine:latest
+total 56
+drwxr-xr-x    2 root     root          4096 Apr 23 06:25 bin
+drwxr-xr-x    5 root     root           340 May 26 17:11 dev
+drwxr-xr-x    1 root     root          4096 May 26 17:11 etc
+drwxr-xr-x    2 root     root          4096 Apr 23 06:25 home
+drwxr-xr-x    5 root     root          4096 Apr 23 06:25 lib
+drwxr-xr-x    5 root     root          4096 Apr 23 06:25 media
+drwxr-xr-x    2 root     root          4096 Apr 23 06:25 mnt
+drwxr-xr-x    2 root     root          4096 Apr 23 06:25 opt
+dr-xr-xr-x  187 root     root             0 May 26 17:11 proc
+drwx------    2 root     root          4096 Apr 23 06:25 root
+drwxr-xr-x    2 root     root          4096 Apr 23 06:25 run
+drwxr-xr-x    2 root     root          4096 Apr 23 06:25 sbin
+drwxr-xr-x    2 root     root          4096 Apr 23 06:25 srv
+dr-xr-xr-x   12 root     root             0 May 26 17:11 sys
+drwxrwxrwt    2 root     root          4096 Apr 23 06:25 tmp
+drwxr-xr-x    7 root     root          4096 Apr 23 06:25 usr
+drwxr-xr-x   12 root     root          4096 Apr 23 06:25 var
+(base) Hyperion:~ yongjunchoi$
+</code></pre>
+<p>When you run <strong>docker run alpine ls -l</strong> command, it searchs
+"alpine:latest" image from your system first. If your system has it
+(i.e. if you downloaded it previously), Docker uses that image. If your
+system does not have that image, then Docker fetches the "alpine:latest"
+image from the Docker repository first, and save it in your system, and
+then runs a container from the saved image. </p>
+<p><strong>docker run alpine</strong> starts a container, and <strong>ls -l</strong> is a command
+which is fed to the container, so Docker starts the given command and
+results show up.</p>
+<p>To see a list of all images on your system, you can use <strong>docker
+images</strong> command.</p>
+<pre><code class="language-bash">$ docker images
+alpine                     latest              f70734b6a266        4 weeks ago         5.61MB
+hello-world                latest              bf756fb1ae65        4 months ago        13.3kB
+</code></pre>
+<p>Next, let's try another command.</p>
+<pre><code class="language-bash">$ docker run alpine echo &quot;Hello world&quot;
+Hello world
+</code></pre>
+<p>In this case, Docker ran the <strong>echo</strong> command in your "alpine"
+container, and then exited it. Exit means the container is terminated
+after running the command.</p>
+<p>Let's try another command.</p>
+<pre><code class="language-bash">$ docker run alpine sh
+</code></pre>
+<p>It seems nothing happened. In fact, docker ran <strong>sh</strong> command in you
+alpine container, and exited it. If you want to be inside the container
+shell, you need to use <strong>docker run -it alpine sh</strong>. <strong>-it</strong> mean
+interactive and allocating a pseudo-TTY. You can find more help on
+<strong>run</strong> command with <strong>docker run --help</strong>.</p>
+<p>Let's run <strong>docker run -it alpine sh</strong>.</p>
+<pre><code class="language-bash">$ docker run -it alpine sh
+/ # ls
+bin    dev    etc    home   lib    media  mnt    opt    proc   root   run    sbin   srv    sys    tmp    usr    var
+/ # uname -a
+Linux c1552c9b6cf0 4.19.76-linuxkit #1 SMP Fri Apr 3 15:53:26 UTC 2020 x86_64 Linux
+/ # exit
+</code></pre>
+<p>You are inside of the container shell and you can try out a few commands
+like <strong>ls</strong> and <strong>uname -a</strong> and others. To quit the container, type
+<strong>exit</strong> on the terminal. If you use exit command, the container is
+terminated. If you want to keep the container active, then you can use
+keys <strong>ctrl p</strong>, and then <strong>ctrl q</strong> (You don't have to press these two
+keys simultaneously). If you want to go back into the container, you can
+type <strong>docker attach \&lt;container_id></strong>, such as <strong>docker
+attach c1552c9b6cf0</strong>. You can find container id with <strong>docker ps
+-all</strong>. This command will be explained next.</p>
+<p>Now, let's learn on the <strong>docker ps</strong> command which shows you all
+containers that are currently running.</p>
+<pre><code class="language-bash">$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS
+</code></pre>
+<p>You can not see any container because no containers are running. To see
+a list of all containers that you ran, use <strong>docker ps --all</strong>. You can
+see that STATUS says that all containers exited.  </p>
+<pre><code class="language-bash">$ docker ps --all
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS               NAMES
+c1552c9b6cf0        alpine              &quot;sh&quot;                     6 minutes ago       Exited (0) 2 minutes ago                        wonderful_cori
+5de22ab86f2a        alpine              &quot;echo 'Hello world'&quot;     18 minutes ago      Exited (0) 18 minutes ago                       goofy_visvesvaraya
+df35ee7df7e3        alpine              &quot;ls -l&quot;                  31 minutes ago      Exited (0) 31 minutes ago                       fervent_gould
+6dbe999044b4        hello-world         &quot;/hello&quot;                 3 hours ago         Exited (0) 3 hours ago
+</code></pre>
+<p>When Docker containers are created, the Docker system automatically
+assign a universally unique identifier (UUID) number to each container
+to avoid any naming conflicts. CONTAINER ID is a shortform of the UUID.
+You can assign names to your Docker containers when you run them, using
+<strong>--name</strong> flags. In addition, you can rename your Docker container's
+name  with <strong>rename</strong> command. For example, let's rename
+"wonderful_cori" to "my_container" with <strong>docker rename </strong>command.</p>
+<pre><code class="language-bash">$ docker rename wonderful_cori my_container
+$ docker ps --all
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS               NAMES
+c1552c9b6cf0        alpine              &quot;sh&quot;                     10 minutes ago      Exited (0) 6 minutes ago                        my_container
+5de22ab86f2a        alpine              &quot;echo 'Hello world'&quot;     22 minutes ago      Exited (0) 22 minutes ago                       goofy_visvesvaraya
+df35ee7df7e3        alpine              &quot;ls -l&quot;                  35 minutes ago      Exited (0) 35 minutes ago                       fervent_gould
+</code></pre>
+<h3 id="build-docker-images-which-contain-your-own-code">Build Docker images which contain your own code</h3>
+<p>Now, you are ready to use Docker to create your own applications! First,
+you will learn more about Docker images. Then you will build your own
+image and use that image to run an application on your local machine.</p>
+<h4 id="docker-images">Docker images</h4>
+<p>Docker images are basis of containers. IN the above example, you pulled
+the alpine image from the repository and ran a container based on that
+image. To see the list of images that are available on your local
+machine, <strong>run docker images</strong> command.</p>
+<pre><code class="language-bash">$ docker images
+REPOSITORY                 TAG                 IMAGE ID            CREATED             SIZE
+alpine                     latest              f70734b6a266        4 weeks ago         5.61MB
+hello-world                latest              bf756fb1ae65        4 months ago        13.3kB
+centos/python-36-centos7   latest              070f320fe348        2 weeks ago         698MB
+centos                     7                   b5b4d78bc90c        2 weeks ago         203MB
+...
+</code></pre>
+<p>The TAG refers to a particular snapshot of the image and the ID is the
+corresponding UUID of the image. Images can have multiple versions. When
+you do not assign a specific version number, the client defaults to
+latest. If you want a specific version of the image, you can use docker
+pull command as follows:</p>
+<pre><code class="language-bash">$ docker pull centos:7
+</code></pre>
+<p>You can search for images from a repository (for example, the following
+is
+<a href="https://hub.docker.com/_/centos" rel="nofollow">Docker hub for
+centos</a>) or directly from command line using <strong>docker search</strong>.</p>
+<pre><code class="language-bash">$ docker search centos
+NAME                               DESCRIPTION                                     STARS               OFFICIAL            AUTOMATED
+centos                             The official build of CentOS.                   6014                [OK]
+ansible/centos7-ansible            Ansible on Centos7                              129                                     [OK]
+consol/centos-xfce-vnc             Centos container with &quot;headless&quot; VNC session…   115                                     [OK]
+jdeathe/centos-ssh                 OpenSSH / Supervisor / EPEL/IUS/SCL Repos - …   114                                     [OK]
+centos/mysql-57-centos7            MySQL 5.7 SQL database server                   76
+imagine10255/centos6-lnmp-php56    centos6-lnmp-php56                              58                                      [OK]
+tutum/centos                       Simple CentOS docker image with SSH access      46
+centos/postgresql-96-centos7       PostgreSQL is an advanced Object-Relational …   44
+kinogmt/centos-ssh                 CentOS with SSH                                 29                                      [OK]
+pivotaldata/centos-gpdb-dev        CentOS image for GPDB development. Tag names…   12
+guyton/centos6                     From official centos6 container with full up…   10                                      [OK]
+centos/tools                       Docker image that has systems administration…   6                                       [OK]
+drecom/centos-ruby                 centos ruby                                     6                                       [OK]
+pivotaldata/centos                 Base centos, freshened up a little with a Do…   4
+pivotaldata/centos-mingw           Using the mingw toolchain to cross-compile t…   3
+darksheer/centos                   Base Centos Image -- Updated hourly             3                                       [OK]
+mamohr/centos-java                 Oracle Java 8 Docker image based on Centos 7    3                                       [OK]
+pivotaldata/centos-gcc-toolchain   CentOS with a toolchain, but unaffiliated wi…   3
+miko2u/centos6                     CentOS6 日本語環境                                   2                                       [OK]
+blacklabelops/centos               CentOS Base Image! Built and Updates Daily!     1                                       [OK]
+indigo/centos-maven                Vanilla CentOS 7 with Oracle Java Developmen…   1                                       [OK]
+mcnaughton/centos-base             centos base image                               1                                       [OK]
+pivotaldata/centos7-dev            CentosOS 7 image for GPDB development           0
+smartentry/centos                  centos with smartentry                          0                                       [OK]
+pivotaldata/centos6.8-dev          CentosOS 6.8 image for GPDB development         0
+</code></pre>
+<h4 id="building-your-first-docker-image">Building your first Docker image</h4>
+<p>In this section, you will build a simple Docker image with writing a
+Dockerfile, and run it. For this purpose, we will create a Python
+script, and a Dockerfile.</p>
+<h5 id="creating-working-directory">Creating working directory</h5>
+<p>Let's create a working directory where you will make following files:
+<strong>hello.py</strong>, <strong>Dockerfile</strong></p>
+<pre><code class="language-bash">$ cd ~
+$ mkdir my_first_Docker_image
+$ cd my_first_Docker_image
+</code></pre>
+<h5 id="python-script">Python script</h5>
+<p>Create <strong>hello.py</strong> file with the following content.</p>
+<pre><code class="language-bash">print(&quot;Hello world!&quot;)
+print(&quot;This is my 1st Docker image!&quot;)
+</code></pre>
+<h5 id="dockerfile">Dockerfile</h5>
+<p>A <strong>Dockerfile</strong> is a text file which has a list of commands that the
+Docker calls while creating an image. The Dockerfile is similar to a job
+batch file, and contains all information that Docker needs to know to to
+run the application package.</p>
+<p>In my_first_Docker_image directory, create a file, called Dockerfile,
+which has content as below.</p>
+<pre><code class="language-bash"># our base image. The latest version will be pulled.
+FROM alpine
+
+# install python and pip
+RUN apk add --update py3-pip
+
+# copy files required to run
+COPY hello.py /usr/src/my_app/
+
+# run the application
+CMD python3 /usr/src/my_app/hello.py
+</code></pre>
+<p>Now, let's learn the meaning of the each line.</p>
+<p>The first line means that we will use alpine Linux as a base image. No
+version is specified, so the latest version will be pulled. Use <strong>FROM</strong>
+keyword.</p>
+<pre><code class="language-bash">FROM alpine
+</code></pre>
+<p>Next, Python pip package is installed. Use <strong>RUN</strong> keyword.</p>
+<pre><code class="language-bash">RUN apk add --update py3-pip
+</code></pre>
+<p>Next, copy the file to the image. <strong>/usr/src/my_app</strong> will be created
+while the file is copied. Use <strong>COPY</strong> keyword.</p>
+<pre><code class="language-bash">COPY hello.py /usr/src/my_app/
+</code></pre>
+<p>The last step is run the application with <strong>CMD</strong> keyword. <strong>CMD</strong> tells
+the container what the container should do by default when it is
+started.</p>
+<pre><code class="language-bash">CMD python3 /usr/src/my_app/hello.py
+</code></pre>
+<h5 id="build-the-image">Build the image</h5>
+<p>Now you are ready to build your first Docker image. <strong>docker build</strong>
+command will do most of the work. However, before you run docker build
+command, check again if you log in to Docker. </p>
+<p>To build the image, use the following command.</p>
+<pre><code class="language-bash">$ docker build -t my_first_image .
+</code></pre>
+<p>The client will pull all necessary images and create your image. If
+everything goes well, your image is ready to be used! Run docker images
+command to see if your image <strong>my_first_image</strong> is shown.</p>
+<h5 id="run-your-image">Run your image</h5>
+<p>When you successfully create your Docker image, test it by starting a
+new container form the image.</p>
+<pre><code class="language-bash">$ docker run my_first_image
+</code></pre>
+<p>If everything went well, you would see this message.</p>
+<pre><code class="language-bash">Hello world!
+This is my 1st Docker image!
+</code></pre>
+<h3 id="docker-and-jupyter-notebook">Docker and Jupyter notebook</h3>
+<p>Now, we will build a Docker image which deploy a Jupyter notebook.</p>
+<p>First, let's check Jupyter images on Docker Hub. We will use
+minimal-notebook.</p>
+<pre><code class="language-bash">$docker search jupyter
+NAME                                    DESCRIPTION                                     STARS               OFFICIAL            AUTOMATED
+jupyter/datascience-notebook            Jupyter Notebook Data Science Stack from htt…   666
+jupyter/all-spark-notebook              Jupyter Notebook Python, Scala, R, Spark, Me…   301
+jupyterhub/jupyterhub                   JupyterHub: multi-user Jupyter notebook serv…   248                                     [OK]
+jupyter/scipy-notebook                  Jupyter Notebook Scientific Python Stack fro…   241
+jupyter/tensorflow-notebook             Jupyter Notebook Scientific Python Stack w/ …   218
+jupyter/pyspark-notebook                Jupyter Notebook Python, Spark, Mesos Stack …   157
+jupyter/base-notebook                   Small base image for Jupyter Notebook stacks…   106
+jupyter/minimal-notebook                Minimal Jupyter Notebook Stack from https://…   105
+...
+</code></pre>
+<p>Let's start by creating a directory <strong>my_note_book</strong>. Copy <strong>hello.py</strong>,
+which we used for the Python image, to <strong>my_note_book</strong> dir. Then create
+a Dockerfile under the <strong>my_note_book</strong> directory and add content to is
+as the following.</p>
+<pre><code class="language-bash"># base image
+FROM jupyter/base-notebook
+
+# copy files
+COPY hello.py /home/my_note_book/
+
+# the port number the container should expose
+EXPOSE 8888
+</code></pre>
+<p>The last part is specifying the port number which needs to be exposed.
+The default port for Jupyter is 8888, and therefore, we will expose that
+port.</p>
+<p>Now, build the image using the following command:</p>
+<pre><code class="language-bash">$ docker build -t mynotebook .
+Sending build context to Docker daemon  4.096kB
+Step 1/3 : FROM jupyter/base-notebook
+ ---&gt; 7ea955290e01
+Step 2/3 : COPY model.py /home/my_note_book_dir/
+ ---&gt; 9a1dd638a667
+Step 3/3 : EXPOSE 8888
+ ---&gt; Running in a955eb421dde
+Removing intermediate container a955eb421dde
+ ---&gt; 8d3f7447955c
+Successfully built 8d3f7447955c
+Successfully tagged mynotebook:latest
+</code></pre>
+<p>Now, everything is ready. You can run the image using the Docker run
+command.</p>
+<pre><code class="language-bash">$ docker run -p 8888:8888 mynotebook
+Executing the command: jupyter notebook
+[I 20:26:03.538 NotebookApp] Writing notebook server cookie secret to /home/jovyan/.local/share/jupyter/runtime/notebook_cookie_secret
+[I 20:26:04.144 NotebookApp] JupyterLab extension loaded from /opt/conda/lib/python3.7/site-packages/jupyterlab
+[I 20:26:04.144 NotebookApp] JupyterLab application directory is /opt/conda/share/jupyter/lab
+[I 20:26:04.146 NotebookApp] Serving notebooks from local directory: /home/jovyan
+[I 20:26:04.147 NotebookApp] The Jupyter Notebook is running at:
+[I 20:26:04.147 NotebookApp] http://c47b22cd65be:8888/?token=a53b2303380fa4a2e92cc50441ad121a08d6e39dea726fd9
+[I 20:26:04.147 NotebookApp]  or http://127.0.0.1:8888/?token=a53b2303380fa4a2e92cc50441ad121a08d6e39dea726fd9
+[I 20:26:04.147 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 20:26:04.151 NotebookApp]
+
+    To access the notebook, open this file in a browser:
+        file:///home/.local/share/jupyter/runtime/nbserver-6-open.html
+    Or copy and paste one of these URLs:
+        http://c47b22cd65be:8888/?token=a53b2303380fa4a2e92cc50441ad121a08d6e39dea726fd9
+     or http://127.0.0.1:8888/?token=a53b2303380fa4a2e92cc50441ad121a08d6e39dea726fd9
+[I 20:26:11.151 NotebookApp] 302 GET /?token=a53b2303380fa4a2e92cc50441ad121a08d6e39dea726fd9 (172.17.0.1) 0.65ms
+</code></pre>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+
+    <footer class="MSUwrapper light-background" id="MSUstandardFooter" role="contentinfo">
+        <!-- class ’light-background' sets link colors -->
+        <div class="fourMSUcolumns" id="standard-footer-MSU-wordmark">
+            <a href="http://www.msu.edu">
+                <!-- Use green MSU wordmark -->
+                <img alt="Michigan State University Wordmark" class="screen-msuwordmark"
+                    src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/msu-wordmark-green.png" height="47" width="221" />
+            </a>
+        </div>
+        <div class="twelveMSUcolumns">
+            <!-- change the css to using nth child instead of classes!!!!!!-->
+            <div id="standard-footer-site-links">
+                <ul>
+            <li><a href="http://icer.msu.edu/contact">Contact Information</a></li>
+            <li><a href="https://msu.edu/privacy">Privacy Policy</a></li>
+            <li><a href="https://msu.edu/accessibility">Site Accessibility</a></li>
+		</ul>
+            </div>
+            <div id="standard-footer-MSU-info">
+                <ul>
+    
+    
+                    
+                    <li>Call MSU: <span class="msu-phone"><strong>(517) 355-1855</strong></span></li>
+                    <li>Visit: <strong><a href="http://msu.edu">msu.edu</a></strong></li>
+                    <li>MSU is an affirmative-action, equal-opportunity employer.</li>
+                    <li><a href="http://oie.msu.edu/"><strong>Notice of Nondiscrimination</strong></a></li>
+                </ul>
+                <ul>
+                    <li class="spartans-will">Spartans Will.</li>
+                    <li>© Michigan State University</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f758a944.min.js"></script>
+      
+    
+  </body>
+</html>

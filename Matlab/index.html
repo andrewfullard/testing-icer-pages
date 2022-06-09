@@ -1,0 +1,2314 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/icer-small-logo-white.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.3">
+    
+    
+      
+        <title>Matlab - MSU HPCC User Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4a0965b7.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../overrides/assets/stylesheets/footer.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#about-matlab" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+
+<header class="md-header" data-md-component="header">
+    <nav
+    class="md-header__inner md-grid"
+    aria-label="Header"
+  >
+    
+    <!-- <H1>HERE</H1> -->
+    <a href="." class="md-header__button md-logo" data-md-component="logo">
+    
+  <img src="../assets/icer-small-logo-white.png" alt="logo">
+
+    </a>
+        <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+
+    <div class="md-header__title" data-md-component="header-title">
+        <div class="md-header__ellipsis">
+          <div class="md-header__topic">
+            <span class="md-ellipsis">
+              ICER
+            </span>
+          </div>
+          <div class="md-header__topic" data-md-component="header-topic">
+            <span class="md-ellipsis">
+              
+                Matlab
+              
+            </span>
+          </div>
+        </div>
+    </div>
+
+        <!-- Button to open search modal -->
+        
+        <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        </label>
+
+        <!-- Search interface -->
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+  </nav>
+
+</header>
+
+<div class="MSUwrapper" id="MSUheader">
+    <div id="MSUmasthead" role="banner">
+        <!-- <a href="http://www.msu.edu"> -->
+            <!-- if using a dark background change the img src to images/masthead-helmet-white.png-->
+            <img class="screen-msugraphic" alt="ICER masthead graphic"
+                src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/Header_Banner_small.jpg" />
+        <!-- </a> -->
+    </div>
+    
+</div>
+    
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="MSU HPCC User Documentation" class="md-nav__button md-logo" aria-label="MSU HPCC User Documentation" data-md-component="logo">
+      
+  <img src="../assets/icer-small-logo-white.png" alt="logo">
+
+    </a>
+    MSU HPCC User Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Access the HPCC
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Access the HPCC" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Access the HPCC
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obtain_an_hpcc_account/" class="md-nav__link">
+        Obtain an HPCC account
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install_ssh_client/" class="md-nav__link">
+        Install an SSH client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_to_HPCC_System/" class="md-nav__link">
+        Connect to the HPCC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          HPCC resources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="HPCC resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          HPCC resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2018_cluster_resources/" class="md-nav__link">
+        Cluster resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development_nodes/" class="md-nav__link">
+        Development nodes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Computing environment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Computing environment" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Computing environment
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux_Shell/" class="md-nav__link">
+        Linux shells
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_Permissions_on_HPCC/" class="md-nav__link">
+        File permissions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Change_Primary_Group/" class="md-nav__link">
+        Change primary group
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Collaborative_Research/" class="md-nav__link">
+        Collaborative research
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          File systems
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="File systems" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          File systems
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Home_Space/" class="md-nav__link">
+        Home space
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Research_Space/" class="md-nav__link">
+        Research space
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scratch_File_Systems/" class="md-nav__link">
+        Scratch space
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Local_File_Systems/" class="md-nav__link">
+        Local file system
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ufs18_File_Systems/" class="md-nav__link">
+        UFS18 file system
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Guidelines_for_Choosing_File_Storage_and_I_O/" class="md-nav__link">
+        Guidelines for choosing file systems and I/O
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sensitive_Data_on_the_HPCC/" class="md-nav__link">
+        Sensitive data storage
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          File transfer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="File transfer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          File transfer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_transfer/" class="md-nav__link">
+        File transfer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Transferring_data_with_Globus/" class="md-nav__link">
+        Using Globus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rclone_-_rsync_for_cloud_storage/" class="md-nav__link">
+        Using Rclone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping_HPC_drives_with_SSHFS/" class="md-nav__link">
+        Mapping drives using Samba
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping_HPC_drives_with_Samba/" class="md-nav__link">
+        Mapping drives using SSHFS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SFTP_Mapping_on_HPCC_file_systems/" class="md-nav__link">
+        Mapping drives using SFTP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Science_DMZ/" class="md-nav__link">
+        Science DMZ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Software module system
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software module system" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Software module system
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How_to_find_and_load_software_modules/" class="md-nav__link">
+        Loading software modules
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Powertools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Powertools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Powertools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getexample/" class="md-nav__link">
+        getexample
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bi/" class="md-nav__link">
+        bi - buyin information
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qs/" class="md-nav__link">
+        qs - display job list
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Job submission by SLURM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Job submission by SLURM" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Job submission by SLURM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SLURM_overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm_Environment_Variables/" class="md-nav__link">
+        SLURM environment variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job_Script_and_Job_Submission/" class="md-nav__link">
+        General rules for writing a job script
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job_Constraints/" class="md-nav__link">
+        Job constraints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Example_SLURM_scripts/" class="md-nav__link">
+        Example job scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_6" type="checkbox" id="__nav_9_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_6">
+          Job policies
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Job policies" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_6">
+          <span class="md-nav__icon md-icon"></span>
+          Job policies
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../job_policies/" class="md-nav__link">
+        Job policies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../job_priority_factors/" class="md-nav__link">
+        Job priority factors
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_7" type="checkbox" id="__nav_9_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_7">
+          Torque vs. SLURM comparisons
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Torque vs. SLURM comparisons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_7">
+          <span class="md-nav__icon md-icon"></span>
+          Torque vs. SLURM comparisons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Torque_vs._SLURM/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Specifications_of_Job_submission/" class="md-nav__link">
+        Specifications of job submission
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System_Commands/" class="md-nav__link">
+        System commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Environment_Variables/" class="md-nav__link">
+        Environment variables
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scavenger_Queue/" class="md-nav__link">
+        Scavenger Queue
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Software tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Software tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_1" type="checkbox" id="__nav_10_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_1">
+          Bioinformatics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bioinformatics" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_1">
+          <span class="md-nav__icon md-icon"></span>
+          Bioinformatics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ABySS/" class="md-nav__link">
+        ABySS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Assembly_of_PacBio_long_reads_with_Canu/" class="md-nav__link">
+        Assembly of PacBio long reads with Canu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLAST_BLAST%2B_with_Multiple_Processors/" class="md-nav__link">
+        BLAST/BLAST+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GATK4/" class="md-nav__link">
+        GATK4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTSeq/" class="md-nav__link">
+        HTSeq
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mothur/" class="md-nav__link">
+        Mothur
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NCBI_Entrez_Direct_tools/" class="md-nav__link">
+        NCBI eDirect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL_configuration/" class="md-nav__link">
+        MySQL configuration for OrthoMCL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orthomcl-pipeline/" class="md-nav__link">
+        OrthoMCL pipeline
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QIIME_2/" class="md-nav__link">
+        QIIME 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RNA_seq_example/" class="md-nav__link">
+        RNA-seq
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trimmomatic/" class="md-nav__link">
+        Trimmomatic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trinity_for_RNA-seq_de_novo_assembly/" class="md-nav__link">
+        Trinity for RNA-seq de novo assembly
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_2" type="checkbox" id="__nav_10_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_2">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="R" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_2">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RCentOS7generalinfo/" class="md-nav__link">
+        General information
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R_others/" class="md-nav__link">
+        Some packages and other information
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R_workshop_tutorial/" class="md-nav__link">
+        R workshop
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_3" type="checkbox" id="__nav_10_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_3">
+          TensorFlow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="TensorFlow" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_3">
+          <span class="md-nav__icon md-icon"></span>
+          TensorFlow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installing_TensorFlow_1.x_with_virtualenv/" class="md-nav__link">
+        Installing TF 1.x
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow_2.5_installation_as_of_Jul_2021_/" class="md-nav__link">
+        Installing TF 2.5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installing_TensorFlow_using_anaconda/" class="md-nav__link">
+        Installing TF using anaconda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Submitting_a_TensorFlow_job/" class="md-nav__link">
+        Submitting a TF job
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4" type="checkbox" id="__nav_10_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_4">
+          Gaussian
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gaussian" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_4">
+          <span class="md-nav__icon md-icon"></span>
+          Gaussian
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Access/" class="md-nav__link">
+        Gaussian access
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Running_Gaussian_by_Command_Lines/" class="md-nav__link">
+        Running Gaussian from command line
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Job_Script/" class="md-nav__link">
+        Gaussian job script
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Job_with_Checkpointing_Run/" class="md-nav__link">
+        Gaussian job with checkpointing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_on_HPCC/" class="md-nav__link">
+        Gaussian workshop slides
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" type="checkbox" id="__nav_10_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_5">
+          COMSOL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="COMSOL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_5">
+          <span class="md-nav__icon md-icon"></span>
+          COMSOL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../COMSOL/" class="md-nav__link">
+        COMSOL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          HPC tutorial series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="HPC tutorial series" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          HPC tutorial series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_over_SSH_with_atom/" class="md-nav__link">
+        Connect over SSH with Atom
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_over_SSH_with_VS_Code/" class="md-nav__link">
+        Connect over SSH with VS_Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../singularity_01/" class="md-nav__link">
+        Singularity: I. Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using_DDD/" class="md-nav__link">
+        Using DDD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../make/" class="md-nav__link">
+        make
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3._Expansion/" class="md-nav__link">
+        Expansion
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-matlab" class="md-nav__link">
+    About MATLAB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-matlab-on-scratch-space" class="md-nav__link">
+    Running MATLAB on Scratch Space
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-matlab-interactively" class="md-nav__link">
+    Running MATLAB Interactively
+  </a>
+  
+    <nav class="md-nav" aria-label="Running MATLAB Interactively">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#short-sessions-two-hours" class="md-nav__link">
+    Short Sessions (&lt; two hours)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long-sessions-two-hours" class="md-nav__link">
+    Long Sessions (&gt; two hours)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-matlab-non-interactively" class="md-nav__link">
+    Running MATLAB Non-Interactively
+  </a>
+  
+    <nav class="md-nav" aria-label="Running MATLAB Non-Interactively">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#short-jobs-two-hours" class="md-nav__link">
+    Short Jobs (&lt; two hours)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long-jobs-two-hours" class="md-nav__link">
+    Long Jobs (> two hours)
+  </a>
+  
+    <nav class="md-nav" aria-label="Long Jobs (> two hours)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-matlab-job" class="md-nav__link">
+    Single MATLAB Job
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-matlab-parallel-computing-toolbox" class="md-nav__link">
+    Using the MATLAB Parallel Computing Toolbox
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-matlab-parallel-server" class="md-nav__link">
+    Using the MATLAB Parallel Server
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the MATLAB Parallel Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-and-validate-your-cluster-profile" class="md-nav__link">
+    Setup and validate your cluster profile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-matlab-thread-based-worker-pool" class="md-nav__link">
+    Using the MATLAB thread-based worker pool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-matlab2020a-on-amd-nodes" class="md-nav__link">
+    Running the MATLAB/2020a on AMD nodes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-matlab-on-intel14-nodes" class="md-nav__link">
+    Running the MATLAB on intel14 nodes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-matlab-with-python" class="md-nav__link">
+    Using the MATLAB with Python
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+  <h1>Matlab</h1>
+
+<h2 id="about-matlab">About MATLAB</h2>
+<ul>
+<li>
+<p>There is a <a href="https://www.mathworks.com/academia/tah-portal/michigan-state-university-1110432.html">Matlab portal for Michigan State University users</a>. Users are encouraged to visit it for information and support provided by Mathworks.</p>
+</li>
+<li>
+<p>Several versions of MATLAB are installed on the cluster. By default,
+MATLAB/2018a is loaded. Other available version of MATLAB can be discovered by typing</p>
+</li>
+</ul>
+<pre><code>    hpc@dev-intel18:~&gt; module spider MATLAB
+</code></pre>
+<p>and then switching to a different version, for example, to switch
+from 2018a to 2017a, one can directly load the the version as</p>
+<pre><code>hpc@dev-intel18:~&gt; module load MATLAB/2019a
+</code></pre>
+<ul>
+<li>MATLAB's many built-in functions have multi-threaded capability. On
+    your personal computer, when a MATLAB function with multi-threads is
+    called, MATLAB will automatically spawn as many threads as the
+    number of cores on the machine. To avoid over utilizing compute
+    nodes on HPCC, user should set the max number of threads by using
+    “maxNumCompThreads(N)” in matlab where N is the maximum number of
+    threads matlab would use in the session. User could also use option
+    "-SingleCompThread" to launch matlab session that would only use
+    single thread. Without the option, matlab session will potentially
+    spawn as many as 28 (on intel16 nodes) or 20 (on intel14 nodes)
+    threads when a built-in multi-threaded function is called. To allow
+    the multi-thread functions in matlab, users need to do the
+    following:<ol>
+<li>Specify the maximum number of compute threads to be used with
+     " <strong><em>maxNumCompThreads(N) " </em></strong>at the beginning of the matlab
+    program where N is the maximum number of threads in the program.
+    For example, <strong><em>maxNumCompThreads(4)</em></strong> will set the maximum
+    number of threads used in the program to four.  </li>
+<li>If submit to run as batch job, specify "<strong><em>--cpus-per-task=N</em></strong>"
+    in your job script where N should match the maximum number of
+    compute threads set in "<strong><em>maxNumCompThreads(N)".</em> </strong></li>
+</ol>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Starting Nov. 1, 2018 on new HPCC system, the matlab default setting of
+using single compute thread is changed. “matlab-mt” and “matlab”
+commands would be the same for current versions and "matlab-mt" will no
+longer exist from later versions starting 2019.</p>
+</div>
+<ul>
+<li>HPCC has many toolboxes installed. To see a list of installed
+    toolboxes and licenses, type</li>
+</ul>
+<pre><code>    hpc@dev-intel18:~&gt; module load powertools
+    hpc@dev-intel18:~&gt; licensecheck matlab
+    Checking Licenses for matlab
+    lmstat -a -c 27000@lm-02.i
+
+    Users of MATLAB:  (Total of 10000 licenses issued;  Total of 44 licenses in use)
+    Users of SIMULINK:  (Total of 10000 licenses issued;  Total of 1 license in use)
+    Users of Bioinformatics_Toolbox:  (Total of 10000 licenses issued;  Total of 0 licenses in use)
+    Users of Communication_Toolbox:  (Total of 10000 licenses issued;  Total of 0 licenses in use)
+
+    ......
+
+</code></pre>
+<h2 id="running-matlab-on-scratch-space">Running MATLAB on Scratch Space</h2>
+<p>It is strongly recommended that iCER users run programs on scratch
+space. This may improve the speed of job execution as well as the
+whole system's performance. MATLAB users should carefully check
+whether any temporary files involved in the program execution need
+to be stored in scratch space. For example, if you use the Matlab
+compiler to make a Matlab program into a standalone program, you
+need to set the environment variable MCR_CACHE_ROOT in the scratch
+directory with: <strong>export MCR_CACHE_ROOT=$SCRATCH</strong> before starting
+the execution. This line should be added to the your job script
+before the line where you specify the task you want to run. This
+setting will override the default setting by MATLAB Compiler
+Runtime. By default, a directory for temporary data cache used by
+the MATLAB Compiler Runtime is created at user's home directory
+$HOME. Without this setting, users may run into the situation that
+the program running on scratch space  frequently access to its cache
+space in the home space which will greatly slow down the execution
+of the code, and as well, may potentially slow down the whole system
+or even cause system instability.  </p>
+<h2 id="running-matlab-interactively">Running MATLAB Interactively</h2>
+<p>In this document, we refer to an interactive session as one that
+involves a user typing commands into the MATLAB command windows.</p>
+<h3 id="short-sessions-two-hours">Short Sessions (&lt; two hours)</h3>
+<ul>
+<li>ssh to one of the dev nodes and run Matlab:</li>
+</ul>
+<pre><code>    hpc@gateway:~&gt; ssh dev-intel16
+    Last login: Mon Dec  4 12:54:44 2017 from gateway
+    ===
+    This front-end node is not meant for running big or long-running jobs.  Jobs
+    that need to run longer than a few minutes should be submitted to the queue.
+    Long-running jobs on front-end nodes will be killed without warning.
+    ===
+    hpc@dev-intel16:~&gt; matlab -nodisplay
+</code></pre>
+<p>More information about running jobs interactively on compute nodes can be reviewed
+at <a href="../Interactive_Job/">Running Programs Interactively</a></p>
+<ul>
+<li>If you require graphics, please ensure that you have an Xserver
+    running. For Linux and MAC users,</li>
+</ul>
+<pre><code>    ssh -X username@hpcc.msu.edu
+</code></pre>
+<p>If you want graphics, but don't want the desktop, type</p>
+<pre><code>    hpc@dev-intel16:~&gt; matlab -nodesktop
+</code></pre>
+<p>Interactive MATLAB jobs running on development nodes are limited to
+a two hour wall time limit, and will be killed automatically afte
+two hours.</p>
+<h3 id="long-sessions-two-hours">Long Sessions (&gt; two hours)</h3>
+<p>Longer interactive sessions are possible, but are not recommended.
+Modify the following commands to suit your requirements.</p>
+<ul>
+<li>
+<p>If graphics are not required,</p>
+<div class="code panel pdl" style="border-width: 1px;">
+<div class="codeContent panelContent pdl">
+</li>
+</ul>
+<pre><code>    hpc@dev-intel18:-&gt; salloc --nodes=1 --ntasks=1 --cpus-per-task=1 --mem=2gb --time=04:00:00 
+
+
+    salloc: Granted job allocation 310982
+
+    salloc: Waiting for resource configuration
+
+    salloc: Nodes lac-376 are ready for job
+
+    hpc@dev-intel18:-&gt; matlab -nodisplay 
+</code></pre>
+<ul>
+<li>
+<p>If graphics are required, add the option "–x11" to the salloc
+    command:</p>
+<div class="code panel pdl" style="border-width: 1px;">
+<div class="codeContent panelContent pdl">
+</li>
+</ul>
+<pre><code>    hpc@dev-intel18:-&gt; salloc --nodes=1 --ntasks=1 --cpus-per-task=1 --mem=2gb --time=04:00:00 --x11
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The above commands submit a job to the cluster. If the resources are
+not immediately available, you will have to wait till the requested
+resources are available. Requesting a job for four hours or less
+will typically be scheduled relatively quickly. User may need to
+adjust the resources accordingly with the usage of the MATLAB
+program.</p>
+</div>
+<h2 id="running-matlab-non-interactively">Running MATLAB Non-Interactively</h2>
+<h3 id="short-jobs-two-hours">Short Jobs (&lt; two hours)</h3>
+<p>A short job could be run on develop node without open matlab command
+window. From a development node, type</p>
+<pre><code>hpc@dev-intel16:~&gt; matlab -nodisplay -r &quot;myMatlab&quot; &amp;
+</code></pre>
+<p>"myMatlab.m" will start running in background.</p>
+<h3 id="long-jobs-two-hours">Long Jobs (> two hours)</h3>
+<h4 id="single-matlab-job">Single MATLAB Job</h4>
+<p>To submit jobs to the cluster, a job script needs to be written. And
+submitted to the queue. The following<br />
+sample job script file can be modified to suit your needs:</p>
+<p>myJob.sbatch</p>
+<pre><code>#!/bin/bash -login
+#SBATCH --job-name=myJobName             # specify a job name
+#SBATCH --nodes=1 --ntasks=1 --cpus-per-task=1 --time=02:05:00 --mem=550mb      # specify the resources needed
+#SBATCH --license=matlab@27000@lm-02.i          # specify the license request
+
+cd $SLURM_SUBMIT_DIR                            # go to the directory where this job is submitted
+matlab -nodisplay -r &quot;myMatlab&quot;
+</code></pre>
+<ul>
+<li>myJobName is a string to make your job easier to identify it when
+    managing or monitoring your jobs.</li>
+<li>--nodes=1 because you are running one matlab client in the job. If
+    you want put multiple matlab run in a single job script, you may
+    request more nodes for the job.</li>
+<li>--cpus-per-task=1 here because the matlab script "MyMatlab.m" does
+    not use multi cores. If you are using multicore parallel, you may
+    need to request more cpus.</li>
+<li>02:05:00 is the number of hours:minutes:seconds your job needs to
+    run. If it runs longer than this, it will be killed. If you request
+    more time than you need, your job may be delayed while the scheduler
+    finds a time to run it. If you don't know how long your job needs,
+    you will have to make a guess and use the real running time to
+    improve this number on future runs. The maximum walltime that can be
+    requested is 168:00:00.</li>
+<li>--mem=550mb reserves 550 Maga bytes of total memory for the job. We
+    recommend user to serve at least 550mb for each session plus the
+    total size of data variables used in the computation. User could
+    click <a href="https://www.mathworks.com/support/requirements/matlab-parallel-server.html#:~:text=Minimum%20of%202%20GB%20RAM,to%20accommodate%20temporary%20data%20directories.">here</a> to see the recommendation of the matlab
+    requirement by Mathworks.</li>
+<li>myMatlab is the name of your matlab script without the .m extension</li>
+</ul>
+<p>Submit your job with:</p>
+<pre><code>hpc@dev-intel16:~&gt; sbatch myJob.sbatch
+</code></pre>
+<p>"myJob.sbatch" is the name of your job script as shown above.</p>
+<h2 id="using-the-matlab-parallel-computing-toolbox">Using the MATLAB Parallel Computing Toolbox</h2>
+<p>The MATLAB Parallel Computing Toolbox (PCT) provides users several
+parallel computing features. </p>
+<ul>
+<li>
+<p>Parallel for-loops (parfor) .  (User could run "module load
+    powertools; getexample MATLAB_parfor" to down load a directory
+    "MATLAB_parfor" which contains an example of using parpool and
+    parfor with "local" profile)</p>
+</li>
+<li>
+<p>Support GPU computing</p>
+</li>
+<li>
+<p>Offload computing from your laptop to HPCC cluster (with MATLAB
+    Distributed Computing Server) </p>
+</li>
+<li>
+<p>Distributed arrays and spmd (single-program-multiple-data) for large
+    dataset handling and data-parallel algorithms</p>
+<p>(1) One GPU card will be used for each worker. In order to use
+multiple GPUs, user need to use spmd capability that each instance
+of the program will use one card and multiple instances of the
+program take multiple cards.</p>
+<p>(2) If you use GPU capability, you need to have matlab run on a
+node with GPU. dev-intel14-k20, dev-intel16-k80 are the develop
+nodes with GPU. To request for GPU, use
+"–gres=gpu:\&lt;type>:\&lt;number>" to request certain number and type
+of GPU. "#SBATCH --gres=gpu:k20:1" is an example to request one k20
+GPU. Valid GPU type are k20, k80 and v100. Note that type is
+optional. But the number of GPU is necessary.</p>
+</li>
+</ul>
+<h2 id="using-the-matlab-parallel-server">Using the MATLAB Parallel Server</h2>
+<p>The MATLAB Parallel Server lets users solve computationally and
+data-intensive problems by executing MATLAB and Simulink based
+applications on the HPCC cluster and clouds. (see the <a href="https://www.mathworks.com/products/matlab-parallel-server.html">document</a> for
+more information). HPCC cluster has this produce installed.</p>
+<p>We recommend that users prototype their applications using the Parallel
+Computing Toolbox, and then scale up to a cluster using MATLAB Parallel
+Server. To scale up to cluster, user does not need to recode the
+program. User only need to change the profile of the cluster. </p>
+<h3 id="setup-and-validate-your-cluster-profile">Setup and validate your cluster profile</h3>
+<p>In this step you define a cluster profile to be used in subsequent
+steps.</p>
+<ol>
+<li>
+<p>Start the Cluster Profile Manager from the MATLAB desktop by
+    selecting on the Home tab in the Environment area Parallel > Create
+    and Manage Clusters. </p>
+</li>
+<li>
+<p>Create a new profile in the Cluster Profile Manager by selecting Add
+    Cluster Profile > Slurm.</p>
+</li>
+<li>
+<p>With the new profile selected in the list, click Rename to edit the
+    profile name, Press Enter.</p>
+</li>
+<li>
+<p>Select a profile in the list, click Edit to edit the profile
+    accordingly. After finishing editing, click Done to save the
+    profile.</p>
+</li>
+<li>
+<p>Click validation to validate the profile. The profile could be used
+    when it pass all the validation tests.</p>
+</li>
+</ol>
+<p>(1) Since we switch to SLURM scheduler, the command "configCluster"
+used to configure the cluster on HPCC no longer works. The class
+"ClusterInfo" does not work either.</p>
+<p>(2) Starting from version 2018a, MATLAB supports SLURM scheduler.
+Please refer to Mathworks' document for how to configure the cluster
+with SLURM scheduler
+<a href="https://www.mathworks.com/help/mdce/configure-parallel-computing-products-for-supported-third-party-schedulers-pbs-pro-platform-lsf-torque.html">here</a>.</p>
+<h2 id="using-the-matlab-thread-based-worker-pool">Using the MATLAB thread-based worker pool</h2>
+<p>Started from Matlab version R2020a, thread-based worker pool is
+introduced. Please refer to the <a
+href="https://www.mathworks.com/help/parallel-computing/parallel.threadpool.html"
+rel="nofollow">document<a> for
+more details. On HPCC, we provide our users an example showing how to
+use thread-base pool with parfor, as well as the comparison between
+process-based and thread-based pools. To obtain the example, module load
+"powertools" and "MATLAB/2020a", then run "getexample
+MATLAB_threadPool". </p>
+<h2 id="running-the-matlab2020a-on-amd-nodes">Running the MATLAB/2020a on AMD nodes</h2>
+<p>There is a bug in MATLAB/2020a that would lead to "segmentation fault"
+on AMD node associated with java virtual machine. The patch may be
+introduce in next release. If you find that the code works on other
+version but crashed in 2020a version, you may try the workaround that
+launch the matlab session without java virtual machine as the following:</p>
+<pre><code>hpc@eval-epyc19 ~]$ matlab -nodisplay -nojvm -r &quot;myExample&quot;
+</code></pre>
+<h2 id="running-the-matlab-on-intel14-nodes">Running the MATLAB on intel14 nodes</h2>
+<p>There is an existing problem of running some functions on Intel14
+nodes. If you run into 'Illegal instruction detected' error, please use
+a node of other type. Please add constrain to exclude intel14 type of
+compute nodes when submit to SLURM. For example:</p>
+<pre><code>#SBATCH --constraint=[intel16|intel18|amd20]
+</code></pre>
+<h2 id="using-the-matlab-with-python">Using the MATLAB with Python</h2>
+<p><a href="https://www.mathworks.com/campaigns/offers/matlab-python-cheat-sheets.html?s_v1=41575&amp;elqem=3644189_EM_NA_DIR_22-01_MOE-EDU&amp;elqTrackId=34b76d429da64510a62e451f34bee44d&amp;elq=2311bc59dea9450fa1d52bb1e3446db8&amp;elqaid=41575&amp;elqat=1&amp;elqCampaignId=15309">Here</a> is the link to the cheat sheets provided by the
+Mathworks for users' reference.</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+
+    <footer class="MSUwrapper light-background" id="MSUstandardFooter" role="contentinfo">
+        <!-- class ’light-background' sets link colors -->
+        <div class="fourMSUcolumns" id="standard-footer-MSU-wordmark">
+            <a href="http://www.msu.edu">
+                <!-- Use green MSU wordmark -->
+                <img alt="Michigan State University Wordmark" class="screen-msuwordmark"
+                    src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/msu-wordmark-green.png" height="47" width="221" />
+            </a>
+        </div>
+        <div class="twelveMSUcolumns">
+            <!-- change the css to using nth child instead of classes!!!!!!-->
+            <div id="standard-footer-site-links">
+                <ul>
+            <li><a href="http://icer.msu.edu/contact">Contact Information</a></li>
+            <li><a href="https://msu.edu/privacy">Privacy Policy</a></li>
+            <li><a href="https://msu.edu/accessibility">Site Accessibility</a></li>
+		</ul>
+            </div>
+            <div id="standard-footer-MSU-info">
+                <ul>
+    
+    
+                    
+                    <li>Call MSU: <span class="msu-phone"><strong>(517) 355-1855</strong></span></li>
+                    <li>Visit: <strong><a href="http://msu.edu">msu.edu</a></strong></li>
+                    <li>MSU is an affirmative-action, equal-opportunity employer.</li>
+                    <li><a href="http://oie.msu.edu/"><strong>Notice of Nondiscrimination</strong></a></li>
+                </ul>
+                <ul>
+                    <li class="spartans-will">Spartans Will.</li>
+                    <li>© Michigan State University</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f758a944.min.js"></script>
+      
+    
+  </body>
+</html>
