@@ -1778,6 +1778,68 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4._Conditional_statements/" class="md-nav__link">
+        Condtional statements
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12">
+          FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Frequently_Asked_Questions_FAQ_/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1824,113 +1886,42 @@ expansion, the arguments expands into something else before the shell
 acts on it with the command. Let's see an example with <strong>echo</strong> command.
 We already learned <strong>echo</strong> command in the previous section. As you
 know, echo prints out its text arguments on standard output.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">$ echo hello world!
 hello world!
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>Let's use <strong>echo</strong> with '*':</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">$ echo *
 hello.c hello.qsub hello.sb README
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>Instead of print '*', it prints out all file names in the directory
 because shell expands '*' into something else before the <strong>echo</strong>
 command acts to the argument (in this case '*').</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">$ ls
 hello.c hello.qsub hello.sb README
 
 $ echo h*
 hello.c hello.qsub hello.sb
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>'\~' is another special character with a special meaning. It expands
 into the name of the home directory of the user:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">$ echo ~
 $ temp_user_01
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>The shell allows arithmetic by expansion. Arithmetic expansion uses the
 form <strong>$((expression))</strong>. Look at the example.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">$ echo $((1 + 1))
 2
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>Please keep in mind that arithmetic expansions allows only integers.
 Arithmetic expression can be nested, and spaces are allowed.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">$ echo $(( 7*( 2 + 2 ) ))
 28
 $ echo $((7*(2+2)))
 28
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>Brace expansion is useful when you write a shell script or batch script.
 The brace expression can contain a comma separated list of characters,
 strings, or integers. Here is a few examples.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">$ echo srt-{a,b,c}-end
 srt-a-end srt-b-end srt-c-end
 
@@ -1943,19 +1934,8 @@ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
 $ echo a{A{1,5},B{6..10}}b
 aA1b aA5b aB6b aB7b aB8b aB9b aB10b
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>The next example is creating multiple directories with a brace
 expansion.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">$ mkdir Photos
 $ cd Photos/
 Photos$ mkdir {2020..2021}-{01..12}
@@ -1964,45 +1944,17 @@ Photos$ ls
 2020-02/  2020-04/  2020-06/  2020-08/  2020-10/  2020-12/  2021-02/  2021-04/  2021-06/  2021-08/  2021-10/  2021-12/
 Photos$
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>Expansion also allows us to use the output of a command.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">$ echo $(ls |grep 2020)
 2020-01/ 2020-02/ 2020-03/ 2020-04/ 2020-05/ 2020-06/ 2020-07/ 2020-08/ 2020-09/ 2020-10/ 2020-11/ 2020-12/
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>Next, let's learn how to control expansion. </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">$ echo This is a      test
 This is a test
 
 $ echo The total is $100.00
 The total is 00.00
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>In the first example, the shell removes extra space from the <strong>echo</strong>
 command's argument. In the second example, '$1' is interpreted the first
 input parameter which is not defined here, and therefore, it is replaced
@@ -2011,11 +1963,6 @@ as empty string. With quoting, we can suppress unwanted expansions.</p>
 quotes, all special characters lose their special meaning, and treated
 as ordinary characters. However "$" "\" (backslash) and "`" (back
 quote) are exceptions.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">$ echo &quot;This is a     test&quot;
 This is a     test
 
@@ -2025,19 +1972,8 @@ ls: cannot access words.txt: No such file or directory
 (base) dev-intel16-k80:shell$ ls &quot;two words.txt&quot;
 two words.txt
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>If you want to suppress all expansions, you need to use single quotes.
 Next three examples show how quoting give different results.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">$ echo text ~/*.txt {1..5} $(echo foo) $((2+2)) $(date)
 text /mnt/home/user_name/hostfile.txt /mnt/home/choiyj/powertools.txt 1 2 3 4 5 foo 4 Tue Jan 19 15:10:00 EST 2021
 
@@ -2046,20 +1982,9 @@ text ~/*.txt {1..5} foo 4 Tue Jan 19 15:10:09 EST 2021
 $ echo 'text ~/*.txt {1..5} $(echo foo) $((2+2)) $(date)'
 text ~/*.txt {1..5} $(echo foo) $((2+2)) $(date)
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>A backslash is useful when we wan to quote a single character. A
 backslash is called the escape character. Next example shows how quoting
 and an escape character work.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">$ echo The balance of $(date) is $100
 The balance of Tue Jan 19 15:15:36 EST 2021 is 00
 
@@ -2075,24 +2000,43 @@ The balance of Tue Jan 19 15:16:09 EST 2021 is $100
 $ echo 'The balance of $(date) is \$100'
 The balance of $(date) is \$100
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>The table show the most frequently used escape characters.</p>
-<div class="table-wrap">
-
-|                  |           |                                   |
-|------------------|-----------|-----------------------------------|
-| Escape Character | Name      | usage                             |
-| \\n              | newline   | Adding blank lines to text        |
-| \\t              | tab       | Inserting horizontal tabs to text |
-| \\a              | alert     | Making the user terminal beep     |
-| \\\\             | backslash | Inserting a backslash             |
-
-</div>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Escape Character</td>
+<td>Name</td>
+<td>usage</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>newline</td>
+<td>Adding blank lines to text</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>tab</td>
+<td>Inserting horizontal tabs to text</td>
+</tr>
+<tr>
+<td>\a</td>
+<td>alert</td>
+<td>Making the user terminal beep</td>
+</tr>
+<tr>
+<td>\\</td>
+<td>backslash</td>
+<td>Inserting a backslash</td>
+</tr>
+</tbody>
+</table>
 
               
             </article>
