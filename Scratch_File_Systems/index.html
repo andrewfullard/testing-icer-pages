@@ -540,8 +540,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#copying-files-between-file-systems" class="md-nav__link">
-    Copying Files between file systems
+  <a href="#copying-files-between-ls15-and-gs18" class="md-nav__link">
+    Copying Files between ls15 and gs18
   </a>
   
 </li>
@@ -700,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Mapping_HPC_drives_with_SSHFS/" class="md-nav__link">
+      <a href="../Mapping_HPC_drives_with_Samba/" class="md-nav__link">
         Mapping drives using Samba
       </a>
     </li>
@@ -714,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Mapping_HPC_drives_with_Samba/" class="md-nav__link">
+      <a href="../Mapping_HPC_drives_with_SSHFS/" class="md-nav__link">
         Mapping drives using SSHFS
       </a>
     </li>
@@ -1925,8 +1925,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#copying-files-between-file-systems" class="md-nav__link">
-    Copying Files between file systems
+  <a href="#copying-files-between-ls15-and-gs18" class="md-nav__link">
+    Copying Files between ls15 and gs18
   </a>
   
 </li>
@@ -1953,24 +1953,24 @@
 
 
 <h1 id="scratch-file-systems">Scratch File Systems</h1>
-<p>In addition to home and research file spaces, we have a high performance file system for
-temporary work called "scratch" available to users.</p>
-<p>The primary scratch system is 'gs21', which was installed in late 2021 and is based on IBM Spectrum Scale / GPFS. It has a capacity of 3 PB and is capable of up to 80 GB/s IO, and a 200 TB flash tier. It is connected to the HPCC by a high speed Infiniband network. </p>
-<p>The HPCC has two older scratch file systems that will be retired by 7/31/22. One (gs18) is installed in November 2018 and
+<p>In addition to home and research files, we have file systems for
+temporary work called "scratch" available to users.  Right now, HPCC has
+two scratch file systems. One (gs18) is installed in November 2018 and
 based on the IBM General Parallel File System (GPFS). It is fast and
-reliable and located at /mnt/gs18 with a capacity of 834 TB. The other
+reliable located at /mnt/gs18 with a capacity of 834 TB. The other
 (ls15) is installed in 2015 and based on Lustre file system (LFS). It is
 located at /mnt/ls15 with a capacity of 1.9 PB.  Both of them are housed
 in the new MSU data center and have a high speed network (infiniband)
 connection.</p>
 <p>Unlike the home and research directories, the scratch spaces are
-not intended for long-term storage and may have limited access on gateway systems. Files saved in the systems have no
+not intended for long-term storage and can not be accessed from the
+gateway node (except rsync gateway). Files saved in the systems have no
 back-up. Users should use it as a working space for temporary data file
 storage and save their results or data back to HOME or RESEARCH space
 after jobs finish running. Any file not modified in 45 days may be
 deleted to keep the system stable and available to all users. The quota
-of the space for each user is limited to 50 TB and 1
-million files. Research groups can also have their scratch folders
+of the space for each user is limited to total 50TB and less than 1
+Million files. Research groups can also have their scratch folders
 available. If you would like a folder for your research group please
 request one.  </p>
 <p>HPCC users can find their scratch spaces from the two paths: </p>
@@ -2000,7 +2000,7 @@ frequency I/O operations on a lot of small files</em>. For those type of
 jobs you can use gs18 or explore using
 <a href="../Local_File_Systems/">local file system</a>
 at $TMPDIR (/mnt/local) . Please
-contact us for more information if you find the scratch file systems are
+contact us for more information if you find the Scratch file system is
 too slow for your work.</p>
 <p>Because the scratch space is intended for job running, it cannot
 be accessed from the general gateway nodes. That is, after you log in to
@@ -2014,7 +2014,7 @@ use our file transfer gateway with the host
 name <strong><code>rsync.hpcc.msu.edu</code>.</strong> See
 <a href="../File_and_Data_Transfer/">Transferring Files to the HPCC</a>
 for more information.</p>
-<h3 id="copying-files-between-file-systems">Copying Files between file systems</h3>
+<h3 id="copying-files-between-ls15-and-gs18">Copying Files between ls15 and gs18</h3>
 <p>Users can copy files from ls15 to gs18 by 'cp' command:</p>
 <pre><code>$ cp -av /mnt/ls15/scratch/users/$USER /mnt/gs18/scratch/users/$USER
 </code></pre>
