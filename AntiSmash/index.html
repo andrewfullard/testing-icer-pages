@@ -1895,7 +1895,8 @@ conda config --set channel_priority strict
 conda create -n antismash
 conda activate antismash 
 
-# As of version 6.1, you need to install each of these programs first before install antismash or it never resolves
+# As of version 6.1, you need to install each of these 
+# programs first before install antismash or it never resolves
 conda install hmmer2
 conda install hmmer
 conda install diamond
@@ -1905,7 +1906,11 @@ conda install blast
 conda install muscle
 conda install glimmerhmm
 
-# Once the above installs have complete, this command will install antismash and update the versions of the above programs as needed. You may be asked to 'DOWNGRADE' diamon, hmmer, muslce, and some perl libraries; this is normal
+# Once the above installs have complete, this command will
+# install antismash and update the versions of the above programs # as needed. 
+# 
+# You may be asked to 'DOWNGRADE' diamond, hmmer, muslce, 
+# and some perl libraries; this is normal 
 conda install antismash
 
 # Test your install
