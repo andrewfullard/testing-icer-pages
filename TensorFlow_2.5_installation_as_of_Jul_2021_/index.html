@@ -1891,10 +1891,13 @@
 
 
 <h1 id="tensorflow-25-installation">TensorFlow 2.5 installation</h1>
-<p>Warning: CUDA version <code>&gt;= 11.1</code>is currently disabled on the HPCC GPU
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>CUDA version <code>&gt;= 11.1</code>is currently disabled on the HPCC GPU
 nodes. It'll be enabled again in Jan 2022 after system upgrade.
 Meanwhile, you can either install TF with a version older than 2.5 or
 use HPCC-installed TF (run "getexample TensorFlow_example").</p>
+</div>
 <p>To run <a href="https://github.com/tensorflow/tensorflow"
 rel="nofollow">TF-GPU</a> , we need to log into a GPU dev-node such as
 dev-amd20-v100.</p>
