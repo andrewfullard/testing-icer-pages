@@ -1175,6 +1175,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../AntiSmash/" class="md-nav__link">
+        AntiSMASH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Assembly_of_PacBio_long_reads_with_Canu/" class="md-nav__link">
         Assembly of PacBio long reads with Canu
       </a>
@@ -1616,43 +1630,10 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" type="checkbox" id="__nav_10_5" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_10_5">
-          COMSOL
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="COMSOL" data-md-level="2">
-        <label class="md-nav__title" for="__nav_10_5">
-          <span class="md-nav__icon md-icon"></span>
-          COMSOL
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
     <li class="md-nav__item">
       <a href="../COMSOL/" class="md-nav__link">
         COMSOL
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -1877,12 +1858,14 @@
 
 
 <h1 id="checkpoint-with-dmtcp">Checkpoint with DMTCP</h1>
-<p>!!! NOTE: 
-    To run DMTCP correctly, the limit of stack size could not be
-    "unlimited". To set it to a number n, run "ulimit -s n". For example,
-    "ulimit -s 8192" would set the stack size as 8192. User could also add
-    it into .bashrc file.  It should also be set in the job batch script, as
-    seen below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To run DMTCP correctly, the limit of stack size could not be
+"unlimited". To set it to a number n, run "ulimit -s n". For example,
+"ulimit -s 8192" would set the stack size as 8192. User could also add
+it into .bashrc file.  It should also be set in the job batch script, as
+seen below.</p>
+</div>
 <p>DMTCP (Distributed MultiThreaded Checkpointing) transparently
 checkpoints a single-host or distributed computation in user-space. It
 supports MPI (various implementations), OpenMP, MATLAB, Python, Perl, R,
