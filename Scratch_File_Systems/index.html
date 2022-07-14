@@ -1232,20 +1232,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../AntiSmash/" class="md-nav__link">
-        AntiSMASH
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../Assembly_of_PacBio_long_reads_with_Canu/" class="md-nav__link">
         Assembly of PacBio long reads with Canu
       </a>
@@ -1687,10 +1673,43 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" type="checkbox" id="__nav_10_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_5">
+          COMSOL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="COMSOL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_5">
+          <span class="md-nav__icon md-icon"></span>
+          COMSOL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../COMSOL/" class="md-nav__link">
         COMSOL
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1953,14 +1972,6 @@ reliable located at /mnt/gs18 with a capacity of 834 TB. The other
 located at /mnt/ls15 with a capacity of 1.9 PB.  Both of them are housed
 in the new MSU data center and have a high speed network (infiniband)
 connection.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>A new scratch system (gs21) is install on June 2022 and will replace
-the old scratch system (gs18 and ls15). By July 31 2022, old scratch space
-will be retuired and not accessible. Users are requested to migrate their
-files from old scratch system to new scratch system before ls15 and gs18
-become unavailable. </p>
-</div>
 <p>Unlike the home and research directories, the scratch spaces are
 not intended for long-term storage and can not be accessed from the
 gateway node (except rsync gateway). Files saved in the systems have no
@@ -1972,10 +1983,6 @@ of the space for each user is limited to total 50TB and less than 1
 Million files. Research groups can also have their scratch folders
 available. If you would like a folder for your research group please
 request one.  </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>New scratch system gs21 has the same quota and purge policies enforced as on gs18 and ls15.</p>
-</div>
 <p>HPCC users can find their scratch spaces from the two paths: </p>
 <p>ls15 scratch : <strong><code>/mnt/ls15/scratch/users/$USER</code> </strong> (or use
 variable<code>$SC15</code>)</p>
@@ -1984,13 +1991,6 @@ variable<code>$SC18</code>or<code>$SCRATCH</code>) or the shortcut<strong> 
 <code>/mnt/scratch/$USER</code></strong>  </p>
 <p>where <code>$USER</code> is the system variable of your HPCC user id. Users can run
 "quota" command to check the usage limit of their two spaces.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>New gs21 scratch space can be found at
-<code>/mnt/gs21/scratch/$USER</code>(or use
-variable <code>$SCRATCH</code> or the shortcut<strong> 
-<code>/mnt/scratch/$USER</code></strong> after old scratch system retired).</p>
-</div>
 <p>To find out files in the scratch space almost getting purged, users
 can run the following commands:</p>
 <pre><code class="language-bash">find $SC18 -type f -mtime +40
@@ -2031,18 +2031,13 @@ for more information.</p>
 <p>or 'rsync' command:</p>
 <pre><code>$ rsync -av /mnt/ls15/scratch/users/$USER/ /mnt/gs18/scratch/users/$USER/
 </code></pre>
-<p>rsync can be restarted and won't recopy files if you have to stop it or
+<p>rsync can be restarted and won't recopy files if you have to stop if or
 if it fails/interrupted during the copy.</p>
 <p>You can do this from any dev node. If you have many files this
 will take a long time so please plan to have your computer open during
 that time or use virtual terminal (such as screen). We are happy to help
 if you have any concerns or difficulty.  Please contact or visit us
 during office hours Mondays 1-2pm or Thursdays 1-2pm 1440 BPS building.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The methods used to copy files bewteen ls15 and gs18 mentioned above could be
-used to migrate files from old scatch system (ls15 and gs18) to new scratch (gs21).</p>
-</div>
 <h3 id="change-default-scratch">Change Default SCRATCH</h3>
 <hr />
 <p>If your scripts depend on the $SCRATCH variable to point to the
@@ -2052,12 +2047,6 @@ ls15 scratch, as an immediate measure you can change it the value:</p>
 <p>We don't recommend this. (We recommend copying your files to gs18 or use
 $SC15 instead.) However, if your transition to ls15 takes a long time,
 you could add this command to your scripts or when you log-in.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>After migrating files from old scratch systems to the new scratch system, users may want
-to check if they have used any variables in their script files to point to the old
-scratch system and make the proper update to point to the new scratch system. </p>
-</div>
 
               
             </article>

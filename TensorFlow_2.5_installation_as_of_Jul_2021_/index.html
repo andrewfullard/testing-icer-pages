@@ -1177,20 +1177,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../AntiSmash/" class="md-nav__link">
-        AntiSMASH
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../Assembly_of_PacBio_long_reads_with_Canu/" class="md-nav__link">
         Assembly of PacBio long reads with Canu
       </a>
@@ -1644,10 +1630,43 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" type="checkbox" id="__nav_10_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_5">
+          COMSOL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="COMSOL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_5">
+          <span class="md-nav__icon md-icon"></span>
+          COMSOL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../COMSOL/" class="md-nav__link">
         COMSOL
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1872,13 +1891,10 @@
 
 
 <h1 id="tensorflow-25-installation">TensorFlow 2.5 installation</h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>CUDA version <code>&gt;= 11.1</code>is currently disabled on the HPCC GPU
+<p>Warning: CUDA version <code>&gt;= 11.1</code>is currently disabled on the HPCC GPU
 nodes. It'll be enabled again in Jan 2022 after system upgrade.
 Meanwhile, you can either install TF with a version older than 2.5 or
 use HPCC-installed TF (run "getexample TensorFlow_example").</p>
-</div>
 <p>To run <a href="https://github.com/tensorflow/tensorflow"
 rel="nofollow">TF-GPU</a> , we need to log into a GPU dev-node such as
 dev-amd20-v100.</p>
