@@ -1927,77 +1927,34 @@ commands right away to check if there is any error in your work flow. To
 use the interactive mode with resources more than the limit imposed on
 the dev nodes, HPCC users can submit an interactive job using <strong>salloc</strong>
 or <strong>srun</strong> command with options of resource requests.</p>
-<div class="toc-macro">
-
-\[ [salloc command](#InteractiveJob-salloccommand) \] \[ [salloc and
-GPUs](#InteractiveJob-sallocandGPUs) \] \[ [srun
-command](#InteractiveJob-sruncommand) \] \[ [Job with graphical
-application](#InteractiveJob-Jobwithgraphicalapplication) \]
-
-</div>
-
+<p><a href="#salloc-command">salloc command</a></p>
+<p><a href="#salloc-and-gpus">salloc and GPUs</a></p>
+<p><a href="#srun-command">srun command</a></p>
+<p><a href="#job-with-graphical-application">Job with graphical application</a></p>
 <h3 id="salloc-command">salloc command</h3>
 <p>For <strong>salloc</strong>, the command line</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">salloc -N 1 -c 2 --time=1:00:00
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>will allocate a job with resources of 1 node, 2 cores and walltime 1
 hour. The execution will first wait until the job controller can provide
 the resources.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">[username@dev-intel18 WorkDir]$ salloc -N 1 -c 2 --time=1:00:00
 salloc: Required node not available (down, drained or reserved)
 salloc: job 7625 queued and waiting for resources
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>Once that happens, the terminal will be transported to a command prompt
 on a compute node assigned to the job.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">[username@dev-intel18 WorkDir]$ salloc -N 1 -c 2 --time=1:00:00
 salloc: Required node not available (down, drained or reserved)
 salloc: job 7625 queued and waiting for resources
 salloc: job 7625 has been allocated resources
 [username@test-skl-000 WorkDir]$
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>where "<strong>test-skl-000</strong>" after the symbol <strong>@</strong> is the name of the
 assigned compute node.</p>
 <h3 id="salloc-and-gpus">salloc and GPUs</h3>
 <p>GPUs requested for an interactive job can now be used without submitting
 an additional srun.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">[username@dev-intel18 ~]$ salloc --gres=gpu:1 --time=1:00:00
 salloc: Pending job allocation 14884030
 salloc: job 14884030 queued and waiting for resources
@@ -2024,31 +1981,14 @@ Mon Apr  8 10:26:41 2019
 |  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
 </code></pre>
-
-
-</div>
-
-</div>
-
 <h3 id="srun-command">srun command</h3>
 <p>A similar way can also be used with <strong>srun</strong> command:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">[username@dev-intel18 WorkDir]$ srun -N 4 --ntasks-per-node=2 -t 00:60:00 --mem-per-cpu=1000M --pty /bin/bash
 srun: Required node not available (down, drained or reserved)
 srun: job 7636 queued and waiting for resources
 srun: Granted job allocation 7636
 [username@test-skl-000 WorkDir]$ 
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>As we can see, the specification "<strong>--pty /bin/bash</strong>" is required for
 <strong>srun</strong> command to request an interactive mode. Any command executed in
 this kind of interactive jobs will be launched parallelly with the
@@ -2064,15 +2004,10 @@ using Mac Terminal, you must have Xquartz installed, and you must use
 the "-X" parameter to allow x11 forwarding when connecting to a dev node
 prior to running the salloc command.    The other option is to first log
 into our web-based remote desktop, and run the terminal there.    See
-<a href="Web_Site_Access_to_HPCC">Web Site Access to HPCC</a> for GUI software.  
+<a href="../Web_Site_Access_to_HPCC/">Web Site Access to HPCC</a> for GUI software.  
 If you are on Windows and using Moba Xterm to log in, these instructions
 will work with our with the "-X" parameter.  Putty does not support X11
 and so this will not work with putty. </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">[username@gateway-03 ~]$ ssh -X dev-intel18
 [username@dev-intel18 ~]$ cd WorkdDir  # this is optional, but you may want to select your work directory, for example
 [username@dev-intel18 WorkDir]$ salloc --ntasks=1 --cpus-per-task 2 --time 00:30:00 --x11
@@ -2084,21 +2019,8 @@ salloc: Nodes css-076 are ready for job
 MATLAB is selecting SOFTWARE OPENGL rendering.
 Opening log file:  /mnt/home/username/java.log.7159
 </code></pre>
-
-
-</div>
-
-</div>
-
-<p><img src="attachments/20119770/20119780.png"
-data-image-src="attachments/20119770/20119780.png"
-data-unresolved-comment-count="0" data-linked-resource-id="20119780"
-data-linked-resource-version="1" data-linked-resource-type="attachment"
-data-linked-resource-default-alias="image2018-7-30_14-57-8.png"
-data-base-url="https://wiki.hpcc.msu.edu"
-data-linked-resource-content-type="image/png"
-data-linked-resource-container-id="20119770"
-data-linked-resource-container-version="14" height="400" /></p>
+<p><img alt="img!" src="../attachments/20119770/20119780.png" /></p>
+<!--
 <div class="pageSectionHeader">
 
 ## Attachments:
@@ -2115,6 +2037,7 @@ data-linked-resource-container-version="14" height="400" /></p>
 (image/png)  
 
 </div>
+-->
 
               
             </article>
