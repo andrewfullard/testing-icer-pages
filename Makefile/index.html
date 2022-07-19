@@ -1888,9 +1888,12 @@
 <h1 id="makefile">Makefile</h1>
 <p>Makeifles are a simple way to organize code compilation. This tutorial
 offers a very basic idea of what is possible using <em>make</em>. For this
-tutorial, please download three files, a main program (hello.c), a
-functional code (hellofunc.c), and an include file
-(hello.h)<strong> [<a href="attachments/53411845/53411850.c"
+tutorial, please download three files, 
+a main program <a href="../attachments/53411845/53411850.c">hello.c</a>, 
+a functional code <a href="../attachments/53411845/53411852.c">hellofunc.c</a>, 
+and an include file <a href="../attachments/53411845/53411851.h">hello.h</a> under the 'hello' directory.</p>
+<!--
+** \[<a href="attachments/53411845/53411850.c"
 data-linked-resource-id="53411850" data-linked-resource-version="1"
 data-linked-resource-type="attachment"
 data-linked-resource-default-alias="hello.c"
@@ -1908,22 +1911,12 @@ data-linked-resource-type="attachment"
 data-linked-resource-default-alias="hello.h"
 data-linked-resource-content-type="application/octet-stream"
 data-linked-resource-container-id="53411845"
-data-linked-resource-container-version="19">hello.h</a>]</strong> under the
-'hello' directory.</p>
+data-linked-resource-container-version="19">hello.h</a>\]** 
+-->
+
 <p>To compile these codes, you would use the following command:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">gcc -o hello hello.c hellofunc.c -I.
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>This command compiles the two c files, and names the executable
 <strong>hello</strong>. With the '-I.' flag, gcc will look in the current directory
 for the include file 'hello.h'. With only two .c files, it is easy to
@@ -1934,20 +1927,9 @@ time-consuming and inefficient.</p>
 <p>So it is time to learn how makefile will be helpful for such cases.
 First, create a file which has the following two lines. (The filename
 should be makefile or Makefile), and put it under the 'hello' directory.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">hello: hello.c hellofunc.c
       gcc -o hello hello.c hellofunc.c -I.
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>Now, type <strong>make</strong> on the terminal and check if the executable is
 created. The <strong>make</strong> command will execute the compile command as you
 have written it in the makefile. Note that make with no arguments
@@ -1960,22 +1942,11 @@ do not work!). There must be a tab at the beginning of any command,
 otherwise, you will get a lot of errors.</p>
 <p>Can we make it a little bit more efficient? Let's modify our makefile as
 following:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">CC=gcc 
 CFLAGS=-I.
 hello: hello.o hellofunc.o
     $(CC) -o hello hello.o hellofunc.o
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>In this <strong>makefile</strong>, we define CC and CFLAGS, which are special macros
 communicating to <strong>make</strong> how we want to compile the files hello.c and
 hellofunc.c. In particular, CC is for the C compiler, and CFLAGS is the
@@ -1986,15 +1957,10 @@ build the executable <strong>hello</strong>.</p>
 <p>If your project is small, like consisting of a few separate codes, this
 form of makefile is enough to handle the set of codes. However, this
 makefile misses include files. For example, if you made a change to
-'hello.h' <strong>make</strong> would not recompile the .c files, even though they
+'hello.h', <strong>make</strong> would not recompile the .c files, even though they
 needed to be. In order to fix this problem, we need to tell <strong>make</strong>
 that all .c files depend on certain .h files. It can be done by writing
 a simple rule and adding it to the <strong>makefile</strong>.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">CC=gcc
 CFLAGS=-I.
 DEPS = hello.h
@@ -2005,12 +1971,6 @@ DEPS = hello.h
 hello: hello.o hellofunc.o 
     $(CC) -o hello hello.o hellofunc.o
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>This addition first creates the macro DEPS (the macro name does not have
 to be DEPS. You can use any name.), which is the set of .h files on
 which the .c files depend. Then we define a rule for all .o files. The
@@ -2019,18 +1979,13 @@ which are included in the DEPS. Next, the rule says that to generate the
 .o file, make needs to compile the .c file using the compiler defined in
 the <strong>CC</strong>. The <strong>-c</strong> flag says to generate the object file, the <strong>-o
 $@</strong> says to put the output of the compilation in the file named on the
-left side of the <strong>:</strong>, the <strong>$\&lt;</strong> is the first item in the
+left side of the <strong>:</strong>, the <strong>$&lt;</strong> is the first item in the
 dependencies list, and the <strong>CFLAGS</strong> macro is defined on the 2nd line.</p>
 <p>For the simplification, you can use special macros <strong>$@</strong> and <strong>$^</strong>,
 which are the left and right sides of the <strong>:</strong>, respectively, to make
 the overall compilation rule more general. In the example below, all of
 the include files should be listed as part of the macro DEPS, and all of
 the object files should be listed as part of the macro OBJ.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
 <pre><code class="language-bash">CC=gcc
 CFLAGS=-I.
 DEPS = hello.h
@@ -2042,27 +1997,14 @@ OBJ = hello.o hellofunc.o
 hello: $(OBJ)
     $(CC) -o $@ $^ $(CFLAGS)
 </code></pre>
-
-
-</div>
-
-</div>
-
 <p>Now you have a good sense of makefile. For more information on makefiles
-and the make function, check out the
-<a href="http://www.gnu.org/software/make/manual/make.html"
-rel="nofollow">GNU Make Manual</a>, which will tell you everything on
+and the make function, check out the <a href="http://www.gnu.org/software/make/manual/make.html">GNU Make Manual</a>, which will tell you everything on
 makefile.</p>
 <p>You can download some makefile examples using
-<a href="https://wiki.hpcc.msu.edu/display/ITH/getexample"
-rel="nofollow">getexample</a> in our HPC.</p>
-<div class="pageSectionHeader">
-
+<a href="https://wiki.hpcc.msu.edu/display/ITH/getexample">getexample</a> in our HPCC.</p>
+<!--
 ## Attachments:
 
-</div>
-
-<div class="greybox" align="left">
 
 <img src="images/icons/bullet_blue.gif" width="8" height="8" />
 [hello.c](attachments/53411845/53411850.c) (application/octet-stream)  
@@ -2076,7 +2018,7 @@ rel="nofollow">getexample</a> in our HPC.</p>
 <img src="images/icons/bullet_blue.gif" width="8" height="8" />
 [makefile](attachments/53411845/53411855) (application/octet-stream)  
 
-</div>
+-->
 
               
             </article>
