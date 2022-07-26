@@ -753,6 +753,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../User_Created_Modules/" class="md-nav__link">
+        User created modules
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1586,62 +1600,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#managing-conda" class="md-nav__link">
-    Managing conda
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#managing-environments" class="md-nav__link">
-    Managing Environments
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#managing-python" class="md-nav__link">
-    Managing Python
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#managing-packages" class="md-nav__link">
-    Managing Packages
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installing-packages" class="md-nav__link">
-    Installing Packages
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installing-a-package-with-pip" class="md-nav__link">
-    Installing a Package with pip
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installing-commercial-packages" class="md-nav__link">
-    Installing Commercial Packages
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#removing-packages-environments-or-conda" class="md-nav__link">
-    Removing Packages, Environments, or conda
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2064,62 +2022,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#managing-conda" class="md-nav__link">
-    Managing conda
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#managing-environments" class="md-nav__link">
-    Managing Environments
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#managing-python" class="md-nav__link">
-    Managing Python
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#managing-packages" class="md-nav__link">
-    Managing Packages
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installing-packages" class="md-nav__link">
-    Installing Packages
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installing-a-package-with-pip" class="md-nav__link">
-    Installing a Package with pip
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installing-commercial-packages" class="md-nav__link">
-    Installing Commercial Packages
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#removing-packages-environments-or-conda" class="md-nav__link">
-    Removing Packages, Environments, or conda
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2216,26 +2118,25 @@ the command:</p>
 for the setup and the start-up of your Anaconda.</p>
 <h2 id="module-setup-for-anaconda">Module Setup for Anaconda</h2>
 <p>In order to have no conflict between user-installed Anaconda and
-system-installed Python versions, a setup in the $HOME/.bashrc file for
-module system is necessary. The .bashrc file under your home directory
+system-installed Python versions, a setup in the <code>$HOME/.bashrc</code> file for
+module system is necessary. The <code>.bashrc</code>file under your home directory
 can be used to do environment setting for every time you log in to a
-HPCC node. You can modify the file by an editor program (such as, nano,
-vim, ...) for Anaconda setup:</p>
+HPCC node. You can modify the file by an editor program (such as nano,
+vim) for Anaconda setup:</p>
 <ul>
 <li>
 <p>Please check if any conda initialization or setup script is in the
     <code>~/.bashrc</code> file. The script starts with <code># &gt;&gt;&gt; conda init &gt;&gt;&gt;</code> and
     ends with <code># &lt;&lt;&lt; conda init &lt;&lt;&lt;</code>:</p>
-<pre><code>```
-# &gt;&gt;&gt; conda init &gt;&gt;&gt;
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup= ... ...
+<p>```</p>
+<h1 id="conda-init">&gt;&gt;&gt; conda init &gt;&gt;&gt;</h1>
+<h1 id="contents-within-this-block-are-managed-by-conda-init">!! Contents within this block are managed by 'conda init' !!</h1>
+<p>__conda_setup= ... ...
 ... ...
 ... ...
-unset __conda_setup
-# &lt;&lt;&lt; conda init &lt;&lt;&lt;
-```
-</code></pre>
+unset __conda_setup</p>
+<h1 id="conda-init_1">&lt;&lt;&lt; conda init &lt;&lt;&lt;</h1>
+<p>```</p>
 <p>If there is, please remove or comment all of the command lines out
 (by adding the sign "<code>#</code>" in its front). If there is any <code>export</code>
 command line to add the installed Anaconda bin path to <code>PATH</code>
@@ -2246,10 +2147,7 @@ environment variable, please also comment it out.</p>
     can skip this step and go to the next one. If not, please set the
     variable <code>CONDA3PATH</code> to be the place of installed Anaconda3 by
     adding the command line:</p>
-<pre><code>```
-export CONDA3PATH=&lt;your installed Anaconda3 path&gt;
-```
-</code></pre>
+<p><code>export CONDA3PATH=&lt;your installed Anaconda3 path&gt;</code></p>
 <p>in the <code>~/.bashrc</code> file. If you have Anaconda2 installed, you may set
 the variable <code>CONDA2PATH</code> to be the installed path of Anaconda2.
 After the environment setup, please save the <code>~/.bashrc</code> file. Log
@@ -2257,10 +2155,7 @@ out and log into a dev node.</p>
 </li>
 <li>
 <p>Whenever you want to use Anaconda3 commands, just run:</p>
-<pre><code>``` bash
-module load Conda/3
-```
-</code></pre>
+<p><code>module load Conda/3</code></p>
 <p>to initiate conda and <code>CONDA3PATH</code> is in your <code>PATH</code> variable.
 Loading the module will also replace any loaded Python module so
 there is no conflict. If <code>CONDA2PATH</code> variable is set up, please
@@ -2269,10 +2164,7 @@ load <code>Conda/2</code> module for using Anaconda2.</p>
 <li>
 <p>If you would like to have your installed Anaconda3 to be the default
     Python program when your session starts up, you can add the command:</p>
-<pre><code>``` bash
-module load Conda/3 2&gt; /dev/null
-```
-</code></pre>
+<p><code>module load Conda/3 2&gt; /dev/null</code></p>
 <p>to the  <code>~/.bashrc</code> file after <code>export CONDA3PATH=...</code> command
 line. Using Conda module can also avoid a conflict with Web-based
 Remote Desktop gateway. If anaconda2 is installed, you can use

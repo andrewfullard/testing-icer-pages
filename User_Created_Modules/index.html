@@ -13,7 +13,7 @@
     
     
       
-        <title>User Created Modules - MSU HPCC User Documentation</title>
+        <title>User created modules - MSU HPCC User Documentation</title>
       
     
     
@@ -114,7 +114,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                User Created Modules
+                User created modules
               
             </span>
           </div>
@@ -717,12 +717,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
       
       
       
@@ -748,6 +750,30 @@
       <a href="../How_to_find_and_load_software_modules/" class="md-nav__link">
         Loading software modules
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        User created modules
+      </a>
+      
     </li>
   
 
@@ -1935,22 +1961,11 @@
 
 
 <h1 id="user-created-modules">User Created Modules</h1>
+<p><em>This is for advanced usage, since creating your own module files for software access is usually not necessary.</em></p>
 <p>If you develop or install your own software, you might consider writing
-a modulefile to help manage your environment variables. HPCC presently
+a <em>modulefile</em> to help manage your environment variables. HPCC presently
 uses the LMOD module package, developed at TACC. The following is a
-typical module file with comments. Name your files with a .lua extension</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**/mnt/home/ongbw/modulefiles/mymodule.lua**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
+typical module file with comments. Name your files with a <code>.lua</code> extension.</p>
 <pre><code class="language-bash">-- -*- lua -*- 
  help( 
  [[ 
@@ -1977,16 +1992,6 @@ style="border-bottom-width: 1px;">
  -- add include paths 
  prepend_path('INCLUDE',pathJoin(install_path,&quot;include&quot;))
 </code></pre>
-
-
-</div>
-
-</div>
-
-<p>To use your module file, type</p>
-<p><img src="plugins/servlet/confluence/placeholder/unknown-macro"
-class="wysiwyg-unknown-macro" /></p>
-<p>(where the lua extension is dropped from the module_name)</p>
 
 
   
