@@ -1053,9 +1053,47 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Scavenger Queue
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Scavenger Queue
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scheduling" class="md-nav__link">
+    Scheduling
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2018,6 +2056,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scheduling" class="md-nav__link">
+    Scheduling
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2031,14 +2091,23 @@
 
 
 <h1 id="scavenger-queue">Scavenger Queue</h1>
-<p>The scavenger queue allows users to run preemptable jobs on idle cores.</p>
-<p>With few exceptions, each researcher using the HPCC is limited in the number of jobs or cores they can run at one time. Annually, non-buyin users are limited in the total number of CPU and GPU hours they can use. <strong>These limits do not apply to jobs submitted to the scavenger queue</strong>. Jobs in this queue can start on resources that would otherwise be left idle, improving research throughput. Similar to jobs submitted to the general-long queue, these jobs can request up to a 7-day wall time; however, jobs in the scavenger queue may be interrupted if resources are required for other non-scavenger jobs. The default behavior for interrupted jobs is to be re-queued, but users can opt for cancellation if it is more conducive to their workflow. We recommend that only users who can checkpoint and restart or have a workflow implemented that can manage jobs being canceled or requeued use this queue.</p>
+<p>The scavenger queue allows users to run preemptible jobs on idle cores. Jobs in the scavenger queue may be interrupted if resources are required for other non-scavenger jobs.</p>
+<p>With few exceptions, each researcher using the HPCC is limited in the number of jobs or cores they can run at one time. Annually, non-buyin users are limited in the total number of CPU and GPU hours they can use. <strong>These limits do not apply to jobs submitted to the scavenger queue</strong>. Jobs in this queue can start on resources that would otherwise be left idle, improving research throughput. Similar to jobs submitted to the general-long queue, these jobs can request up to a 7-day wall time. The default behavior for interrupted jobs is to be re-queued, but users can opt for cancellation if it is more conducive to their workflow. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We recommend that only users who can checkpoint and restart or have a workflow implemented that can manage jobs being canceled or requeued use this queue.</p>
+</div>
+<h2 id="usage">Usage</h2>
 <p>To use the scavenger queue, add the following line to your job script:</p>
 <pre><code>#SBATCH --qos=scavenger
 </code></pre>
 <p>To prevent your job from requeuing automatically if interrupted, add the following line to your job script:</p>
 <pre><code>#SBATCH --no-requeue
 </code></pre>
+<p>The scavenger queue is not affected by the amount of wall time requested in your job script, e.g. 24 hours wall time is treated with the same scavenger queue priority as 4 hours wall time.</p>
+<p>Scavenger queue jobs will be automatically assigned to the <code>scavenger</code> account, regardless of the <code>-A</code> setting in your job script.</p>
+<h2 id="scheduling">Scheduling</h2>
+<p>The scavenger queue runs using the backfill scheduler (see <a href="../How_Jobs_are_Scheduled/">How Jobs are Scheduled</a>). Job scheduling may take on the order of minutes to occur, depending on the current load on the HPCC. Scavenger queue jobs run for a minimum of 1 minute before they can be preempted, but typically scavenger queue jobs run for approximately 1 hour before preemption.</p>
 
 
   
