@@ -2150,7 +2150,7 @@ installation instruction. And Linux installers are available
 from <a href="https://www.anaconda.com/download/#linux"
 rel="nofollow">https://www.anaconda.com/download/#linux</a></p>
 <p>Note:</p>
-<p>1) Always choose the 64-bit version for use on HPCC.</p>
+<p>1) Choose 64-Bit (x86) Installer.</p>
 <p>2) Version 2 or 3? You should choose python2 or python3 depending on
 what your software requirements are.  Some libraries/packages only work
 on Python 2 so you should check with the python package you ultimately
@@ -2158,13 +2158,12 @@ want to use.  If you don't know, select the latest version 3. </p>
 <p>3) Anaconda now partners with Microsoft and asks if you want to install
 "VSCode"  THIS WILL NOT WORK.  The installation requires administrative
 privileges that you don't have.  </p>
-<p>You can download directly into your home directory by first getting the
+<p>You can download the install file directly into your home directory by first getting the
 URL of the download (right-click on the download link and select "copy
-link address" or "copy link location").  Then open a terminal to the
-HPCC, and use this command <code>curl -O</code></p>
-<p>Once the installer with a file name <code>Anaconda-&lt;version&gt;-x86_64.sh</code> is
-downloaded, you can run the command: </p>
-<p><code>bash Anaconda--x86_64.sh</code></p>
+link address" or "copy link location").  Then open a terminal to log onto a dev-node, and use this command:</p>
+<p><code>curl -O &lt;download link&gt;</code> # link example: https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh</p>
+<p>Once the file <code>Anaconda3-2022.05-Linux-x86_64.sh</code> is downloaded, you can run the command: </p>
+<p><code>bash Anaconda3-2022.05-Linux-x86_64</code></p>
 <p>During Installation the installer will ask you</p>
 <ol>
 <li>Accept licence agreement : you must type yes to agree.  We can not
