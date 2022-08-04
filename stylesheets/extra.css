@@ -89,9 +89,9 @@ a {
   border-right: 1px solid #18453b;
 }
 
-#MSUstandardFooter.light-background #standard-footer-site-links ul li:nth-child(2) a {
+/* #MSUstandardFooter.light-background #standard-footer-site-links ul li:nth-child(2) a {
   border-left: 1px solid #18354b;
-}
+} */
 
 #MSUstandardFooter.dark-background #standard-footer-site-links{
   color: #fff;
@@ -275,3 +275,51 @@ If the margin is set differently for your site, fix the margin here to reflect t
   display: none;
 }
 
+@media only screen and (max-width: 950px) {
+  .MSUwrapper{
+    display: block !important;
+  }
+  ul{
+    display: block !important;
+  }
+  #standard-footer-site-links li a{
+    display: inline-block !important;
+  }
+  .fourMSUcolumns{
+    display: block;
+    margin-left: auto;
+    margin-right: auto !important;
+    /* width: 50% !important; */
+    transform: scale(1.5);
+    margin-bottom: 20px;
+  }
+  #MSUstandardFooter #standard-footer-site-links{
+    margin-bottom: 20px;
+    white-space: normal;
+    padding-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #MSUstandardFooter #standard-footer-site-links ul{
+    border-bottom: None;
+  }
+  #MSUstandardFooter #standard-footer-site-links ul li{
+    display: flex !important;
+    margin-bottom: 3px;
+    margin-left: auto;
+    
+    margin-right: auto;
+    text-align: center;
+    width: 100%;
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+  }
+  #MSUstandardFooter.light-background #standard-footer-site-links a{
+    border: none;
+  }
+
+  #MSUstandardFooter #standard-footer-MSU-info{
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
