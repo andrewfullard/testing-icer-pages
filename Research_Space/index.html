@@ -2148,12 +2148,12 @@ form or an increase beyond 1TB for an annual fee by submitting a
 form. Use the 
 <strong><code>quota</code></strong>
 command to check a research group's current space and file quotas.</p>
-<pre><code class="language-bash">$ quota
+<div class="highlight"><pre><span></span><code>$ quota
 Research Groups: Space    Space   Space     Space     Files     Files     Files     Files        
                  Quota    Used    Available % Used    Quota     Used      Available % Used
 -----------------------------------------------------------------------------------------------
-&lt;groupname&gt;      4096G    3733G   363G      91%       2097152   432525    1664627   21%
-</code></pre>
+&lt;groupname&gt;      4096G    3733G   363G      <span class="m">91</span>%       <span class="m">2097152</span>   <span class="m">432525</span>    <span class="m">1664627</span>   <span class="m">21</span>%
+</code></pre></div>
 <p>The group's research space is associated with an assigned group name and is located at
 <strong><code>/mnt/research/&lt;groupname&gt;</code></strong> 
 by default. It is accessible to all users who have been added to the group by the PI. Memebers of the group must set their user file mode creation mask and file permissions correctly such that the other group members have the appropriate access to the shared files in the research space. See the section 
@@ -2174,11 +2174,11 @@ and the set-group-ID (setgid) bit set to
 <code>/mnt/research/&lt;groupname&gt;</code>
 is set with the correct group ownership and setgid bit. To check the group ownership and setgid bit of a directory within the research space use the 
 <code>ls -ld &lt;path/to/directory&gt;</code>
-command.</p>
-<pre><code class="language-bash">$ ls -ld /mnt/research/&lt;groupname&gt;/&lt;subdirectory&gt;
-drwxrws--- 9 &lt;username&gt; &lt;groupname&gt; 8192 Jul 22 08:38 /mnt/research/&lt;groupname&gt;/&lt;subdirectory&gt;
-</code></pre>
-<p>The letter 
+command.
+<div class="highlight"><pre><span></span><code>$ ls -ld /mnt/research/&lt;groupname&gt;/&lt;subdirectory&gt;
+drwxrws--- <span class="m">9</span> &lt;username&gt; &lt;groupname&gt; <span class="m">8192</span> Jul <span class="m">22</span> <span class="m">08</span>:38 /mnt/research/&lt;groupname&gt;/&lt;subdirectory&gt;
+</code></pre></div>
+The letter 
 <code>s</code>
 in the permissions <code>drwxrws---</code> of the directory is the setgid bit which makes newly created sub-directories and files within inherit the group ownership of the parent directory rather than the primary group of the individual user. See the page 
 <a href="../File_Permissions_on_HPCC/"><strong>File Permissions on HPCC</strong></a> for more details. If the settings of a sub-directory are not set correctly, the group may encounter a 
@@ -2186,9 +2186,9 @@ in the permissions <code>drwxrws---</code> of the directory is the setgid bit w
 error when creating or copying files. See the section 
 <strong><a href="#quotas-on-a-research-space">Quotas on a research space</a></strong> 
 for more details. Use the folliwng commands to ensure all directories and files in the group's research space have the proper settings:</p>
-<pre><code class="language-bash">$ find /mnt/research/&lt;groupname&gt;/ -not -group &lt;groupname&gt; -print0 |xargs -0 chgrp &lt;groupname&gt;
-$ find /mnt/research/&lt;groupname&gt;/ -type d -print0 |xargs -0 chmod g+s
-</code></pre>
+<div class="highlight"><pre><span></span><code>$ find /mnt/research/&lt;groupname&gt;/ -not -group &lt;groupname&gt; -print0 <span class="p">|</span>xargs -0 chgrp &lt;groupname&gt;
+$ find /mnt/research/&lt;groupname&gt;/ -type d -print0 <span class="p">|</span>xargs -0 chmod g+s
+</code></pre></div>
 <p><strong>2. Do not use the 
 <code>mv</code> command or the 
 <code>-p</code> option when using the 
@@ -2196,9 +2196,9 @@ $ find /mnt/research/&lt;groupname&gt;/ -type d -print0 |xargs -0 chmod g+s
 <code>mv &lt;filename&gt;</code> and 
 <code>cp -p &lt;filename&gt;</code> may preserve an undesired group ownership attribute even when transfered into a research space directory with ownership and permissions configured correctly.</p>
 <p><strong>3. Use the <code>rsync --chmod=Dg+s</code> command to transfer files from a local machine to the HPCC research space.</strong> For example, use the command</p>
-<pre><code class="language-bash">$ rsync -avz testdir --chmod=Dg+s &lt;username&gt;@rsync.hpcc.msu.edu:/mnt/research/&lt;groupname&gt;/
-</code></pre>
-<p>to transfer a directory 
+<p><div class="highlight"><pre><span></span><code>$ rsync -avz testdir --chmod<span class="o">=</span>Dg+s &lt;username&gt;@rsync.hpcc.msu.edu:/mnt/research/&lt;groupname&gt;/
+</code></pre></div>
+to transfer a directory 
 <code>testdir</code> from your local machine to the HPCC research space 
 <code>/mnt/research/&lt;groupname&gt;</code>
 . This will automatically configure the tranfered directory with the setgid bit.</p>
@@ -2206,15 +2206,15 @@ $ find /mnt/research/&lt;groupname&gt;/ -type d -print0 |xargs -0 chmod g+s
 <code>0007</code>
 or any lower value</strong>. Use the 
 <code>umask</code> command to set the file mode creation mask <em>e.g.</em>, </p>
-<pre><code class="language-bash">$ umask 0007
-</code></pre>
-<p>For the duration of the seesion, files and directories created by the user are now readable, writable and executable for all members of the research group. Alternatively, a user may run the following <a href="../Powertools/"><strong>Powertools</strong></a> 
+<p><div class="highlight"><pre><span></span><code>$ <span class="nb">umask</span> <span class="m">0007</span>
+</code></pre></div>
+For the duration of the seesion, files and directories created by the user are now readable, writable and executable for all members of the research group. Alternatively, a user may run the following <a href="../Powertools/"><strong>Powertools</strong></a> 
 command one time to add the line 
 <code>umask 0002</code>  
 to the user's <strong>.bashrc</strong> file:</p>
-<pre><code class="language-bash">$ module load powertools
+<div class="highlight"><pre><span></span><code>$ module load powertools
 $ umask_in_bash                
-</code></pre>
+</code></pre></div>
 <p><strong>5. Ensure that each group member's currently active group ID is set to the research group of interest. </strong></p>
 <p>Each time a group member logs in to the HPCC that user's group ID is set to the primary group ID assigned by default when a user's account was created. However, a user may be added to other research groups at the request of that group's PI. After a login, the user may then toggle between group memberships using the 
 <code>newgrp &lt;groupname&gt;</code> 

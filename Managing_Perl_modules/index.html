@@ -2111,7 +2111,8 @@ install Perl modules. Instructions are as follows:</p>
 <li>
 <p>It is the simplest to use the perlbrew installer, just paste this
     statement to your terminal:</p>
-<p><code>[ongbw@dev-intel10 ~]$ curl -kL http://install.perlbrew.pl | bash</code></p>
+<div class="highlight"><pre><span></span><code>[ongbw@dev-intel10 ~]$ curl -kL http://install.perlbrew.pl | bash
+</code></pre></div>
 </li>
 <li>
 <p>This installs perlbrew to $HOME/perl5/perlbrew</p>
@@ -2119,23 +2120,26 @@ install Perl modules. Instructions are as follows:</p>
 <li>
 <p>Append "source \~/perl5/perlbrew/etc/bashrc" to the end of your
     \~/.bash_profile</p>
-<p><code>[ongbw@dev-intel10 ~]$ echo "source $HOME/perl5/perlbrew/etc/bashrc" &gt;&gt; ~/.bash_profile</code></p>
+<div class="highlight"><pre><span></span><code>[ongbw@dev-intel10 ~]$ echo &quot;source $HOME/perl5/perlbrew/etc/bashrc&quot; &gt;&gt; ~/.bash_profile
+</code></pre></div>
 <p>Log out of that development node, and log back in. You should now
 have a fully functional perlbrew installation. You can check this by
 checking that the environment variables are setup properly</p>
-<p><code>[ongbw@dev-intel10 ~]$ env |grep -i perl
+<div class="highlight"><pre><span></span><code>[ongbw@dev-intel10 ~]$ env |grep -i perl
 PERL5LIB=/usr/local/lib/perl5
 PERLBREW_BASHRC_VERSION=0.63
 PERLBREW_ROOT=/mnt/home/ongbw/perl5/perlbrew
 PATH=/mnt/home/ongbw/perl5/perlbrew/bin:/opt/software/Stata/12.0:/opt/software/R/2.15.1--GCC-4.4.5/bin:/opt/software/MATLAB/R2011b/bin:/opt/software/Python/2.7.2--GCC-4.4.5/bin:/opt/software/cmake/2.8.5--GCC-4.4.5/bin:/opt/software/OpenMPI/1.4.3--GCC-4.4.5/bin:/usr/lib64/qt-3.3/bin:/opt/software/lmod/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/hpcc/bin:/mnt/home/ongbw/bin
-PERLBREW_HOME=/mnt/home/ongbw/.perlbrew</code></p>
+PERLBREW_HOME=/mnt/home/ongbw/.perlbrew
+</code></pre></div>
 </li>
 <li>
 <p>Next, we will install
     cpanminus <a href="http://metacpan.org/module/App::cpanminus"
     rel="nofollow">http://metacpan.org/module/App::cpanminus</a>, a
     script to get, unpack, build and install modules from CPAN,</p>
-<p><code>$ perlbrew install-cpanm</code></p>
+<div class="highlight"><pre><span></span><code>$ perlbrew install-cpanm
+</code></pre></div>
 </li>
 </ol>
 <h3 id="brief-tutorial">Brief tutorial</h3>
@@ -2144,7 +2148,7 @@ PERLBREW_HOME=/mnt/home/ongbw/.perlbrew</code></p>
     useful commands. perlbrew available shows the version of Perl
     available for install</li>
 </ul>
-<pre><code>    [ongbw@dev-intel10 ~]$ perlbrew available
+<div class="highlight"><pre><span></span><code>    [ongbw@dev-intel10 ~]$ perlbrew available
     perl-5.19.0
     perl-5.18.0
     perl-5.16.3
@@ -2156,29 +2160,29 @@ PERLBREW_HOME=/mnt/home/ongbw/.perlbrew</code></p>
     perl5.005_04
     perl5.004_05
     perl5.003_07
-</code></pre>
+</code></pre></div>
 <ul>
 <li>perlbrew list shows the list of Perl installations managed by
     perlbrew. It is an empty list since I haven't installed anything
     yet:</li>
 </ul>
-<pre><code>    [ongbw@dev-intel10 ~]$ perlbrew list
+<div class="highlight"><pre><span></span><code>    [ongbw@dev-intel10 ~]$ perlbrew list
     [ongbw@dev-intel10 ~]$ 
-</code></pre>
+</code></pre></div>
 <ul>
 <li>To install a new version of perl using perlbrew, type perlbrew
     install \&lt;version>. It might take a while.</li>
 </ul>
-<pre><code>    [ongbw@dev-intel10 ~]$ perlbrew install perl-5.18.0
-</code></pre>
+<div class="highlight"><pre><span></span><code>    [ongbw@dev-intel10 ~]$ perlbrew install perl-5.18.0
+</code></pre></div>
 <p>we can now check that it is indeed installed:</p>
-<pre><code>    [ongbw@dev-intel10 ~]$ perlbrew list
+<div class="highlight"><pre><span></span><code>    [ongbw@dev-intel10 ~]$ perlbrew list
     perl-5.18.0 
-</code></pre>
+</code></pre></div>
 <ul>
 <li>To use this version of perl, type perlbrew use</li>
 </ul>
-<pre><code>    [ongbw@dev-intel10 ~]$ perlbrew use perl-5.18.0
+<div class="highlight"><pre><span></span><code>    [ongbw@dev-intel10 ~]$ perlbrew use perl-5.18.0
     [ongbw@dev-intel10 ~]$ perl --version
 
     This is perl 5, version 18, subversion 0 (v5.18.0) built for x86_64-linux
@@ -2188,13 +2192,13 @@ PERLBREW_HOME=/mnt/home/ongbw/.perlbrew</code></p>
     Perl may be copied only under the terms of either the Artistic License or the GNU General Public License, which may be found in the Perl 5 source kit.
 
     Complete documentation for Perl, including FAQ lists, should be found on this system using &quot;man perl&quot; or &quot;perldoc perl&quot;. If you have access to the Internet, point your browser at http://www.perl.org/, the Perl Home Page.
-</code></pre>
+</code></pre></div>
 <ul>
 <li>To install a module for loaded version of perl, use cpanm. It will
     pull<br />
     all the dependencies nicely for you</li>
 </ul>
-<pre><code>    [ongbw@dev-intel10 CPAN]$ cpanm Pod::WikiDoc
+<div class="highlight"><pre><span></span><code>    [ongbw@dev-intel10 CPAN]$ cpanm Pod::WikiDoc
     --&gt; Working on Pod::WikiDoc
     Fetching http://www.cpan.org/authors/id/D/DA/DAGOLDEN/Pod-WikiDoc-0.20.tar.gz ... OK
     Configuring Pod-WikiDoc-0.20 ... OK
@@ -2255,7 +2259,7 @@ PERLBREW_HOME=/mnt/home/ongbw/.perlbrew</code></p>
     Building and testing Pod-WikiDoc-0.20 ... OK
     Successfully installed Pod-WikiDoc-0.20
     11 distributions installed
-</code></pre>
+</code></pre></div>
 <h3 id="local-libraries">Local Libraries</h3>
 <p>If you want to use a local lib/ for perl modules with PERL5LIB
 (recommended), you'll have to make a few changes.</p>
@@ -2263,11 +2267,13 @@ PERLBREW_HOME=/mnt/home/ongbw/.perlbrew</code></p>
 <li>
 <p>First remove ~/.cpan (or modify
     ~/.cpan/CPAN/MyConfig.pm appropriately.</p>
-<p><code>$ rm -rf ~/.cpan</code></p>
+<div class="highlight"><pre><span></span><code>$ rm -rf ~/.cpan
+</code></pre></div>
 </li>
 <li>
 <p>Then, issue the command</p>
-<p><code>$ cpanm --local-lib ~/lib App::local::lib::helper</code></p>
+<div class="highlight"><pre><span></span><code>$ cpanm --local-lib ~/lib App::local::lib::helper
+</code></pre></div>
 </li>
 </ol>
 <h3 id="additional-documentation">Additional Documentation</h3>

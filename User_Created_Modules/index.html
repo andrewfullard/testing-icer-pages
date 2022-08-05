@@ -2081,32 +2081,32 @@
 a <em>modulefile</em> to help manage your environment variables. HPCC presently
 uses the LMOD module package, developed at TACC. The following is a
 typical module file with comments. Name your files with a <code>.lua</code> extension.</p>
-<pre><code class="language-bash">-- -*- lua -*- 
- help( 
- [[ 
+<div class="highlight"><pre><span></span><code>-- -*- lua -*- 
+ help<span class="o">(</span> 
+ <span class="o">[[</span> 
  Describe your software here. 
- ]]) 
+ <span class="o">]])</span> 
 
  -- comments are prefaced with two dashes 
 
- whatis(&quot;Description: Name of software&quot;) 
- whatis(&quot;URL:  www.ucc.org &quot;) 
+ whatis<span class="o">(</span><span class="s2">&quot;Description: Name of software&quot;</span><span class="o">)</span> 
+ whatis<span class="o">(</span><span class="s2">&quot;URL:  www.ucc.org &quot;</span><span class="o">)</span> 
 
- local install_path = &quot;/mnt/home/ongbw/opt/mysoftware&quot; 
+ <span class="nb">local</span> <span class="nv">install_path</span> <span class="o">=</span> <span class="s2">&quot;/mnt/home/ongbw/opt/mysoftware&quot;</span> 
 
- -- set an environment variable 
- setenv(&quot;MYSOFTWARE_HOME&quot;,install_path) 
+ -- <span class="nb">set</span> an environment variable 
+ setenv<span class="o">(</span><span class="s2">&quot;MYSOFTWARE_HOME&quot;</span>,install_path<span class="o">)</span> 
 
  -- add to PATH variable 
- prepend_path('PATH', pathJoin(install_path,&quot;bin&quot;)) 
+ prepend_path<span class="o">(</span><span class="s1">&#39;PATH&#39;</span>, pathJoin<span class="o">(</span>install_path,<span class="s2">&quot;bin&quot;</span><span class="o">))</span> 
 
  -- add Library Paths 
- prepend_path('LD_LIBRARY_PATH',pathJoin(install_path,&quot;lib&quot;)) 
- prepend_path('LIBRARY_PATH',pathJoin(install_path,&quot;lib&quot;)) 
+ prepend_path<span class="o">(</span><span class="s1">&#39;LD_LIBRARY_PATH&#39;</span>,pathJoin<span class="o">(</span>install_path,<span class="s2">&quot;lib&quot;</span><span class="o">))</span> 
+ prepend_path<span class="o">(</span><span class="s1">&#39;LIBRARY_PATH&#39;</span>,pathJoin<span class="o">(</span>install_path,<span class="s2">&quot;lib&quot;</span><span class="o">))</span> 
 
  -- add include paths 
- prepend_path('INCLUDE',pathJoin(install_path,&quot;include&quot;))
-</code></pre>
+ prepend_path<span class="o">(</span><span class="s1">&#39;INCLUDE&#39;</span>,pathJoin<span class="o">(</span>install_path,<span class="s2">&quot;include&quot;</span><span class="o">))</span>
+</code></pre></div>
 
 
   

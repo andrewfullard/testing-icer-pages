@@ -2155,31 +2155,29 @@ paths of your home and research space:</p>
 
 <div class="codeContent panelContent pdl">
 
-
-<pre><code class="language-bash">$ ml powertools                    # if powertools is not loaded
+<div class="highlight"><pre><span></span><code>$ ml powertools                    <span class="c1"># if powertools is not loaded</span>
 $ show-samba-paths
 
-  HOME      |        Samba Path
-===================================================================
-  username  |  \\ufs.hpcc.msu.edu\home-021\username      (Windows)
-            |  smb://ufs.hpcc.msu.edu/home-021/username      (Mac)
+  HOME      <span class="p">|</span>        Samba <span class="nv">Path</span>
+<span class="o">===================================================================</span>
+  username  <span class="p">|</span>  <span class="se">\\</span>ufs.hpcc.msu.edu<span class="se">\h</span>ome-021<span class="se">\u</span>sername      <span class="o">(</span>Windows<span class="o">)</span>
+            <span class="p">|</span>  smb://ufs.hpcc.msu.edu/home-021/username      <span class="o">(</span>Mac<span class="o">)</span>
 
 
-  RESEARCH        |        Samba Path
-===============================================================================
-  helpdesk        |  \\ufs.hpcc.msu.edu\rs-011\helpdesk              (Windows)
-                  |  smb://ufs.hpcc.msu.edu/rs-011/helpdesk              (Mac)
+  RESEARCH        <span class="p">|</span>        Samba <span class="nv">Path</span>
+<span class="o">===============================================================================</span>
+  helpdesk        <span class="p">|</span>  <span class="se">\\</span>ufs.hpcc.msu.edu<span class="se">\r</span>s-011<span class="se">\h</span>elpdesk              <span class="o">(</span>Windows<span class="o">)</span>
+                  <span class="p">|</span>  smb://ufs.hpcc.msu.edu/rs-011/helpdesk              <span class="o">(</span>Mac<span class="o">)</span>
 ------------------+------------------------------------------------------------
-  common-data     |  \\ufs-12-b.hpcc.msu.edu\common-data             (Windows)
-                  |  smb://ufs-12-b.hpcc.msu.edu/common-data             (Mac)
+  common-data     <span class="p">|</span>  <span class="se">\\</span>ufs-12-b.hpcc.msu.edu<span class="se">\c</span>ommon-data             <span class="o">(</span>Windows<span class="o">)</span>
+                  <span class="p">|</span>  smb://ufs-12-b.hpcc.msu.edu/common-data             <span class="o">(</span>Mac<span class="o">)</span>
 ------------------+------------------------------------------------------------
-  BiCEP           |  \\ufs.hpcc.msu.edu\rs-001\BiCEP                 (Windows)
-                  |  smb://ufs.hpcc.msu.edu/rs-001/BiCEP                 (Mac)
+  BiCEP           <span class="p">|</span>  <span class="se">\\</span>ufs.hpcc.msu.edu<span class="se">\r</span>s-001<span class="se">\B</span>iCEP                 <span class="o">(</span>Windows<span class="o">)</span>
+                  <span class="p">|</span>  smb://ufs.hpcc.msu.edu/rs-001/BiCEP                 <span class="o">(</span>Mac<span class="o">)</span>
 ------------------+------------------------------------------------------------
-  education-data  |  \\ufs-12-b.hpcc.msu.edu\education-data          (Windows)
-                  |  smb://ufs-12-b.hpcc.msu.edu/education-data          (Mac)
-</code></pre>
-
+  education-data  <span class="p">|</span>  <span class="se">\\</span>ufs-12-b.hpcc.msu.edu<span class="se">\e</span>ducation-data          <span class="o">(</span>Windows<span class="o">)</span>
+                  <span class="p">|</span>  smb://ufs-12-b.hpcc.msu.edu/education-data          <span class="o">(</span>Mac<span class="o">)</span>
+</code></pre></div>
 
 </div>
 
@@ -2257,9 +2255,8 @@ Video Tutorial - Map Home directory using Windows
 
         <div class="codeContent panelContent pdl">
 
-        ``` bash
-        Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 -Force
-        ```
+        <div class="highlight"><pre><span></span><code>Set-ItemProperty -Path <span class="s2">&quot;HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters&quot;</span> SMB1 -Type DWORD -Value <span class="m">0</span> -Force
+</code></pre></div>
 
         </div>
 
@@ -2273,9 +2270,8 @@ Video Tutorial - Map Home directory using Windows
 
         <div class="codeContent panelContent pdl">
 
-        ``` bash
-        Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB2 -Type DWORD -Value 1 -Force
-        ```
+        <div class="highlight"><pre><span></span><code>Set-ItemProperty -Path <span class="s2">&quot;HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters&quot;</span> SMB2 -Type DWORD -Value <span class="m">1</span> -Force
+</code></pre></div>
 
         </div>
 
@@ -2445,9 +2441,8 @@ samba V1 they will stop working. In this case please use SSHFS .
 
     <div class="codeContent panelContent pdl">
 
-    ``` bash
-    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 -Force
-    ```
+    <div class="highlight"><pre><span></span><code>Set-ItemProperty -Path <span class="s2">&quot;HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters&quot;</span> SMB1 -Type DWORD -Value <span class="m">0</span> -Force
+</code></pre></div>
 
     </div>
 
@@ -2460,9 +2455,8 @@ samba V1 they will stop working. In this case please use SSHFS .
 
     <div class="codeContent panelContent pdl">
 
-    ``` bash
-    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB2 -Type DWORD -Value 1 -Force
-    ```
+    <div class="highlight"><pre><span></span><code>Set-ItemProperty -Path <span class="s2">&quot;HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters&quot;</span> SMB2 -Type DWORD -Value <span class="m">1</span> -Force
+</code></pre></div>
 
     </div>
 
@@ -2656,9 +2650,8 @@ also have to Disable SMBV1 and Enable SMB2 per instructions above. </p>
 
 <div class="codeContent panelContent pdl">
 
-
-<pre><code class="language-text"># to show all mapped connections/drives
-# use 'net use'
+<div class="highlight"><pre><span></span><code># to show all mapped connections/drives
+# use &#39;net use&#39;
 
 C:\Documents and Settings\Administrator&gt;net use
 New connections will not be remembered.
@@ -2675,12 +2668,12 @@ The command completed successfully.
 
 # to map a drive use:
 # net use &lt;drive_letter&gt;: \\&lt;hostname&gt;\&lt;mount&gt; /user:hpcc\&lt;net_id&gt;
-# where &lt;hostname&gt; and &lt;mount&gt; were determined from above 'Determining Your Network Path' and &lt;net_id&gt; is your MSU Net ID
+# where &lt;hostname&gt; and &lt;mount&gt; were determined from above &#39;Determining Your Network Path&#39; and &lt;net_id&gt; is your MSU Net ID
 
 C:\Documents and Settings\Administrator&gt;net use m: \\ufs-10-a.hpcc.msu.edu\jal /user:hpcc\jal
 The command completed successfully.
 
-# You can use 'net use' again to show the drive mapping status.
+# You can use &#39;net use&#39; again to show the drive mapping status.
 
 C:\Documents and Settings\Administrator&gt;net use
 New connections will not be remembered.
@@ -2704,7 +2697,7 @@ The command completed successfully.
 C:\Documents and Settings\Administrator&gt;net use m: /delete
 m: was deleted successfully.
 
-# you can now use 'net use' again to show your mapping status after the delete to ensure it's gone.
+# you can now use &#39;net use&#39; again to show your mapping status after the delete to ensure it&#39;s gone.
 
 C:\Documents and Settings\Administrator&gt;net use
 New connections will not be remembered.
@@ -2721,8 +2714,7 @@ The command completed successfully.
 
 
 C:\Documents and Settings\Administrator&gt;
-</code></pre>
-
+</code></pre></div>
 
 </div>
 

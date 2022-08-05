@@ -2070,106 +2070,106 @@ especially when users try to debug their work flow or test software with
 different settings. However, in order to get the right information,
 <strong>srun</strong> wrapper command needs to be used. For example, let's take a
 look at the following job script:</p>
-<pre><code class="language-bash">#!/bin/bash
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
-#SBATCH -N 4 -n 4 -c 2
-#SBATCH --time=00:05:00
-#SBATCH --mem=1G
+<span class="c1">#SBATCH -N 4 -n 4 -c 2</span>
+<span class="c1">#SBATCH --time=00:05:00</span>
+<span class="c1">#SBATCH --mem=1G</span>
 
-module purge; module load GCC/6.4.0-2.28 OpenMPI/2.1.2
+module purge<span class="p">;</span> module load GCC/6.4.0-2.28 OpenMPI/2.1.2
 module list
 
 mpicc mpi-hello.c -o hello.exe
 
-echo; echo &quot;====== mpirun hello.exe ======&quot;
-mpirun hello.exe                                            #0 Step
+echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;====== mpirun hello.exe ======&quot;</span>
+mpirun hello.exe                                            <span class="c1">#0 Step</span>
 
-echo; echo &quot;====== srun hello.exe ======&quot;
-srun hello.exe                                              #1 Step
+echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;====== srun hello.exe ======&quot;</span>
+srun hello.exe                                              <span class="c1">#1 Step</span>
 
-echo; echo &quot;====== srun -n 8 -c 1 hello.exe ======&quot;
-srun -n 8 -c 1 hello.exe                                    #2 Step
+echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;====== srun -n 8 -c 1 hello.exe ======&quot;</span>
+srun -n <span class="m">8</span> -c <span class="m">1</span> hello.exe                                    <span class="c1">#2 Step</span>
 
-echo; echo &quot;====== srun  ======&quot;
-srun NoSuchCommand                                          #3 Step
+echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;====== srun  ======&quot;</span>
+srun NoSuchCommand                                          <span class="c1">#3 Step</span>
 
-echo; echo &quot;====== mpirun  ======&quot;
-mpirun NoSuchCommand                                        #4 Step
+echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;====== mpirun  ======&quot;</span>
+mpirun NoSuchCommand                                        <span class="c1">#4 Step</span>
 
-echo; echo &quot;====== scontrol show job $SLURM_JOB_ID ======&quot;
-srun -N 1 -n 1 -c 1 scontrol show job $SLURM_JOB_ID         #5 Step
-</code></pre>
+echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;====== scontrol show job </span><span class="nv">$SLURM_JOB_ID</span><span class="s2"> ======&quot;</span>
+srun -N <span class="m">1</span> -n <span class="m">1</span> -c <span class="m">1</span> scontrol show job <span class="nv">$SLURM_JOB_ID</span>         <span class="c1">#5 Step</span>
+</code></pre></div>
 <p>Although there are many command lines, only 6 of them are executed with
 either <strong>mpirun</strong> or <strong>srun</strong> wrapper and marked with the comments (from
 #0 to #5 step) in the end. SLURM can record each of the 6 executions as
 a job step. Once the job is submitted by <strong>sbatch</strong> command and starts
 running, you can use <strong>sacct</strong> command to check the steps:</p>
-<pre><code class="language-bash">$ sacct -j 10732
+<div class="highlight"><pre><span></span><code>$ sacct -j <span class="m">10732</span>
        JobID    JobName  Partition    Account  AllocCPUS      State ExitCode
 ------------ ---------- ---------- ---------- ---------- ---------- --------
-10732              test general-l+   classres          8  COMPLETED      0:0
-10732.batch       batch              classres          2  COMPLETED      0:0
-10732.extern     extern              classres          8  COMPLETED      0:0
-10732.0           orted              classres          6  COMPLETED      0:0
-10732.1       hello.exe              classres          8  COMPLETED      0:0
-10732.2       hello.exe              classres          8  COMPLETED      0:0
-10732.3      NoSuchCom+              classres          8     FAILED      2:0
-10732.4           orted              classres          6  COMPLETED      0:0
-10732.5        scontrol              classres          1  COMPLETED      0:0
-</code></pre>
+<span class="m">10732</span>              <span class="nb">test</span> general-l+   classres          <span class="m">8</span>  COMPLETED      <span class="m">0</span>:0
+<span class="m">10732</span>.batch       batch              classres          <span class="m">2</span>  COMPLETED      <span class="m">0</span>:0
+<span class="m">10732</span>.extern     extern              classres          <span class="m">8</span>  COMPLETED      <span class="m">0</span>:0
+<span class="m">10732</span>.0           orted              classres          <span class="m">6</span>  COMPLETED      <span class="m">0</span>:0
+<span class="m">10732</span>.1       hello.exe              classres          <span class="m">8</span>  COMPLETED      <span class="m">0</span>:0
+<span class="m">10732</span>.2       hello.exe              classres          <span class="m">8</span>  COMPLETED      <span class="m">0</span>:0
+<span class="m">10732</span>.3      NoSuchCom+              classres          <span class="m">8</span>     FAILED      <span class="m">2</span>:0
+<span class="m">10732</span>.4           orted              classres          <span class="m">6</span>  COMPLETED      <span class="m">0</span>:0
+<span class="m">10732</span>.5        scontrol              classres          <span class="m">1</span>  COMPLETED      <span class="m">0</span>:0
+</code></pre></div>
 <p>where the Job has ID 10732 and the 6 steps are shown from JobID 10732.0
 to 10732.5.</p>
 <p>Users can also use a powertools command
 <a href="../js/"><strong>js</strong></a>
 to see more detailed information (such as memory usage and a list of
 used nodes) about the steps:</p>
-<pre><code class="language-bash">$ js -j 10732 -C5
+<div class="highlight"><pre><span></span><code>$ js -j <span class="m">10732</span> -C5
 
-SLURM Job ID: 10732
-===============================================================================================================================
-          JobID |               10732 |         10732.batch |        10732.extern |             10732.0 |             10732.1 |
-        JobName |                test |               batch |              extern |               orted |           hello.exe |
-           User |            changc81 |                     |                     |                     |                     |
-       NodeList |       lac-[380-383] |             lac-380 |       lac-[380-383] |       lac-[381-383] |       lac-[380-383] |
-         NNodes |                   4 |                   1 |                   4 |                   3 |                   4 |
-         NTasks |                     |                   1 |                   4 |                   3 |                   4 |
-          NCPUS |                   8 |                   2 |                   8 |                   6 |                   8 |
-         ReqMem |                 1Gn |                 1Gn |                 1Gn |                 1Gn |                 1Gn |
-      Timelimit |            00:05:00 |                     |                     |                     |                     |
-        Elapsed |            00:00:16 |            00:00:16 |            00:00:16 |            00:00:02 |            00:00:01 |
-      SystemCPU |           00:03.283 |           00:00.562 |           00:00.001 |           00:00.646 |           00:00.572 |
-        UserCPU |           00:02.119 |           00:00.753 |           00:00.003 |           00:00.396 |           00:00.281 |
-       TotalCPU |           00:05.403 |           00:01.316 |           00:00.005 |           00:01.042 |           00:00.853 |
-     AveCPULoad |            0.337687 |             0.08225 |           0.0003125 |               0.521 |               0.853 |
-         MaxRSS |                     |              10409K |                120K |                861K |                863K |
-      MaxVMSize |                     |             652100K |             173968K |             324440K |             324436K |
-          Start | 2018-08-06T13:22:44 | 2018-08-06T13:22:44 | 2018-08-06T13:22:44 | 2018-08-06T13:22:54 | 2018-08-06T13:22:57 |
-            End | 2018-08-06T13:23:00 | 2018-08-06T13:23:00 | 2018-08-06T13:23:00 | 2018-08-06T13:22:56 | 2018-08-06T13:22:58 |
-       ExitCode |                 0:0 |                 0:0 |                 0:0 |                 0:0 |                 0:0 |
-          State |           COMPLETED |           COMPLETED |           COMPLETED |           COMPLETED |           COMPLETED |
-===============================================================================================================================
-          JobID |             10732.2 |             10732.3 |             10732.4 |             10732.5 |
-        JobName |           hello.exe |       NoSuchCommand |               orted |            scontrol |
-           User |                     |                     |                     |                     |
-       NodeList |       lac-[380-383] |       lac-[380-383] |       lac-[381-383] |             lac-380 |
-         NNodes |                   4 |                   4 |                   3 |                   1 |
-         NTasks |                   8 |                   4 |                   3 |                   1 |
-          NCPUS |                   8 |                   8 |                   6 |                   1 |
-         ReqMem |                 1Gn |                 1Gn |                 1Gn |                 1Gn |
-      Timelimit |                     |                     |                     |                     |
-        Elapsed |            00:00:01 |            00:00:00 |            00:00:01 |            00:00:00 |
-      SystemCPU |           00:01.141 |           00:00.051 |           00:00.289 |           00:00.017 |
-        UserCPU |           00:00.521 |           00:00.031 |           00:00.096 |           00:00.035 |
-       TotalCPU |           00:01.663 |           00:00.083 |           00:00.385 |           00:00.053 |
-     AveCPULoad |               1.663 |                     |               0.385 |                     |
-         MaxRSS |              34812K |                865K |                865K |                840K |
-      MaxVMSize |             324436K |             324436K |             324440K |             324436K |
-          Start | 2018-08-06T13:22:58 | 2018-08-06T13:22:59 | 2018-08-06T13:22:59 | 2018-08-06T13:23:00 |
-            End | 2018-08-06T13:22:59 | 2018-08-06T13:22:59 | 2018-08-06T13:23:00 | 2018-08-06T13:23:00 |
-       ExitCode |                 0:0 |                 2:0 |                 0:0 |                 0:0 |
-          State |           COMPLETED |              FAILED |           COMPLETED |           COMPLETED |
-=========================================================================================================
-</code></pre>
+SLURM Job ID: <span class="nv">10732</span>
+<span class="o">===============================================================================================================================</span>
+          JobID <span class="p">|</span>               <span class="m">10732</span> <span class="p">|</span>         <span class="m">10732</span>.batch <span class="p">|</span>        <span class="m">10732</span>.extern <span class="p">|</span>             <span class="m">10732</span>.0 <span class="p">|</span>             <span class="m">10732</span>.1 <span class="p">|</span>
+        JobName <span class="p">|</span>                <span class="nb">test</span> <span class="p">|</span>               batch <span class="p">|</span>              extern <span class="p">|</span>               orted <span class="p">|</span>           hello.exe <span class="p">|</span>
+           User <span class="p">|</span>            changc81 <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>
+       NodeList <span class="p">|</span>       lac-<span class="o">[</span><span class="m">380</span>-383<span class="o">]</span> <span class="p">|</span>             lac-380 <span class="p">|</span>       lac-<span class="o">[</span><span class="m">380</span>-383<span class="o">]</span> <span class="p">|</span>       lac-<span class="o">[</span><span class="m">381</span>-383<span class="o">]</span> <span class="p">|</span>       lac-<span class="o">[</span><span class="m">380</span>-383<span class="o">]</span> <span class="p">|</span>
+         NNodes <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>                   <span class="m">1</span> <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>                   <span class="m">3</span> <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>
+         NTasks <span class="p">|</span>                     <span class="p">|</span>                   <span class="m">1</span> <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>                   <span class="m">3</span> <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>
+          NCPUS <span class="p">|</span>                   <span class="m">8</span> <span class="p">|</span>                   <span class="m">2</span> <span class="p">|</span>                   <span class="m">8</span> <span class="p">|</span>                   <span class="m">6</span> <span class="p">|</span>                   <span class="m">8</span> <span class="p">|</span>
+         ReqMem <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>
+      Timelimit <span class="p">|</span>            <span class="m">00</span>:05:00 <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>
+        Elapsed <span class="p">|</span>            <span class="m">00</span>:00:16 <span class="p">|</span>            <span class="m">00</span>:00:16 <span class="p">|</span>            <span class="m">00</span>:00:16 <span class="p">|</span>            <span class="m">00</span>:00:02 <span class="p">|</span>            <span class="m">00</span>:00:01 <span class="p">|</span>
+      SystemCPU <span class="p">|</span>           <span class="m">00</span>:03.283 <span class="p">|</span>           <span class="m">00</span>:00.562 <span class="p">|</span>           <span class="m">00</span>:00.001 <span class="p">|</span>           <span class="m">00</span>:00.646 <span class="p">|</span>           <span class="m">00</span>:00.572 <span class="p">|</span>
+        UserCPU <span class="p">|</span>           <span class="m">00</span>:02.119 <span class="p">|</span>           <span class="m">00</span>:00.753 <span class="p">|</span>           <span class="m">00</span>:00.003 <span class="p">|</span>           <span class="m">00</span>:00.396 <span class="p">|</span>           <span class="m">00</span>:00.281 <span class="p">|</span>
+       TotalCPU <span class="p">|</span>           <span class="m">00</span>:05.403 <span class="p">|</span>           <span class="m">00</span>:01.316 <span class="p">|</span>           <span class="m">00</span>:00.005 <span class="p">|</span>           <span class="m">00</span>:01.042 <span class="p">|</span>           <span class="m">00</span>:00.853 <span class="p">|</span>
+     AveCPULoad <span class="p">|</span>            <span class="m">0</span>.337687 <span class="p">|</span>             <span class="m">0</span>.08225 <span class="p">|</span>           <span class="m">0</span>.0003125 <span class="p">|</span>               <span class="m">0</span>.521 <span class="p">|</span>               <span class="m">0</span>.853 <span class="p">|</span>
+         MaxRSS <span class="p">|</span>                     <span class="p">|</span>              10409K <span class="p">|</span>                120K <span class="p">|</span>                861K <span class="p">|</span>                863K <span class="p">|</span>
+      MaxVMSize <span class="p">|</span>                     <span class="p">|</span>             652100K <span class="p">|</span>             173968K <span class="p">|</span>             324440K <span class="p">|</span>             324436K <span class="p">|</span>
+          Start <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:44 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:44 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:44 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:54 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:57 <span class="p">|</span>
+            End <span class="p">|</span> <span class="m">2018</span>-08-06T13:23:00 <span class="p">|</span> <span class="m">2018</span>-08-06T13:23:00 <span class="p">|</span> <span class="m">2018</span>-08-06T13:23:00 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:56 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:58 <span class="p">|</span>
+       ExitCode <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>
+          State <span class="p">|</span>           COMPLETED <span class="p">|</span>           COMPLETED <span class="p">|</span>           COMPLETED <span class="p">|</span>           COMPLETED <span class="p">|</span>           COMPLETED <span class="p">|</span>
+<span class="o">===============================================================================================================================</span>
+          JobID <span class="p">|</span>             <span class="m">10732</span>.2 <span class="p">|</span>             <span class="m">10732</span>.3 <span class="p">|</span>             <span class="m">10732</span>.4 <span class="p">|</span>             <span class="m">10732</span>.5 <span class="p">|</span>
+        JobName <span class="p">|</span>           hello.exe <span class="p">|</span>       NoSuchCommand <span class="p">|</span>               orted <span class="p">|</span>            scontrol <span class="p">|</span>
+           User <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>
+       NodeList <span class="p">|</span>       lac-<span class="o">[</span><span class="m">380</span>-383<span class="o">]</span> <span class="p">|</span>       lac-<span class="o">[</span><span class="m">380</span>-383<span class="o">]</span> <span class="p">|</span>       lac-<span class="o">[</span><span class="m">381</span>-383<span class="o">]</span> <span class="p">|</span>             lac-380 <span class="p">|</span>
+         NNodes <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>                   <span class="m">3</span> <span class="p">|</span>                   <span class="m">1</span> <span class="p">|</span>
+         NTasks <span class="p">|</span>                   <span class="m">8</span> <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>                   <span class="m">3</span> <span class="p">|</span>                   <span class="m">1</span> <span class="p">|</span>
+          NCPUS <span class="p">|</span>                   <span class="m">8</span> <span class="p">|</span>                   <span class="m">8</span> <span class="p">|</span>                   <span class="m">6</span> <span class="p">|</span>                   <span class="m">1</span> <span class="p">|</span>
+         ReqMem <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>
+      Timelimit <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>
+        Elapsed <span class="p">|</span>            <span class="m">00</span>:00:01 <span class="p">|</span>            <span class="m">00</span>:00:00 <span class="p">|</span>            <span class="m">00</span>:00:01 <span class="p">|</span>            <span class="m">00</span>:00:00 <span class="p">|</span>
+      SystemCPU <span class="p">|</span>           <span class="m">00</span>:01.141 <span class="p">|</span>           <span class="m">00</span>:00.051 <span class="p">|</span>           <span class="m">00</span>:00.289 <span class="p">|</span>           <span class="m">00</span>:00.017 <span class="p">|</span>
+        UserCPU <span class="p">|</span>           <span class="m">00</span>:00.521 <span class="p">|</span>           <span class="m">00</span>:00.031 <span class="p">|</span>           <span class="m">00</span>:00.096 <span class="p">|</span>           <span class="m">00</span>:00.035 <span class="p">|</span>
+       TotalCPU <span class="p">|</span>           <span class="m">00</span>:01.663 <span class="p">|</span>           <span class="m">00</span>:00.083 <span class="p">|</span>           <span class="m">00</span>:00.385 <span class="p">|</span>           <span class="m">00</span>:00.053 <span class="p">|</span>
+     AveCPULoad <span class="p">|</span>               <span class="m">1</span>.663 <span class="p">|</span>                     <span class="p">|</span>               <span class="m">0</span>.385 <span class="p">|</span>                     <span class="p">|</span>
+         MaxRSS <span class="p">|</span>              34812K <span class="p">|</span>                865K <span class="p">|</span>                865K <span class="p">|</span>                840K <span class="p">|</span>
+      MaxVMSize <span class="p">|</span>             324436K <span class="p">|</span>             324436K <span class="p">|</span>             324440K <span class="p">|</span>             324436K <span class="p">|</span>
+          Start <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:58 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:59 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:59 <span class="p">|</span> <span class="m">2018</span>-08-06T13:23:00 <span class="p">|</span>
+            End <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:59 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:59 <span class="p">|</span> <span class="m">2018</span>-08-06T13:23:00 <span class="p">|</span> <span class="m">2018</span>-08-06T13:23:00 <span class="p">|</span>
+       ExitCode <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>                 <span class="m">2</span>:0 <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>
+          State <span class="p">|</span>           COMPLETED <span class="p">|</span>              FAILED <span class="p">|</span>           COMPLETED <span class="p">|</span>           COMPLETED <span class="p">|</span>
+<span class="o">=========================================================================================================</span>
+</code></pre></div>
 <p>From the results above, we can see the executions by <strong>mpirun</strong> are
 different from <strong>srun</strong>. First of all, for <strong>mpirun</strong>, the JobName only
 show "orted" no matter what commands are used in the steps 10732.0 and
@@ -2188,86 +2188,86 @@ step 10732.1 (<strong>srun hello.exe</strong>). SLURM seems to get a good <stro
 information with <strong>srun</strong> but not with <strong>mpirun</strong>. If you wish to use
 the step information, do not forget to put <strong>srun</strong> in the command
 lines.</p>
-<pre><code class="language-bash">Currently Loaded Modules:
-  1) GCCcore/6.4.0   2) binutils/2.28   3) GCC/6.4.0-2.28   4) OpenMPI/2.1.1
+<div class="highlight"><pre><span></span><code>Currently Loaded Modules:
+  <span class="m">1</span><span class="o">)</span> GCCcore/6.4.0   <span class="m">2</span><span class="o">)</span> binutils/2.28   <span class="m">3</span><span class="o">)</span> GCC/6.4.0-2.28   <span class="m">4</span><span class="o">)</span> OpenMPI/2.1.1
 
 
-====== mpirun hello.exe ======
-Hello From: lac-380 I am the recieving processor 1 of 4
-Hello From: lac-381              I am processor 2 of 4
-Hello From: lac-382              I am processor 3 of 4
-Hello From: lac-383              I am processor 4 of 4
+<span class="o">======</span> mpirun hello.exe <span class="o">======</span>
+Hello From: lac-380 I am the recieving processor <span class="m">1</span> of <span class="m">4</span>
+Hello From: lac-381              I am processor <span class="m">2</span> of <span class="m">4</span>
+Hello From: lac-382              I am processor <span class="m">3</span> of <span class="m">4</span>
+Hello From: lac-383              I am processor <span class="m">4</span> of <span class="nv">4</span>
 
-====== srun hello.exe ======
-Hello From: lac-380 I am the recieving processor 1 of 4
-Hello From: lac-381              I am processor 2 of 4
-Hello From: lac-382              I am processor 3 of 4
-Hello From: lac-383              I am processor 4 of 4
+<span class="o">======</span> srun hello.exe <span class="o">======</span>
+Hello From: lac-380 I am the recieving processor <span class="m">1</span> of <span class="m">4</span>
+Hello From: lac-381              I am processor <span class="m">2</span> of <span class="m">4</span>
+Hello From: lac-382              I am processor <span class="m">3</span> of <span class="m">4</span>
+Hello From: lac-383              I am processor <span class="m">4</span> of <span class="nv">4</span>
 
-====== srun -n 8 -c 1 hello.exe ======
-Hello From: lac-380 I am the recieving processor 1 of 8
-Hello From: lac-380              I am processor 2 of 8
-Hello From: lac-381              I am processor 3 of 8
-Hello From: lac-381              I am processor 4 of 8
-Hello From: lac-382              I am processor 5 of 8
-Hello From: lac-382              I am processor 6 of 8
-Hello From: lac-383              I am processor 7 of 8
-Hello From: lac-383              I am processor 8 of 8
+<span class="o">======</span> srun -n <span class="m">8</span> -c <span class="m">1</span> hello.exe <span class="o">======</span>
+Hello From: lac-380 I am the recieving processor <span class="m">1</span> of <span class="m">8</span>
+Hello From: lac-380              I am processor <span class="m">2</span> of <span class="m">8</span>
+Hello From: lac-381              I am processor <span class="m">3</span> of <span class="m">8</span>
+Hello From: lac-381              I am processor <span class="m">4</span> of <span class="m">8</span>
+Hello From: lac-382              I am processor <span class="m">5</span> of <span class="m">8</span>
+Hello From: lac-382              I am processor <span class="m">6</span> of <span class="m">8</span>
+Hello From: lac-383              I am processor <span class="m">7</span> of <span class="m">8</span>
+Hello From: lac-383              I am processor <span class="m">8</span> of <span class="nv">8</span>
 
-====== srun  ======
-slurmstepd: error: execve(): NoSuchCommand: No such file or directory
-slurmstepd: error: execve(): NoSuchCommand: No such file or directory
-slurmstepd: error: execve(): NoSuchCommand: No such file or directory
-srun: error: lac-381: task 1: Exited with exit code 2
-srun: error: lac-383: task 3: Exited with exit code 2
-srun: error: lac-382: task 2: Exited with exit code 2
-slurmstepd: error: execve(): NoSuchCommand: No such file or directory
-srun: error: lac-380: task 0: Exited with exit code 2
+<span class="o">======</span> <span class="nv">srun</span>  <span class="o">======</span>
+slurmstepd: error: execve<span class="o">()</span>: NoSuchCommand: No such file or directory
+slurmstepd: error: execve<span class="o">()</span>: NoSuchCommand: No such file or directory
+slurmstepd: error: execve<span class="o">()</span>: NoSuchCommand: No such file or directory
+srun: error: lac-381: task <span class="m">1</span>: Exited with <span class="nb">exit</span> code <span class="m">2</span>
+srun: error: lac-383: task <span class="m">3</span>: Exited with <span class="nb">exit</span> code <span class="m">2</span>
+srun: error: lac-382: task <span class="m">2</span>: Exited with <span class="nb">exit</span> code <span class="m">2</span>
+slurmstepd: error: execve<span class="o">()</span>: NoSuchCommand: No such file or directory
+srun: error: lac-380: task <span class="m">0</span>: Exited with <span class="nb">exit</span> code <span class="nv">2</span>
 
-====== mpirun  ======
+<span class="o">======</span> <span class="nv">mpirun</span>  <span class="o">======</span>
 --------------------------------------------------------------------------
 mpirun was unable to find the specified executable file, and therefore
-did not launch the job.  This error was first reported for process
-rank 0; it may have occurred for other processes as well.
+did not launch the job.  This error was first reported <span class="k">for</span> process
+rank <span class="m">0</span><span class="p">;</span> it may have occurred <span class="k">for</span> other processes as well.
 
-NOTE: A common cause for this error is misspelling a mpirun command
-      line parameter option (remember that mpirun interprets the first
-      unrecognized command line token as the executable).
+NOTE: A common cause <span class="k">for</span> this error is misspelling a mpirun <span class="nb">command</span>
+      line parameter option <span class="o">(</span>remember that mpirun interprets the first
+      unrecognized <span class="nb">command</span> line token as the executable<span class="o">)</span>.
 
 Node:       lac-380
 Executable: NoSuchCommand
 --------------------------------------------------------------------------
 
-====== scontrol show job 10732 ======
-JobId=10732 JobName=test
-   UserId=changc81(804793) GroupId=helpdesk(2103) MCS_label=N/A
-   Priority=103 Nice=0 Account=classres QOS=normal
-   JobState=RUNNING Reason=None Dependency=(null)
-   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
-   RunTime=00:00:18 TimeLimit=00:05:00 TimeMin=N/A
-   SubmitTime=2018-08-06T13:22:43 EligibleTime=2018-08-06T13:22:43
-   StartTime=2018-08-06T13:22:44 EndTime=2018-08-06T13:27:44 Deadline=N/A
-   PreemptTime=None SuspendTime=None SecsPreSuspend=0
-   LastSchedEval=2018-08-06T13:22:44
-   Partition=general-long-16 AllocNode:Sid=lac-249:5133
-   ReqNodeList=(null) ExcNodeList=(null)
-   NodeList=lac-[380-383]
-   BatchHost=lac-380
-   NumNodes=4 NumCPUs=8 NumTasks=4 CPUs/Task=2 ReqB:S:C:T=0:0:*:*
-   TRES=cpu=8,mem=4G,node=4,billing=8
-   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
-   MinCPUsNode=2 MinMemoryNode=1G MinTmpDiskNode=0
-   Features=(null) DelayBoot=00:00:00
-   Gres=(null) Reservation=(null)
-   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
-   Command=/mnt/home/changc81/GetExample/helloMPI/test
-   WorkDir=/mnt/home/changc81/GetExample/helloMPI
-   Comment=stdout=/mnt/home/changc81/GetExample/helloMPI/slurm-10732.out
-   StdErr=/mnt/home/changc81/GetExample/helloMPI/slurm-10732.out
-   StdIn=/dev/null
-   StdOut=/mnt/home/changc81/GetExample/helloMPI/slurm-10732.out
-   Power=
-</code></pre>
+<span class="o">======</span> scontrol show job <span class="nv">10732</span> <span class="o">======</span>
+<span class="nv">JobId</span><span class="o">=</span><span class="m">10732</span> <span class="nv">JobName</span><span class="o">=</span><span class="nb">test</span>
+   <span class="nv">UserId</span><span class="o">=</span>changc81<span class="o">(</span><span class="m">804793</span><span class="o">)</span> <span class="nv">GroupId</span><span class="o">=</span>helpdesk<span class="o">(</span><span class="m">2103</span><span class="o">)</span> <span class="nv">MCS_label</span><span class="o">=</span>N/A
+   <span class="nv">Priority</span><span class="o">=</span><span class="m">103</span> <span class="nv">Nice</span><span class="o">=</span><span class="m">0</span> <span class="nv">Account</span><span class="o">=</span>classres <span class="nv">QOS</span><span class="o">=</span>normal
+   <span class="nv">JobState</span><span class="o">=</span>RUNNING <span class="nv">Reason</span><span class="o">=</span>None <span class="nv">Dependency</span><span class="o">=(</span>null<span class="o">)</span>
+   <span class="nv">Requeue</span><span class="o">=</span><span class="m">0</span> <span class="nv">Restarts</span><span class="o">=</span><span class="m">0</span> <span class="nv">BatchFlag</span><span class="o">=</span><span class="m">1</span> <span class="nv">Reboot</span><span class="o">=</span><span class="m">0</span> <span class="nv">ExitCode</span><span class="o">=</span><span class="m">0</span>:0
+   <span class="nv">RunTime</span><span class="o">=</span><span class="m">00</span>:00:18 <span class="nv">TimeLimit</span><span class="o">=</span><span class="m">00</span>:05:00 <span class="nv">TimeMin</span><span class="o">=</span>N/A
+   <span class="nv">SubmitTime</span><span class="o">=</span><span class="m">2018</span>-08-06T13:22:43 <span class="nv">EligibleTime</span><span class="o">=</span><span class="m">2018</span>-08-06T13:22:43
+   <span class="nv">StartTime</span><span class="o">=</span><span class="m">2018</span>-08-06T13:22:44 <span class="nv">EndTime</span><span class="o">=</span><span class="m">2018</span>-08-06T13:27:44 <span class="nv">Deadline</span><span class="o">=</span>N/A
+   <span class="nv">PreemptTime</span><span class="o">=</span>None <span class="nv">SuspendTime</span><span class="o">=</span>None <span class="nv">SecsPreSuspend</span><span class="o">=</span><span class="m">0</span>
+   <span class="nv">LastSchedEval</span><span class="o">=</span><span class="m">2018</span>-08-06T13:22:44
+   <span class="nv">Partition</span><span class="o">=</span>general-long-16 AllocNode:Sid<span class="o">=</span>lac-249:5133
+   <span class="nv">ReqNodeList</span><span class="o">=(</span>null<span class="o">)</span> <span class="nv">ExcNodeList</span><span class="o">=(</span>null<span class="o">)</span>
+   <span class="nv">NodeList</span><span class="o">=</span>lac-<span class="o">[</span><span class="m">380</span>-383<span class="o">]</span>
+   <span class="nv">BatchHost</span><span class="o">=</span>lac-380
+   <span class="nv">NumNodes</span><span class="o">=</span><span class="m">4</span> <span class="nv">NumCPUs</span><span class="o">=</span><span class="m">8</span> <span class="nv">NumTasks</span><span class="o">=</span><span class="m">4</span> CPUs/Task<span class="o">=</span><span class="m">2</span> ReqB:S:C:T<span class="o">=</span><span class="m">0</span>:0:*:*
+   <span class="nv">TRES</span><span class="o">=</span><span class="nv">cpu</span><span class="o">=</span><span class="m">8</span>,mem<span class="o">=</span>4G,node<span class="o">=</span><span class="m">4</span>,billing<span class="o">=</span><span class="m">8</span>
+   Socks/Node<span class="o">=</span>* NtasksPerN:B:S:C<span class="o">=</span><span class="m">0</span>:0:*:* <span class="nv">CoreSpec</span><span class="o">=</span>*
+   <span class="nv">MinCPUsNode</span><span class="o">=</span><span class="m">2</span> <span class="nv">MinMemoryNode</span><span class="o">=</span>1G <span class="nv">MinTmpDiskNode</span><span class="o">=</span><span class="m">0</span>
+   <span class="nv">Features</span><span class="o">=(</span>null<span class="o">)</span> <span class="nv">DelayBoot</span><span class="o">=</span><span class="m">00</span>:00:00
+   <span class="nv">Gres</span><span class="o">=(</span>null<span class="o">)</span> <span class="nv">Reservation</span><span class="o">=(</span>null<span class="o">)</span>
+   <span class="nv">OverSubscribe</span><span class="o">=</span>OK <span class="nv">Contiguous</span><span class="o">=</span><span class="m">0</span> <span class="nv">Licenses</span><span class="o">=(</span>null<span class="o">)</span> <span class="nv">Network</span><span class="o">=(</span>null<span class="o">)</span>
+   <span class="nv">Command</span><span class="o">=</span>/mnt/home/changc81/GetExample/helloMPI/test
+   <span class="nv">WorkDir</span><span class="o">=</span>/mnt/home/changc81/GetExample/helloMPI
+   <span class="nv">Comment</span><span class="o">=</span><span class="nv">stdout</span><span class="o">=</span>/mnt/home/changc81/GetExample/helloMPI/slurm-10732.out
+   <span class="nv">StdErr</span><span class="o">=</span>/mnt/home/changc81/GetExample/helloMPI/slurm-10732.out
+   <span class="nv">StdIn</span><span class="o">=</span>/dev/null
+   <span class="nv">StdOut</span><span class="o">=</span>/mnt/home/changc81/GetExample/helloMPI/slurm-10732.out
+   <span class="nv">Power</span><span class="o">=</span>
+</code></pre></div>
 <p>For a complete instruction of <strong>sacct</strong> command, please refer to
 <a href="https://slurm.schedmd.com/sacct.html">the SLURM web site</a>.</p>
 

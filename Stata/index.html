@@ -2111,44 +2111,44 @@
 Stata is not available by default, but it may be load easily using this
 command  (note you must type Stata with a capital 'S'</p>
 <p><strong>run stata batch</strong></p>
-<pre><code class="language-bash">[hpc@dev-intel18 ~]$ module load Stata
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span>$ module load Stata
+</code></pre></div>
 <p>This loads Stata SE version 15.  This is equivalent to using the command</p>
 <pre><code>[hpc@dev-intel18 ~]$ module load Stata/15.0.SE
 </code></pre>
 <p>Stata has a command line version and a GUI (windowed) version.    To use
 the command line, type stata at the prompt.    You will see this :</p>
 <p><strong>Using Stata command line</strong></p>
-<pre><code class="language-bash">[hpc@dev-intel18 ~]$ module load Stata
-[hpc@dev-intel18 ~]$ stata
+<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span>$ module load Stata
+<span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span>$ stata
 
-  ___  ____  ____  ____  ____ (R)
+  ___  ____  ____  ____  ____ <span class="o">(</span>R<span class="o">)</span>
  /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   15.0   Copyright 1985-2017 StataCorp LLC
+___/   /   /___/   /   /___/   <span class="m">15</span>.0   Copyright <span class="m">1985</span>-2017 StataCorp LLC
   Statistics/Data Analysis            StataCorp
-                                      4905 Lakeway Drive
-                                      College Station, Texas 77845 USA
-                                      800-STATA-PC        http://www.stata.com
-                                      979-696-4600        stata@stata.com
-                                      979-696-4601 (fax)
+                                      <span class="m">4905</span> Lakeway Drive
+                                      College Station, Texas <span class="m">77845</span> USA
+                                      <span class="m">800</span>-STATA-PC        http://www.stata.com
+                                      <span class="m">979</span>-696-4600        stata@stata.com
+                                      <span class="m">979</span>-696-4601 <span class="o">(</span>fax<span class="o">)</span>
 
-15-user Stata network perpetual license:
-       Serial number:  401506213245
+<span class="m">15</span>-user Stata network perpetual license:
+       Serial number:  <span class="m">401506213245</span>
          Licensed to:  iCER / HPCC at Michigan State University
                        East Lansing, MI
 
 Notes:
-      1.  Unicode is supported; see help unicode_advice.
+      <span class="m">1</span>.  Unicode is supported<span class="p">;</span> see <span class="nb">help</span> unicode_advice.
 
 .
-</code></pre>
+</code></pre></div>
 <p>In which you may type Stata commands.  Type 'exit' to quit this
 version. </p>
 <p>To run a Stata do file from the command line in 'batch', you use the
 syntax</p>
 <p><strong>run stata batch</strong></p>
-<pre><code class="language-bash">[hpc@dev-intel18 ~]$stata -b do dofilename.do
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span><span class="nv">$stata</span> -b <span class="k">do</span> dofilename.do
+</code></pre></div>
 <h4 id="versions">Versions</h4>
 <p>Stata comes in several versions: IC, SE, and MP; see
 <a href="https://www.stata.com/products/which-stata-is-right-for-me/">https://www.stata.com/products/which-stata-is-right-for-me/</a>
@@ -2158,15 +2158,15 @@ restrictions (see below).     While the default version of Stata
 available when you load the module is Stata/SE, you currently have to
 use the command 'stata-se' to start the 'SE' version</p>
 <p><strong>run stata-se interactive session</strong></p>
-<pre><code class="language-bash">[hpc@dev-intel18 ~]$module load Stata/15.0.SE
-[hpc@dev-intel18 ~]$stata-se  # to run the interactive version
-[hpc@dev-intel18 ~]$stata-se -b do dofilename.do  # to run a do file 
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span><span class="nv">$module</span> load Stata/15.0.SE
+<span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span><span class="nv">$stata</span>-se  <span class="c1"># to run the interactive version</span>
+<span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span><span class="nv">$stata</span>-se -b <span class="k">do</span> dofilename.do  <span class="c1"># to run a do file </span>
+</code></pre></div>
 <p>However, to use the "MP" Version, you must load it explicitly. </p>
 <p><strong>run stata-mp interactive session</strong></p>
-<pre><code class="language-bash">[hpc@dev-intel18 ~]$ module load Stata/15.0.MP
-[hpc@dev-intel18 ~]$ stata-mp
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span>$ module load Stata/15.0.MP
+<span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span>$ stata-mp
+</code></pre></div>
 <p>Note that even if you load Stata/MP or SE module, as above, if you just
 use the command 'stata' it will load the IC version.   To see which
 version of Stata you are current in, use the "about" command at the dot
@@ -2184,9 +2184,9 @@ via web site</a> ).
 Once an X11 or remote desktop client is connected, you can run xstata on
 a dev node:</p>
 <p><strong>run stata-mp interactive session</strong></p>
-<pre><code class="language-bash">[hpc@dev-intel18 ~]$ module load Stata
-[hpc@dev-intel18 ~]$ xstata
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span>$ module load Stata
+<span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span>$ xstata
+</code></pre></div>
 <p><img alt="img!" src="../attachments/11896244/11896243.png" /></p>
 <h4 id="variables-limits">Variables Limits</h4>
 <p>Even if you load the MP or SE versions, Stata limits the number of
@@ -2194,8 +2194,8 @@ variables to 5000 unless you tell it otherwise.    For information use
 the help set_maxvar command at the dot prompt.   You can set the maxvar
 for your session or in your do file with (for example to 6000)</p>
 <p><strong>run stata batch</strong></p>
-<pre><code class="language-bash">. set maxvar 6000
-</code></pre>
+<div class="highlight"><pre><span></span><code>. <span class="nb">set</span> maxvar <span class="m">6000</span>
+</code></pre></div>
 <p>There are other settings related to memory usage which are important as
 Stata attempts to be very conservative.  For more information use the
 Stata "memory" command</p>
@@ -2204,14 +2204,14 @@ Stata "memory" command</p>
 running jobs.  To copy a working example of Stata job file into your 
 home directory, you can use our getexample tool</p>
 <p><strong>Getting Stata Example</strong></p>
-<pre><code class="language-bash">module load powertools
-cd ~
+<div class="highlight"><pre><span></span><code>module load powertools
+<span class="nb">cd</span> ~
 getexample STATA_example
-cd STATA_example
+<span class="nb">cd</span> STATA_example
 
-# look into the README file in this folder for details
+<span class="c1"># look into the README file in this folder for details</span>
 cat README
-</code></pre>
+</code></pre></div>
 <h3 id="more-helps">More helps</h3>
 <p>For questions requiring deeper knowledge of statistics,  users could
 contact CSTAT services at 

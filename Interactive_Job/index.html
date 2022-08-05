@@ -2111,62 +2111,62 @@ or <strong>srun</strong> command with options of resource requests.</p>
 <p><a href="#job-with-graphical-application">Job with graphical application</a></p>
 <h3 id="salloc-command">salloc command</h3>
 <p>For <strong>salloc</strong>, the command line</p>
-<pre><code class="language-bash">salloc -N 1 -c 2 --time=1:00:00
-</code></pre>
+<div class="highlight"><pre><span></span><code>salloc -N <span class="m">1</span> -c <span class="m">2</span> --time<span class="o">=</span><span class="m">1</span>:00:00
+</code></pre></div>
 <p>will allocate a job with resources of 1 node, 2 cores and walltime 1
 hour. The execution will first wait until the job controller can provide
 the resources.</p>
-<pre><code class="language-bash">[username@dev-intel18 WorkDir]$ salloc -N 1 -c 2 --time=1:00:00
-salloc: Required node not available (down, drained or reserved)
-salloc: job 7625 queued and waiting for resources
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-intel18 WorkDir<span class="o">]</span>$ salloc -N <span class="m">1</span> -c <span class="m">2</span> --time<span class="o">=</span><span class="m">1</span>:00:00
+salloc: Required node not available <span class="o">(</span>down, drained or reserved<span class="o">)</span>
+salloc: job <span class="m">7625</span> queued and waiting <span class="k">for</span> resources
+</code></pre></div>
 <p>Once that happens, the terminal will be transported to a command prompt
 on a compute node assigned to the job.</p>
-<pre><code class="language-bash">[username@dev-intel18 WorkDir]$ salloc -N 1 -c 2 --time=1:00:00
-salloc: Required node not available (down, drained or reserved)
-salloc: job 7625 queued and waiting for resources
-salloc: job 7625 has been allocated resources
-[username@test-skl-000 WorkDir]$
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-intel18 WorkDir<span class="o">]</span>$ salloc -N <span class="m">1</span> -c <span class="m">2</span> --time<span class="o">=</span><span class="m">1</span>:00:00
+salloc: Required node not available <span class="o">(</span>down, drained or reserved<span class="o">)</span>
+salloc: job <span class="m">7625</span> queued and waiting <span class="k">for</span> resources
+salloc: job <span class="m">7625</span> has been allocated resources
+<span class="o">[</span>username@test-skl-000 WorkDir<span class="o">]</span>$
+</code></pre></div>
 <p>where "<strong>test-skl-000</strong>" after the symbol <strong>@</strong> is the name of the
 assigned compute node.</p>
 <h3 id="salloc-and-gpus">salloc and GPUs</h3>
 <p>GPUs requested for an interactive job can now be used without submitting
 an additional srun.</p>
-<pre><code class="language-bash">[username@dev-intel18 ~]$ salloc --gres=gpu:1 --time=1:00:00
-salloc: Pending job allocation 14884030
-salloc: job 14884030 queued and waiting for resources
-salloc: job 14884030 has been allocated resources
-salloc: Granted job allocation 14884030
-salloc: Waiting for resource configuration
-salloc: Nodes csn-003 are ready for job
-[username@csn-003 ~]$ nvidia-smi
-Mon Apr  8 10:26:41 2019       
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-intel18 ~<span class="o">]</span>$ salloc --gres<span class="o">=</span>gpu:1 --time<span class="o">=</span><span class="m">1</span>:00:00
+salloc: Pending job allocation <span class="m">14884030</span>
+salloc: job <span class="m">14884030</span> queued and waiting <span class="k">for</span> resources
+salloc: job <span class="m">14884030</span> has been allocated resources
+salloc: Granted job allocation <span class="m">14884030</span>
+salloc: Waiting <span class="k">for</span> resource configuration
+salloc: Nodes csn-003 are ready <span class="k">for</span> job
+<span class="o">[</span>username@csn-003 ~<span class="o">]</span>$ nvidia-smi
+Mon Apr  <span class="m">8</span> <span class="m">10</span>:26:41 <span class="m">2019</span>       
 +-----------------------------------------------------------------------------+
-| NVIDIA-SMI 418.39       Driver Version: 418.39       CUDA Version: 10.1     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|===============================+======================+======================|
-|   0  Tesla K20m          On   | 00000000:03:00.0 Off |                    0 |
-| N/A   30C    P8    26W / 225W |      0MiB /  4743MiB |      0%      Default |
+<span class="p">|</span> NVIDIA-SMI <span class="m">418</span>.39       Driver Version: <span class="m">418</span>.39       CUDA Version: <span class="m">10</span>.1     <span class="p">|</span>
+<span class="p">|</span>-------------------------------+----------------------+----------------------+
+<span class="p">|</span> GPU  Name        Persistence-M<span class="p">|</span> Bus-Id        Disp.A <span class="p">|</span> Volatile Uncorr. ECC <span class="p">|</span>
+<span class="p">|</span> Fan  Temp  Perf  Pwr:Usage/Cap<span class="p">|</span>         Memory-Usage <span class="p">|</span> GPU-Util  Compute M. <span class="p">|</span>
+<span class="p">|</span><span class="o">===============================</span>+<span class="o">======================</span>+<span class="o">======================</span><span class="p">|</span>
+<span class="p">|</span>   <span class="m">0</span>  Tesla K20m          On   <span class="p">|</span> <span class="m">00000000</span>:03:00.0 Off <span class="p">|</span>                    <span class="m">0</span> <span class="p">|</span>
+<span class="p">|</span> N/A   30C    P8    26W / 225W <span class="p">|</span>      0MiB /  4743MiB <span class="p">|</span>      <span class="m">0</span>%      Default <span class="p">|</span>
 +-------------------------------+----------------------+----------------------+
 
 +-----------------------------------------------------------------------------+
-| Processes:                                                       GPU Memory |
-|  GPU       PID   Type   Process name                             Usage      |
-|=============================================================================|
-|  No running processes found                                                 |
+<span class="p">|</span> Processes:                                                       GPU Memory <span class="p">|</span>
+<span class="p">|</span>  GPU       PID   Type   Process name                             Usage      <span class="p">|</span>
+<span class="p">|</span><span class="o">=============================================================================</span><span class="p">|</span>
+<span class="p">|</span>  No running processes found                                                 <span class="p">|</span>
 +-----------------------------------------------------------------------------+
-</code></pre>
+</code></pre></div>
 <h3 id="srun-command">srun command</h3>
 <p>A similar way can also be used with <strong>srun</strong> command:</p>
-<pre><code class="language-bash">[username@dev-intel18 WorkDir]$ srun -N 4 --ntasks-per-node=2 -t 00:60:00 --mem-per-cpu=1000M --pty /bin/bash
-srun: Required node not available (down, drained or reserved)
-srun: job 7636 queued and waiting for resources
-srun: Granted job allocation 7636
-[username@test-skl-000 WorkDir]$ 
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-intel18 WorkDir<span class="o">]</span>$ srun -N <span class="m">4</span> --ntasks-per-node<span class="o">=</span><span class="m">2</span> -t <span class="m">00</span>:60:00 --mem-per-cpu<span class="o">=</span>1000M --pty /bin/bash
+srun: Required node not available <span class="o">(</span>down, drained or reserved<span class="o">)</span>
+srun: job <span class="m">7636</span> queued and waiting <span class="k">for</span> resources
+srun: Granted job allocation <span class="m">7636</span>
+<span class="o">[</span>username@test-skl-000 WorkDir<span class="o">]</span>$ 
+</code></pre></div>
 <p>As we can see, the specification "<strong>--pty /bin/bash</strong>" is required for
 <strong>srun</strong> command to request an interactive mode. Any command executed in
 this kind of interactive jobs will be launched parallelly with the
@@ -2186,17 +2186,17 @@ into our web-based remote desktop, and run the terminal there.    See
 If you are on Windows and using Moba Xterm to log in, these instructions
 will work with our with the "-X" parameter.  Putty does not support X11
 and so this will not work with putty. </p>
-<pre><code class="language-bash">[username@gateway-03 ~]$ ssh -X dev-intel18
-[username@dev-intel18 ~]$ cd WorkdDir  # this is optional, but you may want to select your work directory, for example
-[username@dev-intel18 WorkDir]$ salloc --ntasks=1 --cpus-per-task 2 --time 00:30:00 --x11
-salloc: Granted job allocation 7708
-salloc: Waiting for resource configuration
-salloc: Nodes css-076 are ready for job
-[username@css-076 WorkDir]$ module load MATLAB
-[username@css-076 WorkDir]$ matlab
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@gateway-03 ~<span class="o">]</span>$ ssh -X dev-intel18
+<span class="o">[</span>username@dev-intel18 ~<span class="o">]</span>$ <span class="nb">cd</span> WorkdDir  <span class="c1"># this is optional, but you may want to select your work directory, for example</span>
+<span class="o">[</span>username@dev-intel18 WorkDir<span class="o">]</span>$ salloc --ntasks<span class="o">=</span><span class="m">1</span> --cpus-per-task <span class="m">2</span> --time <span class="m">00</span>:30:00 --x11
+salloc: Granted job allocation <span class="m">7708</span>
+salloc: Waiting <span class="k">for</span> resource configuration
+salloc: Nodes css-076 are ready <span class="k">for</span> job
+<span class="o">[</span>username@css-076 WorkDir<span class="o">]</span>$ module load MATLAB
+<span class="o">[</span>username@css-076 WorkDir<span class="o">]</span>$ matlab
 MATLAB is selecting SOFTWARE OPENGL rendering.
 Opening log file:  /mnt/home/username/java.log.7159
-</code></pre>
+</code></pre></div>
 <p><img alt="img!" src="../attachments/20119770/20119780.png" /></p>
 <!--
 <div class="pageSectionHeader">

@@ -2093,8 +2093,8 @@ data-linked-resource-container-version="19">hello.h</a>\]**
 -->
 
 <p>To compile these codes, you would use the following command:</p>
-<pre><code class="language-bash">gcc -o hello hello.c hellofunc.c -I.
-</code></pre>
+<div class="highlight"><pre><span></span><code>gcc -o hello hello.c hellofunc.c -I.
+</code></pre></div>
 <p>This command compiles the two c files, and names the executable
 <strong>hello</strong>. With the '-I.' flag, gcc will look in the current directory
 for the include file 'hello.h'. With only two .c files, it is easy to
@@ -2105,9 +2105,9 @@ time-consuming and inefficient.</p>
 <p>So it is time to learn how makefile will be helpful for such cases.
 First, create a file which has the following two lines. (The filename
 should be makefile or Makefile), and put it under the 'hello' directory.</p>
-<pre><code class="language-bash">hello: hello.c hellofunc.c
+<div class="highlight"><pre><span></span><code>hello: hello.c hellofunc.c
       gcc -o hello hello.c hellofunc.c -I.
-</code></pre>
+</code></pre></div>
 <p>Now, type <strong>make</strong> on the terminal and check if the executable is
 created. The <strong>make</strong> command will execute the compile command as you
 have written it in the makefile. Note that make with no arguments
@@ -2120,11 +2120,11 @@ do not work!). There must be a tab at the beginning of any command,
 otherwise, you will get a lot of errors.</p>
 <p>Can we make it a little bit more efficient? Let's modify our makefile as
 following:</p>
-<pre><code class="language-bash">CC=gcc 
-CFLAGS=-I.
+<div class="highlight"><pre><span></span><code><span class="nv">CC</span><span class="o">=</span>gcc 
+<span class="nv">CFLAGS</span><span class="o">=</span>-I.
 hello: hello.o hellofunc.o
-    $(CC) -o hello hello.o hellofunc.o
-</code></pre>
+    <span class="k">$(</span>CC<span class="k">)</span> -o hello hello.o hellofunc.o
+</code></pre></div>
 <p>In this <strong>makefile</strong>, we define CC and CFLAGS, which are special macros
 communicating to <strong>make</strong> how we want to compile the files hello.c and
 hellofunc.c. In particular, CC is for the C compiler, and CFLAGS is the
@@ -2139,16 +2139,16 @@ makefile misses include files. For example, if you made a change to
 needed to be. In order to fix this problem, we need to tell <strong>make</strong>
 that all .c files depend on certain .h files. It can be done by writing
 a simple rule and adding it to the <strong>makefile</strong>.</p>
-<pre><code class="language-bash">CC=gcc
-CFLAGS=-I.
-DEPS = hello.h
+<div class="highlight"><pre><span></span><code><span class="nv">CC</span><span class="o">=</span>gcc
+<span class="nv">CFLAGS</span><span class="o">=</span>-I.
+<span class="nv">DEPS</span> <span class="o">=</span> hello.h
 
-%.o: %.c $(DEPS)
-    $(CC) -c -o $@ $&lt; $(CFLAGS)
+%.o: %.c <span class="k">$(</span>DEPS<span class="k">)</span>
+    <span class="k">$(</span>CC<span class="k">)</span> -c -o <span class="nv">$@</span> $&lt; <span class="k">$(</span>CFLAGS<span class="k">)</span>
 
 hello: hello.o hellofunc.o 
-    $(CC) -o hello hello.o hellofunc.o
-</code></pre>
+    <span class="k">$(</span>CC<span class="k">)</span> -o hello hello.o hellofunc.o
+</code></pre></div>
 <p>This addition first creates the macro DEPS (the macro name does not have
 to be DEPS. You can use any name.), which is the set of .h files on
 which the .c files depend. Then we define a rule for all .o files. The
@@ -2164,17 +2164,17 @@ which are the left and right sides of the <strong>:</strong>, respectively, to m
 the overall compilation rule more general. In the example below, all of
 the include files should be listed as part of the macro DEPS, and all of
 the object files should be listed as part of the macro OBJ.</p>
-<pre><code class="language-bash">CC=gcc
-CFLAGS=-I.
-DEPS = hello.h
-OBJ = hello.o hellofunc.o 
+<div class="highlight"><pre><span></span><code><span class="nv">CC</span><span class="o">=</span>gcc
+<span class="nv">CFLAGS</span><span class="o">=</span>-I.
+<span class="nv">DEPS</span> <span class="o">=</span> hello.h
+<span class="nv">OBJ</span> <span class="o">=</span> hello.o hellofunc.o 
 
-%.o: %.c $(DEPS)
-    $(CC) -c -o $@ $&lt; $(CFLAGS)
+%.o: %.c <span class="k">$(</span>DEPS<span class="k">)</span>
+    <span class="k">$(</span>CC<span class="k">)</span> -c -o <span class="nv">$@</span> $&lt; <span class="k">$(</span>CFLAGS<span class="k">)</span>
 
-hello: $(OBJ)
-    $(CC) -o $@ $^ $(CFLAGS)
-</code></pre>
+hello: <span class="k">$(</span>OBJ<span class="k">)</span>
+    <span class="k">$(</span>CC<span class="k">)</span> -o <span class="nv">$@</span> $^ <span class="k">$(</span>CFLAGS<span class="k">)</span>
+</code></pre></div>
 <p>Now you have a good sense of makefile. For more information on makefiles
 and the make function, check out the <a href="http://www.gnu.org/software/make/manual/make.html">GNU Make Manual</a>, which will tell you everything on
 makefile.</p>
