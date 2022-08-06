@@ -2247,7 +2247,7 @@
 <li><a href="#5">I am looking for help to troubleshoot my problem. How do I share my code/files with you?</a></li>
 <li><a href="#6">Is there any limit per user on using the HPCC resources?</a></li>
 <li><a href="#7">I would like to know more about the dev-node limit.</a></li>
-<li><a href="#8">How do I check my cup time usage?</a></li>
+<li><a href="#8">How do I check my cpu time usage?</a></li>
 <li><a href="#9">How do I get my storage usage data?</a></li>
 <li><a href="#10">I have a buyin account, do I need to specify it when I submit jobs?</a></li>
 <li><a href="#11">What is HPCC's data backup policy?</a></li>
@@ -2329,7 +2329,7 @@ that process will be killed. You however, can still connect to that
 dev-node, and run another process. Additionally, if your process uses
 100% CPU (1 core), it will be terminated in two hours. If your process
 uses 200% CPU (2 cores), it will be terminated in one hour, and so on.</p>
-<h2 id="how-do-i-check-my-cup-time-usage">How do I check my cup time usage?<a name="8"></a></h2>
+<h2 id="how-do-i-check-my-cpu-time-usage">How do I check my cpu time usage?<a name="8"></a></h2>
 <p>Run command "cputime". You can also run "sreport" to get the information
 with date such as "sreport user top user= start=2021-01-06 -t hour". </p>
 <h2 id="how-do-i-get-my-storage-usage-data">How do I get my storage usage data?<a name="9"></a></h2>
@@ -2339,8 +2339,7 @@ used up</strong>.</p>
 <p>No. When submitting a job without specifying an account, your default
 account is used. You can check your default account using the
 "buyin_status -l" command; buyin user's default is their buyin account.
-We recommend you read <a href="https://wiki.hpcc.msu.edu/x/3IAhAQ"
-rel="nofollow">https://wiki.hpcc.msu.edu/x/3IAhAQ</a> if you have
+We recommend you read <a href="../Buy-In_Accounts_with_SLURM/">this</a> if you have
 purchased buyin nodes.</p>
 <h2 id="what-is-hpccs-data-backup-policy">What is HPCC's data backup policy?<a name="11"></a></h2>
 <p>We back up data in users' home and research directories, not in their
@@ -2469,30 +2468,34 @@ users</a> resolve their software installation issues, no matter where
 the software is installed, either system-wide or in your private home or
 research directory. </p>
 <h2 id="can-i-use-hpc-through-web-browsers">Can I use HPC through web browsers?<a name="23"></a></h2>
-<p>It is now possible for users to access HPCC resources via internet
+<p>Yes, we provide Open OnDemand a webportal for easy web access to HPCC. Check out <a href="../Open_OnDemand/">this tutorial</a>.</p>
+<!-- It is now possible for users to access HPCC resources via internet
 browsers. Many new users will attempt to log into HPCC via the wiki
 page: <a href="https://wiki.hpcc.msu.edu/" class="ext"
 rel="nofollow">https://wiki.hpcc.msu.edu/(link is external)</a>.
 However, HPCC users are not able to login to the HPCC via the wiki
 pages. Instead, to access HPCC via a web browser, use the following two
-portals:</p>
-<p>1. <strong>HPCC OnDemand, login portal</strong>:
+portals:
+
+1\. **HPCC OnDemand, login portal**:
 <a href="https://ondemand.hpcc.msu.edu/"
-rel="nofollow">https://ondemand.hpcc.msu.edu/(link is external)</a><br />
+rel="nofollow">https://ondemand.hpcc.msu.edu/(link is external)</a>
 This is our new web access to HPCC resources. To see its features and
 how to use it, please
 visit <a href="https://wiki.hpcc.msu.edu/x/3oAFAw" class="ext"
-rel="nofollow">"Open OnDemand" wiki page(link is external)</a>.</p>
-<p>2.<strong> Web-based Remote Desktop Protocol, login portal</strong>:
+rel="nofollow">"Open OnDemand" wiki page(link is external)</a>.
+
+2.** Web-based Remote Desktop Protocol, login portal**:
 <a href="https://webrdp.hpcc.msu.edu/"
-rel="nofollow">https://webrdp.hpcc.msu.edu/(link is external)</a><br />
+rel="nofollow">https://webrdp.hpcc.msu.edu/(link is external)</a>
 This is the old web access. This access may be replaced by HPCC OnDemand
 in the future. Users who still utilize this portal should be aware that
 their Conda installation has a conflict with this protocol. For proposed
 solutions to this issue, please visit <a
 href="https://wiki.hpcc.msu.edu/display/ITH/Web-based+Remote+Desktop+Protocol#Web-basedRemoteDesktopProtocol-ConflictissuewithConda."
 class="ext" rel="nofollow">"Web-based Remote Desktop Protocol"
-wikipage(link is external)</a>. </p>
+wikipage(link is external)</a>.  -->
+
 <h2 id="what-to-do-when-i-can-not-load-modules">What to do when I can not load modules?<a name="24"></a></h2>
 <p>MSU's High Performance Computing Center (HPCC) has a variety of software
 packages installed system-wide. To access these software, users must
