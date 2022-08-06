@@ -13,7 +13,7 @@
     
     
       
-        <title>Connect over SSH with VS_Code - MSU HPCC User Documentation</title>
+        <title>Targeting Cluster Architectures - MSU HPCC User Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#connect-over-ssh-with-vs-code" class="md-skip">
+        <a href="#targeting-cluster-architectures" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                Connect over SSH with VS_Code
+                Targeting Cluster Architectures
               
             </span>
           </div>
@@ -2068,52 +2068,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Connect over SSH with VS_Code
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Connect_over_SSH_with_VS_Code/" class="md-nav__link">
         Connect over SSH with VS_Code
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequistes" class="md-nav__link">
-    prerequistes
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2207,11 +2166,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../Targeting_Cluster_Architectures/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Targeting Cluster Architectures
       </a>
+      
     </li>
   
 
@@ -2258,21 +2227,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequistes" class="md-nav__link">
-    prerequistes
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2285,46 +2239,76 @@
                 
 
 
-<h1 id="connect-over-ssh-with-vs-code">Connect over SSH with VS Code</h1>
-<p>VS Code allows you to work on remote servers from your local machine. </p>
-<h3 id="prerequistes">prerequistes</h3>
-<ul>
-<li>Install VS Code (Click <a href="https://code.visualstudio.com/"rel="nofollow">HERE</a>)</li>
-<li>~/.ssh/config</li>
-</ul>
-<p>Because we need to hop twice (your local machine -&gt; gateway -&gt; dev node), we need an ssh config file. The following is an example config which defines intel18 and k80 dev node. With this file, you can connect dev node from your local machine with 'ssh intel18' or 'ssh k80'.</p>
-<pre><code>Host gateway
-  HostName gateway.hpcc.msu.edu
-  User your_net_id
-
-Host intel18
-  HostName dev-intel18
-  User your_net_id
-  ProxyJump gateway
-
-Host k80
-  HostName dev-intel16-k80
-  User your_net_id
-  ProxyJump gateway
-</code></pre>
-<p>Next, we need an extension program for VS Code (Click <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack"rel="nofollow">HERE</a>)</p>
-<p><img alt="Screenshot 1" src="../attachments/connect_over_ssh_w_vs_code/ssh_vs_code_01.png" /></p>
-<p>When the extension is installed, press F1, and select 'Remote-SSH: Connect to Host...'
-<img alt="Screenshot 1" src="../attachments/connect_over_ssh_w_vs_code/ssh_vs_code_02.png" /></p>
-<p>Then select intel18 or k80.
-<img alt="Screenshot 1" src="../attachments/connect_over_ssh_w_vs_code/ssh_vs_code_03.png" /></p>
-<p>A new VS Code window will pop up. When you are successfully connected, bottom left of the VS Code will show server information such as 'SSH: intel18'.
-<img alt="Screenshot 1" src="../attachments/connect_over_ssh_w_vs_code/ssh_vs_code_04.png" /></p>
-<p>Now that you are connected, you can run commands and codes from VS Code. When you are connected to the HPC, all files created through VS Code will be saved to the HPC, not on your local machine.</p>
-<p>To test the ability to run remote code, let's create a Python file 'hello.py' with VS Code. Click 'New file' and create a file with the following contest to the file:
-<img alt="Screenshot 1" src="../attachments/connect_over_ssh_w_vs_code/ssh_vs_code_05.png" /></p>
-<pre><code>print('hello!')
-</code></pre>
-<p>Now, open a terminal from 'Terminal' menu from VS Code (or by pressing the key sequence CTRL+Shift+`  and run the code.</p>
-<pre><code>$ python hello.py
-</code></pre>
-<p>Once you have connected the server, click the Remote Explorer to see the list of servers. Click the icon to connect to host in a new window. Right click the name to see the option.  </p>
-<p><img alt="Screenshot 1" src="../attachments/connect_over_ssh_w_vs_code/ssh_vs_code_06.png" /></p>
+<h1 id="targeting-cluster-architectures">Targeting Cluster Architectures</h1>
+<p>While all HPCC nodes are the x86_64 architecture, some newer processors
+have features that are not supported by older processors. A program
+compiled on a newer processor may not run on an older processor and may
+result in an 'Illegal Instruction' error. This can be corrected by
+specifying compilers parameters that control which processor instruction
+are used.</p>
+<p>Use the following options for your compiler to ensure your programs will
+run on all HPCC nodes.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compiler Type</td>
+<td>Min Version</td>
+<td>Max Version</td>
+<td>Arguments</td>
+</tr>
+<tr>
+<td>GCC</td>
+<td>6.4</td>
+<td>N/A</td>
+<td>-march=core-avx-i -mtune=skylake-avx512</td>
+</tr>
+<tr>
+<td>GCC</td>
+<td>4.9</td>
+<td>\&lt; 6.4</td>
+<td>-march=core-avx-i -mtune=silvermont</td>
+</tr>
+<tr>
+<td>GCC</td>
+<td>4.8</td>
+<td>\&lt; 4.9</td>
+<td>-march=core-avx-i -mtune=core-avx2</td>
+</tr>
+<tr>
+<td>GCC</td>
+<td>4.6</td>
+<td>\&lt; 4.8</td>
+<td>-march=core-avx-i</td>
+</tr>
+<tr>
+<td>GCC</td>
+<td>4.3</td>
+<td>\&lt; 4.6</td>
+<td>-march=core2</td>
+</tr>
+<tr>
+<td>GCC</td>
+<td>3.3</td>
+<td>\&lt; 4.3</td>
+<td>-march=nocona</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>2015.1</td>
+<td>N/A</td>
+<td>-mAVX -axCORE-AVX-I,CORE-AVX2,CORE-AVX512</td>
+</tr>
+</tbody>
+</table>
+<p>The new amd20 cluster does not support AVX-512.</p>
 
 
   
