@@ -365,9 +365,54 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Central Michigan U and Western Michigan U
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Central Michigan U and Western Michigan U
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contacting-the-hpcc-for-help" class="md-nav__link">
+    Contacting the HPCC for Help
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-your-password" class="md-nav__link">
+    Changing your password
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-cmu-nodes" class="md-nav__link">
+    Using CMU nodes
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2229,6 +2274,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contacting-the-hpcc-for-help" class="md-nav__link">
+    Contacting the HPCC for Help
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-your-password" class="md-nav__link">
+    Changing your password
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-cmu-nodes" class="md-nav__link">
+    Using CMU nodes
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2244,24 +2318,21 @@
 <h1 id="information-for-central-michigan-university-and-western-michigan-university-users">Information for Central Michigan University and Western Michigan University Users</h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>User-specific information</strong></p>
 <p>This information is for users at Central Michigan University and Western
 Michigan University. Users with MSU NetIDs should disregard this
 information.</p>
 </div>
-<h1 id="contacting-the-hpcc-for-help">Contacting the HPCC for Help.</h1>
+<h2 id="contacting-the-hpcc-for-help">Contacting the HPCC for Help</h2>
 <p>CMU Users: Please email <a href="mailto:cmichhelp@hpcc.msu.edu">cmichhelp@hpcc.msu.edu</a>
 for help with the HPCC systems.</p>
-<p>WMU Users: Please email <a href="mailto:wmichhelp@hpcc.msu.edu">wmichhelp@hpcc.msu.edu</a> for help with the HPCC
+<p>WMU Users: Please email <a href="mailto:wmichhelp@hpcc.msu.edu">wmichhelp@hpcc.msu.edu</a> for help with the HPCC
 systems.</p>
-<h1 id="changing-your-password">Changing your password:</h1>
-<p>First, connect to the HPCC using your credentials.  (For more
-information, see Connecting to the HPCC):</p>
+<h2 id="changing-your-password">Changing your password</h2>
+<p>First, connect to the HPCC using your credentials (for more information, see https://docs.icer.msu.edu/Connect_to_HPCC_System/):</p>
 <pre><code class="language-bash">ssh userid@hpcc.msu.edu
 </code></pre>
-<p>After log into HPCC gateway, ssh to one of the development nodes. Use
-the "passwd" command on a dev node:</p>
-<pre><code class="language-bash">login as: cmichtestCMICH
+<p>After logging into HPCC gateway, ssh to one of the development nodes. Use the "passwd" command on a dev node:</p>
+<pre><code>login as: cmichtestCMICH
 Using keyboard-interactive authentication.
 Password:
                 /_// ___// ___// _  ;    / /_/ // _  ;/ ___// ___/
@@ -2292,28 +2363,22 @@ considerations please see: https://wiki.hpcc.msu.edu/x/N4JnAg
 ===
 [cmichtestCMICH@dev-amd20 ~]$ passwd
 Changing password for cmichtestCMICH.
-Enter login(LDAP) password:
+Enter login(LDAP) password: # enter your old password
+New Password: # enter your new password
 </code></pre>
-<p>Enter your old password.</p>
-<pre><code class="language-bash">New Password:
-</code></pre>
-<p>Enter your new password</p>
-<p>Password limitations</p>
-<p>External user passwords are limited to eight characters. The system will
+<p>Password limitations: External user passwords are limited to eight characters. The system will
 check the password for common problems and reject any insecure choices.</p>
-<pre><code class="language-bash">Reenter New Password:
+<pre><code>Reenter New Password:
 </code></pre>
 <p>Reenter your password.</p>
-<pre><code class="language-bash">LDAP password information changed for cmichtestCMICH
+<pre><code>LDAP password information changed for cmichtestCMICH
 </code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It may take up to a hour for the password change to be propagated to all
-LDAP servers.</p>
+<p>It may take up to a hour for the password change to be propagated to all LDAP servers.</p>
 </div>
-<h1 id="using-cmu-nodes">Using CMU nodes</h1>
-<p>Your account automatically has access to CMU nodes. The actual nodes
-assigned may vary depending on hardware availability.</p>
+<h2 id="using-cmu-nodes">Using CMU nodes</h2>
+<p>Your account automatically has access to CMU nodes. The actual nodes assigned may vary depending on hardware availability.</p>
 
 
   
