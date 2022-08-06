@@ -2269,8 +2269,7 @@
 <li><a href="#26">What is powertools?</a></li>
 <li><a href="#27">I want copy files from/to my MS One Drive/Google Drive.</a></li>
 <li><a href="#28">How to check HPCC nodes usage?</a></li>
-<li><a href="#29">I know that HPCC offers a storage purchases plan. However, I do not need to access my data frequently. Does HPCC offer a cheaper long-term archiving plan?
-</a></li>
+<li><a href="#29">Does HPCC offer a cheaper long-term archiving plan?</a></li>
 </ol>
 <h2 id="what-is-my-hpcc-user-namepassword">What is my HPCC user name/password?<a name="1"></a></h2>
 <p>If you are affiliated with MSU, then your MSU NetID is your user name,
@@ -2511,7 +2510,7 @@ OpenMPI/3.1.4.</p>
 <p>Many users have reported problems copying or transferring files to their
 research space. Although their research space still has plenty available
 space, they get the following error message:</p>
-<p>“failed to ... ... Disk quota exceeded” </p>
+<p>“failed to ... ... Disk quota exceeded”</p>
 <p>This problem may occur because the folders which you copy or transfer
 files to have incorrect group ownership or no set-group-ID. Please read
 the "Instruction for using research space" section of the
@@ -2519,30 +2518,31 @@ the "Instruction for using research space" section of the
 class="ext" rel="nofollow">Research Space wiki page(link is
 external)</a> to learn how to resolve this issue.</p>
 <h2 id="what-is-powertools">What is powertools?<a name="26"></a></h2>
-<p>Powertools is a collection of software tools and examples that allows
+<p>The powertools module is a collection of software tools and examples that allows
 researchers to better utilize HPC systems. Powertools was created to
-help advanced users use the HPCC more effectively. To learn powertools,
+help advanced users use the HPCC more effectively. To learn more about powertools,
 run command "powertools".</p>
 <h2 id="i-want-copy-files-fromto-my-ms-one-drivegoogle-drive">I want copy files from/to my MS One Drive/Google Drive.<a name="27"></a></h2>
 <p>Rclone is currently installed on HPCC. This software supports research
-in the cloud; and helps HPCC users to sync files and directories between
-MSU’s HPCC and their cloud storage, including OneDrive and Google Drive.</p>
-<p><a
+in the cloud and helps HPCC users to sync files and directories between
+MSU’s HPCC and their cloud storage, including OneDrive and Google Drive. Please refer to https://docs.icer.msu.edu/Rclone_-_rsync_for_cloud_storage/</p>
+<!--<a
 href="https://wiki.hpcc.msu.edu/display/ITH/Rclone+-+rsync+for+cloud+storage"
 class="ext" rel="nofollow">Instructions for starting Rclone on HPCC(link
 is external)</a> are provided in the HPCC documentation. Instructions
-for configuring rclone on HPCC are also provided.  </p>
-<p>The new tool <em>cloudSync</em> has been developed to help users sync files and
-directories. After running <em>rclone config</em>successfully, load the tool
-with the command <em>module load powertools</em> then try the <em>cloudSync</em>
+for configuring rclone on HPCC are also provided.  
+
+The new tool *cloudSync* has been developed to help users sync files and
+directories. After running *rclone config*successfully, load the tool
+with the command *module load powertools* then try the *cloudSync*
 command. (Click <a
 href="https://wiki.hpcc.msu.edu/display/ITH/Rclone+-+rsync+for+cloud+storage?preview=/34963677/37421153/Rclone%20tutorial%20final.pdf"
 class="ext" rel="nofollow">here(link is external)</a> to find more
-Information on how to use <em>cloudSync.)</em></p>
+Information on how to use *cloudSync.)* -->
+
 <h2 id="how-to-check-hpcc-nodes-usage">How to check HPCC nodes usage?<a name="28"></a></h2>
-<p>users can see this information by simply running the
-"node_status" command on any dev node.</p>
-<h2 id="i-know-that-hpcc-offers-a-storage-purchases-plan-however-i-do-not-need-to-access-my-data-frequently-does-hpcc-offer-a-cheaper-long-term-archiving-plan">I know that HPCC offers a storage purchases plan. However, I do not need to access my data frequently. Does HPCC offer a cheaper long-term archiving plan?<a name="29"></a></h2>
+<p>Users can see this information by simply running the "node_status" command on any dev node.</p>
+<h2 id="does-hpcc-offer-a-cheaper-long-term-archiving-plan">Does HPCC offer a cheaper long-term archiving plan?<a name="29"></a></h2>
 <p>We do not. However, MSU offers the Data Storage Finder
 (<a href="https://data-storage-finder.tech.msu.edu"
 rel="nofollow">https://data-storage-finder.tech.msu.edu</a>). There are
