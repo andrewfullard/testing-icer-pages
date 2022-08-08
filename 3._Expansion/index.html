@@ -2247,75 +2247,75 @@ expansion, the arguments expands into something else before the shell
 acts on it with the command. Let's see an example with <strong>echo</strong> command.
 We already learned <strong>echo</strong> command in the previous section. As you
 know, echo prints out its text arguments on standard output.</p>
-<pre><code class="language-bash">$ echo hello world!
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> hello world!
 hello world!
-</code></pre>
+</code></pre></div>
 <p>Let's use <strong>echo</strong> with '*':</p>
-<pre><code class="language-bash">$ echo *
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> *
 hello.c hello.qsub hello.sb README
-</code></pre>
+</code></pre></div>
 <p>Instead of print '*', it prints out all file names in the directory
 because shell expands '*' into something else before the <strong>echo</strong>
 command acts to the argument (in this case '*').</p>
-<pre><code class="language-bash">$ ls
+<div class="highlight"><pre><span></span><code>$ ls
 hello.c hello.qsub hello.sb README
 
-$ echo h*
+$ <span class="nb">echo</span> h*
 hello.c hello.qsub hello.sb
-</code></pre>
+</code></pre></div>
 <p>'\~' is another special character with a special meaning. It expands
 into the name of the home directory of the user:</p>
-<pre><code class="language-bash">$ echo ~
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> ~
 $ temp_user_01
-</code></pre>
+</code></pre></div>
 <p>The shell allows arithmetic by expansion. Arithmetic expansion uses the
 form <strong>$((expression))</strong>. Look at the example.</p>
-<pre><code class="language-bash">$ echo $((1 + 1))
-2
-</code></pre>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> <span class="k">$((</span><span class="m">1</span> <span class="o">+</span> <span class="m">1</span><span class="k">))</span>
+<span class="m">2</span>
+</code></pre></div>
 <p>Please keep in mind that arithmetic expansions allows only integers.
 Arithmetic expression can be nested, and spaces are allowed.</p>
-<pre><code class="language-bash">$ echo $(( 7*( 2 + 2 ) ))
-28
-$ echo $((7*(2+2)))
-28
-</code></pre>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> <span class="k">$((</span> <span class="m">7</span><span class="o">*(</span> <span class="m">2</span> <span class="o">+</span> <span class="m">2</span> <span class="o">)</span> <span class="k">))</span>
+<span class="m">28</span>
+$ <span class="nb">echo</span> <span class="k">$((</span><span class="m">7</span><span class="o">*(</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="k">))</span><span class="o">)</span>
+<span class="m">28</span>
+</code></pre></div>
 <p>Brace expansion is useful when you write a shell script or batch script.
 The brace expression can contain a comma separated list of characters,
 strings, or integers. Here is a few examples.</p>
-<pre><code class="language-bash">$ echo srt-{a,b,c}-end
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> srt-<span class="o">{</span>a,b,c<span class="o">}</span>-end
 srt-a-end srt-b-end srt-c-end
 
-$ echo number_{1..5}
+$ <span class="nb">echo</span> number_<span class="o">{</span><span class="m">1</span>..5<span class="o">}</span>
 number_1 number_2 number_3 number_4 number_5
 
-$ echo {A..Z}
+$ <span class="nb">echo</span> <span class="o">{</span>A..Z<span class="o">}</span>
 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
 
-$ echo a{A{1,5},B{6..10}}b
+$ <span class="nb">echo</span> a<span class="o">{</span>A<span class="o">{</span><span class="m">1</span>,5<span class="o">}</span>,B<span class="o">{</span><span class="m">6</span>..10<span class="o">}}</span>b
 aA1b aA5b aB6b aB7b aB8b aB9b aB10b
-</code></pre>
+</code></pre></div>
 <p>The next example is creating multiple directories with a brace
 expansion.</p>
-<pre><code class="language-bash">$ mkdir Photos
-$ cd Photos/
-Photos$ mkdir {2020..2021}-{01..12}
+<div class="highlight"><pre><span></span><code>$ mkdir Photos
+$ <span class="nb">cd</span> Photos/
+Photos$ mkdir <span class="o">{</span><span class="m">2020</span>..2021<span class="o">}</span>-<span class="o">{</span><span class="m">01</span>..12<span class="o">}</span>
 Photos$ ls
-2020-01/  2020-03/  2020-05/  2020-07/  2020-09/  2020-11/  2021-01/  2021-03/  2021-05/  2021-07/  2021-09/  2021-11/
-2020-02/  2020-04/  2020-06/  2020-08/  2020-10/  2020-12/  2021-02/  2021-04/  2021-06/  2021-08/  2021-10/  2021-12/
+<span class="m">2020</span>-01/  <span class="m">2020</span>-03/  <span class="m">2020</span>-05/  <span class="m">2020</span>-07/  <span class="m">2020</span>-09/  <span class="m">2020</span>-11/  <span class="m">2021</span>-01/  <span class="m">2021</span>-03/  <span class="m">2021</span>-05/  <span class="m">2021</span>-07/  <span class="m">2021</span>-09/  <span class="m">2021</span>-11/
+<span class="m">2020</span>-02/  <span class="m">2020</span>-04/  <span class="m">2020</span>-06/  <span class="m">2020</span>-08/  <span class="m">2020</span>-10/  <span class="m">2020</span>-12/  <span class="m">2021</span>-02/  <span class="m">2021</span>-04/  <span class="m">2021</span>-06/  <span class="m">2021</span>-08/  <span class="m">2021</span>-10/  <span class="m">2021</span>-12/
 Photos$
-</code></pre>
+</code></pre></div>
 <p>Expansion also allows us to use the output of a command.</p>
-<pre><code class="language-bash">$ echo $(ls |grep 2020)
-2020-01/ 2020-02/ 2020-03/ 2020-04/ 2020-05/ 2020-06/ 2020-07/ 2020-08/ 2020-09/ 2020-10/ 2020-11/ 2020-12/
-</code></pre>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> <span class="k">$(</span>ls <span class="p">|</span>grep <span class="m">2020</span><span class="k">)</span>
+<span class="m">2020</span>-01/ <span class="m">2020</span>-02/ <span class="m">2020</span>-03/ <span class="m">2020</span>-04/ <span class="m">2020</span>-05/ <span class="m">2020</span>-06/ <span class="m">2020</span>-07/ <span class="m">2020</span>-08/ <span class="m">2020</span>-09/ <span class="m">2020</span>-10/ <span class="m">2020</span>-11/ <span class="m">2020</span>-12/
+</code></pre></div>
 <p>Next, let's learn how to control expansion. </p>
-<pre><code class="language-bash">$ echo This is a      test
-This is a test
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> This is a      <span class="nb">test</span>
+This is a <span class="nb">test</span>
 
-$ echo The total is $100.00
-The total is 00.00
-</code></pre>
+$ <span class="nb">echo</span> The total is <span class="nv">$100</span>.00
+The total is <span class="m">00</span>.00
+</code></pre></div>
 <p>In the first example, the shell removes extra space from the <strong>echo</strong>
 command's argument. In the second example, '$1' is interpreted the first
 input parameter which is not defined here, and therefore, it is replaced
@@ -2324,43 +2324,43 @@ as empty string. With quoting, we can suppress unwanted expansions.</p>
 quotes, all special characters lose their special meaning, and treated
 as ordinary characters. However "$" "\" (backslash) and "`" (back
 quote) are exceptions.</p>
-<pre><code class="language-bash">$ echo &quot;This is a     test&quot;
-This is a     test
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> <span class="s2">&quot;This is a     test&quot;</span>
+This is a     <span class="nb">test</span>
 
 $ ls two words.txt
 ls: cannot access two: No such file or directory
 ls: cannot access words.txt: No such file or directory
-(base) dev-intel16-k80:shell$ ls &quot;two words.txt&quot;
+<span class="o">(</span>base<span class="o">)</span> dev-intel16-k80:shell$ ls <span class="s2">&quot;two words.txt&quot;</span>
 two words.txt
-</code></pre>
+</code></pre></div>
 <p>If you want to suppress all expansions, you need to use single quotes.
 Next three examples show how quoting give different results.</p>
-<pre><code class="language-bash">$ echo text ~/*.txt {1..5} $(echo foo) $((2+2)) $(date)
-text /mnt/home/user_name/hostfile.txt /mnt/home/choiyj/powertools.txt 1 2 3 4 5 foo 4 Tue Jan 19 15:10:00 EST 2021
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> text ~/*.txt <span class="o">{</span><span class="m">1</span>..5<span class="o">}</span> <span class="k">$(</span><span class="nb">echo</span> foo<span class="k">)</span> <span class="k">$((</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="k">))</span> <span class="k">$(</span>date<span class="k">)</span>
+text /mnt/home/user_name/hostfile.txt /mnt/home/choiyj/powertools.txt <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> foo <span class="m">4</span> Tue Jan <span class="m">19</span> <span class="m">15</span>:10:00 EST <span class="m">2021</span>
 
-$ echo &quot;text ~/*.txt {1..5} $(echo foo) $((2+2)) $(date)&quot;
-text ~/*.txt {1..5} foo 4 Tue Jan 19 15:10:09 EST 2021
-$ echo 'text ~/*.txt {1..5} $(echo foo) $((2+2)) $(date)'
-text ~/*.txt {1..5} $(echo foo) $((2+2)) $(date)
-</code></pre>
+$ <span class="nb">echo</span> <span class="s2">&quot;text ~/*.txt {1..5} </span><span class="k">$(</span><span class="nb">echo</span> foo<span class="k">)</span><span class="s2"> </span><span class="k">$((</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="k">))</span><span class="s2"> </span><span class="k">$(</span>date<span class="k">)</span><span class="s2">&quot;</span>
+text ~/*.txt <span class="o">{</span><span class="m">1</span>..5<span class="o">}</span> foo <span class="m">4</span> Tue Jan <span class="m">19</span> <span class="m">15</span>:10:09 EST <span class="m">2021</span>
+$ <span class="nb">echo</span> <span class="s1">&#39;text ~/*.txt {1..5} $(echo foo) $((2+2)) $(date)&#39;</span>
+text ~/*.txt <span class="o">{</span><span class="m">1</span>..5<span class="o">}</span> <span class="k">$(</span><span class="nb">echo</span> foo<span class="k">)</span> <span class="k">$((</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="k">))</span> <span class="k">$(</span>date<span class="k">)</span>
+</code></pre></div>
 <p>A backslash is useful when we wan to quote a single character. A
 backslash is called the escape character. Next example shows how quoting
 and an escape character work.</p>
-<pre><code class="language-bash">$ echo The balance of $(date) is $100
-The balance of Tue Jan 19 15:15:36 EST 2021 is 00
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> The balance of <span class="k">$(</span>date<span class="k">)</span> is <span class="nv">$100</span>
+The balance of Tue Jan <span class="m">19</span> <span class="m">15</span>:15:36 EST <span class="m">2021</span> is <span class="m">00</span>
 
-$ echo &quot;The balance of $(date) is $100&quot;
-The balance of Tue Jan 19 15:15:48 EST 2021 is 00
+$ <span class="nb">echo</span> <span class="s2">&quot;The balance of </span><span class="k">$(</span>date<span class="k">)</span><span class="s2"> is </span><span class="nv">$100</span><span class="s2">&quot;</span>
+The balance of Tue Jan <span class="m">19</span> <span class="m">15</span>:15:48 EST <span class="m">2021</span> is <span class="m">00</span>
 
-$ echo 'The balance of $(date) is $100'
-The balance of $(date) is $100
+$ <span class="nb">echo</span> <span class="s1">&#39;The balance of $(date) is $100&#39;</span>
+The balance of <span class="k">$(</span>date<span class="k">)</span> is <span class="nv">$100</span>
 
-$ echo &quot;The balance of $(date) is \$100&quot;
-The balance of Tue Jan 19 15:16:09 EST 2021 is $100
+$ <span class="nb">echo</span> <span class="s2">&quot;The balance of </span><span class="k">$(</span>date<span class="k">)</span><span class="s2"> is \$100&quot;</span>
+The balance of Tue Jan <span class="m">19</span> <span class="m">15</span>:16:09 EST <span class="m">2021</span> is <span class="nv">$100</span>
 
-$ echo 'The balance of $(date) is \$100'
-The balance of $(date) is \$100
-</code></pre>
+$ <span class="nb">echo</span> <span class="s1">&#39;The balance of $(date) is \$100&#39;</span>
+The balance of <span class="k">$(</span>date<span class="k">)</span> is <span class="se">\$</span><span class="m">100</span>
+</code></pre></div>
 <p>The table show the most frequently used escape characters.</p>
 <table>
 <thead>

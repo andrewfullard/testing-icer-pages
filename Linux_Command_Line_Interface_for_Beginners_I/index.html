@@ -2312,55 +2312,55 @@ few basic commands and concept.</p>
 <p>Let's run the first command. Type <strong>pwd</strong> and pressing the <strong>Enter</strong> or
 <strong>Return</strong> key to run it (From now, I'll not mention pressing
 Enter/Return key part to run command).</p>
-<pre><code class="language-bash">$ pwd
+<div class="highlight"><pre><span></span><code>$ <span class="nb">pwd</span>
 /mnt/home/iamsam/
-</code></pre>
+</code></pre></div>
 <p>You will see a path such as /mnt/home/user/your_id</p>
 <p><strong>pwd</strong> is an abbreviation of 'print working directory'. It print out
 the shell's current working directory. You can change the working
 directory using the <strong>cd</strong> command, an abbereviation for 'change
 directory'.</p>
-<pre><code class="language-bash">$ cd /
-$ pwd
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> /
+$ <span class="nb">pwd</span>
 /
-</code></pre>
+</code></pre></div>
 <p>Now your working directory is '/' which is the root directory. There is
 nothing much you can do on the root directory, so let's go to your
 'home' directory.</p>
-<pre><code class="language-bash">$ cd 
-$ pwd
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> 
+$ <span class="nb">pwd</span>
 /mnt/home/iamsam/
-</code></pre>
+</code></pre></div>
 <p>Regardless of your location, when you just type '<strong>cd</strong>', you will be
 home. You can also type '<strong>cd \~</strong>' instead of '<strong>cd</strong>' to be back your
 home.</p>
 <p>To go the previous directory, type '<strong>cd -</strong>'</p>
-<pre><code class="language-bash">$ cd -
-$ pwd
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> -
+$ <span class="nb">pwd</span>
 /
-</code></pre>
+</code></pre></div>
 <p>The root directory has many subdirectories including your home
 directory. Let's go to '<strong>bin</strong>' directory.</p>
-<pre><code class="language-bash">$ cd bin
-$ pwd
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> bin
+$ <span class="nb">pwd</span>
 /bin
-</code></pre>
+</code></pre></div>
 <p>To go up to the parent directory (it is / for us now), use the special
 syntax of two dots with <strong>cd</strong> such as</p>
-<pre><code class="language-bash">$ cd ..
-$ pwd
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> ..
+$ <span class="nb">pwd</span>
 /
-</code></pre>
+</code></pre></div>
 <p>To go up to the previous directory, use - with <strong>cd</strong> such as</p>
-<pre><code class="language-bash">$ cd -
-$ pwd
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> -
+$ <span class="nb">pwd</span>
 /bin
-</code></pre>
+</code></pre></div>
 <p>You can use <strong>..</strong> more than once if you have to move up multiple levels
 of parent directories.</p>
-<pre><code class="language-bash">$ cd ../..
-$ pwd
-</code></pre>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> ../..
+$ <span class="nb">pwd</span>
+</code></pre></div>
 <h4 id="relative-and-absolute-paths">Relative and absolute Paths</h4>
 <p>A path is an address of a directory. Most of the examples we've looked
 at so far uses relative paths. So you final location is decides based on
@@ -2368,85 +2368,85 @@ your current working directory. However, sometimes you want to use an
 absolute path than relative one. Your home's absolute path at HPC is
 /mnt/home/your_id. See the example to find how to use a relative and
 absolute paths.</p>
-<pre><code class="language-bash">$ cd /
-$ pwd
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> /
+$ <span class="nb">pwd</span>
 /
-$ cd -
-$ pwd
+$ <span class="nb">cd</span> -
+$ <span class="nb">pwd</span>
 /mnt/home/iamsam
-$ cd /
-$ cd /mnt/home/iamsam
-$ pwd
+$ <span class="nb">cd</span> /
+$ <span class="nb">cd</span> /mnt/home/iamsam
+$ <span class="nb">pwd</span>
 /mnt/home/iamsam
-</code></pre>
+</code></pre></div>
 <h3 id="creating-and-removing-directories">Creating and removing directories</h3>
 <p>To make a directory, use <strong>mkdir</strong> (short for 'make directory') such as</p>
-<pre><code class="language-bash">$ mkdir temp01
-$ls
+<div class="highlight"><pre><span></span><code>$ mkdir temp01
+<span class="nv">$ls</span>
 temp01
-</code></pre>
+</code></pre></div>
 <p><strong>ls</strong> is a command to list files and folder. We will learn it in a
 minute. You can create multiple directories as well.</p>
-<pre><code class="language-bash">$ mkdir temp02 temp03 temp04
+<div class="highlight"><pre><span></span><code>$ mkdir temp02 temp03 temp04
 $ ls
 temp01 temp02 temp03 temp04
-</code></pre>
+</code></pre></div>
 <p>To make a subdirectory, use with p option such as</p>
-<pre><code class="language-bash">$ mkdir -p temp04/temp05/temp06
+<div class="highlight"><pre><span></span><code>$ mkdir -p temp04/temp05/temp06
 $ ls temp04
 temp05
-</code></pre>
+</code></pre></div>
 <p>To remove directory use <strong>rm</strong> command with <strong>r</strong>. Without <strong>r</strong> option,
 rm will not delete directories (but you can delete files). <strong>r</strong> means
 recursive.</p>
-<pre><code class="language-bash">$ rm temp04
-rm: cannot remove 'temp04': Is a directory
+<div class="highlight"><pre><span></span><code>$ rm temp04
+rm: cannot remove <span class="s1">&#39;temp04&#39;</span>: Is a directory
 $ rm -r temp04
-</code></pre>
+</code></pre></div>
 <h3 id="creating-and-removing-files">Creating and removing files</h3>
 <p>You can use editors to create files, but it is out of scope of this
 tutorial. Let's use <strong>ls</strong> and a pipe <strong>></strong> (we will explain pipes
 later).</p>
-<pre><code class="language-bash">$ ls
+<div class="highlight"><pre><span></span><code>$ ls
 temp01 temp02 temp03
 $ ls &gt; list.txt
 $ ls
 list.txt temp01 temp02 temp03
-</code></pre>
+</code></pre></div>
 <p>Now we have three directories (temp01, temp02, temp03) and one file
 (list.txt). We already know how to delete directories. To delete files,
 we use command <strong>rm</strong> such as</p>
-<pre><code class="language-bash">$ rm list.txt
+<div class="highlight"><pre><span></span><code>$ rm list.txt
 $ ls
 temp01 temp02 temp03
-</code></pre>
+</code></pre></div>
 <h3 id="copying-and-renaming-directories-and-files">Copying and renaming directories and files</h3>
 <p>To copy files or directories, use <strong>cp</strong> such as</p>
-<pre><code class="language-bash">$ cp list.txt list2.txt
+<div class="highlight"><pre><span></span><code>$ cp list.txt list2.txt
 $ ls
 list.txt list2.txt temp01 temp02 temp03
-</code></pre>
+</code></pre></div>
 <p>With <strong>r</strong> option, you can copy files and directories recursively. i.e.,
 copy subdirectories and files.</p>
 <p><strong>mv</strong> command mv files/directories or rename them.</p>
-<pre><code class="language-bash">$ mv list2.txt temp01
+<div class="highlight"><pre><span></span><code>$ mv list2.txt temp01
 $ ls
 list.txt temp01 temp02 temp03
 
 $ ls temp01
 list2.txt
 
-$ cd temp01
+$ <span class="nb">cd</span> temp01
 $ mv list2.txt list3.txt
 $ ls
 list3.txt
-</code></pre>
+</code></pre></div>
 <h3 id="listing-directories-and-files">Listing directories and files</h3>
 <p>We already used <strong>ls</strong>. To list directories and files, us <strong>ls</strong> (short
 for 'list'). </p>
-<pre><code class="language-bash">$ ls
+<div class="highlight"><pre><span></span><code>$ ls
 temp01 temp02 temp03
-</code></pre>
+</code></pre></div>
 <p>There are many options for <strong>ls</strong>. Most frequently used options are</p>
 <ul>
 <li>a: list all files and directories including hidden contents</li>
@@ -2456,24 +2456,24 @@ temp01 temp02 temp03
 </ul>
 <p>You can use options separately like <strong>ls -l -a -t</strong> or together like
 <strong>ls -lat.</strong></p>
-<pre><code class="language-bash">$ ls -l -a -t
-total 8
--rw-r--r--    1 iamsam  staff    30 Mar 23 15:37 list.txt
-drwxr-xr-x    6 iamsam  staff   192 Mar 23 15:37 .
-drwxr-xr-x    2 iamsam  staff    64 Mar 23 15:37 temp03
-drwxr-xr-x    2 iamsam  staff    64 Mar 23 15:37 temp02
-drwxr-xr-x    2 iamsam  staff    64 Mar 23 15:37 temp01
-drwxr-xr-x+ 113 iamsam  staff  3616 Mar 23 15:21 ..
+<div class="highlight"><pre><span></span><code>$ ls -l -a -t
+total <span class="m">8</span>
+-rw-r--r--    <span class="m">1</span> iamsam  staff    <span class="m">30</span> Mar <span class="m">23</span> <span class="m">15</span>:37 list.txt
+drwxr-xr-x    <span class="m">6</span> iamsam  staff   <span class="m">192</span> Mar <span class="m">23</span> <span class="m">15</span>:37 .
+drwxr-xr-x    <span class="m">2</span> iamsam  staff    <span class="m">64</span> Mar <span class="m">23</span> <span class="m">15</span>:37 temp03
+drwxr-xr-x    <span class="m">2</span> iamsam  staff    <span class="m">64</span> Mar <span class="m">23</span> <span class="m">15</span>:37 temp02
+drwxr-xr-x    <span class="m">2</span> iamsam  staff    <span class="m">64</span> Mar <span class="m">23</span> <span class="m">15</span>:37 temp01
+drwxr-xr-x+ <span class="m">113</span> iamsam  staff  <span class="m">3616</span> Mar <span class="m">23</span> <span class="m">15</span>:21 ..
 
 $ ls -lat
-total 8
--rw-r--r--    1 iamsam  staff    30 Mar 23 15:37 list.txt
-drwxr-xr-x    6 iamsam  staff   192 Mar 23 15:37 .
-drwxr-xr-x    2 iamsam  staff    64 Mar 23 15:37 temp03
-drwxr-xr-x    2 iamsam  staff    64 Mar 23 15:37 temp02
-drwxr-xr-x    2 iamsam  staff    64 Mar 23 15:37 temp01
-drwxr-xr-x+ 113 iamsam  staff  3616 Mar 23 15:21 ..
-</code></pre>
+total <span class="m">8</span>
+-rw-r--r--    <span class="m">1</span> iamsam  staff    <span class="m">30</span> Mar <span class="m">23</span> <span class="m">15</span>:37 list.txt
+drwxr-xr-x    <span class="m">6</span> iamsam  staff   <span class="m">192</span> Mar <span class="m">23</span> <span class="m">15</span>:37 .
+drwxr-xr-x    <span class="m">2</span> iamsam  staff    <span class="m">64</span> Mar <span class="m">23</span> <span class="m">15</span>:37 temp03
+drwxr-xr-x    <span class="m">2</span> iamsam  staff    <span class="m">64</span> Mar <span class="m">23</span> <span class="m">15</span>:37 temp02
+drwxr-xr-x    <span class="m">2</span> iamsam  staff    <span class="m">64</span> Mar <span class="m">23</span> <span class="m">15</span>:37 temp01
+drwxr-xr-x+ <span class="m">113</span> iamsam  staff  <span class="m">3616</span> Mar <span class="m">23</span> <span class="m">15</span>:21 ..
+</code></pre></div>
 <h3 id="exercise">Exercise</h3>
 <p>Now let's do some exercise. </p>
 <ul>
@@ -2491,16 +2491,16 @@ drwxr-xr-x+ 113 iamsam  staff  3616 Mar 23 15:21 ..
 </ul>
 <p><strong>This is an answer (I do not include the login process).</strong>  Expand
 source</p>
-<pre><code class="language-bash">$ mkdir linux_workshop
+<div class="highlight"><pre><span></span><code>$ mkdir linux_workshop
 $ cp -r /mnt/research/common-data/workshops/intro2Linux_iamsam linux_tutorial
 $ cp linux_tutorial
 $ ls -a
 $ mv .hidden not_hidden
 $ ls not_hidden
-$mkdir new_dir
+<span class="nv">$mkdir</span> new_dir
 $ cp not_hidden/youfoundit.txt new_dir
 $ rm -r garbage
-</code></pre>
+</code></pre></div>
 
 
   

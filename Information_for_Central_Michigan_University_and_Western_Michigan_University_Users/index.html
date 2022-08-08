@@ -2329,18 +2329,18 @@ for help with the HPCC systems.</p>
 systems.</p>
 <h2 id="changing-your-password">Changing your password</h2>
 <p>First, connect to the HPCC using your credentials (for more information, see https://docs.icer.msu.edu/Connect_to_HPCC_System/):</p>
-<pre><code class="language-bash">ssh userid@hpcc.msu.edu
-</code></pre>
+<div class="highlight"><pre><span></span><code>ssh userid@hpcc.msu.edu
+</code></pre></div>
 <p>After logging into HPCC gateway, ssh to one of the development nodes. Use the "passwd" command on a dev node:</p>
-<pre><code>login as: cmichtestCMICH
+<div class="highlight"><pre><span></span><code>login as: cmichtestCMICH
 Using keyboard-interactive authentication.
 Password:
                 /_// ___// ___// _  ;    / /_/ // _  ;/ ___// ___/
-               / // /__ / _/_ / _,.'    / __  // _,.'/ /__ / /__
+               / // /__ / _/_ / _,.&#39;    / __  // _,.&#39;/ /__ / /__
               /_//____//____//_//_!    /_/ /_//_/   /____//____/
 ________________________________________________________________________________
 
-          Welcome to Michigan State's High Performance Computing Center
+          Welcome to Michigan State&#39;s High Performance Computing Center
                     ** Unauthorized access is prohibited **
 ________________________________________________________________________________
 
@@ -2365,14 +2365,14 @@ considerations please see: https://wiki.hpcc.msu.edu/x/N4JnAg
 Changing password for cmichtestCMICH.
 Enter login(LDAP) password: # enter your old password
 New Password: # enter your new password
-</code></pre>
+</code></pre></div>
 <p>Password limitations: External user passwords are limited to eight characters. The system will
 check the password for common problems and reject any insecure choices.</p>
-<pre><code>Reenter New Password:
-</code></pre>
+<div class="highlight"><pre><span></span><code>Reenter New Password:
+</code></pre></div>
 <p>Reenter your password.</p>
-<pre><code>LDAP password information changed for cmichtestCMICH
-</code></pre>
+<div class="highlight"><pre><span></span><code>LDAP password information changed for cmichtestCMICH
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>It may take up to a hour for the password change to be propagated to all LDAP servers.</p>

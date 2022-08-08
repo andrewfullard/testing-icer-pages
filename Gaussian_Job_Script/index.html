@@ -2245,29 +2245,29 @@
 <p>Here is a simple job script <code>g16.sb</code> for running Gaussian job
 <code>g16.com</code>:</p>
 <p><strong>g16.sb</strong></p>
-<pre><code class="language-bash">#!/bin/bash --login
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
 
-#SBATCH –-job-name=GaussianJob
-#SBATCH –-ntasks=1
-#SBATCH –-cpus-per-task=4
-#SBATCH --mem=7G
-#SBATCH –-time=00:10:00 
+<span class="c1">#SBATCH –-job-name=GaussianJob</span>
+<span class="c1">#SBATCH –-ntasks=1</span>
+<span class="c1">#SBATCH –-cpus-per-task=4</span>
+<span class="c1">#SBATCH --mem=7G</span>
+<span class="c1">#SBATCH –-time=00:10:00 </span>
 
-InputFile=g16.com
-OutputFile=g16.log
+<span class="nv">InputFile</span><span class="o">=</span>g16.com
+<span class="nv">OutputFile</span><span class="o">=</span>g16.log
 
 module load Gaussian/g16 powertools
-# GAUSS_SCRDIR=&lt;your preferred Gaussian scratch space&gt;
-# mkdir -p ${GAUSS_SCRDIR}
+<span class="c1"># GAUSS_SCRDIR=&lt;your preferred Gaussian scratch space&gt;</span>
+<span class="c1"># mkdir -p ${GAUSS_SCRDIR}</span>
 
-g16 &lt; ${InputFile} &gt; ${OutputFile}
+g16 &lt; <span class="si">${</span><span class="nv">InputFile</span><span class="si">}</span> &gt; <span class="si">${</span><span class="nv">OutputFile</span><span class="si">}</span>
 
-### write job information to SLURM output file
-scontrol show job $SLURM_JOB_ID 
+<span class="c1">### write job information to SLURM output file</span>
+scontrol show job <span class="nv">$SLURM_JOB_ID</span> 
 
-# Print out resource usage  
-js -j $SLURM_JOB_ID           ### powetools command
-</code></pre>
+<span class="c1"># Print out resource usage  </span>
+js -j <span class="nv">$SLURM_JOB_ID</span>           <span class="c1">### powetools command</span>
+</code></pre></div>
 <p>where the Gaussian input file <code>g16.com</code> can be found from the previous
 section <a href="https://wiki.hpcc.msu.edu/display/ITH/Running+Gaussian+by+Command+Lines">Running Gaussian by Command Lines</a>.</p>
 <p>For the resource request (<code>#SBATCH</code> lines) above, since Gaussian

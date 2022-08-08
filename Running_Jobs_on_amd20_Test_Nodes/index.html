@@ -2288,23 +2288,23 @@ The feature of the nodes can be seen in the following table:</p>
 </table>
 <p>Users can use the following powertools command to see a list of the
 amd20 nodes:</p>
-<pre><code class="language-bash">$ node_status -f amd20
-</code></pre>
+<div class="highlight"><pre><span></span><code>$ node_status -f amd20
+</code></pre></div>
 <p>To launch jobs on <code>amr</code> cluster nodes, please add the following SBATCH
 line in your job script or use the job submission commands (such as
 <code>sbatch</code>, <code>salloc</code> or <code>srun</code>) with the specification "<code>-C amr</code>": </p>
-<pre><code class="language-bash">#SBATCH -C amr
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH -C amr</span>
+</code></pre></div>
 <p>For requesting <code>nvf</code> cluster nodes, please add the following line to
 your job script or specify "<code>-C nvf</code>" in your job submission on the
 command line: </p>
-<pre><code class="language-bash">#SBATCH -C nvf
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH -C nvf</span>
+</code></pre></div>
 <p>The amd20 cluster does not support AVX-512. If you’ve found that your
 executable requires AVX-512 or want to continue to run on the existing
 clusters, add the following line to your submit scripts:</p>
-<pre><code class="language-bash">#SBATCH -C '[intel14|intel16|intel18]'
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH -C &#39;[intel14|intel16|intel18]&#39;</span>
+</code></pre></div>
 <p>If you have any question about running jobs on the nodes, please
 <a href="https://contact.icer.msu.edu">contact us</a>.</p>
 

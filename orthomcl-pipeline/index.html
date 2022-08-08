@@ -2335,9 +2335,9 @@ rel="nofollow">https://wiki.hpcc.msu.edu/x/aYe1</a>).</p>
 <p>I am going to install the pipeline in a subdirectory under my home
 <code>~/Software/</code>.</p>
 <p><strong>Installing OrthoMCL Pipeline</strong></p>
-<pre><code class="language-bash">ssh dev-intel18
+<div class="highlight"><pre><span></span><code>ssh dev-intel18
 
-# Load necessary modules
+<span class="c1"># Load necessary modules</span>
 module purge
 module load icc/2016.3.210-GCC-5.4.0-2.26 impi/5.1.3.181
 module load OrthoMCL/2.0.9-custom-Perl-5.24.0
@@ -2345,36 +2345,36 @@ module load BLAST/2.2.26-Linux_x86_64
 module load GCCcore/5.4.0 libxml2/2.9.4
 
 
-# Download source and configure
-cd Software
+<span class="c1"># Download source and configure</span>
+<span class="nb">cd</span> Software
 git clone https://github.com/apetkau/orthomcl-pipeline.git
-cd orthomcl-pipeline
-perl scripts/orthomcl-pipeline-setup.pl # set paths to dependencies
-cat etc/orthomcl-pipeline.conf # parameters in this file can be adjusted; consult the instruction linked above
-    # ---
-    # blast:
-    #   F: 'm S'
-    #   b: '100000'
-    #   e: '1e-5'
-    #   v: '100000'
-    # filter:
-    #   max_percent_stop: '20'
-    #   min_length: '10'
-    # mcl:
-    #   inflation: '1.5'
-    # path:
-    #   blastall: /opt/software/BLAST/2.2.26-Linux_x86_64/bin/blastall
-    #   formatdb: /opt/software/BLAST/2.2.26-Linux_x86_64/bin/formatdb
-    #   mcl: /opt/software/MCL/14.137-intel-2016b/bin/mcl
-    #   orthomcl: /opt/software/OrthoMCL/orthomclsoftware-custom/bin
-    # scheduler: fork
-    # split: '4'
+<span class="nb">cd</span> orthomcl-pipeline
+perl scripts/orthomcl-pipeline-setup.pl <span class="c1"># set paths to dependencies</span>
+cat etc/orthomcl-pipeline.conf <span class="c1"># parameters in this file can be adjusted; consult the instruction linked above</span>
+    <span class="c1"># ---</span>
+    <span class="c1"># blast:</span>
+    <span class="c1">#   F: &#39;m S&#39;</span>
+    <span class="c1">#   b: &#39;100000&#39;</span>
+    <span class="c1">#   e: &#39;1e-5&#39;</span>
+    <span class="c1">#   v: &#39;100000&#39;</span>
+    <span class="c1"># filter:</span>
+    <span class="c1">#   max_percent_stop: &#39;20&#39;</span>
+    <span class="c1">#   min_length: &#39;10&#39;</span>
+    <span class="c1"># mcl:</span>
+    <span class="c1">#   inflation: &#39;1.5&#39;</span>
+    <span class="c1"># path:</span>
+    <span class="c1">#   blastall: /opt/software/BLAST/2.2.26-Linux_x86_64/bin/blastall</span>
+    <span class="c1">#   formatdb: /opt/software/BLAST/2.2.26-Linux_x86_64/bin/formatdb</span>
+    <span class="c1">#   mcl: /opt/software/MCL/14.137-intel-2016b/bin/mcl</span>
+    <span class="c1">#   orthomcl: /opt/software/OrthoMCL/orthomclsoftware-custom/bin</span>
+    <span class="c1"># scheduler: fork</span>
+    <span class="c1"># split: &#39;4&#39;</span>
 
 
-# Testing
-export PATH=~/Software/orthomcl-pipeline/bin:~/Software/orthomcl-pipeline/scripts:$PATH
-perl t/test_pipeline.pl -m ~/Practice/general_test/orthomcl/my_orthomcl_dir/orthomcl.config -s fork -t ~/tmp # replace the path to orthomcl.config with your own
-</code></pre>
+<span class="c1"># Testing</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>~/Software/orthomcl-pipeline/bin:~/Software/orthomcl-pipeline/scripts:<span class="nv">$PATH</span>
+perl t/test_pipeline.pl -m ~/Practice/general_test/orthomcl/my_orthomcl_dir/orthomcl.config -s fork -t ~/tmp <span class="c1"># replace the path to orthomcl.config with your own</span>
+</code></pre></div>
 <h2 id="example-ortholog-identification">Example: ortholog identification</h2>
 <p>The tutorial is adapted from a tutorial hosted at <a
 href="https://github.com/apetkau/microbial-informatics-2014/tree/master/labs/orthomcl"
@@ -2383,27 +2383,27 @@ We strongly recommend that you read it fully before starting the
 hands-on practice below, which is a much simplified version of the
 original one and serves as a demo only. The datasets containing a set of
 <em>V. Cholerae</em> genomes are located in <code>mnt/research/common-data/Bio/orthomcl-data/</code>.</p>
-<pre><code class="language-bash">ssh dev-intel18
+<div class="highlight"><pre><span></span><code>ssh dev-intel18
 
-# Then go to your orthomcl working directory
+<span class="c1"># Then go to your orthomcl working directory</span>
 
-# Load necessary modules
+<span class="c1"># Load necessary modules</span>
 module purge
 module load icc/2016.3.210-GCC-5.4.0-2.26  impi/5.1.3.181
 module load OrthoMCL/2.0.9-custom-Perl-5.24.0
 module load BLAST/2.2.26-Linux_x86_64
 module load GCCcore/5.4.0 libxml2/2.9.4
-export PATH=~/Software/orthomcl-pipeline/bin:~/Software/orthomcl-pipeline/scripts:$PATH
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>~/Software/orthomcl-pipeline/bin:~/Software/orthomcl-pipeline/scripts:<span class="nv">$PATH</span>
 
-# Run orthomcl pipeline (replace the path to orthomcl.config with your own)
+<span class="c1"># Run orthomcl pipeline (replace the path to orthomcl.config with your own)</span>
 orthomcl-pipeline -i /mnt/research/common-data/Bio/orthomcl-data -o orthomcl_out_tmp -m ~/Practice/general_test/orthomcl/my_orthomcl_dir/orthomcl.config --nocompliant
 
-# Visualize the results by drawing a Venn Diagram using a pipeline utility script
+<span class="c1"># Visualize the results by drawing a Venn Diagram using a pipeline utility script</span>
 nml_parse_orthomcl.pl -i orthomcl_out_tmp/groups/groups.txt -g /mnt/research/common-data/Bio/orthomcl-data/genome-groups.txt -s --draw -o orthomcl-stats.txt --genes
 
-# View the Venn Diagram plot (just for demo; you should transfer the svg to your local computer for better display effect)
+<span class="c1"># View the Venn Diagram plot (just for demo; you should transfer the svg to your local computer for better display effect)</span>
 java -jar /opt/software/batik/batik-1.9/batik-squiggle-1.9.jar genome-groups.txt.svg
-</code></pre>
+</code></pre></div>
 <p><u>Side note:</u> as mentioned in the full tutorial, you need to answer
 "yes" to the database removal question in the course of the run.</p>
 

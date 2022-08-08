@@ -2386,13 +2386,13 @@ will assemble the partition list automatically.</p>
 <p>When submitting a job without specifying an account, your default
 account is used. You can check your default account using the
 buyin_status power tool.</p>
-<pre><code class="language-text">$ module load powertools
+<div class="highlight"><pre><span></span><code>$ module load powertools
 $ buyin_status -l
 
 User:     fordste5
 Accounts: test1_classres test1 classres
 Default:  classres
-</code></pre>
+</code></pre></div>
 <p>User fordste5 has a default account of classres. If fordste5 submits a
 job without specifying an account, it will be submitted to the classres
 partition. If the job requested four hours or less of wall time, it will
@@ -2436,13 +2436,13 @@ general-long and general-short partitions.</p>
 <h2 id="using-non-default-account">Using Non-Default Account</h2>
 <p>You can see what accounts you have access to using the buyin_status
 powertool:</p>
-<pre><code class="language-text">$ module load powertools
+<div class="highlight"><pre><span></span><code>$ module load powertools
 $ buyin_status -l
 
 User:     fordste5
 Accounts: test1_classres test1 classres
 Default:  classres
-</code></pre>
+</code></pre></div>
 <p>This output shows that fordste5 is a member of the test1_classres,
 test1, and classres buy-in accounts. Both test1 and classres correspond
 to partitions with the same name.</p>
@@ -2453,7 +2453,7 @@ option for srun/sbatch/salloc, or by adding the '#SBATCH -A test1'
 directive to their batch script.</p>
 <h2 id="checking-the-status-of-buy-ins">Checking the Status of Buy-Ins</h2>
 <p>The status of buy-ins can be viewed with the buyin_status powertool.</p>
-<pre><code class="language-text">$ module load powertools
+<div class="highlight"><pre><span></span><code>$ module load powertools
 $ buyin_status -a classres
 
 User:     fordste5
@@ -2478,7 +2478,7 @@ Buyin: classres
       JOBID      ACCOUNT    USER       CPUS       TIME  TIME_LEFT
       17402      general    fordste5   10         4:36      55:24
       17401      classres   fordste5   10         4:36      55:24
-</code></pre>
+</code></pre></div>
 <p>This tool will list all jobs that are queued for a buy-in account, all
 nodes associated with the buy-in account–including node status–and a
 list of jobs running on each node. Because jobs with a wall time of four
@@ -2494,14 +2494,14 @@ accounts and can request that other users also be added as coordinators.</p>
 account coordinators for your SLURM buy-in account were copied from the
 managers listed on the Moab account.</p>
 <p>View what users have access to your buy-in account:</p>
-<pre><code class="language-bash">$ sacctmgr show association where account=&lt;account&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code>$ sacctmgr show association where <span class="nv">account</span><span class="o">=</span>&lt;account&gt;
+</code></pre></div>
 <p>Add a user to your buy-in account:</p>
-<pre><code class="language-bash">$ sacctmgr add user name=&lt;userid&gt; account=&lt;account&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code>$ sacctmgr add user <span class="nv">name</span><span class="o">=</span>&lt;userid&gt; <span class="nv">account</span><span class="o">=</span>&lt;account&gt;
+</code></pre></div>
 <p>Remove a user from your buy-in account:</p>
-<pre><code class="language-bash">$ sacctmgr delete user &lt;userid&gt; where account=&lt;account&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code>$ sacctmgr delete user &lt;userid&gt; where <span class="nv">account</span><span class="o">=</span>&lt;account&gt;
+</code></pre></div>
 
 
   

@@ -2280,7 +2280,7 @@ file, called <strong>Singularity</strong> (which is equivalent to <strong>Docker
 <h3 id="cache-setting">Cache setting</h3>
 <p>By default, Singularity uses a temporary directory to save Docker files
 as tarballs:</p>
-<pre><code class="language-bash">$ ls ~/.singularity
+<div class="highlight"><pre><span></span><code>$ ls ~/.singularity
 cache/  docker/  metadata/
 $ ls .singularity/docker/
 sha256:0efe07335a049e6afcd757db2d17ba37a12b717eb807acb03ddf3cd756b9fc2a.tar.gz
@@ -2288,13 +2288,13 @@ sha256:43a98c1873995475a895f3d79f405232ef5230076b3f610c949c2e8341743af7.tar.gz
 sha256:6b1bb01b3a3b72463ae8ac5666d57b28f1a21d5256271910ac8df841aa04ecd1.tar.gz
 sha256:c2ca09a1934b951505ecc4d6b2e4ab7f9bf27bcdfb8999d0181deca74daf7683.tar.gz
 sha256:d6c3619d2153ffdefa4a9c19f15c5d566ce271b397a84537baa9ee45b24178f2.tar.gz
-</code></pre>
+</code></pre></div>
 <p>You can change these by theses cache directories by specifying the
 location on your localhost as following:</p>
-<pre><code class="language-bash">$ mkdir -p $SCRATCH/singularity_tmp
-$ mkdir -p $SCRATCH/singularity_scratch
-$ SINGULARITY_TMPDIR=$SCRATCH/singularity_scratch SINGULARITY_CACHEDIR=$SCRATCH/singularity_tmp singularity --debug pull --name ubuntu-tmpdir.sif docker://ubuntu
-</code></pre>
+<div class="highlight"><pre><span></span><code>$ mkdir -p <span class="nv">$SCRATCH</span>/singularity_tmp
+$ mkdir -p <span class="nv">$SCRATCH</span>/singularity_scratch
+$ <span class="nv">SINGULARITY_TMPDIR</span><span class="o">=</span><span class="nv">$SCRATCH</span>/singularity_scratch <span class="nv">SINGULARITY_CACHEDIR</span><span class="o">=</span><span class="nv">$SCRATCH</span>/singularity_tmp singularity --debug pull --name ubuntu-tmpdir.sif docker://ubuntu
+</code></pre></div>
 <h3 id="building-containers">Building containers</h3>
 <h4 id="creating-writable-containers-with-sandbox-options">Creating writable containers with --sandbox options</h4>
 <p>If you want to build a container within a writable directory (called a
@@ -2302,14 +2302,14 @@ $ SINGULARITY_TMPDIR=$SCRATCH/singularity_scratch SINGULARITY_CACHEDIR=$SCRATCH/
 covered how you can pull an existing container from Docker Hub, but we
 can also build a Singularity container from docker using the build
 command:</p>
-<pre><code class="language-bash">$ singularity build --sandbox ubuntu-latest/  docker://ubuntu
-</code></pre>
+<div class="highlight"><pre><span></span><code>$ singularity build --sandbox ubuntu-latest/  docker://ubuntu
+</code></pre></div>
 <p>With <strong>--sandbox</strong> option, you can changes and write files within the
 directory, but those changes will not remain when you finished using the
 container. To make those changes persistent, use <strong>--writable</strong> option
 when you start a container.</p>
-<pre><code class="language-bash">$ singularity shell --writable ubuntu-latest/
-</code></pre>
+<div class="highlight"><pre><span></span><code>$ singularity shell --writable ubuntu-latest/
+</code></pre></div>
 <h3 id="building-containers-from-singularity-definition-files">Building containers from Singularity definition files</h3>
 <p>To build containers, Singularity uses a file <strong>Singularity </strong>which is
 equivalent to <strong>Dockerfile</strong> in Docker. You can use different name but
@@ -2320,14 +2320,14 @@ repositories.</p>
 refer to the container definition docs.</p>
 <p>To create a container using a custom Singularity file, you use <strong>build</strong>
 command:</p>
-<pre><code class="language-bash">$ singularity build ubuntu-latest.sif Singularity
-</code></pre>
+<div class="highlight"><pre><span></span><code>$ singularity build ubuntu-latest.sif Singularity
+</code></pre></div>
 <p>You would get an error message because you do not have a <strong>Singularity</strong>
 file yet.</p>
 <p>Let's assume that you already have the following Singularity definition
 file, called "lowcow.def" and you want ot use it to build a SIF
 container.</p>
-<pre><code class="language-bash">Bootstrap: docker
+<div class="highlight"><pre><span></span><code>Bootstrap: docker
 From: ubuntu:16.04
 
 %post
@@ -2335,14 +2335,12 @@ From: ubuntu:16.04
     apt-get -y install fortune cowsay lolcat
 
 %environment
-    export LC_ALL=C
-    export PATH=/usr/games:$PATH
+    <span class="nb">export</span> <span class="nv">LC_ALL</span><span class="o">=</span>C
+    <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/games:<span class="nv">$PATH</span>
 
 %runscript
-    fortune | cowsay | lolcat
-
-
-</code></pre>
+    fortune <span class="p">|</span> cowsay <span class="p">|</span> lolcat
+</code></pre></div>
 
 
   

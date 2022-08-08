@@ -2275,68 +2275,68 @@
 OpenMP, pthreads, MPI, hybrid, and serial programs. To view the version
 of compilers available, please use the module avail command. We
 presently offer GNU (default), Intel, PGI, CUDA, g95.</p>
-<pre><code class="language-bash">[ongbw@dev-amd09 ~]$ module avail GNU
+<div class="highlight"><pre><span></span><code><span class="o">[</span>ongbw@dev-amd09 ~<span class="o">]</span>$ module avail GNU
 
 ------------------------------------------------- /opt/software/modulefiles/compilers --------------------------------------------------
-  GNU/4.4.5 (default)
+  GNU/4.4.5 <span class="o">(</span>default<span class="o">)</span>
 
-[ongbw@dev-amd09 ~]$ module avail Intel
-
-------------------------------------------------- /opt/software/modulefiles/compilers --------------------------------------------------
-  Intel/12.0.0.084 (default)    Intel/12.1.0.233    Intel/12.1.2.273
-
-[ongbw@dev-amd09 ~]$ module avail PGI
+<span class="o">[</span>ongbw@dev-amd09 ~<span class="o">]</span>$ module avail Intel
 
 ------------------------------------------------- /opt/software/modulefiles/compilers --------------------------------------------------
-  PGI/11.10 (default)
+  Intel/12.0.0.084 <span class="o">(</span>default<span class="o">)</span>    Intel/12.1.0.233    Intel/12.1.2.273
 
-[ongbw@dev-amd09 ~]$ module avail g95
+<span class="o">[</span>ongbw@dev-amd09 ~<span class="o">]</span>$ module avail PGI
+
+------------------------------------------------- /opt/software/modulefiles/compilers --------------------------------------------------
+  PGI/11.10 <span class="o">(</span>default<span class="o">)</span>
+
+<span class="o">[</span>ongbw@dev-amd09 ~<span class="o">]</span>$ module avail g95
 
 ------------------------------------------------- /opt/software/modulefiles/compilers --------------------------------------------------
   g95/0.93
 
-[ongbw@dev-amd09 ~]$ module avail CUDA
+<span class="o">[</span>ongbw@dev-amd09 ~<span class="o">]</span>$ module avail CUDA
 
 ------------------------------------------------- /opt/software/modulefiles/compilers --------------------------------------------------
-  CUDA/4.0 (default)
-</code></pre>
+  CUDA/4.0 <span class="o">(</span>default<span class="o">)</span>
+</code></pre></div>
 <h2 id="mpi-libraries">MPI Libraries</h2>
 <p>HPCC also has various MPI libraries installed. These include: OpenMPI
 (default), MVAPICH, IMPI, MPICH, MPICH2.</p>
-<pre><code class="language-bash">[ongbw@dev-amd09 ~]$ module avail OpenMPI
+<div class="highlight"><pre><span></span><code><span class="o">[</span>ongbw@dev-amd09 ~<span class="o">]</span>$ module avail OpenMPI
 
 ------------------------------------------- /opt/software/modulefiles/GNU/4.4.5/modulefiles --------------------------------------------
-  OpenMPI/1.4.3 (default)    OpenMPI/1.4.4    OpenMPI/1.5.3
+  OpenMPI/1.4.3 <span class="o">(</span>default<span class="o">)</span>    OpenMPI/1.4.4    OpenMPI/1.5.3
 
-[ongbw@dev-amd09 ~]$ module avail MVAPICH
-
-------------------------------------------- /opt/software/modulefiles/GNU/4.4.5/modulefiles --------------------------------------------
-  MVAPICH/1.1 (default)    MVAPICH2/1.7    MVAPICH2/1.7-r5078 (default)    MVAPICH2/1.8-a1p1
-
-[ongbw@dev-amd09 ~]$ module avail IMPI
+<span class="o">[</span>ongbw@dev-amd09 ~<span class="o">]</span>$ module avail MVAPICH
 
 ------------------------------------------- /opt/software/modulefiles/GNU/4.4.5/modulefiles --------------------------------------------
-  IMPI/4.0.1.007 (default)
+  MVAPICH/1.1 <span class="o">(</span>default<span class="o">)</span>    MVAPICH2/1.7    MVAPICH2/1.7-r5078 <span class="o">(</span>default<span class="o">)</span>    MVAPICH2/1.8-a1p1
 
-[ongbw@dev-amd09 ~]$ module avail MPICH
-
-------------------------------------------- /opt/software/modulefiles/GNU/4.4.5/modulefiles --------------------------------------------
-  MPICH2/1.4.1p1 (default)
-
-
-[ongbw@dev-amd09 ~]$ module avail MPICH2
+<span class="o">[</span>ongbw@dev-amd09 ~<span class="o">]</span>$ module avail IMPI
 
 ------------------------------------------- /opt/software/modulefiles/GNU/4.4.5/modulefiles --------------------------------------------
-  MPICH2/1.4.1p1 (default)
-</code></pre>
+  IMPI/4.0.1.007 <span class="o">(</span>default<span class="o">)</span>
+
+<span class="o">[</span>ongbw@dev-amd09 ~<span class="o">]</span>$ module avail MPICH
+
+------------------------------------------- /opt/software/modulefiles/GNU/4.4.5/modulefiles --------------------------------------------
+  MPICH2/1.4.1p1 <span class="o">(</span>default<span class="o">)</span>
+
+
+<span class="o">[</span>ongbw@dev-amd09 ~<span class="o">]</span>$ module avail MPICH2
+
+------------------------------------------- /opt/software/modulefiles/GNU/4.4.5/modulefiles --------------------------------------------
+  MPICH2/1.4.1p1 <span class="o">(</span>default<span class="o">)</span>
+</code></pre></div>
 <h2 id="math-libraries">Math Libraries</h2>
 <p>HPCC has many common libraries available, including MKL, FFTW, ACML,
 BLAS, ScaLaPACK, LaPACK, PETSc. The module names and available link
 flags are summarized in the following table. Additionally, some code
 samples are available as indicated by typing:</p>
-<pre><code class="language-bash">module load powertools
+<div class="highlight"><pre><span></span><code>module load powertools
 getexample &lt;example name&gt;
-</code></pre>
+</code></pre></div>
 <table>
 <thead>
 <tr>

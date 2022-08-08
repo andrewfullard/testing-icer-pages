@@ -2407,34 +2407,32 @@ run the command <code>quota</code> :</p>
 
 <div class="codeContent panelContent pdl">
 
-
-<pre><code class="language-bash">$ quota
+<div class="highlight"><pre><span></span><code>$ quota
 Home Directory:             Space        Space        Space        Space        Files        Files        Files        Files
                             Quota        Used         Available    % Used       Quota        Used         Available    % Used
 -----------------------------------------------------------------------------------------------------------------------------------
-/mnt/home/UserName          1024G        1213G        -198G        118%         1048576      540389       508187       52%
+/mnt/home/UserName          1024G        1213G        -198G        <span class="m">118</span>%         <span class="m">1048576</span>      <span class="m">540389</span>       <span class="m">508187</span>       <span class="m">52</span>%
 
 
 Research Groups:            Space        Space        Space        Space        Files        Files        Files        Files
                             Quota        Used         Available    % Used       Quota        Used         Available    % Used
 -----------------------------------------------------------------------------------------------------------------------------------
-ResearchSpace1              2048G        1778G        270G         87%          2097152      432525       1664627      21%
-ResearchSpace2              1024G        126G         898G         12%          1048576      11755        1036821      1%
+ResearchSpace1              2048G        1778G        270G         <span class="m">87</span>%          <span class="m">2097152</span>      <span class="m">432525</span>       <span class="m">1664627</span>      <span class="m">21</span>%
+ResearchSpace2              1024G        126G         898G         <span class="m">12</span>%          <span class="m">1048576</span>      <span class="m">11755</span>        <span class="m">1036821</span>      <span class="m">1</span>%
 
 
 Temporary Filesystems:
 -----------------------------------------------------------------------------------------------------------------------------------
 
-/mnt/scratch (/mnt/gs18)    Space Quota  Space Used   Space Free   Space % Used Filess Quota Files Used   Files Free   Files % Used
-                            51200G         64G          51136G          0%          1048576      5724         1042852      1%
+/mnt/scratch <span class="o">(</span>/mnt/gs18<span class="o">)</span>    Space Quota  Space Used   Space Free   Space % Used Filess Quota Files Used   Files Free   Files % Used
+                            51200G         64G          51136G          <span class="m">0</span>%          <span class="m">1048576</span>      <span class="m">5724</span>         <span class="m">1042852</span>      <span class="m">1</span>%
 
 /mnt/ffs17                  Used          Quota
-                            35.66GiB      100.00GiB
+                            <span class="m">35</span>.66GiB      <span class="m">100</span>.00GiB
 
-/mnt/ls15 (legacy scratch)  Inodes Used   Quota         Free
-                            125721        1000000       874279
-</code></pre>
-
+/mnt/ls15 <span class="o">(</span>legacy scratch<span class="o">)</span>  Inodes Used   Quota         Free
+                            <span class="m">125721</span>        <span class="m">1000000</span>       <span class="m">874279</span>
+</code></pre></div>
 
 </div>
 
@@ -2505,10 +2503,10 @@ group ownership and the access permission of the directory <code>Drctry</code>
 and the research space <code>Group</code> :</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<p><code>bash
-$ ls -ld /mnt/research/Group/Drctry /mnt/research/Group
-drwxrwx--- 2 UserName Prmry 5464 Feb 27 11:34 /mnt/research/Group/Drctry
-drwxrws--- 9 UserName Group 8192 Jul 10 15:34 /mnt/research/Group</code></p>
+<div class="highlight"><pre><span></span><code>$ ls -ld /mnt/research/Group/Drctry /mnt/research/Group
+drwxrwx--- <span class="m">2</span> UserName Prmry <span class="m">5464</span> Feb <span class="m">27</span> <span class="m">11</span>:34 /mnt/research/Group/Drctry
+drwxrws--- <span class="m">9</span> UserName Group <span class="m">8192</span> Jul <span class="m">10</span> <span class="m">15</span>:34 /mnt/research/Group
+</code></pre></div>
 </div>
 </div>
 <p>where you can see their differences. For the group ownership,
@@ -2519,9 +2517,9 @@ research space <code>/mnt/research/Group</code>. For the permission,
 directory can run the commands:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<p><code>bash
-$ chgrp -R Group /mnt/research/Group/Drctry     # Change the group ownership to Group
-$ chmod g+s /mnt/research/Group/Drctry          # Set up set-group-ID bit</code></p>
+<div class="highlight"><pre><span></span><code>$ chgrp -R Group /mnt/research/Group/Drctry     <span class="c1"># Change the group ownership to Group</span>
+$ chmod g+s /mnt/research/Group/Drctry          <span class="c1"># Set up set-group-ID bit</span>
+</code></pre></div>
 </div>
 </div>
 <p>to change the two attributes of the directory. (A further
@@ -2531,9 +2529,9 @@ rel="nofollow">File Permissions on HPCC</a>.) Once the settings are
 corrected:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<p><code>bash
-$ ls -ld /mnt/research/Group/Drctry
-drwxrws--- 2 UserName Group 5464 Feb 27 11:34 /mnt/research/Group/Drctry</code></p>
+<div class="highlight"><pre><span></span><code>$ ls -ld /mnt/research/Group/Drctry
+drwxrws--- <span class="m">2</span> UserName Group <span class="m">5464</span> Feb <span class="m">27</span> <span class="m">11</span>:34 /mnt/research/Group/Drctry
+</code></pre></div>
 </div>
 </div>
 <p>the file transfer can proceed to the directory. <br />
@@ -2568,10 +2566,8 @@ and run:</p>
 
 <div class="codeContent panelContent pdl">
 
-
-<pre><code class="language-bash">show-samba-home
-</code></pre>
-
+<div class="highlight"><pre><span></span><code>show-samba-home
+</code></pre></div>
 
 </div>
 
@@ -2583,10 +2579,8 @@ command:</p>
 
 <div class="codeContent panelContent pdl">
 
-
-<pre><code class="language-bash">show-samba-research researchspacename
-</code></pre>
-
+<div class="highlight"><pre><span></span><code>show-samba-research researchspacename
+</code></pre></div>
 
 </div>
 
@@ -2598,11 +2592,9 @@ and research spaces:</p>
 
 <div class="codeContent panelContent pdl">
 
-
-<pre><code class="language-bash">ml powertools                    # if powertools is not loaded
+<div class="highlight"><pre><span></span><code>ml powertools                    <span class="c1"># if powertools is not loaded</span>
 show-samba-paths
-</code></pre>
-
+</code></pre></div>
 
 </div>
 

@@ -2267,13 +2267,11 @@ into Centos 7 nodes, please run</p>
 
 <div class="codeContent panelContent pdl">
 
-
-<pre><code class="language-bash">$ module purge; module load EasyBuild; module list
+<div class="highlight"><pre><span></span><code>$ module purge<span class="p">;</span> module load EasyBuild<span class="p">;</span> module list
 
 Currently Loaded Modules:
-  1) EasyBuild/3.6.2
-</code></pre>
-
+  <span class="m">1</span><span class="o">)</span> EasyBuild/3.6.2
+</code></pre></div>
 
 </div>
 
@@ -2297,11 +2295,9 @@ preferred places:</p>
 
 <div class="codeContent panelContent pdl">
 
-
-<pre><code class="language-bash">$ export EASYBUILD_INSTALLPATH_SOFTWARE=&lt;path to the directory where software is installed&gt;
-$ export EASYBUILD_INSTALLPATH_MODULES=&lt;path to the directory where module system is installed&gt;
-</code></pre>
-
+<div class="highlight"><pre><span></span><code>$ <span class="nb">export</span> <span class="nv">EASYBUILD_INSTALLPATH_SOFTWARE</span><span class="o">=</span>&lt;path to the directory where software is installed&gt;
+$ <span class="nb">export</span> <span class="nv">EASYBUILD_INSTALLPATH_MODULES</span><span class="o">=</span>&lt;path to the directory where module system is installed&gt;
+</code></pre></div>
 
 </div>
 
@@ -2315,11 +2311,9 @@ module use command so your module system
 
 <div class="codeContent panelContent pdl">
 
-
-<pre><code class="language-bash">$ mkdir -p $EASYBUILD_INSTALLPATH_SOFTWARE $EASYBUILD_INSTALLPATH_MODULES
-$ module use $EASYBUILD_INSTALLPATH_MODULES /opt/modules
-</code></pre>
-
+<div class="highlight"><pre><span></span><code>$ mkdir -p <span class="nv">$EASYBUILD_INSTALLPATH_SOFTWARE</span> <span class="nv">$EASYBUILD_INSTALLPATH_MODULES</span>
+$ module use <span class="nv">$EASYBUILD_INSTALLPATH_MODULES</span> /opt/modules
+</code></pre></div>
 
 </div>
 
@@ -2339,18 +2333,16 @@ with a input software name:</p>
 
 <div class="codeContent panelContent pdl">
 
+<div class="highlight"><pre><span></span><code>$ ebF Intel
 
-<pre><code class="language-bash">$ ebF Intel
+<span class="nv">ebF_PATH</span><span class="o">=</span>/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs
 
-ebF_PATH=/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs
-
-====== $ebF_PATH/i/IntelClusterChecker/
+<span class="o">======</span> <span class="nv">$ebF_PATH</span>/i/IntelClusterChecker/
 IntelClusterChecker-2017.1.016.eb
 
-====== $ebF_PATH/c/CrayIntel/
+<span class="o">======</span> <span class="nv">$ebF_PATH</span>/c/CrayIntel/
 CrayIntel-2015.06.eb  CrayIntel-2015.11.eb  CrayIntel-2016.06.eb
-</code></pre>
-
+</code></pre></div>
 
 </div>
 
@@ -2365,31 +2357,29 @@ all:</p>
 
 <div class="codeContent panelContent pdl">
 
+<div class="highlight"><pre><span></span><code>$ ebF -i Intel
 
-<pre><code class="language-bash">$ ebF -i Intel
+<span class="nv">ebF_PATH</span><span class="o">=</span>/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs
 
-ebF_PATH=/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs
-
-====== $ebF_PATH/i/IntelClusterChecker/
+<span class="o">======</span> <span class="nv">$ebF_PATH</span>/i/IntelClusterChecker/
 IntelClusterChecker-2017.1.016.eb
 
-====== $ebF_PATH/i/intelcuda/
+<span class="o">======</span> <span class="nv">$ebF_PATH</span>/i/intelcuda/
 intelcuda-2016.10.eb
 
-====== $ebF_PATH/i/intel/
+<span class="o">======</span> <span class="nv">$ebF_PATH</span>/i/intel/
 intel-2014.06.eb  intel-2015.08.eb  intel-2016.02-GCC-4.9.eb  intel-2016a.eb    intel-2017.09.eb  intel-2018a.eb
 intel-2014.10.eb  intel-2015a.eb    intel-2016.02-GCC-5.3.eb  intel-2016b.eb    intel-2017a.eb
 intel-2014.11.eb  intel-2015b.eb    intel-2016.03-GCC-4.9.eb  intel-2017.00.eb  intel-2017b.eb
 intel-2014b.eb    intel-2016.00.eb  intel-2016.03-GCC-5.3.eb  intel-2017.01.eb  intel-2018.00.eb
 intel-2015.02.eb  intel-2016.01.eb  intel-2016.03-GCC-5.4.eb  intel-2017.02.eb  intel-2018.01.eb
 
-====== $ebF_PATH/c/CrayIntel/
+<span class="o">======</span> <span class="nv">$ebF_PATH</span>/c/CrayIntel/
 CrayIntel-2015.06.eb  CrayIntel-2015.11.eb  CrayIntel-2016.06.eb
 
-====== $ebF_PATH/__archive__/i/intel-para/
+<span class="o">======</span> <span class="nv">$ebF_PATH</span>/__archive__/i/intel-para/
 intel-para-2014.12.eb
-</code></pre>
-
+</code></pre></div>
 
 </div>
 
@@ -2402,22 +2392,20 @@ and would like to list less eb files, you can use -w option:</p>
 
 <div class="codeContent panelContent pdl">
 
+<div class="highlight"><pre><span></span><code>$ ebF -w intel
 
-<pre><code class="language-bash">$ ebF -w intel
+<span class="nv">ebF_PATH</span><span class="o">=</span>/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs
 
-ebF_PATH=/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs
-
-====== $ebF_PATH/i/intel/
+<span class="o">======</span> <span class="nv">$ebF_PATH</span>/i/intel/
 intel-2014.06.eb  intel-2015.08.eb  intel-2016.02-GCC-4.9.eb  intel-2016a.eb    intel-2017.09.eb  intel-2018a.eb
 intel-2014.10.eb  intel-2015a.eb    intel-2016.02-GCC-5.3.eb  intel-2016b.eb    intel-2017a.eb
 intel-2014.11.eb  intel-2015b.eb    intel-2016.03-GCC-4.9.eb  intel-2017.00.eb  intel-2017b.eb
 intel-2014b.eb    intel-2016.00.eb  intel-2016.03-GCC-5.3.eb  intel-2017.01.eb  intel-2018.00.eb
 intel-2015.02.eb  intel-2016.01.eb  intel-2016.03-GCC-5.4.eb  intel-2017.02.eb  intel-2018.01.eb
 
-====== $ebF_PATH/__archive__/i/intel-para/
+<span class="o">======</span> <span class="nv">$ebF_PATH</span>/__archive__/i/intel-para/
 intel-para-2014.12.eb
-</code></pre>
-
+</code></pre></div>
 
 </div>
 
@@ -2431,19 +2419,17 @@ at the end of the software name:</p>
 
 <div class="codeContent panelContent pdl">
 
+<div class="highlight"><pre><span></span><code>$ ebF -w intel$
 
-<pre><code class="language-bash">$ ebF -w intel$
+<span class="nv">ebF_PATH</span><span class="o">=</span>/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs
 
-ebF_PATH=/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs
-
-====== $ebF_PATH/i/intel/
+<span class="o">======</span> <span class="nv">$ebF_PATH</span>/i/intel/
 intel-2014.06.eb  intel-2015.08.eb  intel-2016.02-GCC-4.9.eb  intel-2016a.eb    intel-2017.09.eb  intel-2018a.eb
 intel-2014.10.eb  intel-2015a.eb    intel-2016.02-GCC-5.3.eb  intel-2016b.eb    intel-2017a.eb
 intel-2014.11.eb  intel-2015b.eb    intel-2016.03-GCC-4.9.eb  intel-2017.00.eb  intel-2017b.eb
 intel-2014b.eb    intel-2016.00.eb  intel-2016.03-GCC-5.3.eb  intel-2017.01.eb  intel-2018.00.eb
 intel-2015.02.eb  intel-2016.01.eb  intel-2016.03-GCC-5.4.eb  intel-2017.02.eb  intel-2018.01.eb
-</code></pre>
-
+</code></pre></div>
 
 </div>
 
@@ -2468,35 +2454,33 @@ use the name without the path:</p>
 
 <div class="codeContent panelContent pdl">
 
-
-<pre><code class="language-bash">$ ebS intel-2018a.eb
-== temporary log file in case of crash /tmp/eb-lxUlvt/easybuild-maTXAl.log
-== resolving dependencies ...
-== processing EasyBuild easyconfig /opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs/i/intel/intel-2018a.eb
-== building and installing Core/intel/2018a...
-== fetching files...
-== creating build dir, resetting environment...
-== unpacking...
-== patching...
-== preparing...
-== configuring...
-== building...
-== testing...
-== installing...
-== taking care of extensions...
-== postprocessing...
-== sanity checking...
-== cleaning up...
-== creating module...
-== permissions...
-== packaging...
-== COMPLETED: Installation ended successfully
-== Results of the build can be found in the log file(s) /opt/software/intel/2018a/easybuild/easybuild-intel-2018a-20180330.141146.log
-== Build succeeded for 1 out of 1
-== Temporary log file(s) /tmp/eb-lxUlvt/easybuild-maTXAl.log* have been removed.
-== Temporary directory /tmp/eb-lxUlvt has been removed.
-</code></pre>
-
+<div class="highlight"><pre><span></span><code>$ ebS intel-2018a.eb
+<span class="o">==</span> temporary log file <span class="k">in</span> <span class="k">case</span> of crash /tmp/eb-lxUlvt/easybuild-maTXAl.log
+<span class="o">==</span> resolving dependencies ...
+<span class="o">==</span> processing EasyBuild easyconfig /opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs/i/intel/intel-2018a.eb
+<span class="o">==</span> building and installing Core/intel/2018a...
+<span class="o">==</span> fetching files...
+<span class="o">==</span> creating build dir, resetting environment...
+<span class="o">==</span> unpacking...
+<span class="o">==</span> patching...
+<span class="o">==</span> preparing...
+<span class="o">==</span> configuring...
+<span class="o">==</span> building...
+<span class="o">==</span> testing...
+<span class="o">==</span> installing...
+<span class="o">==</span> taking care of extensions...
+<span class="o">==</span> postprocessing...
+<span class="o">==</span> sanity checking...
+<span class="o">==</span> cleaning up...
+<span class="o">==</span> creating module...
+<span class="o">==</span> permissions...
+<span class="o">==</span> packaging...
+<span class="o">==</span> COMPLETED: Installation ended <span class="nv">successfully</span>
+<span class="o">==</span> Results of the build can be found <span class="k">in</span> the log file<span class="o">(</span>s<span class="o">)</span> /opt/software/intel/2018a/easybuild/easybuild-intel-2018a-20180330.141146.log
+<span class="o">==</span> Build succeeded <span class="k">for</span> <span class="m">1</span> out of <span class="nv">1</span>
+<span class="o">==</span> Temporary log file<span class="o">(</span>s<span class="o">)</span> /tmp/eb-lxUlvt/easybuild-maTXAl.log* have been removed.
+<span class="o">==</span> Temporary directory /tmp/eb-lxUlvt has been removed.
+</code></pre></div>
 
 </div>
 
@@ -2515,37 +2499,35 @@ input of a eb file name as ebS command:</p>
 
 <div class="codeContent panelContent pdl">
 
-
-<pre><code class="language-bash">$ ebM intel-2018a.eb
-== temporary log file in case of crash /tmp/eb-ZTyyR3/easybuild-XiMfNO.log
-== resolving dependencies ...
-== processing EasyBuild easyconfig /opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs/i/intel/intel-2018a.eb
-== building and installing Core/intel/2018a...
-== fetching files [skipped]
-== creating build dir, resetting environment...
-== backup of existing module file stored at /opt/modules/Core/intel/2018a.lua.bak_20180330141928
-== unpacking [skipped]
-== patching [skipped]
-== preparing...
-== configuring [skipped]
-== building [skipped]
-== testing [skipped]
-== installing [skipped]
-== taking care of extensions [skipped]
-== postprocessing [skipped]
-== sanity checking [skipped]
-== cleaning up [skipped]
-== creating module...
-== comparing module file with backup /opt/modules/Core/intel/2018a.lua.bak_20180330141928; no differences found
-== permissions [skipped]
-== packaging [skipped]
-== COMPLETED: Installation ended successfully
-== Results of the build can be found in the log file(s) /opt/software/intel/2018a/easybuild/easybuild-intel-2018a-20180330.141933.log
-== Build succeeded for 1 out of 1
-== Temporary log file(s) /tmp/eb-ZTyyR3/easybuild-XiMfNO.log* have been removed.
-== Temporary directory /tmp/eb-ZTyyR3 has been removed.
-</code></pre>
-
+<div class="highlight"><pre><span></span><code>$ ebM intel-2018a.eb
+<span class="o">==</span> temporary log file <span class="k">in</span> <span class="k">case</span> of crash /tmp/eb-ZTyyR3/easybuild-XiMfNO.log
+<span class="o">==</span> resolving dependencies ...
+<span class="o">==</span> processing EasyBuild easyconfig /opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs/i/intel/intel-2018a.eb
+<span class="o">==</span> building and installing Core/intel/2018a...
+<span class="o">==</span> fetching files <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> creating build dir, resetting environment...
+<span class="o">==</span> backup of existing module file stored at /opt/modules/Core/intel/2018a.lua.bak_20180330141928
+<span class="o">==</span> unpacking <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> patching <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> preparing...
+<span class="o">==</span> configuring <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> building <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> testing <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> installing <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> taking care of extensions <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> postprocessing <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> sanity checking <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> cleaning up <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> creating module...
+<span class="o">==</span> comparing module file with backup /opt/modules/Core/intel/2018a.lua.bak_20180330141928<span class="p">;</span> no differences <span class="nv">found</span>
+<span class="o">==</span> permissions <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> packaging <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> COMPLETED: Installation ended <span class="nv">successfully</span>
+<span class="o">==</span> Results of the build can be found <span class="k">in</span> the log file<span class="o">(</span>s<span class="o">)</span> /opt/software/intel/2018a/easybuild/easybuild-intel-2018a-20180330.141933.log
+<span class="o">==</span> Build succeeded <span class="k">for</span> <span class="m">1</span> out of <span class="nv">1</span>
+<span class="o">==</span> Temporary log file<span class="o">(</span>s<span class="o">)</span> /tmp/eb-ZTyyR3/easybuild-XiMfNO.log* have been removed.
+<span class="o">==</span> Temporary directory /tmp/eb-ZTyyR3 has been removed.
+</code></pre></div>
 
 </div>
 
@@ -2559,51 +2541,49 @@ directory:</p>
 
 <div class="codeContent panelContent pdl">
 
-
-<pre><code class="language-bash">$ ebM GCCcore-7.2.0.eb
-== temporary log file in case of crash /tmp/eb-W5U4vp/easybuild-F9E32g.log
-== resolving dependencies ...
-== processing EasyBuild easyconfig /opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs/g/GCCcore/GCCcore-7.2.0.eb
-== building and installing Core/GCCcore/7.2.0...
-== fetching files [skipped]
-== creating build dir, resetting environment...
-== backup of existing module file stored at /opt/modules/Core/GCCcore/7.2.0.lua.bak_20180330143152
-== unpacking [skipped]
-== patching [skipped]
-== preparing...
-== configuring [skipped]
-== building [skipped]
-== testing [skipped]
-== installing [skipped]
-== taking care of extensions [skipped]
-== postprocessing [skipped]
-== sanity checking [skipped]
-== cleaning up [skipped]
-== creating module...
-== comparing module file with backup /opt/modules/Core/GCCcore/7.2.0.lua.bak_20180330143152; diff is:
+<div class="highlight"><pre><span></span><code>$ ebM GCCcore-7.2.0.eb
+<span class="o">==</span> temporary log file <span class="k">in</span> <span class="k">case</span> of crash /tmp/eb-W5U4vp/easybuild-F9E32g.log
+<span class="o">==</span> resolving dependencies ...
+<span class="o">==</span> processing EasyBuild easyconfig /opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs/g/GCCcore/GCCcore-7.2.0.eb
+<span class="o">==</span> building and installing Core/GCCcore/7.2.0...
+<span class="o">==</span> fetching files <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> creating build dir, resetting environment...
+<span class="o">==</span> backup of existing module file stored at /opt/modules/Core/GCCcore/7.2.0.lua.bak_20180330143152
+<span class="o">==</span> unpacking <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> patching <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> preparing...
+<span class="o">==</span> configuring <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> building <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> testing <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> installing <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> taking care of extensions <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> postprocessing <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> sanity checking <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> cleaning up <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> creating module...
+<span class="o">==</span> comparing module file with backup /opt/modules/Core/GCCcore/7.2.0.lua.bak_20180330143152<span class="p">;</span> diff is:
 --- /opt/modules/Core/GCCcore/7.2.0.lua.bak_20180330143152
 +++ /opt/modules/Core/GCCcore/7.2.0.lua
 @@ -23,7 +23,6 @@
- prepend_path(&quot;CPATH&quot;, pathJoin(root, &quot;include&quot;))
- prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(root, &quot;lib&quot;))
- prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(root, &quot;lib64&quot;))
--prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(root, &quot;lib/gcc/x86_64-pc-linux-gnu/7.2.0&quot;))
- prepend_path(&quot;LIBRARY_PATH&quot;, pathJoin(root, &quot;lib&quot;))
- prepend_path(&quot;LIBRARY_PATH&quot;, pathJoin(root, &quot;lib64&quot;))
- prepend_path(&quot;MANPATH&quot;, pathJoin(root, &quot;share/man&quot;))
+ prepend_path<span class="o">(</span><span class="s2">&quot;CPATH&quot;</span>, pathJoin<span class="o">(</span>root, <span class="s2">&quot;include&quot;</span><span class="o">))</span>
+ prepend_path<span class="o">(</span><span class="s2">&quot;LD_LIBRARY_PATH&quot;</span>, pathJoin<span class="o">(</span>root, <span class="s2">&quot;lib&quot;</span><span class="o">))</span>
+ prepend_path<span class="o">(</span><span class="s2">&quot;LD_LIBRARY_PATH&quot;</span>, pathJoin<span class="o">(</span>root, <span class="s2">&quot;lib64&quot;</span><span class="o">))</span>
+-prepend_path<span class="o">(</span><span class="s2">&quot;LD_LIBRARY_PATH&quot;</span>, pathJoin<span class="o">(</span>root, <span class="s2">&quot;lib/gcc/x86_64-pc-linux-gnu/7.2.0&quot;</span><span class="o">))</span>
+ prepend_path<span class="o">(</span><span class="s2">&quot;LIBRARY_PATH&quot;</span>, pathJoin<span class="o">(</span>root, <span class="s2">&quot;lib&quot;</span><span class="o">))</span>
+ prepend_path<span class="o">(</span><span class="s2">&quot;LIBRARY_PATH&quot;</span>, pathJoin<span class="o">(</span>root, <span class="s2">&quot;lib64&quot;</span><span class="o">))</span>
+ prepend_path<span class="o">(</span><span class="s2">&quot;MANPATH&quot;</span>, pathJoin<span class="o">(</span>root, <span class="s2">&quot;share/man&quot;</span><span class="o">))</span>
 
-== permissions [skipped]
-== packaging [skipped]
-ERROR: Traceback (most recent call last):
-  File &quot;/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_framework-3.5.2-py2.7.egg/easybuild/main.py&quot;, line 128, in build_and_install_software
-    (ec_res['success'], app_log, err) = build_and_install_one(ec, init_env, hooks=hooks)
-  File &quot;/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_framework-3.5.2-py2.7.egg/easybuild/framework/easyblock.py&quot;, line 2751, in build_and_install_one
-    copy_file(spec, newspec)
-  File &quot;/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_framework-3.5.2-py2.7.egg/easybuild/tools/filetools.py&quot;, line 1575, in copy_file
-    raise EasyBuildError(&quot;Failed to copy file %s to %s: %s&quot;, path, target_path, err)
-EasyBuildError: &quot;Failed to copy file /opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs/g/GCCcore/GCCcore-7.2.0.eb to /opt/software/GCCcore/7.2.0/easybuild/GCCcore-7.2.0.eb: [Errno 1] Operation not permitted: '/opt/software/GCCcore/7.2.0/easybuild/GCCcore-7.2.0.eb'&quot;
-</code></pre>
-
+<span class="o">==</span> permissions <span class="o">[</span>skipped<span class="o">]</span>
+<span class="o">==</span> packaging <span class="o">[</span>skipped<span class="o">]</span>
+ERROR: Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+  File <span class="s2">&quot;/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_framework-3.5.2-py2.7.egg/easybuild/main.py&quot;</span>, line <span class="m">128</span>, <span class="k">in</span> build_and_install_software
+    <span class="o">(</span>ec_res<span class="o">[</span><span class="s1">&#39;success&#39;</span><span class="o">]</span>, app_log, err<span class="o">)</span> <span class="o">=</span> build_and_install_one<span class="o">(</span>ec, init_env, <span class="nv">hooks</span><span class="o">=</span>hooks<span class="o">)</span>
+  File <span class="s2">&quot;/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_framework-3.5.2-py2.7.egg/easybuild/framework/easyblock.py&quot;</span>, line <span class="m">2751</span>, <span class="k">in</span> build_and_install_one
+    copy_file<span class="o">(</span>spec, newspec<span class="o">)</span>
+  File <span class="s2">&quot;/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_framework-3.5.2-py2.7.egg/easybuild/tools/filetools.py&quot;</span>, line <span class="m">1575</span>, <span class="k">in</span> copy_file
+    raise EasyBuildError<span class="o">(</span><span class="s2">&quot;Failed to copy file %s to %s: %s&quot;</span>, path, target_path, err<span class="o">)</span>
+EasyBuildError: <span class="s2">&quot;Failed to copy file /opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs/g/GCCcore/GCCcore-7.2.0.eb to /opt/software/GCCcore/7.2.0/easybuild/GCCcore-7.2.0.eb: [Errno 1] Operation not permitted: &#39;/opt/software/GCCcore/7.2.0/easybuild/GCCcore-7.2.0.eb&#39;&quot;</span>
+</code></pre></div>
 
 </div>
 
@@ -2614,10 +2594,8 @@ EasyBuildError: &quot;Failed to copy file /opt/software/EasyBuild/3.5.2/lib/pyth
 
 <div class="codeContent panelContent pdl">
 
-
-<pre><code class="language-bash">$ rm /opt/software/GCCcore/7.2.0/easybuild/GCCcore-7.2.0.eb
-</code></pre>
-
+<div class="highlight"><pre><span></span><code>$ rm /opt/software/GCCcore/7.2.0/easybuild/GCCcore-7.2.0.eb
+</code></pre></div>
 
 </div>
 

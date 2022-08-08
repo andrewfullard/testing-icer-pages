@@ -2256,43 +2256,43 @@ to install anaconda in your home directory.</p>
 <p>Below is how to install QIIME 2 (version 2018.2) in your home directory
 via conda:</p>
 <p><strong>Install QIIME 2</strong></p>
-<pre><code class="language-bash">export PATH=$PATH:$HOME/anaconda3/bin
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/anaconda3/bin
 wget https://data.qiime2.org/distro/core/qiime2-2018.2-py35-linux-conda.yml
 conda env create -n qiime2-2018.2 --file qiime2-2018.2-py35-linux-conda.yml
 rm qiime2-2018.2-py35-linux-conda.yml
 
-source activate qiime2-2018.2
-qiime --help # test if installation is successful
-# all your QIIME commands go here
-source deactivate
-</code></pre>
+<span class="nb">source</span> activate qiime2-2018.2
+qiime --help <span class="c1"># test if installation is successful</span>
+<span class="c1"># all your QIIME commands go here</span>
+<span class="nb">source</span> deactivate
+</code></pre></div>
 <p>The example below is from a previous version of <a href="https://docs.qiime2.org/2022.2/">the current tutorial</a></p>
 <p><strong>Example of analysis</strong></p>
-<pre><code class="language-bash">mkdir qiime2-moving-pictures-tutorial
-cd qiime2-moving-pictures-tutorial
-wget -O &quot;sample-metadata.tsv&quot; &quot;https://data.qiime2.org/2018.2/tutorials/moving-pictures/sample_metadata.tsv&quot;
+<div class="highlight"><pre><span></span><code>mkdir qiime2-moving-pictures-tutorial
+<span class="nb">cd</span> qiime2-moving-pictures-tutorial
+wget -O <span class="s2">&quot;sample-metadata.tsv&quot;</span> <span class="s2">&quot;https://data.qiime2.org/2018.2/tutorials/moving-pictures/sample_metadata.tsv&quot;</span>
 
 mkdir emp-single-end-sequences
-wget -O &quot;emp-single-end-sequences/barcodes.fastq.gz&quot; &quot;https://data.qiime2.org/2018.2/tutorials/moving-pictures/emp-single-end-sequences/barcodes.fastq.gz&quot;
-wget -O &quot;emp-single-end-sequences/sequences.fastq.gz&quot; &quot;https://data.qiime2.org/2018.2/tutorials/moving-pictures/emp-single-end-sequences/sequences.fastq.gz&quot;
+wget -O <span class="s2">&quot;emp-single-end-sequences/barcodes.fastq.gz&quot;</span> <span class="s2">&quot;https://data.qiime2.org/2018.2/tutorials/moving-pictures/emp-single-end-sequences/barcodes.fastq.gz&quot;</span>
+wget -O <span class="s2">&quot;emp-single-end-sequences/sequences.fastq.gz&quot;</span> <span class="s2">&quot;https://data.qiime2.org/2018.2/tutorials/moving-pictures/emp-single-end-sequences/sequences.fastq.gz&quot;</span>
 
-qiime tools import \
-  --type EMPSingleEndSequences \
-  --input-path emp-single-end-sequences \
+qiime tools import <span class="se">\</span>
+  --type EMPSingleEndSequences <span class="se">\</span>
+  --input-path emp-single-end-sequences <span class="se">\</span>
   --output-path emp-single-end-sequences.qza
 
-qiime demux emp-single \
-  --i-seqs emp-single-end-sequences.qza \
-  --m-barcodes-file sample-metadata.tsv \
-  --m-barcodes-column BarcodeSequence \
+qiime demux emp-single <span class="se">\</span>
+  --i-seqs emp-single-end-sequences.qza <span class="se">\</span>
+  --m-barcodes-file sample-metadata.tsv <span class="se">\</span>
+  --m-barcodes-column BarcodeSequence <span class="se">\</span>
   --o-per-sample-sequences demux.qza
 
-qiime demux summarize \
-  --i-data demux.qza \
+qiime demux summarize <span class="se">\</span>
+  --i-data demux.qza <span class="se">\</span>
   --o-visualization demux.qzv
 
 qiime tools view demux.qzv
-</code></pre>
+</code></pre></div>
 
 
   

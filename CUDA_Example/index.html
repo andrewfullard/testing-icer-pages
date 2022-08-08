@@ -2245,17 +2245,17 @@
 <h1 id="cuda-example">CUDA Example</h1>
 <p>There are several CUDA versions installed in HPCC. Users can use
 the command:</p>
-<pre><code class="language-bash">[username@dev-amd20-v100 ~]$ ml spider CUDA
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ ml spider CUDA
+</code></pre></div>
 <p>to see all installed versions. In order to compile a CUDA code, users
 might also need to load a GNU or Intel compiler (for C and Fortran). A
 toolchain which combines CUDA, C and Fortran compilers can be found by
 using the command:</p>
-<pre><code class="language-bash">[username@dev-amd20-v100 ~]$ ml spider gcccuda
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ ml spider gcccuda
+</code></pre></div>
 <p>for GNU and CUDA compilers and</p>
-<pre><code class="language-bash">[username@dev-amd20-v100 ~]$ ml spider iccifortcuda
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ ml spider iccifortcuda
+</code></pre></div>
 <p>for Intel and CUDA compilers. You can load one of the versions directly
 to do your CUDA code compilation.</p>
 <p>GPU Capabilities</p>
@@ -2265,65 +2265,65 @@ with CUDA versions higher than 11.0.</p>
 <p>Users can get a simple CUDA code to do the compilation. After log
 into HPCC and ssh to a dev node with GPU cards, users can run the
 powertools command:</p>
-<pre><code class="language-bash">[username@dev-amd20-v100 ~]$ getexample helloCUDA
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ getexample helloCUDA
+</code></pre></div>
 <p>to copy the CUDA example directory "<code>helloCUDA</code>" in the current
 directory. After you cd to the directory, you should be able to see the
 CUDA code file: "<code>Hello.cu</code>":</p>
-<pre><code class="language-bash">[username@dev-amd20-v100 ~]$ cd helloCUDA
-[username@dev-amd20-v100 ~]$ ls
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ <span class="nb">cd</span> helloCUDA
+<span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ ls
 Hello.cu  Hello-CUDA.sb  README  run.sh
-[username@dev-amd20-v100 ~]$ cat Hello.cu
-#include &lt;stdio.h&gt;
+<span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ cat Hello.cu
+<span class="c1">#include &lt;stdio.h&gt;</span>
 
-#define NUM_BLOCKS 16
-#define BLOCK_WIDTH 1
+<span class="c1">#define NUM_BLOCKS 16</span>
+<span class="c1">#define BLOCK_WIDTH 1</span>
 
-__global__ void hello()
-{
-    printf(&quot;Hello world! I'm a thread in block %d\n&quot;, blockIdx.x);
-}
+__global__ void hello<span class="o">()</span>
+<span class="o">{</span>
+    printf<span class="o">(</span><span class="s2">&quot;Hello world! I&#39;m a thread in block %d\n&quot;</span>, blockIdx.x<span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
 
 
-int main(int argc,char **argv)
-{
+int main<span class="o">(</span>int argc,char **argv<span class="o">)</span>
+<span class="o">{</span>
     // launch the kernel
-    hello&lt;&lt;&lt;NUM_BLOCKS, BLOCK_WIDTH&gt;&gt;&gt;();
+    hello<span class="o">&lt;&lt;&lt;</span>NUM_BLOCKS, BLOCK_WIDTH&gt;&gt;&gt;<span class="o">()</span><span class="p">;</span>
 
-    // force the printf()s to flush
-    cudaDeviceSynchronize();
+    // force the printf<span class="o">()</span>s to flush
+    cudaDeviceSynchronize<span class="o">()</span><span class="p">;</span>
 
-    printf(&quot;That's all!\n&quot;);
+    printf<span class="o">(</span><span class="s2">&quot;That&#39;s all!\n&quot;</span><span class="o">)</span><span class="p">;</span>
 
-    return 0;
-}
-</code></pre>
+    <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
+<span class="o">}</span>
+</code></pre></div>
 <p>The CUDA code defines 16 blocks with one GPU core in each block. Each
 core runs one thread to print out "<code>Hello world!</code>" and the block number
 of the core. Totally 16 threads are executed in parallel. We can simply
 compile the code by "<code>nvcc</code>" command after a version of gcccuda
 toolchain is loaded:</p>
-<pre><code class="language-bash">[username@dev-amd20-v100 ~]$ ml -* gcccuda/2019b
-[username@dev-amd20-v100 ~]$ nvcc Hello.cu -o Hello_CUDA
-[username@dev-amd20-v100 ~]$ ./Hello_CUDA
-Hello world! I'm a thread in block 5
-Hello world! I'm a thread in block 12
-Hello world! I'm a thread in block 11
-Hello world! I'm a thread in block 0
-Hello world! I'm a thread in block 6
-Hello world! I'm a thread in block 1
-Hello world! I'm a thread in block 7
-Hello world! I'm a thread in block 13
-Hello world! I'm a thread in block 14
-Hello world! I'm a thread in block 2
-Hello world! I'm a thread in block 8
-Hello world! I'm a thread in block 4
-Hello world! I'm a thread in block 10
-Hello world! I'm a thread in block 3
-Hello world! I'm a thread in block 9
-Hello world! I'm a thread in block 15
-That's all!
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ ml -* gcccuda/2019b
+<span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ nvcc Hello.cu -o Hello_CUDA
+<span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ ./Hello_CUDA
+Hello world! I<span class="s1">&#39;m a thread in block 5</span>
+<span class="s1">Hello world! I&#39;</span>m a thread <span class="k">in</span> block <span class="m">12</span>
+Hello world! I<span class="s1">&#39;m a thread in block 11</span>
+<span class="s1">Hello world! I&#39;</span>m a thread <span class="k">in</span> block <span class="m">0</span>
+Hello world! I<span class="s1">&#39;m a thread in block 6</span>
+<span class="s1">Hello world! I&#39;</span>m a thread <span class="k">in</span> block <span class="m">1</span>
+Hello world! I<span class="s1">&#39;m a thread in block 7</span>
+<span class="s1">Hello world! I&#39;</span>m a thread <span class="k">in</span> block <span class="m">13</span>
+Hello world! I<span class="s1">&#39;m a thread in block 14</span>
+<span class="s1">Hello world! I&#39;</span>m a thread <span class="k">in</span> block <span class="m">2</span>
+Hello world! I<span class="s1">&#39;m a thread in block 8</span>
+<span class="s1">Hello world! I&#39;</span>m a thread <span class="k">in</span> block <span class="m">4</span>
+Hello world! I<span class="s1">&#39;m a thread in block 10</span>
+<span class="s1">Hello world! I&#39;</span>m a thread <span class="k">in</span> block <span class="m">3</span>
+Hello world! I<span class="s1">&#39;m a thread in block 9</span>
+<span class="s1">Hello world! I&#39;</span>m a thread <span class="k">in</span> block <span class="m">15</span>
+That<span class="err">&#39;</span>s all!
+</code></pre></div>
 <p>Once it is compiled successfully, the execution of the binary
 "<code>Hello_CUDA</code>" on a GPU node should give the output as above.</p>
 

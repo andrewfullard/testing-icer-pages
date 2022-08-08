@@ -2245,7 +2245,7 @@
 <p>Alphafold can be run via Singularity.</p>
 <p>Alphafold database is located in
 <code>/mnt/research/common-data/alphafold/database</code>.</p>
-<pre><code class="language-bash">database
+<div class="highlight"><pre><span></span><code>database
 ├── bfd
 │   ├── bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt_a3m.ffdata
 │   └── bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt.tar.gz
@@ -2282,11 +2282,11 @@
 └── uniref90
     ├── uniref90.fasta
     └── uniref90.fasta.1.gz
-</code></pre>
+</code></pre></div>
 <p>Before running Alphafold, you need to set</p>
-<pre><code>export ALPHAFOLD_DATA_PATH=&quot;/mnt/research/common-data/alphafold/database&quot;  
+<div class="highlight"><pre><span></span><code>export ALPHAFOLD_DATA_PATH=&quot;/mnt/research/common-data/alphafold/database&quot;  
 export ALPHAFOLD_MODELS=&quot;/mnt/research/common-data/alphafold/database/params&quot;
-</code></pre>
+</code></pre></div>
 <p>To run alphafold, please use the following template (for more
 information about options/flags, please refer to
 <a href="https://github.com/deepmind/alphafold">https://github.com/deepmind/alphafold</a>.</p>
@@ -2294,36 +2294,36 @@ information about options/flags, please refer to
 output_dir. Since the command <code>/usr/bin/hhsearch</code> inside the container
 does not work on intel14 nodes (<code>Illegal instruction</code>), please use the
 <code>SBATCH</code> option <code>--constraint</code> in the job script.</p>
-<pre><code class="language-bash">#!/bin/bash
-#SBATCH --job-name alphafold-run
-#SBATCH --time=08:00:00
-#SBATCH --gres=gpu:1
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=20G
-#SBATCH --constraint=&quot;[intel16|intel18|amd20]&quot;
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name alphafold-run</span>
+<span class="c1">#SBATCH --time=08:00:00</span>
+<span class="c1">#SBATCH --gres=gpu:1</span>
+<span class="c1">#SBATCH --cpus-per-task=8</span>
+<span class="c1">#SBATCH --mem=20G</span>
+<span class="c1">#SBATCH --constraint=&quot;[intel16|intel18|amd20]&quot;</span>
 
-export ALPHAFOLD_DATA_PATH=&quot;/mnt/research/common-data/alphafold/database&quot;
-export ALPHAFOLD_MODELS=&quot;/mnt/research/common-data/alphafold/database/params&quot;
+<span class="nb">export</span> <span class="nv">ALPHAFOLD_DATA_PATH</span><span class="o">=</span><span class="s2">&quot;/mnt/research/common-data/alphafold/database&quot;</span>
+<span class="nb">export</span> <span class="nv">ALPHAFOLD_MODELS</span><span class="o">=</span><span class="s2">&quot;/mnt/research/common-data/alphafold/database/params&quot;</span>
 
-singularity run --nv \
--B $ALPHAFOLD_DATA_PATH:/data \
--B $ALPHAFOLD_MODELS \
--B .:/etc \
---pwd  /app/alphafold /opt/software/alphafold/2.0.0/alphafold.sif \
---data_dir=/data \
---output_dir=/mnt/gs18/scratch/users/my_id/alphafold/output \
---fasta_paths=/mnt/gs18/scratch/users/my_id/alphafold/input.fasta  \
---uniref90_database_path=/data/uniref90/uniref90.fasta  \
---mgnify_database_path=/data/mgnify/mgy_clusters_2018_12.fa   \
---bfd_database_path=/data/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt \
---uniclust30_database_path=/data/uniclust30/uniclust30_2018_08/uniclust30_2018_08 \
---pdb70_database_path=/data/pdb70/pdb70  \
---template_mmcif_dir=/data/pdb_mmcif/mmcif_files  \
---obsolete_pdbs_path=/data/pdb_mmcif/obsolete.dat \
---max_template_date=2020-05-14   \
---model_names=model_1 \
---preset=casp14
-</code></pre>
+singularity run --nv <span class="se">\</span>
+-B <span class="nv">$ALPHAFOLD_DATA_PATH</span>:/data <span class="se">\</span>
+-B <span class="nv">$ALPHAFOLD_MODELS</span> <span class="se">\</span>
+-B .:/etc <span class="se">\</span>
+--pwd  /app/alphafold /opt/software/alphafold/2.0.0/alphafold.sif <span class="se">\</span>
+--data_dir<span class="o">=</span>/data <span class="se">\</span>
+--output_dir<span class="o">=</span>/mnt/gs18/scratch/users/my_id/alphafold/output <span class="se">\</span>
+--fasta_paths<span class="o">=</span>/mnt/gs18/scratch/users/my_id/alphafold/input.fasta  <span class="se">\</span>
+--uniref90_database_path<span class="o">=</span>/data/uniref90/uniref90.fasta  <span class="se">\</span>
+--mgnify_database_path<span class="o">=</span>/data/mgnify/mgy_clusters_2018_12.fa   <span class="se">\</span>
+--bfd_database_path<span class="o">=</span>/data/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt <span class="se">\</span>
+--uniclust30_database_path<span class="o">=</span>/data/uniclust30/uniclust30_2018_08/uniclust30_2018_08 <span class="se">\</span>
+--pdb70_database_path<span class="o">=</span>/data/pdb70/pdb70  <span class="se">\</span>
+--template_mmcif_dir<span class="o">=</span>/data/pdb_mmcif/mmcif_files  <span class="se">\</span>
+--obsolete_pdbs_path<span class="o">=</span>/data/pdb_mmcif/obsolete.dat <span class="se">\</span>
+--max_template_date<span class="o">=</span><span class="m">2020</span>-05-14   <span class="se">\</span>
+--model_names<span class="o">=</span>model_1 <span class="se">\</span>
+--preset<span class="o">=</span>casp14
+</code></pre></div>
 
 
   

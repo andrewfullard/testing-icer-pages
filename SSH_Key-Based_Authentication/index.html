@@ -2337,8 +2337,8 @@ this; it will prevent your private key from being used by a malicious
 individual if it is ever stolen.</p>
 <p>If you have not previously used <code>ssh-keygen</code>, then you can simply run
 the following command:</p>
-<pre><code class="language-bash">ssh-keygen -t rsa
-</code></pre>
+<div class="highlight"><pre><span></span><code>ssh-keygen -t rsa
+</code></pre></div>
 <p>After you have set a passphrase and it has generated the keys, you will
 find the key files in the <code>.ssh</code> directory under your home directory. By
 default, these are named <code>id_rsa</code> and <code>id_rsa.pub</code>. <code>id_rsa</code> is your
@@ -2420,48 +2420,48 @@ server. This all happens without you noticing anything different...
 except that you no longer need to type in your password during login.</p>
 <p>To start <code>ssh-agent</code> on a Unix system using a Bourne shell-compatible
 shell (the default on HPCC), you can use the following command:</p>
-<pre><code class="language-bash">eval `ssh-agent`
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">eval</span> <span class="sb">`</span>ssh-agent<span class="sb">`</span>
+</code></pre></div>
 <p>This starts the agent and sets some Unix environment variables that tell
 the SSH client, <code>ssh</code>, where to talk to the running agent process. The
 equivalent command for those using a C shell-compatible shell is:</p>
-<pre><code class="language-bash">eval `ssh-agent -c`
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">eval</span> <span class="sb">`</span>ssh-agent -c<span class="sb">`</span>
+</code></pre></div>
 <p>Once it is running, you will want to load your private key(s) into the
 agent's cache. For example:</p>
-<pre><code class="language-bash">ssh-add
-</code></pre>
+<div class="highlight"><pre><span></span><code>ssh-add
+</code></pre></div>
 <p>will prompt your for the passphrase on <code>~/.ssh/id_rsa</code> and load it into
 the agent's cache. If you are on some other system and have multiple
 keys pairs, then you may wish to load additional keys; for example:</p>
-<pre><code class="language-bash">ssh-add ~/.ssh/id_rsa_hpcc ~/.ssh/id_rsa_hpcc_vcs ~/.ssh/id_rsa_nersc
-</code></pre>
+<div class="highlight"><pre><span></span><code>ssh-add ~/.ssh/id_rsa_hpcc ~/.ssh/id_rsa_hpcc_vcs ~/.ssh/id_rsa_nersc
+</code></pre></div>
 <p>Once you have <code>ssh-agent</code> running and have some private keys loaded,
 then you should be able to make key-based connections to other systems
 where you have placed your corresponding public keys into the authorized
 keys files... no password necessary. Try it.</p>
 <p>You don't want to leave stray <code>ssh-agent</code> processes running when you
 logout. To clean up after yourself, you can use:</p>
-<pre><code class="language-bash">eval `ssh-agent -k`
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">eval</span> <span class="sb">`</span>ssh-agent -k<span class="sb">`</span>
+</code></pre></div>
 <p>with Bourne shells and</p>
-<pre><code class="language-bash">eval `ssh-agent -c -k`
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">eval</span> <span class="sb">`</span>ssh-agent -c -k<span class="sb">`</span>
+</code></pre></div>
 <p>with C shells.</p>
 <p>If you find yourself using the agent frequently, then you may wish to
 consider adding the <code>ssh-agent</code> startup and shutdown commands to your
 shell control files. For Bourne shells, you would want to add</p>
-<pre><code class="language-bash">eval `ssh-agent`
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">eval</span> <span class="sb">`</span>ssh-agent<span class="sb">`</span>
+</code></pre></div>
 <p>to <code>~/.bash_profile</code> and</p>
-<pre><code class="language-bash">eval `ssh-agent -k`
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">eval</span> <span class="sb">`</span>ssh-agent -k<span class="sb">`</span>
+</code></pre></div>
 <p>to <code>~/.bash_logout</code>. For C shells, you would want to add</p>
-<pre><code class="language-bash">eval `ssh-agent -c`
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">eval</span> <span class="sb">`</span>ssh-agent -c<span class="sb">`</span>
+</code></pre></div>
 <p>to your <code>~/.login</code> file and</p>
-<pre><code class="language-bash">eval `ssh-agent -c -k`
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">eval</span> <span class="sb">`</span>ssh-agent -c -k<span class="sb">`</span>
+</code></pre></div>
 <p>to your <code>~/.logout</code> file.</p>
 <p>You should NOT add the <code>ssh-add</code> command to your shell initialization
 file. You should still plan on running this command by hand. As it

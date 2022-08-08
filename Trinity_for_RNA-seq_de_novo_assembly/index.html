@@ -2353,14 +2353,14 @@ module load icc/2017.4.196-GCC-6.4.0-2.28 impi/2017.3.196 Trinity/2.6.6
 <p>A typical Trinity command for assembling strand-specific paired-end
 RNA-seq data would look like:</p>
 <p><strong>A typical run of Trinity</strong></p>
-<pre><code>Trinity \
+<div class="highlight"><pre><span></span><code>Trinity \
   --seqType fq \
   --max_memory 2G \
   --left reads.left.fq \
   --right reads.right.fq \
   --SS_lib_type RF \
   --CPU 10
-</code></pre>
+</code></pre></div>
 <p>This will generate output files in a new directory "<code>trinity_out_dir</code>"
 in the working directory. Among them, the assembled transcripts file is
 "<code>Trinity.fasta</code>". For more detail, check
@@ -2390,8 +2390,8 @@ assembled transcript and then quantify transcript abundance, we first
 set the <code>PATH</code> variable so that RSEM can be automatically searched for
 by trinity.</p>
 <p><strong>Using RSEM for transcript quantification</strong></p>
-<pre><code># Assuming
-#    1) you've loaded Trinity module already and
+<div class="highlight"><pre><span></span><code># Assuming
+#    1) you&#39;ve loaded Trinity module already and
 #    2) your current working directory is trinity_out_dir generated from the previous assembly step. 
 
 export PATH=/opt/software/RSEM/1.3.1-GCCcore-6.4.0/usr/local/bin:$PATH
@@ -2406,7 +2406,7 @@ export PATH=/opt/software/RSEM/1.3.1-GCCcore-6.4.0/usr/local/bin:$PATH
     --prep_reference \
     --thread_count 10 \
     --output_dir RSEM_out
-</code></pre>
+</code></pre></div>
 <p>The RSEM computation generates two primary output files containing
 estimated abundances in the subdirectory <code>RSEM_out</code> as specified in the
 command above: <code>RSEM.isoforms.results</code> (transcript level)

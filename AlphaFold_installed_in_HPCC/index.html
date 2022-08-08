@@ -2289,11 +2289,11 @@
 
 <h1 id="alphafold-installed-in-hpcc">AlphaFold installed in HPCC</h1>
 <p>To use AlphaFold installed in HPCC, users can use the command:</p>
-<pre><code class="language-bash">[UserName@dev-amd20-v100 ~]$ ml spider AlphaFold
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100 ~<span class="o">]</span>$ ml spider AlphaFold
+</code></pre></div>
 <p>to find all versions installed in HPCC and use the command:</p>
-<pre><code class="language-bash">[UserName@dev-amd20-v100 ~]$ ml spider AlphaFold/&lt;version&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100 ~<span class="o">]</span>$ ml spider AlphaFold/&lt;version&gt;
+</code></pre></div>
 <p>to find how to load a specific AlphaFold version, where <code>&lt;version&gt;</code> is
 the version of AlphaFold to load. All AlphaFold versions use the same
 data structure and
@@ -2314,47 +2314,47 @@ for more information.</p>
 <p>Users can get an example of AlphaFold to run on HPCC nodes. After
 log into HPCC and ssh to a dev node with GPU cards, users can run the
 powertools command:</p>
-<pre><code class="language-bash">[UserName@dev-amd20-v100 ~]$ getexample AlphaFold
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100 ~<span class="o">]</span>$ getexample AlphaFold
+</code></pre></div>
 <p>to copy the example directory <code>AlphaFold</code> in the current directory.
 After you cd to the directory, you should be able to see the files
 inside:</p>
-<pre><code class="language-bash">[UserName@dev-amd20-v100 ~]$ cd AlphaFold
-[UserName@dev-amd20-v100 AlphaFold]$ ls
+<div class="highlight"><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100 ~<span class="o">]</span>$ <span class="nb">cd</span> AlphaFold
+<span class="o">[</span>UserName@dev-amd20-v100 AlphaFold<span class="o">]</span>$ ls
 data.fasta  README  slurm_script.sb
-[UserName@dev-amd20-v100 AlphaFold]$ cat slurm_script.sb
-#!/bin/bash
-#SBATCH --job-name AlphaFold
-#SBATCH --time=12:00:00
-#SBATCH --gres=gpu:4
-#SBATCH --cpus-per-task=24
-#SBATCH --mem=90GB
-#SBATCH --constraint=[intel18|amr|nvf|nal|nif]
+<span class="o">[</span>UserName@dev-amd20-v100 AlphaFold<span class="o">]</span>$ cat slurm_script.sb
+<span class="c1">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name AlphaFold</span>
+<span class="c1">#SBATCH --time=12:00:00</span>
+<span class="c1">#SBATCH --gres=gpu:4</span>
+<span class="c1">#SBATCH --cpus-per-task=24</span>
+<span class="c1">#SBATCH --mem=90GB</span>
+<span class="c1">#SBATCH --constraint=[intel18|amr|nvf|nal|nif]</span>
 
-export NVIDIA_VISIBLE_DEVICES=&quot;${CUDA_VISIBLE_DEVICES}&quot;
+<span class="nb">export</span> <span class="nv">NVIDIA_VISIBLE_DEVICES</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="si">}</span><span class="s2">&quot;</span>
 
 ml -* fosscuda/2020a AlphaFold/2.0.0
 
-alphafold --fasta_paths=$PWD/data.fasta --output_dir=$PWD --preset=casp14 --max_template_date=2020-05-14 --model_names=model_1
+alphafold --fasta_paths<span class="o">=</span><span class="nv">$PWD</span>/data.fasta --output_dir<span class="o">=</span><span class="nv">$PWD</span> --preset<span class="o">=</span>casp14 --max_template_date<span class="o">=</span><span class="m">2020</span>-05-14 --model_names<span class="o">=</span>model_1
 
-scontrol show job ${SLURM_JOBID}
-js -j ${SLURM_JOBID}
-</code></pre>
+scontrol show job <span class="si">${</span><span class="nv">SLURM_JOBID</span><span class="si">}</span>
+js -j <span class="si">${</span><span class="nv">SLURM_JOBID</span><span class="si">}</span>
+</code></pre></div>
 <p>The job script file <code>slurm_script.sb</code> shows how to load the
 <code>AlphaFold</code> module and run the command <code>alphafold</code>. Since most of
 the specifications and variables have been set in the <code>alphafold</code>
 command script and the module file, 5 options:</p>
-<pre><code class="language-bash">--fasta_paths
+<div class="highlight"><pre><span></span><code>--fasta_paths
 --output_dir
 --preset
 --max_template_date
 --model_names
-</code></pre>
+</code></pre></div>
 <p>for the job are specified in the command line. Users can look into the
 <a href="https://github.com/deepmind/alphafold">AlphaFold documentation</a>
 or use the commands:</p>
-<pre><code class="language-bash">[UserName@dev-amd20-v100 AlphaFold]$ alphafold --help
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100 AlphaFold<span class="o">]</span>$ alphafold --help
+</code></pre></div>
 <p>to find out how to use all options after you load the AlphaFold module.</p>
 
 
