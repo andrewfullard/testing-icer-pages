@@ -13,7 +13,7 @@
     
     
       
-        <title>Show Job Steps by sacct and srun Commands - MSU HPCC User Documentation</title>
+        <title>Showing job steps - MSU HPCC User Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#show-job-steps-by-sacct-and-srun-commands" class="md-skip">
+        <a href="#showing-job-steps" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                Show Job Steps by sacct and srun Commands
+                Showing job steps
               
             </span>
           </div>
@@ -989,12 +989,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
       
       
       
@@ -1058,50 +1060,22 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../Job_Constraints/" class="md-nav__link">
-        Job constraints
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Example_SLURM_scripts/" class="md-nav__link">
-        Example job scripts
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_6" type="checkbox" id="__nav_9_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_4" type="checkbox" id="__nav_9_4" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_9_6">
+        <label class="md-nav__link" for="__nav_9_4">
           Job policies
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Job policies" data-md-level="2">
-        <label class="md-nav__title" for="__nav_9_6">
+        <label class="md-nav__title" for="__nav_9_4">
           <span class="md-nav__icon md-icon"></span>
           Job policies
         </label>
@@ -1148,9 +1122,47 @@
   
   
     <li class="md-nav__item">
+      <a href="../Job_Constraints/" class="md-nav__link">
+        Job constraints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Buy-In_Accounts_with_SLURM/" class="md-nav__link">
         Buyin accounts
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Showing job steps
+      </a>
+      
     </li>
   
 
@@ -1164,6 +1176,20 @@
     <li class="md-nav__item">
       <a href="../Scavenger_Queue/" class="md-nav__link">
         Scavenger Queue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Example_SLURM_scripts/" class="md-nav__link">
+        Example job scripts
       </a>
     </li>
   
@@ -1193,18 +1219,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_10" type="checkbox" id="__nav_9_10" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_11" type="checkbox" id="__nav_9_11" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_9_10">
+        <label class="md-nav__link" for="__nav_9_11">
           Torque vs. SLURM comparisons
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Torque vs. SLURM comparisons" data-md-level="2">
-        <label class="md-nav__title" for="__nav_9_10">
+        <label class="md-nav__title" for="__nav_9_11">
           <span class="md-nav__icon md-icon"></span>
           Torque vs. SLURM comparisons
         </label>
@@ -2083,7 +2109,35 @@
   
     <li class="md-nav__item">
       <a href="../singularity_01/" class="md-nav__link">
-        Singularity: I. Introduction
+        Singularity I: Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity_II._Running_a_container_on_HPC/" class="md-nav__link">
+        Singularity II: Running a container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity_III._Advanced_skills/" class="md-nav__link">
+        Singularity III: Advanced
       </a>
     </li>
   
@@ -2227,13 +2281,8 @@
                 
 
 
-<h1 id="show-job-steps-by-sacct-and-srun-commands">Show Job Steps by sacct and srun Commands</h1>
-<p>One of the best things about SLURM is able to show the execution
-information of each command line in a job script. This is very helpful
-especially when users try to debug their work flow or test software with
-different settings. However, in order to get the right information,
-<strong>srun</strong> wrapper command needs to be used. For example, let's take a
-look at the following job script:</p>
+<h1 id="showing-job-steps">Showing job steps</h1>
+<p>SLURM provides commands to show the execution information of each command line in a job script. This can be helpful for debugging and testing. In order to get  such information, the wrapper command <code>srun</code> needs to be used. Let's take a look at the following job script:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="c1">#SBATCH -N 4 -n 4 -c 2</span>
@@ -2264,8 +2313,7 @@ echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot
 srun -N <span class="m">1</span> -n <span class="m">1</span> -c <span class="m">1</span> scontrol show job <span class="nv">$SLURM_JOB_ID</span>         <span class="c1">#5 Step</span>
 </code></pre></div>
 <p>Although there are many command lines, only 6 of them are executed with
-either <strong>mpirun</strong> or <strong>srun</strong> wrapper and marked with the comments (from
-#0 to #5 step) in the end. SLURM can record each of the 6 executions as
+either <strong>mpirun</strong> or <strong>srun</strong> wrapper and marked with the comments (from step 0 to 5) in the end. SLURM can record each of the 6 executions as
 a job step. Once the job is submitted by <strong>sbatch</strong> command and starts
 running, you can use <strong>sacct</strong> command to check the steps:</p>
 <div class="highlight"><pre><span></span><code>$ sacct -j <span class="m">10732</span>
@@ -2283,9 +2331,7 @@ running, you can use <strong>sacct</strong> command to check the steps:</p>
 </code></pre></div>
 <p>where the Job has ID 10732 and the 6 steps are shown from JobID 10732.0
 to 10732.5.</p>
-<p>Users can also use a powertools command
-<a href="../js/"><strong>js</strong></a>
-to see more detailed information (such as memory usage and a list of
+<p>We can also use a powertools command <a href="../js/"><strong>js</strong></a> to see more detailed information (such as memory usage and a list of
 used nodes) about the steps:</p>
 <div class="highlight"><pre><span></span><code>$ js -j <span class="m">10732</span> -C5
 
@@ -2353,87 +2399,86 @@ information with <strong>srun</strong> but not with <strong>mpirun</strong>. If 
 the step information, do not forget to put <strong>srun</strong> in the command
 lines.</p>
 <div class="highlight"><pre><span></span><code>Currently Loaded Modules:
-  <span class="m">1</span><span class="o">)</span> GCCcore/6.4.0   <span class="m">2</span><span class="o">)</span> binutils/2.28   <span class="m">3</span><span class="o">)</span> GCC/6.4.0-2.28   <span class="m">4</span><span class="o">)</span> OpenMPI/2.1.1
+  1) GCCcore/6.4.0   2) binutils/2.28   3) GCC/6.4.0-2.28   4) OpenMPI/2.1.1
 
 
-<span class="o">======</span> mpirun hello.exe <span class="o">======</span>
-Hello From: lac-380 I am the recieving processor <span class="m">1</span> of <span class="m">4</span>
-Hello From: lac-381              I am processor <span class="m">2</span> of <span class="m">4</span>
-Hello From: lac-382              I am processor <span class="m">3</span> of <span class="m">4</span>
-Hello From: lac-383              I am processor <span class="m">4</span> of <span class="nv">4</span>
+====== mpirun hello.exe ======
+Hello From: lac-380 I am the recieving processor 1 of 4
+Hello From: lac-381              I am processor 2 of 4
+Hello From: lac-382              I am processor 3 of 4
+Hello From: lac-383              I am processor 4 of 4
 
-<span class="o">======</span> srun hello.exe <span class="o">======</span>
-Hello From: lac-380 I am the recieving processor <span class="m">1</span> of <span class="m">4</span>
-Hello From: lac-381              I am processor <span class="m">2</span> of <span class="m">4</span>
-Hello From: lac-382              I am processor <span class="m">3</span> of <span class="m">4</span>
-Hello From: lac-383              I am processor <span class="m">4</span> of <span class="nv">4</span>
+====== srun hello.exe ======
+Hello From: lac-380 I am the recieving processor 1 of 4
+Hello From: lac-381              I am processor 2 of 4
+Hello From: lac-382              I am processor 3 of 4
+Hello From: lac-383              I am processor 4 of 4
 
-<span class="o">======</span> srun -n <span class="m">8</span> -c <span class="m">1</span> hello.exe <span class="o">======</span>
-Hello From: lac-380 I am the recieving processor <span class="m">1</span> of <span class="m">8</span>
-Hello From: lac-380              I am processor <span class="m">2</span> of <span class="m">8</span>
-Hello From: lac-381              I am processor <span class="m">3</span> of <span class="m">8</span>
-Hello From: lac-381              I am processor <span class="m">4</span> of <span class="m">8</span>
-Hello From: lac-382              I am processor <span class="m">5</span> of <span class="m">8</span>
-Hello From: lac-382              I am processor <span class="m">6</span> of <span class="m">8</span>
-Hello From: lac-383              I am processor <span class="m">7</span> of <span class="m">8</span>
-Hello From: lac-383              I am processor <span class="m">8</span> of <span class="nv">8</span>
+====== srun -n 8 -c 1 hello.exe ======
+Hello From: lac-380 I am the recieving processor 1 of 8
+Hello From: lac-380              I am processor 2 of 8
+Hello From: lac-381              I am processor 3 of 8
+Hello From: lac-381              I am processor 4 of 8
+Hello From: lac-382              I am processor 5 of 8
+Hello From: lac-382              I am processor 6 of 8
+Hello From: lac-383              I am processor 7 of 8
+Hello From: lac-383              I am processor 8 of 8
 
-<span class="o">======</span> <span class="nv">srun</span>  <span class="o">======</span>
-slurmstepd: error: execve<span class="o">()</span>: NoSuchCommand: No such file or directory
-slurmstepd: error: execve<span class="o">()</span>: NoSuchCommand: No such file or directory
-slurmstepd: error: execve<span class="o">()</span>: NoSuchCommand: No such file or directory
-srun: error: lac-381: task <span class="m">1</span>: Exited with <span class="nb">exit</span> code <span class="m">2</span>
-srun: error: lac-383: task <span class="m">3</span>: Exited with <span class="nb">exit</span> code <span class="m">2</span>
-srun: error: lac-382: task <span class="m">2</span>: Exited with <span class="nb">exit</span> code <span class="m">2</span>
-slurmstepd: error: execve<span class="o">()</span>: NoSuchCommand: No such file or directory
-srun: error: lac-380: task <span class="m">0</span>: Exited with <span class="nb">exit</span> code <span class="nv">2</span>
+====== srun  ======
+slurmstepd: error: execve(): NoSuchCommand: No such file or directory
+slurmstepd: error: execve(): NoSuchCommand: No such file or directory
+slurmstepd: error: execve(): NoSuchCommand: No such file or directory
+srun: error: lac-381: task 1: Exited with exit code 2
+srun: error: lac-383: task 3: Exited with exit code 2
+srun: error: lac-382: task 2: Exited with exit code 2
+slurmstepd: error: execve(): NoSuchCommand: No such file or directory
+srun: error: lac-380: task 0: Exited with exit code 2
 
-<span class="o">======</span> <span class="nv">mpirun</span>  <span class="o">======</span>
+====== mpirun  ======
 --------------------------------------------------------------------------
 mpirun was unable to find the specified executable file, and therefore
-did not launch the job.  This error was first reported <span class="k">for</span> process
-rank <span class="m">0</span><span class="p">;</span> it may have occurred <span class="k">for</span> other processes as well.
+did not launch the job.  This error was first reported for process
+rank 0; it may have occurred for other processes as well.
 
-NOTE: A common cause <span class="k">for</span> this error is misspelling a mpirun <span class="nb">command</span>
-      line parameter option <span class="o">(</span>remember that mpirun interprets the first
-      unrecognized <span class="nb">command</span> line token as the executable<span class="o">)</span>.
+NOTE: A common cause for this error is misspelling a mpirun command
+      line parameter option (remember that mpirun interprets the first
+      unrecognized command line token as the executable).
 
 Node:       lac-380
 Executable: NoSuchCommand
 --------------------------------------------------------------------------
 
-<span class="o">======</span> scontrol show job <span class="nv">10732</span> <span class="o">======</span>
-<span class="nv">JobId</span><span class="o">=</span><span class="m">10732</span> <span class="nv">JobName</span><span class="o">=</span><span class="nb">test</span>
-   <span class="nv">UserId</span><span class="o">=</span>changc81<span class="o">(</span><span class="m">804793</span><span class="o">)</span> <span class="nv">GroupId</span><span class="o">=</span>helpdesk<span class="o">(</span><span class="m">2103</span><span class="o">)</span> <span class="nv">MCS_label</span><span class="o">=</span>N/A
-   <span class="nv">Priority</span><span class="o">=</span><span class="m">103</span> <span class="nv">Nice</span><span class="o">=</span><span class="m">0</span> <span class="nv">Account</span><span class="o">=</span>classres <span class="nv">QOS</span><span class="o">=</span>normal
-   <span class="nv">JobState</span><span class="o">=</span>RUNNING <span class="nv">Reason</span><span class="o">=</span>None <span class="nv">Dependency</span><span class="o">=(</span>null<span class="o">)</span>
-   <span class="nv">Requeue</span><span class="o">=</span><span class="m">0</span> <span class="nv">Restarts</span><span class="o">=</span><span class="m">0</span> <span class="nv">BatchFlag</span><span class="o">=</span><span class="m">1</span> <span class="nv">Reboot</span><span class="o">=</span><span class="m">0</span> <span class="nv">ExitCode</span><span class="o">=</span><span class="m">0</span>:0
-   <span class="nv">RunTime</span><span class="o">=</span><span class="m">00</span>:00:18 <span class="nv">TimeLimit</span><span class="o">=</span><span class="m">00</span>:05:00 <span class="nv">TimeMin</span><span class="o">=</span>N/A
-   <span class="nv">SubmitTime</span><span class="o">=</span><span class="m">2018</span>-08-06T13:22:43 <span class="nv">EligibleTime</span><span class="o">=</span><span class="m">2018</span>-08-06T13:22:43
-   <span class="nv">StartTime</span><span class="o">=</span><span class="m">2018</span>-08-06T13:22:44 <span class="nv">EndTime</span><span class="o">=</span><span class="m">2018</span>-08-06T13:27:44 <span class="nv">Deadline</span><span class="o">=</span>N/A
-   <span class="nv">PreemptTime</span><span class="o">=</span>None <span class="nv">SuspendTime</span><span class="o">=</span>None <span class="nv">SecsPreSuspend</span><span class="o">=</span><span class="m">0</span>
-   <span class="nv">LastSchedEval</span><span class="o">=</span><span class="m">2018</span>-08-06T13:22:44
-   <span class="nv">Partition</span><span class="o">=</span>general-long-16 AllocNode:Sid<span class="o">=</span>lac-249:5133
-   <span class="nv">ReqNodeList</span><span class="o">=(</span>null<span class="o">)</span> <span class="nv">ExcNodeList</span><span class="o">=(</span>null<span class="o">)</span>
-   <span class="nv">NodeList</span><span class="o">=</span>lac-<span class="o">[</span><span class="m">380</span>-383<span class="o">]</span>
-   <span class="nv">BatchHost</span><span class="o">=</span>lac-380
-   <span class="nv">NumNodes</span><span class="o">=</span><span class="m">4</span> <span class="nv">NumCPUs</span><span class="o">=</span><span class="m">8</span> <span class="nv">NumTasks</span><span class="o">=</span><span class="m">4</span> CPUs/Task<span class="o">=</span><span class="m">2</span> ReqB:S:C:T<span class="o">=</span><span class="m">0</span>:0:*:*
-   <span class="nv">TRES</span><span class="o">=</span><span class="nv">cpu</span><span class="o">=</span><span class="m">8</span>,mem<span class="o">=</span>4G,node<span class="o">=</span><span class="m">4</span>,billing<span class="o">=</span><span class="m">8</span>
-   Socks/Node<span class="o">=</span>* NtasksPerN:B:S:C<span class="o">=</span><span class="m">0</span>:0:*:* <span class="nv">CoreSpec</span><span class="o">=</span>*
-   <span class="nv">MinCPUsNode</span><span class="o">=</span><span class="m">2</span> <span class="nv">MinMemoryNode</span><span class="o">=</span>1G <span class="nv">MinTmpDiskNode</span><span class="o">=</span><span class="m">0</span>
-   <span class="nv">Features</span><span class="o">=(</span>null<span class="o">)</span> <span class="nv">DelayBoot</span><span class="o">=</span><span class="m">00</span>:00:00
-   <span class="nv">Gres</span><span class="o">=(</span>null<span class="o">)</span> <span class="nv">Reservation</span><span class="o">=(</span>null<span class="o">)</span>
-   <span class="nv">OverSubscribe</span><span class="o">=</span>OK <span class="nv">Contiguous</span><span class="o">=</span><span class="m">0</span> <span class="nv">Licenses</span><span class="o">=(</span>null<span class="o">)</span> <span class="nv">Network</span><span class="o">=(</span>null<span class="o">)</span>
-   <span class="nv">Command</span><span class="o">=</span>/mnt/home/changc81/GetExample/helloMPI/test
-   <span class="nv">WorkDir</span><span class="o">=</span>/mnt/home/changc81/GetExample/helloMPI
-   <span class="nv">Comment</span><span class="o">=</span><span class="nv">stdout</span><span class="o">=</span>/mnt/home/changc81/GetExample/helloMPI/slurm-10732.out
-   <span class="nv">StdErr</span><span class="o">=</span>/mnt/home/changc81/GetExample/helloMPI/slurm-10732.out
-   <span class="nv">StdIn</span><span class="o">=</span>/dev/null
-   <span class="nv">StdOut</span><span class="o">=</span>/mnt/home/changc81/GetExample/helloMPI/slurm-10732.out
-   <span class="nv">Power</span><span class="o">=</span>
+====== scontrol show job 10732 ======
+JobId=10732 JobName=test
+   UserId=changc81(804793) GroupId=helpdesk(2103) MCS_label=N/A
+   Priority=103 Nice=0 Account=classres QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:18 TimeLimit=00:05:00 TimeMin=N/A
+   SubmitTime=2018-08-06T13:22:43 EligibleTime=2018-08-06T13:22:43
+   StartTime=2018-08-06T13:22:44 EndTime=2018-08-06T13:27:44 Deadline=N/A
+   PreemptTime=None SuspendTime=None SecsPreSuspend=0
+   LastSchedEval=2018-08-06T13:22:44
+   Partition=general-long-16 AllocNode:Sid=lac-249:5133
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=lac-[380-383]
+   BatchHost=lac-380
+   NumNodes=4 NumCPUs=8 NumTasks=4 CPUs/Task=2 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=8,mem=4G,node=4,billing=8
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=2 MinMemoryNode=1G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   Gres=(null) Reservation=(null)
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/mnt/home/changc81/GetExample/helloMPI/test
+   WorkDir=/mnt/home/changc81/GetExample/helloMPI
+   Comment=stdout=/mnt/home/changc81/GetExample/helloMPI/slurm-10732.out
+   StdErr=/mnt/home/changc81/GetExample/helloMPI/slurm-10732.out
+   StdIn=/dev/null
+   StdOut=/mnt/home/changc81/GetExample/helloMPI/slurm-10732.out
+   Power=
 </code></pre></div>
-<p>For a complete instruction of <strong>sacct</strong> command, please refer to
-<a href="https://slurm.schedmd.com/sacct.html">the SLURM web site</a>.</p>
+<p>For a complete instruction of <strong>sacct</strong> command, please refer to <a href="https://slurm.schedmd.com/sacct.html">the SLURM web site</a>.</p>
 
 
   
