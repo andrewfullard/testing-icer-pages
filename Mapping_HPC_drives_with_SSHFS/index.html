@@ -2469,10 +2469,12 @@ won't see them listed in the left side with the other mounted drives.
 <p>for how to mount remote filesystem over SSH on Linux.</p>
 <h3 id="on-windows-os">On Windows OS</h3>
 <ol>
-<li>Install latest stable release of winfsp (version 1.11.22176 as of 8/11/22) <a href="https://github.com/winfsp/winfsp/releases/download/v1.11/winfsp-1.11.22176.msi">WinFsp</a>  <a href="https://github.com/winfsp/winfsp#readme">WinFsp Documentations</a>
-<strong>NOTE:</strong> Administrative access is required</li>
-<li>Install latest Stable release of SSHFS-Win (version 3.5.20357 as of 8/11/22) <a href="https://github.com/winfsp/sshfs-win/releases/download/v3.5.20357/sshfs-win-3.5.20357-x64.msi">SSHFS-Win</a>  <a href="https://github.com/winfsp/sshfs-win#readme">SSHFS-Win Documentation</a>
-<strong>NOTE:</strong> Administrative access is required</li>
+<li>Install <a href="https://github.com/dokan-dev/dokany/releases/download/v1.0.3/DokanSetup.exe">Dokany SSHFS</a>
+(version 1.0.3, Mar 24 '17, this link updated May 24)</li>
+<li>Install <a href="https://github.com/Foreveryone-cz/win-sshfs/releases/download/1.6.1/WinSSHFS-1.6.1.13-devel.msi">Win-SSHFS</a>
+<strong>NOTE:</strong> this is a development version, not the 'stable' version
+which requires a different version of Dokan above.  Do not rely on
+for critical work (see below) </li>
 <li>
 <p>WnSSHFS might stay in the taskbar after installing the application.
 In that case, you may click the hidden icons to see it. </p>
@@ -2481,61 +2483,29 @@ In that case, you may click the hidden icons to see it. </p>
 not launch it as admin.</p>
 </li>
 <li>
-<p>Mounting of Home and Scratch can be done through the command prompt or with the windows file explorer.</p>
-<ol>
-<li>Mounting Home directory with the command prompt
-    DriveLetter (H: or Z: etc.) is optional, but username is required 
-    C:>net use <DriveLetter>: \sshfs\<username>@rsync.hpcc.msu.edu
-    example -&gt;  c:> net use F: \sshfs\ryanjos2@rsync.hpcc.msu.edu</li>
-<li>Mounting Scratch directory with the command prompt requires a slightly different command
-    DriveLetter (H: or Z: etc.) is optional, but username is required 
-    C:>net use <DriveLetter>: \sshfs.r\<username>@rsync.hpcc.msu.edu\mnt\scratch\<username>
-    example -&gt;  C:>net use R: \sshfs.r\ryanjos2@rsync.hpcc.msu.edu\mnt\scratch\ryanjos2</li>
-<li>Mounting Home or Scratch directory with Microsoft file browser:
-    Both Home and Scratch use the same steps, just with different network paths
-        Home: \sshfs\username@rsync.hpcc.msu.edu
-        Scratch:  \sshfs.r\username@rsync.hpcc.msu.edu\mnt\scratch\username
-    In file browser on the 'This PC' page, select 'Map Network Drive'
-    Fill in the appropriate network path (\sshfs\username@rsync.hpcc.msu.edu), select a drive letter and any desired options</li>
-</ol>
+<p>Click on "Add" button to add a new drive. Enter the details in Sshfs
+    Manager menu.<br />
+<img alt="hidden icon!" src="../attachments/11895897/11895891.png" />
+    Remember to save the new SSHFS image first before mounting it.</p>
 </li>
-<li>
-<p>Mounting a research space requires an additional tool, the SSHFS-Win Manager GUI.  This Tool can also be used to mount Home and scratch space using the correct directory, but they do not need any advanced settings.  For home directory, leave the path blank.  For Scratch space, use \mnt\scratch\<username>\ for the path with the trailing slash.</p>
-<ol>
-<li>Install latest stable release of sshfs-win-manager (1.3.1 as of 8/11/22)
-    https://github.com/evsar3/sshfs-win-manager/releases/download/v1.3.1/sshfs-win-manager-setup-v1.3.1.exe
-    Docs: https://github.com/evsar3/sshfs-win-manager#readme
-    Note: administrative privileges are not required</li>
-<li>open the SSHFS-Win Manager application
-    If the SSHFS-Win Manager application is minimized, it can be opened using the task bar</li>
-<li>
-<p>Create a new mount for the research space</p>
-<ol>
-<li>
-<p>Basics tab
-    Name: HPCC-groupname
-    Host: rsync.hpcc.msu.edu
-    Auth Method: password (ask on connect)
-    Path: /mnt/research/groupname/  (Note: ending slash)
-    Drive letter can be left as auto or you can select a specific Drive letter</p>
-</li>
-<li>
-<p>Select the Advanced tab and add the following options (connect on startup and reconnect on connection loss are optional)
-    Custom Command Line Params: On
-    idmap -&gt; user
-    create_file_umask -&gt; 000
-    umask -&gt; 000
-    sftp_server -&gt; sg <groupname> -c /usr/libexec/openssh/sftp-server</p>
-<ol>
-<li>After Saving the new drive mapping, click the connect icon</li>
-<li>After successful authentication, the drive should show connected (green) and is now available in the file browser</li>
+<li>You can also mount your research and scratch space by adding more
+    drives. Use the same information in the Host, Port, Username,
+    Authentication method and PrivateKey lines. Change the Drive Name,
+    Directoy (in HPCC) and Drive Letter as you wish.</li>
+<li>After the drive is mounted, open a File Explorer. You should see the
+    Drive Name on the left of the menu. By clicking the drive, you can
+    access the files of the HPCC directory using the local computer.</li>
 </ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
+<p>For Windows OS earlier than Windows 8, please refer to the
+<a href="https://github.com/Foreveryone-cz/win-sshfs/releases">web site</a>
+to install earlier version ( <a href="https://github.com/Foreveryone-cz/win-sshfs/releases/tag/1.5.12.5">1.5.12.5</a>
+of win-sshfs. The current version  of SSHFS that works with HPCC has this
+note: </p>
+<blockquote>
+<p>"There is a reason why it's testing. For serious work you should
+prefer latest stable version with older Dokan. This version is for
+active supporters."</p>
+</blockquote>
 <h3 id="other-mapping-software">Other Mapping Software</h3>
 <!--
 This line is removed because the link is onlonger exist.
