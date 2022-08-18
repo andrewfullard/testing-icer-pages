@@ -275,17 +275,3 @@ If the margin is set differently for your site, fix the margin here to reflect t
   display: none;
 }
 
-
-
-/* override for the search specific */
-
-.md-search__input{
-  background: #FFF;
-  color: #000;
-  /*  change this to get the color right */
-}
-
-.md-search__icon{
-  color: #000000;
-  /* change this */
-}
