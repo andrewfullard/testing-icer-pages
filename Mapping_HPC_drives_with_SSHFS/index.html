@@ -2469,35 +2469,47 @@ won't see them listed in the left side with the other mounted drives.
 <p>for how to mount remote filesystem over SSH on Linux.</p>
 <h3 id="on-windows-os">On Windows OS</h3>
 <ol>
-<li>Install latest stable release of winfsp (version 1.11.22176 as of 8/11/22) <a href="https://github.com/winfsp/winfsp/releases/download/v1.11/winfsp-1.11.22176.msi">WinFsp</a>  Full upstream documentation: <a href="https://github.com/winfsp/winfsp#readme">WinFsp Documentations</a>
-<strong>NOTE:</strong> Administrative access is required</li>
+<li>Install latest stable release of winfsp (version 1.11.22176 as of 8/11/22) <a href="https://github.com/winfsp/winfsp/releases/download/v1.11/winfsp-1.11.22176.msi">WinFsp</a> </li>
+<li>Full upstream documentation: <a href="https://github.com/winfsp/winfsp#readme">WinFsp Documentations</a></li>
+<li><strong>NOTE:</strong> Administrative access is required</li>
 <li>Install latest Stable release of SSHFS-Win (version 3.5.20357 as of 8/11/22) <a href="https://github.com/winfsp/sshfs-win/releases/download/v3.5.20357/sshfs-win-3.5.20357-x64.msi">SSHFS-Win</a> </li>
-<li>Full upstream documentation: <a href="https://github.com/winfsp/sshfs-win#readme">SSHFS-Win Documentation</a>
-<strong>NOTE:</strong> Administrative access is required</li>
+<li>Full upstream documentation: <a href="https://github.com/winfsp/sshfs-win#readme">SSHFS-Win Documentation</a></li>
+<li><strong>NOTE:</strong> Administrative access is required</li>
 <li>
-<p>WnSSHFS might stay in the taskbar after installing the application.
-In that case, you may click the hidden icons to see it. </p>
-<p><img alt="hidden icon!" src="../attachments/11895897/11895896.png" /> </p>
-<p>Once you find the WinSSHFS icon, click on it to open Win-SSHFS. Do
-not launch it as admin.</p>
-</li>
-<li>
-<p>Mounting of Home and Scratch can be done through the command prompt or with the windows file explorer.</p>
+<p>Mounting of Home and Scratch can be done through the command prompt or with the windows file explorer once WinFsp and SSHFS-Win.</p>
 <ol>
-<li>Mounting Home directory with the command prompt
-    DriveLetter (H: or Z: etc.) is optional, but username is required 
-    C:>net use <DriveLetter>: \sshfs\<username>@rsync.hpcc.msu.edu
-    example -&gt;  c:> net use F: \sshfs\ryanjos2@rsync.hpcc.msu.edu</li>
-<li>Mounting Scratch directory with the command prompt requires a slightly different command
-    DriveLetter (H: or Z: etc.) is optional, but username is required 
-    C:>net use <DriveLetter>: \sshfs.r\<username>@rsync.hpcc.msu.edu\mnt\scratch\<username>
-    example -&gt;  C:>net use R: \sshfs.r\ryanjos2@rsync.hpcc.msu.edu\mnt\scratch\ryanjos2</li>
-<li>Mounting Home or Scratch directory with Microsoft file browser:
-    Both Home and Scratch use the same steps, just with different network paths
-        Home: \sshfs\username@rsync.hpcc.msu.edu
-        Scratch:  \sshfs.r\username@rsync.hpcc.msu.edu\mnt\scratch\username
-    In file browser on the 'This PC' page, select 'Map Network Drive'
-    Fill in the appropriate network path (\sshfs\username@rsync.hpcc.msu.edu), select a drive letter and any desired options</li>
+<li>Mounting Home directory with the command prompt<ul>
+<li>DriveLetter (H: or Z: etc.) is optional, but username is required </li>
+<li>Command structure<ul>
+<li>C:>net use [DriveLetter&gt;:] \sshfs\<username>@rsync.hpcc.msu.edu</li>
+</ul>
+</li>
+<li>example<ul>
+<li>C:> net use F: \sshfs\ryanjos2@rsync.hpcc.msu.edu</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Mounting Scratch directory with the command prompt requires a slightly different command.  Note the addition of '.r' to sshfs (\\sshfs.r\) that designates to start from the root directory.<ul>
+<li>DriveLetter (H: or Z: etc.) is optional, but username is required </li>
+<li>Command structure<ul>
+<li>C:>net use [DriveLetter:] \sshfs.r\<username>@rsync.hpcc.msu.edu\mnt\scratch\<username></li>
+</ul>
+</li>
+<li>example<ul>
+<li>C:>net use R: \sshfs.r\ryanjos2@rsync.hpcc.msu.edu\mnt\scratch\ryanjos2</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Mounting Home or Scratch directory with Microsoft file browser:<ul>
+<li>Both Home and Scratch use the same steps, just with different network paths
+    Home: \sshfs\username@rsync.hpcc.msu.edu
+    Scratch:  \sshfs.r\username@rsync.hpcc.msu.edu\mnt\scratch\username</li>
+<li>In file browser on the 'This PC' page, select 'Map Network Drive'</li>
+<li>Fill in the appropriate network path (\sshfs\username@rsync.hpcc.msu.edu), select a drive letter and any desired options, and click mount.</li>
+</ul>
+</li>
 </ol>
 </li>
 <li>
@@ -2538,6 +2550,9 @@ not launch it as admin.</p>
 </li>
 </ol>
 <h3 id="other-mapping-software">Other Mapping Software</h3>
+<ul>
+<li>VS Code can be used to work on remotely mounted volumes, but note that VS Code should be connected to a Development node using the gateway as a jump host.</li>
+</ul>
 <!--
 This line is removed because the link is onlonger exist.
 - SFTP Net Drive: [http://www.sftpnetdrive.com/](http://www.sftpnetdrive.com/)  Works with 32-bit and
