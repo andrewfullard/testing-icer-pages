@@ -2287,17 +2287,17 @@
 <h1 id="cuda-example">CUDA Example</h1>
 <p>There are several CUDA versions installed in HPCC. Users can use
 the command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ ml spider CUDA
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ ml spider CUDA
+</code></pre></div>
 <p>to see all installed versions. In order to compile a CUDA code, users
 might also need to load a GNU or Intel compiler (for C and Fortran). A
 toolchain which combines CUDA, C and Fortran compilers can be found by
 using the command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ ml spider gcccuda
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ ml spider gcccuda
+</code></pre></div>
 <p>for GNU and CUDA compilers and</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ ml spider iccifortcuda
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ ml spider iccifortcuda
+</code></pre></div>
 <p>for Intel and CUDA compilers. You can load one of the versions directly
 to do your CUDA code compilation.</p>
 <p>GPU Capabilities</p>
@@ -2307,38 +2307,12 @@ with CUDA versions higher than 11.0.</p>
 <p>Users can get a simple CUDA code to do the compilation. After log
 into HPCC and ssh to a dev node with GPU cards, users can run the
 powertools command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ getexample helloCUDA
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ getexample helloCUDA
+</code></pre></div>
 <p>to copy the CUDA example directory "<code>helloCUDA</code>" in the current
 directory. After you cd to the directory, you should be able to see the
 CUDA code file: "<code>Hello.cu</code>":</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ <span class="nb">cd</span> helloCUDA
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ <span class="nb">cd</span> helloCUDA
 <span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ ls
 Hello.cu  Hello-CUDA.sb  README  run.sh
 <span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ cat Hello.cu
@@ -2365,32 +2339,13 @@ int main<span class="o">(</span>int argc,char **argv<span class="o">)</span>
 
     <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
 <span class="o">}</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The CUDA code defines 16 blocks with one GPU core in each block. Each
 core runs one thread to print out "<code>Hello world!</code>" and the block number
 of the core. Totally 16 threads are executed in parallel. We can simply
 compile the code by "<code>nvcc</code>" command after a version of gcccuda
 toolchain is loaded:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ ml -* gcccuda/2019b
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ ml -* gcccuda/2019b
 <span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ nvcc Hello.cu -o Hello_CUDA
 <span class="o">[</span>username@dev-amd20-v100 ~<span class="o">]</span>$ ./Hello_CUDA
 Hello world! I<span class="s1">&#39;m a thread in block 5</span>
@@ -2410,7 +2365,7 @@ Hello world! I<span class="s1">&#39;m a thread in block 10</span>
 Hello world! I<span class="s1">&#39;m a thread in block 9</span>
 <span class="s1">Hello world! I&#39;</span>m a thread <span class="k">in</span> block <span class="m">15</span>
 That<span class="err">&#39;</span>s all!
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Once it is compiled successfully, the execution of the binary
 "<code>Hello_CUDA</code>" on a GPU node should give the output as above.</p>
 

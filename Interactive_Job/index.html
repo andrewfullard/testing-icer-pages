@@ -2317,59 +2317,29 @@ or <strong>srun</strong> command with options of resource requests.</p>
 <p><a href="#job-with-graphical-application">Job with graphical application</a></p>
 <h3 id="salloc-command">salloc command</h3>
 <p>For <strong>salloc</strong>, the command line</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>salloc -N <span class="m">1</span> -c <span class="m">2</span> --time<span class="o">=</span><span class="m">1</span>:00:00
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>salloc -N <span class="m">1</span> -c <span class="m">2</span> --time<span class="o">=</span><span class="m">1</span>:00:00
+</code></pre></div>
 <p>will allocate a job with resources of 1 node, 2 cores and walltime 1
 hour. The execution will first wait until the job controller can provide
 the resources.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-intel18 WorkDir<span class="o">]</span>$ salloc -N <span class="m">1</span> -c <span class="m">2</span> --time<span class="o">=</span><span class="m">1</span>:00:00
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-intel18 WorkDir<span class="o">]</span>$ salloc -N <span class="m">1</span> -c <span class="m">2</span> --time<span class="o">=</span><span class="m">1</span>:00:00
 salloc: Required node not available <span class="o">(</span>down, drained or reserved<span class="o">)</span>
 salloc: job <span class="m">7625</span> queued and waiting <span class="k">for</span> resources
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Once that happens, the terminal will be transported to a command prompt
 on a compute node assigned to the job.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-intel18 WorkDir<span class="o">]</span>$ salloc -N <span class="m">1</span> -c <span class="m">2</span> --time<span class="o">=</span><span class="m">1</span>:00:00
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-intel18 WorkDir<span class="o">]</span>$ salloc -N <span class="m">1</span> -c <span class="m">2</span> --time<span class="o">=</span><span class="m">1</span>:00:00
 salloc: Required node not available <span class="o">(</span>down, drained or reserved<span class="o">)</span>
 salloc: job <span class="m">7625</span> queued and waiting <span class="k">for</span> resources
 salloc: job <span class="m">7625</span> has been allocated resources
 <span class="o">[</span>username@test-skl-000 WorkDir<span class="o">]</span>$
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>where "<strong>test-skl-000</strong>" after the symbol <strong>@</strong> is the name of the
 assigned compute node.</p>
 <h3 id="salloc-and-gpus">salloc and GPUs</h3>
 <p>GPUs requested for an interactive job can now be used without submitting
 an additional srun.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-intel18 ~<span class="o">]</span>$ salloc --gres<span class="o">=</span>gpu:1 --time<span class="o">=</span><span class="m">1</span>:00:00
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-intel18 ~<span class="o">]</span>$ salloc --gres<span class="o">=</span>gpu:1 --time<span class="o">=</span><span class="m">1</span>:00:00
 salloc: Pending job allocation <span class="m">14884030</span>
 salloc: job <span class="m">14884030</span> queued and waiting <span class="k">for</span> resources
 salloc: job <span class="m">14884030</span> has been allocated resources
@@ -2394,19 +2364,15 @@ Mon Apr  <span class="m">8</span> <span class="m">10</span>:26:41 <span class="m
 <span class="p">|</span><span class="o">=============================================================================</span><span class="p">|</span>
 <span class="p">|</span>  No running processes found                                                 <span class="p">|</span>
 +-----------------------------------------------------------------------------+
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="srun-command">srun command</h3>
 <p>A similar way can also be used with <strong>srun</strong> command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-intel18 WorkDir<span class="o">]</span>$ srun -N <span class="m">4</span> --ntasks-per-node<span class="o">=</span><span class="m">2</span> -t <span class="m">00</span>:60:00 --mem-per-cpu<span class="o">=</span>1000M --pty /bin/bash
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-intel18 WorkDir<span class="o">]</span>$ srun -N <span class="m">4</span> --ntasks-per-node<span class="o">=</span><span class="m">2</span> -t <span class="m">00</span>:60:00 --mem-per-cpu<span class="o">=</span>1000M --pty /bin/bash
 srun: Required node not available <span class="o">(</span>down, drained or reserved<span class="o">)</span>
 srun: job <span class="m">7636</span> queued and waiting <span class="k">for</span> resources
 srun: Granted job allocation <span class="m">7636</span>
 <span class="o">[</span>username@test-skl-000 WorkDir<span class="o">]</span>$ 
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>As we can see, the specification "<strong>--pty /bin/bash</strong>" is required for
 <strong>srun</strong> command to request an interactive mode. Any command executed in
 this kind of interactive jobs will be launched parallelly with the
@@ -2426,16 +2392,7 @@ into our web-based remote desktop, and run the terminal there.    See
 If you are on Windows and using Moba Xterm to log in, these instructions
 will work with our with the "-X" parameter.  Putty does not support X11
 and so this will not work with putty. </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@gateway-03 ~<span class="o">]</span>$ ssh -X dev-intel18
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@gateway-03 ~<span class="o">]</span>$ ssh -X dev-intel18
 <span class="o">[</span>username@dev-intel18 ~<span class="o">]</span>$ <span class="nb">cd</span> WorkdDir  <span class="c1"># this is optional, but you may want to select your work directory, for example</span>
 <span class="o">[</span>username@dev-intel18 WorkDir<span class="o">]</span>$ salloc --ntasks<span class="o">=</span><span class="m">1</span> --cpus-per-task <span class="m">2</span> --time <span class="m">00</span>:30:00 --x11
 salloc: Granted job allocation <span class="m">7708</span>
@@ -2445,7 +2402,7 @@ salloc: Nodes css-076 are ready <span class="k">for</span> job
 <span class="o">[</span>username@css-076 WorkDir<span class="o">]</span>$ matlab
 MATLAB is selecting SOFTWARE OPENGL rendering.
 Opening log file:  /mnt/home/username/java.log.7159
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p><img alt="img!" src="../attachments/20119770/20119780.png" /></p>
 <!--
 <div class="pageSectionHeader">

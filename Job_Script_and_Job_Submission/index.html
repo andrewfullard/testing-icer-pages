@@ -2359,26 +2359,7 @@
 <p>The <code>sbatch</code> command is used for submitting batch jobs to the cluster (same as Torque's <code>qsub</code>). <code>sbatch</code> accepts a number of options either from the command line, or (more typically) from a batch job script. In this section, we will show you a simple job script and how to submit it to SLURM system.  Note the <code>sbatch</code> command only runs on development and compute nodes - it will not work on any gateway node.  </p>
 <h2 id="job-script">Job script</h2>
 <p>A job script contains two parts: <strong>#SBATCH lines</strong> for resource request and <strong>command lines</strong> for job running. The script should be in plain text format.  Below is an example used to explain what each lines means. </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
 <span class="c1">########## SBATCH Lines for Resource Request ##########</span>
 
 <span class="c1">#SBATCH --time=00:10:00             # limit of wall clock time - how long the job will run (same as -t)</span>
@@ -2398,7 +2379,7 @@ srun -n <span class="m">5</span> &lt;executable&gt;              <span class="c1
 
 scontrol show job <span class="nv">$SLURM_JOB_ID</span>     <span class="c1">### write job information to SLURM output file.</span>
 js -j <span class="nv">$SLURM_JOB_ID</span>                 <span class="c1">### write resource usage to SLURM output file (powertools command).</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Note that the above job script <strong>is not intended to be used as your job template.</strong> Your job is most likely going to use much simpler resource specifications than shown above. For purpose of illustration, this job requests 10 minutes walltime, at least 1 at most 5 different nodes, a total of 5 parallel tasks (processes) in distributed memory, 2 cores per task for parallel
 threads in shared memory and 2 GB memory per core (total 2 GB x
 5 tasks x 2 cpus-per-task = 20 GB) with job name "Name_of_Job". After
@@ -2413,13 +2394,12 @@ the first command line in the script. If they are below the line, the
 job controller will not execute them and lead to unexpected results.</p>
 <h2 id="batch-job-submission">Batch job submission</h2>
 <p>Once the job script has been created, the job can be submitted using the <code>sbatch</code> command. If the command has been submitted successfully, the job controller will issue a job ID on the screen:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$ sbatch myjob.sb
+<div class="highlight"><pre><span></span><code>$ sbatch myjob.sb
 Submitted batch job <span class="m">8929</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Optionally, any job specification (by <strong>#SBATCH</strong> line) can also be requested by <code>sbatch</code> command line with an equivalent option. For instance, the <strong>#SBATCH  --nodes=1-5</strong> line could be removed from the job script,  and instead be specified from the command line:</p>
-<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ sbatch --nodes<span class="o">=</span><span class="m">1</span>-5 myjob.sb
-</code></pre></div></td></tr></table></div>
+<p><div class="highlight"><pre><span></span><code>$ sbatch --nodes<span class="o">=</span><span class="m">1</span>-5 myjob.sb
+</code></pre></div>
 Command line specifications take precedence over those in the job script.</p>
 <h2 id="advanced-job-with-multiple-tasks">Advanced: job with multiple tasks</h2>
 <p>In the SLURM job options, the number of tasks (<strong><code>--ntasks</code></strong>) is used for jobs running multiple tasks with  distributed memory. It has the same meaning as the number of processes (<strong>-np</strong>) used in <strong>mpirun</strong> application. This is similar to number of nodes (<code>nodes=</code>) used in a Torque (<strong>#PBS</strong>) job script.</p>

@@ -2287,43 +2287,7 @@
 <p>Alphafold can be run via Singularity.</p>
 <p>Alphafold database is located in
 <code>/mnt/research/common-data/alphafold/database</code>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code>database
+<div class="highlight"><pre><span></span><code>database
 ├── bfd
 │   ├── bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt_a3m.ffdata
 │   └── bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt.tar.gz
@@ -2360,12 +2324,11 @@
 └── uniref90
     ├── uniref90.fasta
     └── uniref90.fasta.1.gz
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Before running Alphafold, you need to set</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>export ALPHAFOLD_DATA_PATH=&quot;/mnt/research/common-data/alphafold/database&quot;  
+<div class="highlight"><pre><span></span><code>export ALPHAFOLD_DATA_PATH=&quot;/mnt/research/common-data/alphafold/database&quot;  
 export ALPHAFOLD_MODELS=&quot;/mnt/research/common-data/alphafold/database/params&quot;
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>To run alphafold, please use the following template (for more
 information about options/flags, please refer to
 <a href="https://github.com/deepmind/alphafold">https://github.com/deepmind/alphafold</a>.</p>
@@ -2373,35 +2336,7 @@ information about options/flags, please refer to
 output_dir. Since the command <code>/usr/bin/hhsearch</code> inside the container
 does not work on intel14 nodes (<code>Illegal instruction</code>), please use the
 <code>SBATCH</code> option <code>--constraint</code> in the job script.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH --job-name alphafold-run</span>
 <span class="c1">#SBATCH --time=08:00:00</span>
 <span class="c1">#SBATCH --gres=gpu:1</span>
@@ -2430,7 +2365,7 @@ singularity run --nv <span class="se">\</span>
 --max_template_date<span class="o">=</span><span class="m">2020</span>-05-14   <span class="se">\</span>
 --model_names<span class="o">=</span>model_1 <span class="se">\</span>
 --preset<span class="o">=</span>casp14
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 
 
   

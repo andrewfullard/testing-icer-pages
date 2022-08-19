@@ -2372,94 +2372,13 @@
 <h1 id="how-to-find-and-load-software-modules">How to find and load software modules</h1>
 <h2 id="general-search-using-module-spider">General search using module spider</h2>
 <p>To search for a particular software module (say ABC), you would run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module spider ABC # can also be abc, ABc... since the name is case-insensitive
-</code></pre></div></td></tr></table></div>
+<pre><code>module spider ABC # can also be abc, ABc... since the name is case-insensitive
+</code></pre>
 <p>Once you find it, and want to load a specific version (say 1.1.1), run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module spider ABC/1.1.1 # should only be ABC
-</code></pre></div></td></tr></table></div>
+<pre><code>module spider ABC/1.1.1 # should only be ABC
+</code></pre>
 <p>The resulting output information will tell you what prerequisites modules are needed before loading your <code>ABC/1.1.1</code>. You don't need to know the full name of the software. See below (note the third case about PCRE). </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span>
-<span class="normal">80</span>
-<span class="normal">81</span>
-<span class="normal">82</span></pre></div></td><td class="code"><div><pre><span></span><code>$ module spider sam
+<div class="highlight"><pre><span></span><code>$ module spider sam
 
 --------------------------
   SAMtools:
@@ -2541,25 +2460,10 @@ $ module spider PCRE
       $ module -r spider &#39;.*PCRE.*&#39;
 
 --------------------------
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="example-of-loading-r">Example of loading R</h2>
 <p>In this example, we are looking for available versions of R. </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code>$ ssh dev-intel18
+<div class="highlight"><pre><span></span><code>$ ssh dev-intel18
 $ module spider R
 -----------
   R:
@@ -2575,17 +2479,9 @@ $ module spider R
         R/4.0.3
         R/4.1.0
         R/4.1.2
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Suppose we want to load R/4.1.2, and in order to know how, we run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>$ module spider R/4.1.2
+<div class="highlight"><pre><span></span><code>$ module spider R/4.1.2
 
     Description:
       R is a free software environment for statistical computing and graphics.
@@ -2594,28 +2490,16 @@ $ module spider R
     You will need to load all module(s) on any one of the lines below before the &quot;R/4.1.2&quot; module is available to load.
 
       GCC/11.2.0  OpenMPI/4.1.1
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Above output tells us to load two prerequisites (GCC/11.2.0 and OpenMPI/4.1.1) before loading R. Therefore, we'll run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge # a MUST-HAVE
+<div class="highlight"><pre><span></span><code>module purge # a MUST-HAVE
 module load GCC/11.2.0  OpenMPI/4.1.1
 module load R/4.1.2
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You are all set. Note that <strong>"module purge" is always needed </strong>before you start loading a different software module.</p>
 <h2 id="advanced-skill-searching-for-modules-in-module-file-hierarchy-using-module-avail">Advanced skill: Searching for modules in module file hierarchy using "module avail"</h2>
 <p>If you start with a minimum set of loaded modules (most commonly a compiler-MPI pair, or a compiler alone), and want to know what software packages are available to load in the current <code>MODULEPATH</code> (run <code>echo $MODULEPATH</code>to see the paths), you can run <code>module avail</code>. <code>module avail</code> is different from <code>module spider</code> above (which lists all possible modules, not just the modules that can be seen in the current <code>MODULEPATH</code>). To check availability of a particular module, use <code>module avail keyword.</code> If the keyword (such as "openmpi") is long and distinct, the search result would normally be clean. However, for "R" for example, a single letter that can appear in almost any module names, we need to use regular expression to fully specify the pattern when running module avail. See below.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>$ module purge
+<div class="highlight"><pre><span></span><code>$ module purge
 $ module load GCC/8.3.0 OpenMPI/3.1.4
 $ module avail # a large amount of output will be printed on your screen and they are omitted here.
 
@@ -2626,7 +2510,7 @@ $ module -r avail &#39;^R$&#39;
 
   Where:
    D:  Default Module
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>Sometimes, "<code>module spider</code>" doesn't work because your personal module cache is out of date. To clear it, do <code>rm -r ~/.lmod.d/.cache</code></p>
 

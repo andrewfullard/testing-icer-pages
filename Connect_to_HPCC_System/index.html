@@ -2360,16 +2360,12 @@
 <p>Open the SSH client in your local computer and run <code>ssh -XY &lt;username&gt;@hpcc.msu.edu</code>, where <code>&lt;username&gt;</code> should be your HPCC account name. SSH will prompt  for your password. Please type the password of your MSU NetID (the password will be invisible). Upon a successful login, you will see a welcome message and current usage load for each development/dev-node. </p>
 <p><strong>Our gateway is for entrance to the HPCC system only</strong>. Connect further to a dev-node for your program running and other tasks. See the next section.</p>
 <p>NOTE: If you have difficulty in X11 forwarding (e.g. receiving an error message "Warning: untrusted X11 forwarding setup failed: xauth key data not generated"), please check your local machine's "config" file (<code>$HOME/.ssh/config</code>) setting. It should look like</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>Host *
+<div class="highlight"><pre><span></span><code>Host *
 ForwardAgent yes
 ForwardX11 yes
 ForwardX11Trusted yes
 XAuthLocation /opt/X11/bin/xauth
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="ssh-to-a-dev-node">SSH to a dev-node</h2>
 <p>To access a dev-node from gateway, pick one and type "<code>ssh -X node-name</code>" (if you don't need to launch a GUI program, omit  <code>-X</code>). 
  See <a href="../development_nodes/">here</a> for dev-node usage and policy.</p>

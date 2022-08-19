@@ -2299,8 +2299,8 @@ data-linked-resource-container-version="19">hello.h</a>\]**
 -->
 
 <p>To compile these codes, you would use the following command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>gcc -o hello hello.c hellofunc.c -I.
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>gcc -o hello hello.c hellofunc.c -I.
+</code></pre></div>
 <p>This command compiles the two c files, and names the executable
 <strong>hello</strong>. With the '-I.' flag, gcc will look in the current directory
 for the include file 'hello.h'. With only two .c files, it is easy to
@@ -2311,10 +2311,9 @@ time-consuming and inefficient.</p>
 <p>So it is time to learn how makefile will be helpful for such cases.
 First, create a file which has the following two lines. (The filename
 should be makefile or Makefile), and put it under the 'hello' directory.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>hello: hello.c hellofunc.c
+<div class="highlight"><pre><span></span><code>hello: hello.c hellofunc.c
       gcc -o hello hello.c hellofunc.c -I.
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Now, type <strong>make</strong> on the terminal and check if the executable is
 created. The <strong>make</strong> command will execute the compile command as you
 have written it in the makefile. Note that make with no arguments
@@ -2327,14 +2326,11 @@ do not work!). There must be a tab at the beginning of any command,
 otherwise, you will get a lot of errors.</p>
 <p>Can we make it a little bit more efficient? Let's modify our makefile as
 following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">CC</span><span class="o">=</span>gcc 
+<div class="highlight"><pre><span></span><code><span class="nv">CC</span><span class="o">=</span>gcc 
 <span class="nv">CFLAGS</span><span class="o">=</span>-I.
 hello: hello.o hellofunc.o
     <span class="k">$(</span>CC<span class="k">)</span> -o hello hello.o hellofunc.o
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>In this <strong>makefile</strong>, we define CC and CFLAGS, which are special macros
 communicating to <strong>make</strong> how we want to compile the files hello.c and
 hellofunc.c. In particular, CC is for the C compiler, and CFLAGS is the
@@ -2349,15 +2345,7 @@ makefile misses include files. For example, if you made a change to
 needed to be. In order to fix this problem, we need to tell <strong>make</strong>
 that all .c files depend on certain .h files. It can be done by writing
 a simple rule and adding it to the <strong>makefile</strong>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">CC</span><span class="o">=</span>gcc
+<div class="highlight"><pre><span></span><code><span class="nv">CC</span><span class="o">=</span>gcc
 <span class="nv">CFLAGS</span><span class="o">=</span>-I.
 <span class="nv">DEPS</span> <span class="o">=</span> hello.h
 
@@ -2366,7 +2354,7 @@ a simple rule and adding it to the <strong>makefile</strong>.</p>
 
 hello: hello.o hellofunc.o 
     <span class="k">$(</span>CC<span class="k">)</span> -o hello hello.o hellofunc.o
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>This addition first creates the macro DEPS (the macro name does not have
 to be DEPS. You can use any name.), which is the set of .h files on
 which the .c files depend. Then we define a rule for all .o files. The
@@ -2382,16 +2370,7 @@ which are the left and right sides of the <strong>:</strong>, respectively, to m
 the overall compilation rule more general. In the example below, all of
 the include files should be listed as part of the macro DEPS, and all of
 the object files should be listed as part of the macro OBJ.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">CC</span><span class="o">=</span>gcc
+<div class="highlight"><pre><span></span><code><span class="nv">CC</span><span class="o">=</span>gcc
 <span class="nv">CFLAGS</span><span class="o">=</span>-I.
 <span class="nv">DEPS</span> <span class="o">=</span> hello.h
 <span class="nv">OBJ</span> <span class="o">=</span> hello.o hellofunc.o 
@@ -2401,7 +2380,7 @@ the object files should be listed as part of the macro OBJ.</p>
 
 hello: <span class="k">$(</span>OBJ<span class="k">)</span>
     <span class="k">$(</span>CC<span class="k">)</span> -o <span class="nv">$@</span> $^ <span class="k">$(</span>CFLAGS<span class="k">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Now you have a good sense of makefile. For more information on makefiles
 and the make function, check out the <a href="http://www.gnu.org/software/make/manual/make.html">GNU Make Manual</a>, which will tell you everything on
 makefile.</p>

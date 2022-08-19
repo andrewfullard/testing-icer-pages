@@ -2362,51 +2362,43 @@ can also use <code>newgrp</code> command to change his primary group temporarily
 any one of his groups. In this page, we will introduce</p>
 <h2 id="primary-group-change-on-command-line">Primary Group Change on Command Line</h2>
 <p>To change a user's primary group with a command line, simply run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-intel18 CurrentPath<span class="o">]</span>$ newgrp &lt;Group Name&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-intel18 CurrentPath<span class="o">]</span>$ newgrp &lt;Group Name&gt;
+</code></pre></div>
 <p>where <strong><code>&lt;Group Name&gt;</code></strong> has to be one of the your group names. To find
 out all your group names, please run <strong><code>groups</code></strong> command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-intel18 CurrentPath<span class="o">]</span>$ groups
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-intel18 CurrentPath<span class="o">]</span>$ groups
 chemistry VMD g09 BiCEP education-data ParaView
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>where the primary group is "<code>chemistry</code>", the first group name in the
 results. After the execution of <strong><code>newgrp</code></strong> command, a new shell
 session is created and the current environment, including the current
 working directory remains the same.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-intel18 CurrentPath<span class="o">]</span>$ newgrp g09
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-intel18 CurrentPath<span class="o">]</span>$ newgrp g09
 <span class="o">[</span>username@dev-intel18 CurrentPath<span class="o">]</span>$ groups
 g09 chemistry VMD BiCEP education-data ParaView
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>where the primary group is changed to g09. To leave the session, just
 run "<code>exit</code>" command. It will go back to the previous session with the
 original primary group (<code>chemistry</code>).</p>
 <p>If a user would like to start the shell session with a new primary
 group as though the user just logged in. The optional "<strong>-</strong>" flag can
 be used</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-intel18 CurrentPath<span class="o">]</span>$ newgrp - g09
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-intel18 CurrentPath<span class="o">]</span>$ newgrp - g09
 <span class="o">[</span>username@dev-intel18 ~<span class="o">]</span>$ groups
 g09 chemistry VMD BiCEP education-data ParaView
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>where the user's environment is reinitialized and the shell session
 starts from his home directory.</p>
 <p>Some users might have the issue to lose the header in front of
 prompt after executing the command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-intel14-phi CurrentPath<span class="o">]</span>$ newgrp g09
+<div class="highlight"><pre><span></span><code><span class="o">[</span>username@dev-intel14-phi CurrentPath<span class="o">]</span>$ newgrp g09
 bash-4.2$ groups
 g09 chemistry VMD BiCEP education-data ParaView
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Please try <code>source</code> the default bashrc file to get it back.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>bash-4.2$ <span class="nb">source</span> /etc/bashrc
+<div class="highlight"><pre><span></span><code>bash-4.2$ <span class="nb">source</span> /etc/bashrc
 <span class="o">[</span>changc81@dev-intel14-phi MyCurrentPath<span class="o">]</span>$ 
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Please notice! If a job is submitted in the session of a new primary
 group, the environment with the new primary group will be used in the
 job running by default instead of the original one. For more
@@ -2416,18 +2408,7 @@ information, please check the row of <code>--export</code> in the table of <a hr
 running, the user might need his primary group set to be the group of
 the research space where the output files are. In order to do this, the
 job script can use <code>newgrp</code> from the beginning of the command lines. For example, an original job script may look like:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
 
 <span class="c1">#SBATCH --time=00:10:00             # limit of wall clock time - how long the job will run (same as -t)</span>
 <span class="c1">#SBATCH --ntasks=5                  # number of tasks - how many tasks (nodes) that you require (same as -n)</span>
@@ -2439,25 +2420,10 @@ module load GCC/6.4.0-2.28 OpenMPI  <span class="c1">### load necessary modules,
 srun -n <span class="m">5</span> &lt;executable&gt;              <span class="c1">### call your executable (similar to mpirun)</span>
 
 scontrol show job <span class="nv">$SLURM_JOB_ID</span>     <span class="c1">### write job information to output file</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>If the job script is submitted in a research space, adding a few lines
 can make the primary group the same as the group of the research space:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
 
 <span class="c1">#SBATCH --time=00:10:00             # limit of wall clock time - how long the job will run (same as -t)</span>
 <span class="c1">#SBATCH --ntasks=5                  # number of tasks - how many tasks (nodes) that you require (same as -n)</span>
@@ -2473,12 +2439,12 @@ newgrp <span class="si">${</span><span class="nv">GroupName</span><span class="s
 
 <span class="s">scontrol show job $SLURM_JOB_ID     ### write job information to output file</span>
 <span class="s">EOS</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>where the group name of the research space for job running is
 automatically determined in line 7. You can also directly set the
 variable "<code>GroupName</code>" to be the group name of your research space:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">GroupName</span><span class="o">=</span>&lt;group name of your research space&gt;
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="nv">GroupName</span><span class="o">=</span>&lt;group name of your research space&gt;
+</code></pre></div>
 <p>in line 7 if you are sure about jobs running in the research space.
 After the group name of the research space is given, the command lines
 between line 9 and 16 (inside the two "<strong><code>EOS</code></strong>") will be run under the
@@ -2489,17 +2455,7 @@ use the powertools script PrimaryGroup. Users can add a command line
 "source /opt/software/powertools/doc/PrimaryGroup " in the beginning of
 the file \~/.bashrc:</p>
 <p><strong>~/.bashrc</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="nb">source</span> /opt/software/powertools/doc/PrimaryGroup &lt;Group Name&gt;          <span class="c1"># Add this line to change primary group automatically</span>
 
@@ -2510,7 +2466,7 @@ the file \~/.bashrc:</p>
 
 ...
 ...
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>where <code>&lt;Group Name&gt;</code> is one of his group names. This also provides a
 flexibility that user's primary group can be changed to any of his
 groups at any time without requesting root privilege.</p>

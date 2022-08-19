@@ -2371,42 +2371,10 @@ for help with the HPCC systems.</p>
 systems.</p>
 <h2 id="changing-your-password">Changing your password</h2>
 <p>First, connect to the HPCC using your credentials (for more information, see https://docs.icer.msu.edu/Connect_to_HPCC_System/):</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh userid@hpcc.msu.edu
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>ssh userid@hpcc.msu.edu
+</code></pre></div>
 <p>After logging into HPCC gateway, ssh to one of the development nodes. Use the "passwd" command on a dev node:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code>login as: cmichtestCMICH
+<div class="highlight"><pre><span></span><code>login as: cmichtestCMICH
 Using keyboard-interactive authentication.
 Password:
                 /_// ___// ___// _  ;    / /_/ // _  ;/ ___// ___/
@@ -2439,14 +2407,14 @@ considerations please see: https://wiki.hpcc.msu.edu/x/N4JnAg
 Changing password for cmichtestCMICH.
 Enter login(LDAP) password: # enter your old password
 New Password: # enter your new password
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Password limitations: External user passwords are limited to eight characters. The system will
 check the password for common problems and reject any insecure choices.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Reenter New Password:
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>Reenter New Password:
+</code></pre></div>
 <p>Reenter your password.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>LDAP password information changed for cmichtestCMICH
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>LDAP password information changed for cmichtestCMICH
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>It may take up to a hour for the password change to be propagated to all LDAP servers.</p>

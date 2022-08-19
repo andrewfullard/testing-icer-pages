@@ -2405,10 +2405,9 @@ variable <code>$SCRATCH</code> or the shortcut<strong> 
 </div>
 <p>To find out files in the scratch space almost getting purged, users
 can run the following commands:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>find <span class="nv">$SC18</span> -type f -mtime +40
+<div class="highlight"><pre><span></span><code>find <span class="nv">$SC18</span> -type f -mtime +40
 find <span class="nv">$SC15</span> -type f -mtime +40
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>It will list files not modified more than 40 days. Users may set
 different days in the command to check their files.</p>
 <h3 id="notice-on-using-scratch-systems">Notice on Using Scratch Systems</h3>
@@ -2439,11 +2438,11 @@ name <strong><code>rsync.hpcc.msu.edu</code>.</strong> See
 for more information.</p>
 <h3 id="copying-files-between-ls15-and-gs18">Copying Files between ls15 and gs18</h3>
 <p>Users can copy files from ls15 to gs18 by 'cp' command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ cp -av /mnt/ls15/scratch/users/$USER /mnt/gs18/scratch/users/$USER
-</code></pre></div></td></tr></table></div>
+<pre><code>$ cp -av /mnt/ls15/scratch/users/$USER /mnt/gs18/scratch/users/$USER
+</code></pre>
 <p>or 'rsync' command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ rsync -av /mnt/ls15/scratch/users/$USER/ /mnt/gs18/scratch/users/$USER/
-</code></pre></div></td></tr></table></div>
+<pre><code>$ rsync -av /mnt/ls15/scratch/users/$USER/ /mnt/gs18/scratch/users/$USER/
+</code></pre>
 <p>rsync can be restarted and won't recopy files if you have to stop it or
 if it fails/interrupted during the copy.</p>
 <p>You can do this from any dev node. If you have many files this
@@ -2460,8 +2459,8 @@ used to migrate files from old scatch system (ls15 and gs18) to new scratch (gs2
 <hr />
 <p>If your scripts depend on the $SCRATCH variable to point to the
 ls15 scratch, as an immediate measure you can change it the value:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ export SCRATCH=/mnt/ls15/scratch/users/$USER
-</code></pre></div></td></tr></table></div>
+<pre><code>$ export SCRATCH=/mnt/ls15/scratch/users/$USER
+</code></pre>
 <p>We don't recommend this. (We recommend copying your files to gs18 or use
 $SC15 instead.) However, if your transition to ls15 takes a long time,
 you could add this command to your scripts or when you log-in.</p>

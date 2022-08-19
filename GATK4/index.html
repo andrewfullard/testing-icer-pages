@@ -2298,10 +2298,9 @@
 </blockquote>
 <p>On the HPCC, after login to a dev-node, run: <code>module load GATK/4.0.5.1-Python-3.6.4</code>. As a tip, if you happen to run a <code>module purge</code> command in the middle of your work, and want to go back to the original login environment, please type the command: <code>exec bash -l</code></p>
 <p>A simple test on the HPCC is provided below.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module load GATK/4.0.5.1-Python-3.6.4
+<div class="highlight"><pre><span></span><code>module load GATK/4.0.5.1-Python-3.6.4
 gatk --java-options &quot;-Xmx8G&quot; HaplotypeCaller -R /opt/software/GATK/3.3-0-Java-1.7.0_80/resources/exampleFASTA.fasta -I /opt/software/GATK/3.3-0-Java-1.7.0_80/resources/exampleBAM.bam -O gatk_test.vcf
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 
 
   

@@ -2284,32 +2284,15 @@ arguments. The variable <strong>$@</strong> is all parameters <strong>$1 ... $an
 and quoting, so "File with spaces" becomes "File" "with" "spaces". This
 is similar to the echo command.</p>
 <p>Let's do a hand on example.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
 <span class="nb">echo</span> <span class="s2">&quot;Number of parameters from input: </span><span class="nv">$#</span><span class="s2"> parameters&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;My name is </span><span class="nv">$0</span><span class="s2">&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;My first parameter is </span><span class="nv">$1</span><span class="s2">&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;My second parameter is </span><span class="nv">$2</span><span class="s2">&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;All parameters are </span><span class="nv">$@</span><span class="s2">&quot;</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Here is a sample run for the above script.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code>$ sh ./var4.sh
+<div class="highlight"><pre><span></span><code>$ sh ./var4.sh
 Number of parameters from input: <span class="m">0</span> parameters
 My name is ./var4.sh
 My first parameter is
@@ -2322,35 +2305,21 @@ My name is ./var4.sh
 My first parameter is My
 My second parameter is lazy
 All parameters are My lazy fox
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p><strong>$#</strong> and <strong>$1 ... $9</strong> are set by the shell. We can take more than 9
 parameters by using the <strong>shift</strong> command. Look at the next example.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
 <span class="k">while</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span> -gt <span class="s2">&quot;0&quot;</span> <span class="o">]</span>
 <span class="k">do</span>
   <span class="nb">echo</span> <span class="s2">&quot;\$1 is </span><span class="nv">$1</span><span class="s2">&quot;</span>
   <span class="nb">shift</span>
 <span class="k">done</span>    
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>The backslash \ character is used to mark $ so that it is not
 interpreted by the shell. This script uses shift until $# is down to
 zero.</p>
 <p>Here is a sample run for the above script.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>$ sh ./test.sh The quick brown fox jumps over the lazy dog.
+<div class="highlight"><pre><span></span><code>$ sh ./test.sh The quick brown fox jumps over the lazy dog.
 <span class="nv">$1</span> is The
 <span class="nv">$1</span> is quick
 <span class="nv">$1</span> is brown
@@ -2360,52 +2329,31 @@ zero.</p>
 <span class="nv">$1</span> is the
 <span class="nv">$1</span> is lazy
 <span class="nv">$1</span> is dog.
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>We can write a script with $* to get a same result.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
 
 <span class="k">for</span> TOKEN <span class="k">in</span> <span class="nv">$*</span>
 <span class="k">do</span>
     <span class="nb">echo</span> <span class="se">\$</span><span class="m">1</span> is <span class="nv">$TOKEN</span>
 <span class="k">done</span>  
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Here, f<strong>or</strong> and <strong>do...done</strong> are loop commands which will be covered
 later.</p>
 <p>The <strong>$?</strong> variable represents the exit status of the previous
 command. Exit status is a numerical value returned by every command upon
 its completion. Most commands return 0 if they were successful, and 1 if
 they were unsuccessful.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
 
 <span class="k">for</span> TOKEN <span class="k">in</span> <span class="nv">$*</span>
 <span class="k">do</span>
     <span class="nb">echo</span> <span class="nv">$1</span> <span class="nv">$TOKEN</span>
 <span class="k">done</span>
 <span class="nb">echo</span> <span class="nv">$?</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Here is the result of the sample run.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>$ sh ./test.sh The quick brown fox jumps over the lazy dog.
+<div class="highlight"><pre><span></span><code>$ sh ./test.sh The quick brown fox jumps over the lazy dog.
 <span class="nv">$1</span> is The
 <span class="nv">$1</span> is quick
 <span class="nv">$1</span> is brown
@@ -2416,7 +2364,7 @@ they were unsuccessful.</p>
 <span class="nv">$1</span> is lazy
 <span class="nv">$1</span> is dog.
 <span class="m">0</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 
 
   

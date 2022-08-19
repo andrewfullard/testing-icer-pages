@@ -2283,12 +2283,10 @@ style="border-bottom-width: 1px;">
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
+<div class="highlight"><pre><span></span><code>module purge
 module load GCC/8.3.0 OpenMPI/3.1.4 R/4.0.2
 module load JAGS/4.3.0
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 
 </div>
 
@@ -2304,8 +2302,8 @@ using this package.</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>R --vanilla
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>R --vanilla
+</code></pre></div>
 
 </div>
 
@@ -2324,17 +2322,7 @@ style="border-bottom-width: 1px;">
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">library</span><span class="p">(</span><span class="n">rjags</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">library</span><span class="p">(</span><span class="n">rjags</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">&lt;-</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;data1.csv&quot;</span><span class="p">)</span>
 <span class="n">N</span> <span class="o">&lt;-</span> <span class="n">length</span><span class="p">(</span><span class="n">data</span><span class="vg">$y</span><span class="p">)</span>
 <span class="n">dat</span> <span class="o">&lt;-</span> <span class="n">list</span><span class="p">(</span><span class="s2">&quot;N&quot;</span> <span class="o">=</span> <span class="n">N</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span> <span class="o">=</span> <span class="n">data</span><span class="vg">$y</span><span class="p">,</span> <span class="s2">&quot;V&quot;</span> <span class="o">=</span> <span class="n">data</span><span class="vg">$V</span><span class="p">)</span>
@@ -2345,7 +2333,7 @@ style="border-bottom-width: 1px;">
 <span class="n">samps</span> <span class="o">&lt;-</span> <span class="n">coda</span><span class="o">.</span><span class="n">samples</span><span class="p">(</span><span class="n">jags</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">n</span><span class="o">.</span><span class="n">iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 <span class="n">summary</span><span class="p">(</span><span class="n">window</span><span class="p">(</span><span class="n">samps</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">5001</span><span class="p">))</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">samps</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 
 </div>
 
@@ -2364,14 +2352,7 @@ style="border-bottom-width: 1px;">
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>N,y,V
+<div class="highlight"><pre><span></span><code>N,y,V
 1,0.3289011,0.0388957
 2,0.3845458,0.0411673
 3,0.2195622,0.0204915
@@ -2379,7 +2360,7 @@ style="border-bottom-width: 1px;">
 5,0.2254672,0.0351996
 6,-0.1246363,0.0096167
 7,0.1109658,0.0015062
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 
 </div>
 
@@ -2396,20 +2377,7 @@ style="border-bottom-width: 1px;">
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>model {
+<div class="highlight"><pre><span></span><code>model {
 
     for ( i in 1:N ) {
 
@@ -2423,7 +2391,7 @@ style="border-bottom-width: 1px;">
     ### Transform the ln(OR) to OR
     OR &lt;- exp(d)
 }
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 
 </div>
 
