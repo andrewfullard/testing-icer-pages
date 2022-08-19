@@ -2469,10 +2469,10 @@ won't see them listed in the left side with the other mounted drives.
 <p>for how to mount remote filesystem over SSH on Linux.</p>
 <h3 id="on-windows-os">On Windows OS</h3>
 <ol>
-<li>Install latest stable release of winfsp (version 1.11.22176 as of 8/11/22) <a href="https://github.com/winfsp/winfsp/releases/download/v1.11/winfsp-1.11.22176.msi">WinFsp</a> </li>
-<li>Full upstream documentation: <a href="https://github.com/winfsp/winfsp#readme">WinFsp Documentations</a></li>
+<li>Install latest stable release of winfsp (version 1.11.22176 as of 8/11/22) <a href="https://github.com/winfsp/winfsp/releases/download/v1.11/winfsp-1.11.22176.msi">WinFsp installer</a> </li>
+<li>Full upstream documentation: <a href="https://github.com/winfsp/winfsp#readme">WinFsp Documentation</a></li>
 <li><strong>NOTE:</strong> Administrative access is required</li>
-<li>Install latest Stable release of SSHFS-Win (version 3.5.20357 as of 8/11/22) <a href="https://github.com/winfsp/sshfs-win/releases/download/v3.5.20357/sshfs-win-3.5.20357-x64.msi">SSHFS-Win</a> </li>
+<li>Install latest Stable release of SSHFS-Win (version 3.5.20357 as of 8/11/22) <a href="https://github.com/winfsp/sshfs-win/releases/download/v3.5.20357/sshfs-win-3.5.20357-x64.msi">SSHFS-Win installer</a> </li>
 <li>Full upstream documentation: <a href="https://github.com/winfsp/sshfs-win#readme">SSHFS-Win Documentation</a></li>
 <li><strong>NOTE:</strong> Administrative access is required</li>
 <li>
@@ -2506,8 +2506,10 @@ won't see them listed in the left side with the other mounted drives.
 <li>Both Home and Scratch use the same steps, just with different network paths
     Home: \sshfs\username@rsync.hpcc.msu.edu
     Scratch:  \sshfs.r\username@rsync.hpcc.msu.edu\mnt\scratch\username</li>
-<li>In file browser on the 'This PC' page, select 'Map Network Drive'</li>
-<li>Fill in the appropriate network path (\sshfs\username@rsync.hpcc.msu.edu), select a drive letter and any desired options, and click mount.</li>
+<li>In file browser on the 'This PC' page, select 'Map Network Drive'
+<img alt="img!" src="../attachments/sshfs/sshfs-win_mount_home_filebrowser.png" /></li>
+<li>Fill in the appropriate network path (\sshfs\username@rsync.hpcc.msu.edu), select a drive letter and any desired options, and click Finish.
+<img alt="img!" src="../attachments/sshfs/sshfs-win_mount_home_filebrowser_detials.png" /></li>
 </ul>
 </li>
 </ol>
@@ -2515,44 +2517,45 @@ won't see them listed in the left side with the other mounted drives.
 <li>
 <p>Mounting a research space requires an additional tool, the SSHFS-Win Manager GUI.  This Tool can also be used to mount Home and scratch space using the correct directory, but they do not need any advanced settings.  For home directory, leave the path blank.  For Scratch space, use \mnt\scratch\<username>\ for the path with the trailing slash.</p>
 <ol>
-<li>Install latest stable release of sshfs-win-manager (1.3.1 as of 8/11/22)
-    https://github.com/evsar3/sshfs-win-manager/releases/download/v1.3.1/sshfs-win-manager-setup-v1.3.1.exe
-    Note: administrative privileges are not required
-    Full upstream documentation: https://github.com/evsar3/sshfs-win-manager#readme</li>
+<li>Install latest stable release of sshfs-win-manager (1.3.1 as of 8/11/22)<ul>
+<li><a href="https://github.com/evsar3/sshfs-win-manager/releases/download/v1.3.1/sshfs-win-manager-setup-v1.3.1.exe">SSHFS-Win Manager installer</a></li>
+<li><a href="https://github.com/evsar3/sshfs-win-manager#readme">SSHFS-Win Manager documentation</a></li>
+<li>Note: administrative privileges are not required</li>
+</ul>
+</li>
 <li>open the SSHFS-Win Manager application
-    If the SSHFS-Win Manager application is minimized, it can be opened using the task bar</li>
-<li>
-<p>Create a new mount for the research space</p>
-<ol>
-<li>
-<p>Basics tab
-    Name: HPCC-groupname
-    Host: rsync.hpcc.msu.edu
-    Auth Method: password (ask on connect)
-    Path: /mnt/research/groupname/  (Note: ending slash)
-    Drive letter can be left as auto or you can select a specific Drive letter</p>
+<img alt="img!" src="../attachments/sshfs/sshfswin_manager_app_startup_icon.png" />
+    If the SSHFS-Win Manager application is minimized, it can be opened using the task bar
+    <img alt="img!" src="../attachments/sshfs/sshfswin_manager_taskbar.png" /></li>
+<li>Create a new mount for the research space<ol>
+<li>Basics tab<ul>
+<li>Name: HPCC-groupname (descriptive name for mounted drive)</li>
+<li>Host: rsync.hpcc.msu.edu</li>
+<li>Auth Method: password (ask on connect)</li>
+<li>Path: /mnt/research/research_groupname/  (Note: ending slash)</li>
+<li>Drive letter can be left as auto or you can select a specific Drive letter
+<img alt="img!" src="../attachments/sshfs/sshfswin_mgr_research_basic.png" /></li>
+</ul>
 </li>
-<li>
-<p>Select the Advanced tab and add the following options (connect on startup and reconnect on connection loss are optional)
-    Custom Command Line Params: On
-    idmap -&gt; user
-    create_file_umask -&gt; 000
-    umask -&gt; 000
-    sftp_server -&gt; sg <groupname> -c /usr/libexec/openssh/sftp-server</p>
-<ol>
-<li>After Saving the new drive mapping, click the connect icon</li>
-<li>After successful authentication, the drive should show connected (green) and is now available in the file browser</li>
+<li>Select the Advanced tab and add the following options (connect on startup and reconnect on connection loss are optional)<ul>
+<li>Custom Command Line Params: On</li>
+<li>idmap -&gt; user</li>
+<li>create_file_umask -&gt; 000</li>
+<li>umask -&gt; 000</li>
+</ul>
+</li>
+<li>sftp_server -&gt; sg research_groupname -c /usr/libexec/openssh/sftp-server
+    <img alt="img!" src="../attachments/sshfs/sshfswin_mgr_research_advanced.png" /></li>
 </ol>
 </li>
-</ol>
-</li>
+<li>After Saving the new drive mapping, click the connect icon
+<img alt="img!" src="../attachments/sshfs/sshfswin_mgr_research_disconnect.png" /></li>
+<li>After successful authentication, the drive should show connected (green) and the folder is now available in the file browser
+<img alt="img!" src="../attachments/sshfs/sshfswin_mgr_research_connected.png" /></li>
 </ol>
 </li>
 </ol>
 <h3 id="other-mapping-software">Other Mapping Software</h3>
-<ul>
-<li>VS Code can be used to work on remotely mounted volumes, but note that VS Code should be connected to a Development node using the gateway as a jump host.</li>
-</ul>
 <!--
 This line is removed because the link is onlonger exist.
 - SFTP Net Drive: [http://www.sftpnetdrive.com/](http://www.sftpnetdrive.com/)  Works with 32-bit and
