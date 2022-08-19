@@ -2298,7 +2298,15 @@ to install anaconda in your home directory.</p>
 <p>Below is how to install QIIME 2 (version 2018.2) in your home directory
 via conda:</p>
 <p><strong>Install QIIME 2</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/anaconda3/bin
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/anaconda3/bin
 wget https://data.qiime2.org/distro/core/qiime2-2018.2-py35-linux-conda.yml
 conda env create -n qiime2-2018.2 --file qiime2-2018.2-py35-linux-conda.yml
 rm qiime2-2018.2-py35-linux-conda.yml
@@ -2307,10 +2315,33 @@ rm qiime2-2018.2-py35-linux-conda.yml
 qiime --help <span class="c1"># test if installation is successful</span>
 <span class="c1"># all your QIIME commands go here</span>
 <span class="nb">source</span> deactivate
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>The example below is from a previous version of <a href="https://docs.qiime2.org/2022.2/">the current tutorial</a></p>
 <p><strong>Example of analysis</strong></p>
-<div class="highlight"><pre><span></span><code>mkdir qiime2-moving-pictures-tutorial
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir qiime2-moving-pictures-tutorial
 <span class="nb">cd</span> qiime2-moving-pictures-tutorial
 wget -O <span class="s2">&quot;sample-metadata.tsv&quot;</span> <span class="s2">&quot;https://data.qiime2.org/2018.2/tutorials/moving-pictures/sample_metadata.tsv&quot;</span>
 
@@ -2334,7 +2365,7 @@ qiime demux summarize <span class="se">\</span>
   --o-visualization demux.qzv
 
 qiime tools view demux.qzv
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 
   

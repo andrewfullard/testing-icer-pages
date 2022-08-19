@@ -2449,7 +2449,31 @@ run the command <code>quota</code> :</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ quota
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code>$ quota
 Home Directory:             Space        Space        Space        Space        Files        Files        Files        Files
                             Quota        Used         Available    % Used       Quota        Used         Available    % Used
 -----------------------------------------------------------------------------------------------------------------------------------
@@ -2474,7 +2498,7 @@ Temporary Filesystems:
 
 /mnt/ls15 <span class="o">(</span>legacy scratch<span class="o">)</span>  Inodes Used   Quota         Free
                             <span class="m">125721</span>        <span class="m">1000000</span>       <span class="m">874279</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2545,10 +2569,12 @@ group ownership and the access permission of the directory <code>Drctry</code>
 and the research space <code>Group</code> :</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="highlight"><pre><span></span><code>$ ls -ld /mnt/research/Group/Drctry /mnt/research/Group
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$ ls -ld /mnt/research/Group/Drctry /mnt/research/Group
 drwxrwx--- <span class="m">2</span> UserName Prmry <span class="m">5464</span> Feb <span class="m">27</span> <span class="m">11</span>:34 /mnt/research/Group/Drctry
 drwxrws--- <span class="m">9</span> UserName Group <span class="m">8192</span> Jul <span class="m">10</span> <span class="m">15</span>:34 /mnt/research/Group
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>where you can see their differences. For the group ownership,
@@ -2559,9 +2585,10 @@ research space <code>/mnt/research/Group</code>. For the permission,
 directory can run the commands:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="highlight"><pre><span></span><code>$ chgrp -R Group /mnt/research/Group/Drctry     <span class="c1"># Change the group ownership to Group</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$ chgrp -R Group /mnt/research/Group/Drctry     <span class="c1"># Change the group ownership to Group</span>
 $ chmod g+s /mnt/research/Group/Drctry          <span class="c1"># Set up set-group-ID bit</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>to change the two attributes of the directory. (A further
@@ -2571,9 +2598,10 @@ rel="nofollow">File Permissions on HPCC</a>.) Once the settings are
 corrected:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="highlight"><pre><span></span><code>$ ls -ld /mnt/research/Group/Drctry
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$ ls -ld /mnt/research/Group/Drctry
 drwxrws--- <span class="m">2</span> UserName Group <span class="m">5464</span> Feb <span class="m">27</span> <span class="m">11</span>:34 /mnt/research/Group/Drctry
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 <p>the file transfer can proceed to the directory. <br />
@@ -2608,8 +2636,8 @@ and run:</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>show-samba-home
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>show-samba-home
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2621,8 +2649,8 @@ command:</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>show-samba-research researchspacename
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>show-samba-research researchspacename
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2634,9 +2662,10 @@ and research spaces:</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>ml powertools                    <span class="c1"># if powertools is not loaded</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>ml powertools                    <span class="c1"># if powertools is not loaded</span>
 show-samba-paths
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 

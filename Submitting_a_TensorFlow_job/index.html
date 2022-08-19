@@ -2286,7 +2286,32 @@
 <h1 id="submitting-a-tensorflow-job">Submitting a TensorFlow job</h1>
 <p>We assume that you've installed your TensorFlow virtual environment on a GPU dev-node (dev-intel16-k80). The Python code we are going to run in the SLURM job script is named <code>matmul.py</code>, with content being</p>
 <p><strong>matmul.py</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
@@ -2312,10 +2337,27 @@
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape:&quot;</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;Device:&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time taken:&quot;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">startTime</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>Now we write a SLURM script to submit the job to the cluster:</p>
 <p><strong>Submitting GPU TensorFlow job: test_matmul.sbatch</strong></p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="c1">#SBATCH --job-name=test_matmul</span>
 <span class="c1">#SBATCH --gres=gpu:1</span>
@@ -2333,10 +2375,10 @@ module load Python/3.6.4
 <span class="nb">export</span> <span class="nv">TF_CPP_MIN_LOG_LEVEL</span><span class="o">=</span><span class="m">2</span> <span class="c1"># disables the warning, doesn&#39;t enable AVX/FMA.</span>
 
 srun python matmul.py gpu <span class="m">1500</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>To submit it, simply run</p>
-<div class="highlight"><pre><span></span><code>sbatch test_matmul.sbatch
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sbatch test_matmul.sbatch
+</code></pre></div></td></tr></table></div>
 <p>The final result will be written to file "<code>test_matmul-&lt;jobid&gt;.SLURMout</code>".</p>
 
 

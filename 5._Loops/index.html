@@ -2297,11 +2297,14 @@
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="o">[</span> expression <span class="o">]</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span> <span class="o">[</span> expression <span class="o">]</span>
 <span class="k">do</span>
    Statement<span class="o">(</span>s<span class="o">)</span> to be executed
 <span class="k">done</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2312,12 +2315,16 @@
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/sh</span>
 <span class="k">for</span> i <span class="k">in</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
 <span class="k">do</span>
   <span class="nb">echo</span> <span class="s2">&quot;Looping ... number </span><span class="nv">$i</span><span class="s2">&quot;</span>
 <span class="k">done</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2328,13 +2335,18 @@
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ bash sample.sh
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$ bash sample.sh
 Looping ... number <span class="m">1</span>
 Looping ... number <span class="m">2</span>
 Looping ... number <span class="m">3</span>
 Looping ... number <span class="m">4</span>
 Looping ... number <span class="m">5</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2345,12 +2357,16 @@ Looping ... number <span class="m">5</span>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="k">for</span> <span class="o">((</span><span class="nv">i</span><span class="o">=</span><span class="m">1</span><span class="p">;</span>i&lt;<span class="o">=</span><span class="m">5</span><span class="p">;</span><span class="nv">i</span><span class="o">+=</span><span class="m">1</span><span class="o">))</span>
 <span class="k">do</span>
   <span class="nb">echo</span> <span class="s2">&quot;Looping ... number </span><span class="nv">$i</span><span class="s2">&quot;</span>
 <span class="k">done</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2361,11 +2377,14 @@ Looping ... number <span class="m">5</span>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="o">[</span> expression <span class="o">]</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">while</span> <span class="o">[</span> expression <span class="o">]</span>
 <span class="k">do</span>
    Statement<span class="o">(</span>s<span class="o">)</span> to be executed
 <span class="k">done</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2376,7 +2395,14 @@ Looping ... number <span class="m">5</span>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nv">INPUT_STRING</span><span class="o">=</span>hello
 <span class="k">while</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$INPUT_STRING</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;bye&quot;</span> <span class="o">]</span>
 <span class="k">do</span>
@@ -2384,7 +2410,7 @@ Looping ... number <span class="m">5</span>
   <span class="nb">read</span> INPUT_STRING
   <span class="nb">echo</span> <span class="s2">&quot;You typed: </span><span class="nv">$INPUT_STRING</span><span class="s2">&quot;</span>
 <span class="k">done</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2395,7 +2421,17 @@ Looping ... number <span class="m">5</span>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code><span class="nv">$sh</span> test.sh
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$sh</span> test.sh
 Please <span class="nb">type</span> something <span class="k">in</span> <span class="o">(</span>bye to quit<span class="o">)</span>
 hello
 You typed: hello
@@ -2406,7 +2442,7 @@ Please <span class="nb">type</span> something <span class="k">in</span> <span cl
 bye
 You typed: bye
 $
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 

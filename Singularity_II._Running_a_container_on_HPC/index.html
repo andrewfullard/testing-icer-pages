@@ -2440,8 +2440,8 @@ to run a program, and you use the command
 "<code>singularity exec &lt;imgfile&gt; &lt;command&gt;</code>" to run your command inside that
 image. For example, if I have a special version of R, I can type the
 following command:</p>
-<pre><code>singularity exec r-special.simg Rscript myprogram.R
-</code></pre>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity exec r-special.simg Rscript myprogram.R
+</code></pre></div></td></tr></table></div>
 <h3 id="running-a-docker-container">Running a docker container</h3>
 <p>Many programs are available as docker containers pre-built, and many of
 those are available on the docker hub <a href="https://hub.docker.com">https://hub.docker.com</a>.</p>
@@ -2449,9 +2449,10 @@ those are available on the docker hub <a href="https://hub.docker.com">https://h
 <a href="https://www.sylabs.io/guides/3.4/user-guide/singularity_and_docker.html">user guide here</a>.
 Here is a quick example of running a command in Ubuntu linux even though
 we use CentOS Linux:</p>
-<pre><code>singularity shell docker://ubuntu:latest          # log-in to Ubuntu, use exit to log-out  
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>singularity shell docker://ubuntu:latest          # log-in to Ubuntu, use exit to log-out  
 singularity run docker://ubuntu:latest uname -a   # show details of the Linux version
-</code></pre>
+</code></pre></div></td></tr></table></div>
 <h3 id="building-containers">Building containers</h3>
 <p>Building your own containers requires administrative access (e.g., root
 privileges) so you can't do this. However you may build them on your
@@ -2473,7 +2474,28 @@ case, you must use <code>srun -n $SLURM_NTASKS</code> before the <code>singulari
 command to launch the processes on the cluster nodes. See a template
 script below.</p>
 <p><strong>SLURM script</strong></p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="c1"># Job name:</span>
 <span class="c1">#SBATCH --job-name=singularity-test</span>
@@ -2495,7 +2517,7 @@ script below.</p>
 
 <span class="nb">cd</span> &lt;directory containing the singularity image file <span class="o">(</span>.sif<span class="o">)</span>&gt;
 srun -n <span class="nv">$SLURM_NTASKS</span> singularity <span class="nb">exec</span> xxx.sif &lt;commands&gt;
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 </div>
 </div>
 

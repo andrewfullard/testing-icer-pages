@@ -2295,7 +2295,15 @@ use HPCC-installed TF (run "getexample TensorFlow_example").</p>
 rel="nofollow">TF-GPU</a> , we need to log into a GPU dev-node such as
 dev-amd20-v100.</p>
 <p><strong>To install</strong></p>
-<div class="highlight"><pre><span></span><code>module purge
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
 module load GCC/8.2.0-2.31.1  
 module load cuDNN/8.0.5.39-CUDA-11.1.1
 module load Python
@@ -2304,9 +2312,17 @@ virtualenv -p python3 tf2env-Jul2021
 source tf2env-Jul2021/bin/activate
 pip install --upgrade tensorflow
 deactivate
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p><strong>To test</strong></p>
-<div class="highlight"><pre><span></span><code>module purge
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
 module load GCC/8.2.0-2.31.1  
 module load cuDNN/8.0.5.39-CUDA-11.1.1
 module load Python
@@ -2315,7 +2331,7 @@ python
 &gt;&gt;&gt; import tensorflow as tf
 &gt;&gt;&gt; print (tf.__version__)
 &gt;&gt;&gt; print(&quot;Num GPUs Available:&quot;, len(tf.config.experimental.list_physical_devices(&#39;GPU&#39;)))
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 
   

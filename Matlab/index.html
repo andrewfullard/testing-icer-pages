@@ -2423,12 +2423,12 @@
 MATLAB/2018a is loaded. Other available version of MATLAB can be discovered by typing</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code>    hpc@dev-intel18:~&gt; module spider MATLAB
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>    hpc@dev-intel18:~&gt; module spider MATLAB
+</code></pre></div></td></tr></table></div>
 <p>and then switching to a different version, for example, to switch
 from 2018a to 2017a, one can directly load the the version as</p>
-<pre><code>hpc@dev-intel18:~&gt; module load MATLAB/2019a
-</code></pre>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>hpc@dev-intel18:~&gt; module load MATLAB/2019a
+</code></pre></div></td></tr></table></div>
 <ul>
 <li>MATLAB's many built-in functions have multi-threaded capability. On
     your personal computer, when a MATLAB function with multi-threads is
@@ -2465,7 +2465,17 @@ longer exist from later versions starting 2019.</p>
 <li>HPCC has many toolboxes installed. To see a list of installed
     toolboxes and licenses, type</li>
 </ul>
-<div class="highlight"><pre><span></span><code>    hpc@dev-intel18:~&gt; module load powertools
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>    hpc@dev-intel18:~&gt; module load powertools
     hpc@dev-intel18:~&gt; licensecheck matlab
     Checking Licenses for matlab
     lmstat -a -c 27000@lm-02.i
@@ -2476,7 +2486,7 @@ longer exist from later versions starting 2019.</p>
     Users of Communication_Toolbox:  (Total of 10000 licenses issued;  Total of 0 licenses in use)
 
     ......
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <h2 id="running-matlab-on-scratch-space">Running MATLAB on Scratch Space</h2>
 <p>It is strongly recommended that iCER users run programs on scratch
 space. This may improve the speed of job execution as well as the
@@ -2503,7 +2513,14 @@ involves a user typing commands into the MATLAB command windows.</p>
 <ul>
 <li>ssh to one of the dev nodes and run Matlab:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>    hpc@gateway:~&gt; ssh dev-intel16
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>    hpc@gateway:~&gt; ssh dev-intel16
     Last login: Mon Dec  4 12:54:44 2017 from gateway
     ===
     This front-end node is not meant for running big or long-running jobs.  Jobs
@@ -2511,18 +2528,18 @@ involves a user typing commands into the MATLAB command windows.</p>
     Long-running jobs on front-end nodes will be killed without warning.
     ===
     hpc@dev-intel16:~&gt; matlab -nodisplay
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>More information about running jobs interactively on compute nodes can be reviewed
 at <a href="../Interactive_Job/">Running Programs Interactively</a></p>
 <ul>
 <li>If you require graphics, please ensure that you have an Xserver
     running. For Linux and MAC users,</li>
 </ul>
-<div class="highlight"><pre><span></span><code>    ssh -X username@hpcc.msu.edu
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>    ssh -X username@hpcc.msu.edu
+</code></pre></div></td></tr></table></div>
 <p>If you want graphics, but don't want the desktop, type</p>
-<div class="highlight"><pre><span></span><code>    hpc@dev-intel16:~&gt; matlab -nodesktop
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>    hpc@dev-intel16:~&gt; matlab -nodesktop
+</code></pre></div></td></tr></table></div>
 <p>Interactive MATLAB jobs running on development nodes are limited to
 a two hour wall time limit, and will be killed automatically afte
 two hours.</p>
@@ -2536,7 +2553,16 @@ Modify the following commands to suit your requirements.</p>
 <div class="codeContent panelContent pdl">
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code>    hpc@dev-intel18:-&gt; salloc --nodes=1 --ntasks=1 --cpus-per-task=1 --mem=2gb --time=04:00:00 
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>    hpc@dev-intel18:-&gt; salloc --nodes=1 --ntasks=1 --cpus-per-task=1 --mem=2gb --time=04:00:00 
 
 
     salloc: Granted job allocation 310982
@@ -2546,7 +2572,7 @@ Modify the following commands to suit your requirements.</p>
     salloc: Nodes lac-376 are ready for job
 
     hpc@dev-intel18:-&gt; matlab -nodisplay 
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <ul>
 <li>
 <p>If graphics are required, add the option "–x11" to the salloc
@@ -2555,8 +2581,8 @@ Modify the following commands to suit your requirements.</p>
 <div class="codeContent panelContent pdl">
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code>    hpc@dev-intel18:-&gt; salloc --nodes=1 --ntasks=1 --cpus-per-task=1 --mem=2gb --time=04:00:00 --x11
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>    hpc@dev-intel18:-&gt; salloc --nodes=1 --ntasks=1 --cpus-per-task=1 --mem=2gb --time=04:00:00 --x11
+</code></pre></div></td></tr></table></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The above commands submit a job to the cluster. If the resources are
@@ -2570,8 +2596,8 @@ program.</p>
 <h3 id="short-jobs-two-hours">Short Jobs (&lt; two hours)</h3>
 <p>A short job could be run on develop node without open matlab command
 window. From a development node, type</p>
-<div class="highlight"><pre><span></span><code>hpc@dev-intel16:~&gt; matlab -nodisplay -r &quot;myMatlab&quot; &amp;
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>hpc@dev-intel16:~&gt; matlab -nodisplay -r &quot;myMatlab&quot; &amp;
+</code></pre></div></td></tr></table></div>
 <p>"myMatlab.m" will start running in background.</p>
 <h3 id="long-jobs-two-hours">Long Jobs (> two hours)</h3>
 <h4 id="single-matlab-job">Single MATLAB Job</h4>
@@ -2579,14 +2605,20 @@ window. From a development node, type</p>
 submitted to the queue. The following<br />
 sample job script file can be modified to suit your needs:</p>
 <p>myJob.sbatch</p>
-<div class="highlight"><pre><span></span><code>#!/bin/bash -login
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>#!/bin/bash -login
 #SBATCH --job-name=myJobName             # specify a job name
 #SBATCH --nodes=1 --ntasks=1 --cpus-per-task=1 --time=02:05:00 --mem=550mb      # specify the resources needed
 #SBATCH --license=matlab@27000@lm-02.i          # specify the license request
 
 cd $SLURM_SUBMIT_DIR                            # go to the directory where this job is submitted
 matlab -nodisplay -r &quot;myMatlab&quot;
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <ul>
 <li>myJobName is a string to make your job easier to identify it when
     managing or monitoring your jobs.</li>
@@ -2611,8 +2643,8 @@ matlab -nodisplay -r &quot;myMatlab&quot;
 <li>myMatlab is the name of your matlab script without the .m extension</li>
 </ul>
 <p>Submit your job with:</p>
-<div class="highlight"><pre><span></span><code>hpc@dev-intel16:~&gt; sbatch myJob.sbatch
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>hpc@dev-intel16:~&gt; sbatch myJob.sbatch
+</code></pre></div></td></tr></table></div>
 <p>"myJob.sbatch" is the name of your job script as shown above.</p>
 <h2 id="using-the-matlab-parallel-computing-toolbox">Using the MATLAB Parallel Computing Toolbox</h2>
 <p>The MATLAB Parallel Computing Toolbox (PCT) provides users several
@@ -2706,15 +2738,15 @@ on AMD node associated with java virtual machine. The patch may be
 introduce in next release. If you find that the code works on other
 version but crashed in 2020a version, you may try the workaround that
 launch the matlab session without java virtual machine as the following:</p>
-<div class="highlight"><pre><span></span><code>hpc@eval-epyc19 ~]$ matlab -nodisplay -nojvm -r &quot;myExample&quot;
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>hpc@eval-epyc19 ~]$ matlab -nodisplay -nojvm -r &quot;myExample&quot;
+</code></pre></div></td></tr></table></div>
 <h2 id="running-the-matlab-on-intel14-nodes">Running the MATLAB on intel14 nodes</h2>
 <p>There is an existing problem of running some functions on Intel14
 nodes. If you run into 'Illegal instruction detected' error, please use
 a node of other type. Please add constrain to exclude intel14 type of
 compute nodes when submit to SLURM. For example:
-<div class="highlight"><pre><span></span><code>#SBATCH --constraint=[intel16|intel18|amd20]
-</code></pre></div></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>#SBATCH --constraint=[intel16|intel18|amd20]
+</code></pre></div></td></tr></table></div></p>
 <h2 id="using-the-matlab-with-python">Using the MATLAB with Python</h2>
 <p><a href="https://www.mathworks.com/campaigns/offers/matlab-python-cheat-sheets.html?s_v1=41575&amp;elqem=3644189_EM_NA_DIR_22-01_MOE-EDU&amp;elqTrackId=34b76d429da64510a62e451f34bee44d&amp;elq=2311bc59dea9450fa1d52bb1e3446db8&amp;elqaid=41575&amp;elqat=1&amp;elqCampaignId=15309">Here</a> is the link to the cheat sheets provided by the
 Mathworks for users' reference.</p>

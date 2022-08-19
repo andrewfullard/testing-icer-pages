@@ -2279,8 +2279,8 @@ clang++ and flang to compile c, c++ and fortran codes respectively.
 Users can simply load an AOCC module and use the command directly. To
 find out the version of AOCC installed in HPCC, please run the following
 command on a dev node. All modules should be able to load directly.</p>
-<div class="highlight"><pre><span></span><code> module spider AOCC
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code> module spider AOCC
+</code></pre></div></td></tr></table></div>
 <p>AOCL are a set of numerical libraries specifically tuned for AMD
 EPYC processor family. The Libraries can work with either AOCC or GCC
 compilers. Users need to load a version of GCC or AOCC module and AOCL
@@ -2290,15 +2290,15 @@ is considered to provide better performance than using GCC compiled
 libraries (such as OpenBLAS, ScaLAPACK ...). User can find out how to
 use the libraries and the linkers from the 
 <a href="https://developer.amd.com/wp-content/resources/AOCL_User%20Guide_2.2.pdf">documentation</a>.</p>
-<div class="highlight"><pre><span></span><code> module spider AOCL
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code> module spider AOCL
+</code></pre></div></td></tr></table></div>
 <p>Besides AOCC and AOCL, a version of OpenMPI compiled with AOCC
 (version 2.2.0) is also installed in case users would like to test MPI
 programs with AMD compilers. Users can simply load the <strong><code>aompi</code></strong>
 toolchain by running the following command on a dev node to load both
 AOCC and OpenMPI (version 4.0.3). </p>
-<div class="highlight"><pre><span></span><code>ml -* aompi
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ml -* aompi
+</code></pre></div></td></tr></table></div>
 <p>An <strong><code>aoacl</code></strong> toolchain is also available and able to load the triple
 modules: AOCC, OpenMPI and AOCL at a time.</p>
 <p>To find out more information about

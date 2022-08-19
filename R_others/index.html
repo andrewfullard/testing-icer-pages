@@ -2499,12 +2499,29 @@
 in <a href="https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started"
 rel="nofollow">RStan Getting Started</a>. To test rstan on the HPCC,
 first load R 3.6.2:</p>
-<div class="highlight"><pre><span></span><code>module purge  
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge  
 module load GCC/8.3.0 OpenMPI/3.1.4 R/3.6.2-X11-20180604
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>As of February 2020, the rstan version is 2.19.2.</p>
 <p>The stan model file "8schools.stan" contains:</p>
-<div class="highlight"><pre><span></span><code>data <span class="o">{</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code>data <span class="o">{</span>
   int&lt;<span class="nv">lower</span><span class="o">=</span><span class="m">0</span>&gt; J<span class="p">;</span>         // number of schools 
   real y<span class="o">[</span>J<span class="o">]</span><span class="p">;</span>              // estimated treatment effects
   real&lt;<span class="nv">lower</span><span class="o">=</span><span class="m">0</span>&gt; sigma<span class="o">[</span>J<span class="o">]</span><span class="p">;</span> // standard error of effect estimates 
@@ -2521,9 +2538,20 @@ model <span class="o">{</span>
   <span class="nv">target</span> <span class="o">+=</span> normal_lpdf<span class="o">(</span>eta <span class="p">|</span> <span class="m">0</span>, <span class="m">1</span><span class="o">)</span><span class="p">;</span>       // prior log-density
   <span class="nv">target</span> <span class="o">+=</span> normal_lpdf<span class="o">(</span>y <span class="p">|</span> theta, sigma<span class="o">)</span><span class="p">;</span> // log-likelihood
 <span class="o">}</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>The R code ("run.R") to run stan model contains:</p>
-<div class="highlight"><pre><span></span><code><span class="n">library</span><span class="p">(</span><span class="s2">&quot;rstan&quot;</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">library</span><span class="p">(</span><span class="s2">&quot;rstan&quot;</span><span class="p">)</span>
 <span class="n">options</span><span class="p">(</span><span class="n">mc</span><span class="o">.</span><span class="n">cores</span> <span class="o">=</span> <span class="n">parallel</span><span class="o">::</span><span class="n">detectCores</span><span class="p">())</span>
 <span class="n">rstan_options</span><span class="p">(</span><span class="n">auto_write</span> <span class="o">=</span> <span class="no">TRUE</span><span class="p">)</span>
 
@@ -2535,7 +2563,7 @@ model <span class="o">{</span>
 <span class="n">pairs</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span> <span class="n">pars</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">&quot;mu&quot;</span><span class="p">,</span> <span class="s2">&quot;tau&quot;</span><span class="p">,</span> <span class="s2">&quot;lp__&quot;</span><span class="p">))</span>
 <span class="n">la</span> <span class="o">&lt;-</span> <span class="n">extract</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span> <span class="n">permuted</span> <span class="o">=</span> <span class="no">TRUE</span><span class="p">)</span> <span class="c1"># return a list of arrays</span>
 <span class="n">mu</span> <span class="o">&lt;-</span> <span class="n">la</span><span class="vg">$mu</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>To run the model from the command line:</p>
 <p><code>Rscript run.R</code></p>
 <p>In addition to the results printed to the stdout, there is an R object
@@ -2557,10 +2585,12 @@ written to the tempdir.</p>
 <h2 id="rjags">rjags</h2>
 <p>To use {rjags}, first load R/3.5.1 and JAGS from a dev-node (dev-intel16 or dev-intel18) as follows:</p>
 <p><strong>Loading R/3.5.1 and JAGS</strong></p>
-<div class="highlight"><pre><span></span><code>module purge
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
 module load GCC/8.3.0 OpenMPI/3.1.4 R/4.0.2
 module load JAGS/4.3.0
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>Next, we will run a short example of data analysis using rjags. This
 example comes from <a
 href="https://rstudio-pubs-static.s3.amazonaws.com/272658_ae4d482c86514674be17042c852ebbfc.html"
@@ -2570,7 +2600,17 @@ using this package.</p>
 <p>Then, in the R console, you can run the following codes (for detailed
 explanation refer to the tutorial mentioned above):</p>
 <p><strong>Sample R code using {rjags} commands</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">library</span><span class="p">(</span><span class="n">rjags</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">library</span><span class="p">(</span><span class="n">rjags</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">&lt;-</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;data1.csv&quot;</span><span class="p">)</span>
 <span class="n">N</span> <span class="o">&lt;-</span> <span class="n">length</span><span class="p">(</span><span class="n">data</span><span class="vg">$y</span><span class="p">)</span>
 <span class="n">dat</span> <span class="o">&lt;-</span> <span class="n">list</span><span class="p">(</span><span class="s2">&quot;N&quot;</span> <span class="o">=</span> <span class="n">N</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span> <span class="o">=</span> <span class="n">data</span><span class="vg">$y</span><span class="p">,</span> <span class="s2">&quot;V&quot;</span> <span class="o">=</span> <span class="n">data</span><span class="vg">$V</span><span class="p">)</span>
@@ -2581,11 +2621,18 @@ explanation refer to the tutorial mentioned above):</p>
 <span class="n">samps</span> <span class="o">&lt;-</span> <span class="n">coda</span><span class="o">.</span><span class="n">samples</span><span class="p">(</span><span class="n">jags</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">n</span><span class="o">.</span><span class="n">iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 <span class="n">summary</span><span class="p">(</span><span class="n">window</span><span class="p">(</span><span class="n">samps</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">5001</span><span class="p">))</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">samps</span><span class="p">)</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>where the two input files, data1.csv and aspirinFE.txt, need to be
 located in the working directory. The content of the two files is below.</p>
 <p><strong>data1.csv</strong></p>
-<div class="highlight"><pre><span></span><code>N,y,V
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>N,y,V
 1,0.3289011,0.0388957
 2,0.3845458,0.0411673
 3,0.2195622,0.0204915
@@ -2593,9 +2640,22 @@ located in the working directory. The content of the two files is below.</p>
 5,0.2254672,0.0351996
 6,-0.1246363,0.0096167
 7,0.1109658,0.0015062
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p><strong>aspirinFE.txt</strong></p>
-<div class="highlight"><pre><span></span><code>model {
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>model {
 
     for ( i in 1:N ) {
 
@@ -2609,7 +2669,7 @@ located in the working directory. The content of the two files is below.</p>
     ### Transform the ln(OR) to OR
     OR &lt;- exp(d)
 }
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>A screen shot of the entire run including the output figures is attached
 here. <img alt="Screenshot 1" src="../attachments/22709657/22709656.png" /></p>
 <hr />
@@ -2620,13 +2680,57 @@ Gibbs Sampling. The latest version of OpenBUGS on the HPCC is
 3.2.3. R2OpenBUGS is an R package that allows users to run OpenBUGS from
 R.</p>
 <p>To load R and OpenBUGS, run:</p>
-<div class="highlight"><pre><span></span><code>module purge  
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge  
 module load GCC/8.3.0 OpenMPI/3.1.4 R/4.0.2  
 module load OpenBUGS
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>Then, in your R session, use "library(R2OpenBUGS)" to load this package. You can execute the following testing R code to see if it works for you.</p>
 <p><strong>Testing R2OpenBUGS</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">library</span><span class="p">(</span><span class="no">R2OpenBUGS</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">library</span><span class="p">(</span><span class="no">R2OpenBUGS</span><span class="p">)</span>
 
 <span class="c1"># Define the model </span>
 <span class="no">BUGSmodel</span> <span class="o">&lt;-</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
@@ -2669,7 +2773,7 @@ module load OpenBUGS
 <span class="c1"># DIC info (using the rule, pD = Dbar-Dhat)</span>
 <span class="c1"># pD = 3.9 and DIC = 16.9</span>
 <span class="c1"># DIC is an estimate of expected predictive error (lower deviance is better).</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="r-interface-to-tensorflowkeras">R interface to TensorFlow/Keras</h2>
 <h3 id="prerequisites">Prerequisites</h3>
@@ -2687,7 +2791,15 @@ after loading the system-wide R (version 3.5.1 at the time of writing).</p>
 directory. Let's say you have an existing directory named <code>~/Rlibs</code>
 (create one if you don't), the installation would go as follows:</p>
 <p><strong>Install R libraries in your home dir</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Load R</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Load R</span>
 module purge
 module load GCC/7.3.0-2.30 OpenMPI/3.1.1 R/3.5.1-X11-20180604
 
@@ -2696,7 +2808,7 @@ R
 &gt; library<span class="o">(</span>devtools<span class="o">)</span>
 &gt; with_libpaths<span class="o">(</span><span class="nv">new</span> <span class="o">=</span> <span class="s2">&quot;~/Rlibs&quot;</span>, install_github<span class="o">(</span><span class="s1">&#39;rstudio/tensorflow&#39;</span><span class="o">))</span>
 &gt; with_libpaths<span class="o">(</span><span class="nv">new</span> <span class="o">=</span> <span class="s2">&quot;~/Rlibs&quot;</span>, install_github<span class="o">(</span><span class="s1">&#39;rstudio/keras&#39;</span><span class="o">))</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <h3 id="a-deep-learning-example">A deep learning example</h3>
 <p>Now let's try out a deep learning analysis (classifying MNIST
 handwritten digits using Multi-Layer Perceptrons) with code available
@@ -2708,10 +2820,12 @@ script so that you can run the script on the command line.</p>
 <p>Here are some important things to note:</p>
 <p>(1) Before executing the R code, you need to set up a couple of conda
 related environment variables. That is,</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/mnt/home/longnany/anaconda3-march2019/bin:<span class="nv">$PATH</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/mnt/home/longnany/anaconda3-march2019/bin:<span class="nv">$PATH</span>
 <span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/mnt/home/longnany/anaconda3-march2019/envs/tf_gpu/lib:<span class="nv">$LD_LIBRARY_PATH</span>
 <span class="nb">export</span> <span class="nv">TF_CPP_MIN_LOG_LEVEL</span><span class="o">=</span><span class="m">2</span> <span class="c1"># to filter out warning messages</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>(2) As you may have noted in the R code below, running TF within R
 requires some configurations (line 3 and line 4) so that R knows where
 to find your TF conda environment.</p>
@@ -2720,7 +2834,56 @@ session and, after running <code>ssh dev-intel16-k80</code>, type the command
 <code>gpustat -cpuP</code>. You should be able to see your GPU processes (R
 processes in this case).</p>
 <p><strong>R code for deep learning</strong></p>
-<div class="highlight"><pre><span></span><code><span class="o">.</span><span class="n">libPaths</span><span class="p">(</span><span class="s2">&quot;~/Rlibs&quot;</span><span class="p">)</span> <span class="c1"># add local lib to R search path; o.w. tensorflow/keras can&#39;t be loaded</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">.</span><span class="n">libPaths</span><span class="p">(</span><span class="s2">&quot;~/Rlibs&quot;</span><span class="p">)</span> <span class="c1"># add local lib to R search path; o.w. tensorflow/keras can&#39;t be loaded</span>
 <span class="n">library</span><span class="p">(</span><span class="n">keras</span><span class="p">)</span>
 <span class="n">use_python</span><span class="p">(</span><span class="s2">&quot;/mnt/home/longnany/anaconda3-march2019/envs/tf_gpu/bin/python&quot;</span><span class="p">)</span>
 <span class="n">use_condaenv</span><span class="p">(</span><span class="s2">&quot;/mnt/home/longnany/anaconda3-march2019/envs/tf_gpu&quot;</span><span class="p">)</span>
@@ -2770,7 +2933,7 @@ processes in this case).</p>
 
 <span class="c1">#Evaluating model on the cross validation dataset</span>
 <span class="n">loss_and_metrics</span> <span class="o">&lt;-</span> <span class="n">model</span> <span class="o">%&gt;</span><span class="sx">% evaluate(test_x, </span><span class="n">test_y</span><span class="p">,</span> <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span><span class="p">)</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="r-351-with-intel-mkl">R 3.5.1 with Intel MKL</h2>
 <p>Intel MKL can accelerate R's speed in linear algebra calculations (such
@@ -2778,13 +2941,15 @@ as cross-product, matrix decomposition, inverse computation, linear
 regression and etc.) by providing BLAS with higher performance.  On the HPCC, only 3.5.1 has been built by linking to Intel MKL.</p>
 <h3 id="loading-r">Loading R</h3>
 <p><strong>Loading R 3.5.1 built w/ OpenBLAS</strong></p>
-<div class="highlight"><pre><span></span><code>module purge
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
 module load GCC/7.3.0-2.30 OpenMPI/3.1.1 R/3.5.1-X11-20180604
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p><strong>Loading R 3.5.1 built w/ MKL</strong></p>
-<div class="highlight"><pre><span></span><code>module purge
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
 module load R-Core/3.5.1-intel-mkl
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>You could double check the BLAS/LAPACK libraries linked by running
 sessionInfo() in R.</p>
 <h3 id="benchmarking">Benchmarking</h3>
@@ -2792,15 +2957,38 @@ sessionInfo() in R.</p>
 time. The code is below, where the function <code>crossprod</code> can run in a
 multi-threaded mode implemented by OpenMP.</p>
 <p><strong>crossprod.R</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">set</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">set</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">m</span> <span class="o">&lt;-</span> <span class="mi">5000</span>
 <span class="n">n</span> <span class="o">&lt;-</span> <span class="mi">20000</span>
 <span class="n">A</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">runif</span> <span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">n</span><span class="p">),</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
 <span class="nb">system</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">B</span> <span class="o">&lt;-</span> <span class="n">crossprod</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>Now, open an interactive SLURM job session by requesting 4 cores:</p>
 <p><strong>Benchmarking OpenBLAS vs. MKL (multi-threads)</strong></p>
-<div class="highlight"><pre><span></span><code>salloc --time<span class="o">=</span><span class="m">2</span>:00:00 --cpus-per-task<span class="o">=</span><span class="m">4</span> --mem<span class="o">=</span>50G --constraint<span class="o">=</span>intel18
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code>salloc --time<span class="o">=</span><span class="m">2</span>:00:00 --cpus-per-task<span class="o">=</span><span class="m">4</span> --mem<span class="o">=</span>50G --constraint<span class="o">=</span>intel18
 
 <span class="c1"># After you are allocated a compute node, do the following.</span>
 
@@ -2820,13 +3008,32 @@ Rscript --vanilla crossprod.R <span class="p">&amp;</span>
 <span class="c1"># Time output:</span>
 <span class="c1"># user     system  elapsed </span>
 <span class="c1"># 28.484   1.664   8.737</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>Above, the boost in speed is clear from using MKL as compared with
 OpenBLAS.</p>
 <p>Even if we use a single thread (by requesting one core), MKL still shows
 some advantage.</p>
 <p><strong>Benchmarking OpenBLAS vs. MKL (single-thread)</strong></p>
-<div class="highlight"><pre><span></span><code>salloc --time<span class="o">=</span><span class="m">2</span>:00:00 --cpus-per-task<span class="o">=</span><span class="m">1</span> --mem<span class="o">=</span>50G --constraint<span class="o">=</span>intel18
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code>salloc --time<span class="o">=</span><span class="m">2</span>:00:00 --cpus-per-task<span class="o">=</span><span class="m">1</span> --mem<span class="o">=</span>50G --constraint<span class="o">=</span>intel18
 
 <span class="c1"># After you are allocated a compute node, do the following.</span>
 
@@ -2846,7 +3053,7 @@ Rscript --vanilla crossprod.R <span class="p">&amp;</span>
 <span class="c1"># Time output:</span>
 <span class="c1"># user     system  elapsed </span>
 <span class="c1"># 25.846   0.641   27.006</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <h3 id="notes">Notes</h3>
 <p>When loading R, the OpenMP environment variable OMP_NUM_THREADS is left
 unset. This means that when running R code directly on a dev-node, all

@@ -2309,11 +2309,14 @@ into Centos 7 nodes, please run</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ module purge<span class="p">;</span> module load EasyBuild<span class="p">;</span> module list
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>$ module purge<span class="p">;</span> module load EasyBuild<span class="p">;</span> module list
 
 Currently Loaded Modules:
   <span class="m">1</span><span class="o">)</span> EasyBuild/3.6.2
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2337,9 +2340,10 @@ preferred places:</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ <span class="nb">export</span> <span class="nv">EASYBUILD_INSTALLPATH_SOFTWARE</span><span class="o">=</span>&lt;path to the directory where software is installed&gt;
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$ <span class="nb">export</span> <span class="nv">EASYBUILD_INSTALLPATH_SOFTWARE</span><span class="o">=</span>&lt;path to the directory where software is installed&gt;
 $ <span class="nb">export</span> <span class="nv">EASYBUILD_INSTALLPATH_MODULES</span><span class="o">=</span>&lt;path to the directory where module system is installed&gt;
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2353,9 +2357,10 @@ module use command so your module system
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ mkdir -p <span class="nv">$EASYBUILD_INSTALLPATH_SOFTWARE</span> <span class="nv">$EASYBUILD_INSTALLPATH_MODULES</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$ mkdir -p <span class="nv">$EASYBUILD_INSTALLPATH_SOFTWARE</span> <span class="nv">$EASYBUILD_INSTALLPATH_MODULES</span>
 $ module use <span class="nv">$EASYBUILD_INSTALLPATH_MODULES</span> /opt/modules
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2375,7 +2380,15 @@ with a input software name:</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ ebF Intel
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>$ ebF Intel
 
 <span class="nv">ebF_PATH</span><span class="o">=</span>/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs
 
@@ -2384,7 +2397,7 @@ IntelClusterChecker-2017.1.016.eb
 
 <span class="o">======</span> <span class="nv">$ebF_PATH</span>/c/CrayIntel/
 CrayIntel-2015.06.eb  CrayIntel-2015.11.eb  CrayIntel-2016.06.eb
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2399,7 +2412,28 @@ all:</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ ebF -i Intel
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code>$ ebF -i Intel
 
 <span class="nv">ebF_PATH</span><span class="o">=</span>/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs
 
@@ -2421,7 +2455,7 @@ CrayIntel-2015.06.eb  CrayIntel-2015.11.eb  CrayIntel-2016.06.eb
 
 <span class="o">======</span> <span class="nv">$ebF_PATH</span>/__archive__/i/intel-para/
 intel-para-2014.12.eb
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2434,7 +2468,19 @@ and would like to list less eb files, you can use -w option:</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ ebF -w intel
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code>$ ebF -w intel
 
 <span class="nv">ebF_PATH</span><span class="o">=</span>/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs
 
@@ -2447,7 +2493,7 @@ intel-2015.02.eb  intel-2016.01.eb  intel-2016.03-GCC-5.4.eb  intel-2017.02.eb  
 
 <span class="o">======</span> <span class="nv">$ebF_PATH</span>/__archive__/i/intel-para/
 intel-para-2014.12.eb
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2461,7 +2507,16 @@ at the end of the software name:</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ ebF -w intel$
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>$ ebF -w intel$
 
 <span class="nv">ebF_PATH</span><span class="o">=</span>/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs
 
@@ -2471,7 +2526,7 @@ intel-2014.10.eb  intel-2015a.eb    intel-2016.02-GCC-5.3.eb  intel-2016b.eb    
 intel-2014.11.eb  intel-2015b.eb    intel-2016.03-GCC-4.9.eb  intel-2017.00.eb  intel-2017b.eb
 intel-2014b.eb    intel-2016.00.eb  intel-2016.03-GCC-5.3.eb  intel-2017.01.eb  intel-2018.00.eb
 intel-2015.02.eb  intel-2016.01.eb  intel-2016.03-GCC-5.4.eb  intel-2017.02.eb  intel-2018.01.eb
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2496,7 +2551,32 @@ use the name without the path:</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ ebS intel-2018a.eb
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code>$ ebS intel-2018a.eb
 <span class="o">==</span> temporary log file <span class="k">in</span> <span class="k">case</span> of crash /tmp/eb-lxUlvt/easybuild-maTXAl.log
 <span class="o">==</span> resolving dependencies ...
 <span class="o">==</span> processing EasyBuild easyconfig /opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs/i/intel/intel-2018a.eb
@@ -2522,7 +2602,7 @@ use the name without the path:</p>
 <span class="o">==</span> Build succeeded <span class="k">for</span> <span class="m">1</span> out of <span class="nv">1</span>
 <span class="o">==</span> Temporary log file<span class="o">(</span>s<span class="o">)</span> /tmp/eb-lxUlvt/easybuild-maTXAl.log* have been removed.
 <span class="o">==</span> Temporary directory /tmp/eb-lxUlvt has been removed.
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2541,7 +2621,34 @@ input of a eb file name as ebS command:</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ ebM intel-2018a.eb
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code>$ ebM intel-2018a.eb
 <span class="o">==</span> temporary log file <span class="k">in</span> <span class="k">case</span> of crash /tmp/eb-ZTyyR3/easybuild-XiMfNO.log
 <span class="o">==</span> resolving dependencies ...
 <span class="o">==</span> processing EasyBuild easyconfig /opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs/i/intel/intel-2018a.eb
@@ -2569,7 +2676,7 @@ input of a eb file name as ebS command:</p>
 <span class="o">==</span> Build succeeded <span class="k">for</span> <span class="m">1</span> out of <span class="nv">1</span>
 <span class="o">==</span> Temporary log file<span class="o">(</span>s<span class="o">)</span> /tmp/eb-ZTyyR3/easybuild-XiMfNO.log* have been removed.
 <span class="o">==</span> Temporary directory /tmp/eb-ZTyyR3 has been removed.
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2583,7 +2690,48 @@ directory:</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ ebM GCCcore-7.2.0.eb
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code>$ ebM GCCcore-7.2.0.eb
 <span class="o">==</span> temporary log file <span class="k">in</span> <span class="k">case</span> of crash /tmp/eb-W5U4vp/easybuild-F9E32g.log
 <span class="o">==</span> resolving dependencies ...
 <span class="o">==</span> processing EasyBuild easyconfig /opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs/g/GCCcore/GCCcore-7.2.0.eb
@@ -2625,7 +2773,7 @@ ERROR: Traceback <span class="o">(</span>most recent call last<span class="o">)<
   File <span class="s2">&quot;/opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_framework-3.5.2-py2.7.egg/easybuild/tools/filetools.py&quot;</span>, line <span class="m">1575</span>, <span class="k">in</span> copy_file
     raise EasyBuildError<span class="o">(</span><span class="s2">&quot;Failed to copy file %s to %s: %s&quot;</span>, path, target_path, err<span class="o">)</span>
 EasyBuildError: <span class="s2">&quot;Failed to copy file /opt/software/EasyBuild/3.5.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.5.2-py2.7.egg/easybuild/easyconfigs/g/GCCcore/GCCcore-7.2.0.eb to /opt/software/GCCcore/7.2.0/easybuild/GCCcore-7.2.0.eb: [Errno 1] Operation not permitted: &#39;/opt/software/GCCcore/7.2.0/easybuild/GCCcore-7.2.0.eb&#39;&quot;</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2636,8 +2784,8 @@ EasyBuildError: <span class="s2">&quot;Failed to copy file /opt/software/EasyBui
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ rm /opt/software/GCCcore/7.2.0/easybuild/GCCcore-7.2.0.eb
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ rm /opt/software/GCCcore/7.2.0/easybuild/GCCcore-7.2.0.eb
+</code></pre></div></td></tr></table></div>
 
 </div>
 

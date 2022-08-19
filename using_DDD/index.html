@@ -2420,23 +2420,31 @@
 <h3 id="getting-started">Getting started</h3>
 <p>To use DDD, we need a program to debug. Let's use the following code.</p>
 <p><strong>debug_ex.c</strong></p>
-<pre><code>#include &lt;stdio.h&gt;
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>#include &lt;stdio.h&gt;
 
 int main(int argc, char** argv){
   for(int i = 0; i &lt; 10; i++){
     int j = i*i;
-    printf("%d ", j);
+    printf(&quot;%d &quot;, j);
   }
-  printf("\n");
+  printf(&quot;\n&quot;);
 }
-</code></pre>
+</code></pre></div></td></tr></table></div>
 <h3 id="basic-steps">Basic steps</h3>
 <p>First, you need to compile this code with -g option to include the debug symbols such as</p>
-<pre><code>gcc -g debug_ex.c -o debug_ex
-</code></pre>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>gcc -g debug_ex.c -o debug_ex
+</code></pre></div></td></tr></table></div>
 <p>Now, run the DDD with an executable such as</p>
-<pre><code>ddd debug_ex
-</code></pre>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ddd debug_ex
+</code></pre></div></td></tr></table></div>
 <p>Even though you open an executable such as <strong>debug_ex</strong>, but the DDD will show the source file name such as <strong>debug_ex.c</strong>.</p>
 <p><img alt="Screenshot 1" src="../attachments/using_ddd/ddd_02.png" /></p>
 <p>Breakpoints stop your program in the middle of running to examine the current state of variables and data structures.  You can continue from where you set the breakpoint to finish program execution. To set a breakpoint, double click to the left of the source line in the source window. A STOP icon will appear next to it. Click Run to start execution.</p>

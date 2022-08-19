@@ -2303,7 +2303,19 @@ machine (the file name should be <strong>config</strong>). The following is an
 example config file which defines intel18 and k80 dev node. With this
 file, you can connect a dev node from your local machine with 'ssh
 intel18' or 'ssh k80'.</p>
-<div class="highlight"><pre><span></span><code>Host gateway
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code>Host gateway
     HostName gateway.hpcc.msu.edu
     User here_you_put_your_net_id
 
@@ -2316,7 +2328,7 @@ Host k80
     HostName dev-intel16-k80
     User here_you_put_your_net_id
     ProxyJump gateway
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p><strong>config</strong> example</p>
 <p>Now you can just type the name of host to connect.</p>
 <p><img alt="img!" src="../attachments/58785983/58785984.png" /></p>
@@ -2326,17 +2338,17 @@ you don't have to type your password when you login.</p>
 <p>Instead of using ProxyJump, you can use port forwarding. For this
 method, you need to open two terminals on your local machine.</p>
 <p>1st terminal (left in the picture): type </p>
-<pre><code>ssh -L 1234:dev-intel18:22 &lt;your_net_id&gt;@gateway.hpcc.msu.edu
-</code></pre>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh -L 1234:dev-intel18:22 &lt;your_net_id&gt;@gateway.hpcc.msu.edu
+</code></pre></div></td></tr></table></div>
 <p>You can change 1234 to any number larger than 1024 (1234 here is a port
 number you are using). You can change dev-intel18 to any dev-node name,
 but 22 (port number of dev node) should be remained. For example, </p>
-<pre><code>ssh -L 4321:dev-intel16:22 &lt;your_net_id&gt;@gateway.hpcc.msu.edu
-</code></pre>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh -L 4321:dev-intel16:22 &lt;your_net_id&gt;@gateway.hpcc.msu.edu
+</code></pre></div></td></tr></table></div>
 <p>is also working.</p>
 <p>2nd terminal (right in the picture): type </p>
-<pre><code>ssh -p 1234 &lt;your_net_id&gt;@localhost
-</code></pre>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh -p 1234 &lt;your_net_id&gt;@localhost
+</code></pre></div></td></tr></table></div>
 <p>If it is the first time, it would request connection confirmation. type
 yes. Then you will arrive a dev-node on the 2nd terminal.</p>
 <p><img alt="img!" src="../attachments/58785983/58785985.png" /></p>

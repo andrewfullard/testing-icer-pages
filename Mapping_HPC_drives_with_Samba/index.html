@@ -2361,7 +2361,28 @@ paths of your home and research space:</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ ml powertools                    <span class="c1"># if powertools is not loaded</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code>$ ml powertools                    <span class="c1"># if powertools is not loaded</span>
 $ show-samba-paths
 
   HOME      <span class="p">|</span>        Samba <span class="nv">Path</span>
@@ -2383,7 +2404,7 @@ $ show-samba-paths
 ------------------+------------------------------------------------------------
   education-data  <span class="p">|</span>  <span class="se">\\</span>ufs-12-b.hpcc.msu.edu<span class="se">\e</span>ducation-data          <span class="o">(</span>Windows<span class="o">)</span>
                   <span class="p">|</span>  smb://ufs-12-b.hpcc.msu.edu/education-data          <span class="o">(</span>Mac<span class="o">)</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2461,8 +2482,8 @@ Video Tutorial - Map Home directory using Windows
 
         <div class="codeContent panelContent pdl">
 
-        <div class="highlight"><pre><span></span><code>Set-ItemProperty -Path <span class="s2">&quot;HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters&quot;</span> SMB1 -Type DWORD -Value <span class="m">0</span> -Force
-</code></pre></div>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Set-ItemProperty -Path <span class="s2">&quot;HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters&quot;</span> SMB1 -Type DWORD -Value <span class="m">0</span> -Force
+</code></pre></div></td></tr></table></div>
 
         </div>
 
@@ -2476,8 +2497,8 @@ Video Tutorial - Map Home directory using Windows
 
         <div class="codeContent panelContent pdl">
 
-        <div class="highlight"><pre><span></span><code>Set-ItemProperty -Path <span class="s2">&quot;HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters&quot;</span> SMB2 -Type DWORD -Value <span class="m">1</span> -Force
-</code></pre></div>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Set-ItemProperty -Path <span class="s2">&quot;HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters&quot;</span> SMB2 -Type DWORD -Value <span class="m">1</span> -Force
+</code></pre></div></td></tr></table></div>
 
         </div>
 
@@ -2647,8 +2668,8 @@ samba V1 they will stop working. In this case please use SSHFS .
 
     <div class="codeContent panelContent pdl">
 
-    <div class="highlight"><pre><span></span><code>Set-ItemProperty -Path <span class="s2">&quot;HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters&quot;</span> SMB1 -Type DWORD -Value <span class="m">0</span> -Force
-</code></pre></div>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Set-ItemProperty -Path <span class="s2">&quot;HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters&quot;</span> SMB1 -Type DWORD -Value <span class="m">0</span> -Force
+</code></pre></div></td></tr></table></div>
 
     </div>
 
@@ -2661,8 +2682,8 @@ samba V1 they will stop working. In this case please use SSHFS .
 
     <div class="codeContent panelContent pdl">
 
-    <div class="highlight"><pre><span></span><code>Set-ItemProperty -Path <span class="s2">&quot;HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters&quot;</span> SMB2 -Type DWORD -Value <span class="m">1</span> -Force
-</code></pre></div>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Set-ItemProperty -Path <span class="s2">&quot;HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters&quot;</span> SMB2 -Type DWORD -Value <span class="m">1</span> -Force
+</code></pre></div></td></tr></table></div>
 
     </div>
 
@@ -2788,16 +2809,16 @@ samba V1 they will stop working.
 <li>
 <p>Disable Samba V1 by entering the following command into the windows
     power shell. </p>
-<pre><code>Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 -Force
-</code></pre>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Set-ItemProperty -Path &quot;HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters&quot; SMB1 -Type DWORD -Value 0 -Force
+</code></pre></div></td></tr></table></div>
 </li>
 <li>
 <p>Ensure SMB V2 and SMB V3 are enabled by entering the follwoing
     command.  In the past, on some versions of windows and for some file
     systems we recommended the opposite of this setting.  Running this
     ensures it's enabled again. </p>
-<pre><code>Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB2 -Type DWORD -Value 1 -Force
-</code></pre>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Set-ItemProperty -Path &quot;HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters&quot; SMB2 -Type DWORD -Value 1 -Force
+</code></pre></div></td></tr></table></div>
 </li>
 <li>
 <p>Navigate to "Computer" and click on the text labeled "Map Network
@@ -2856,7 +2877,70 @@ also have to Disable SMBV1 and Enable SMB2 per instructions above. </p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code># to show all mapped connections/drives
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span></pre></div></td><td class="code"><div><pre><span></span><code># to show all mapped connections/drives
 # use &#39;net use&#39;
 
 C:\Documents and Settings\Administrator&gt;net use
@@ -2920,7 +3004,7 @@ The command completed successfully.
 
 
 C:\Documents and Settings\Administrator&gt;
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2947,16 +3031,16 @@ C:\Documents and Settings\Administrator&gt;
 <li>
 <p>Install smb-client</p>
 <p><strong>Ubuntu / Debian</strong></p>
-<pre><code>apt install smbclient
-</code></pre>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>apt install smbclient
+</code></pre></div></td></tr></table></div>
 <p><strong>Red Hat / Fedora</strong></p>
-<pre><code>yum install samba-client
-</code></pre>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>yum install samba-client
+</code></pre></div></td></tr></table></div>
 </li>
 <li>
 <p>Edit /etc/samba/smb.conf</p>
-<pre><code>sudo vi  /etc/samba/smb.conf
-</code></pre>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo vi  /etc/samba/smb.conf
+</code></pre></div></td></tr></table></div>
 </li>
 <li>
 <p>Add the following lines to disable samba V1</p>
@@ -2964,9 +3048,10 @@ C:\Documents and Settings\Administrator&gt;
 the drive. If you have other mounts on on the HPC cluster and they
 are using samba V1 they will stop working. In this case please use
 SSHFS .</p>
-<pre><code>client min protocol = SMB2
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>client min protocol = SMB2
 client max protocol = SMB3
-</code></pre>
+</code></pre></div></td></tr></table></div>
 </li>
 </ol>
 <h1 id="ubuntu-mount-example">Ubuntu Mount Example</h1>

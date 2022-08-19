@@ -2435,10 +2435,12 @@ the installation with</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ singularity pull shub://vsoch/hello-world
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$ singularity pull shub://vsoch/hello-world
 INFO:    Downloading shub image
  <span class="m">59</span>.75 MiB / <span class="m">59</span>.75 MiB <span class="o">[========================================================================================]</span> <span class="m">100</span>.00% <span class="m">10</span>.46 MiB/s 5s
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2453,7 +2455,62 @@ overview of Singularity options and subcommands as follows:</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ singularity --help
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span></pre></div></td><td class="code"><div><pre><span></span><code>$ singularity --help
 
 Linux container platform optimized <span class="k">for</span> High Performance Computing <span class="o">(</span>HPC<span class="o">)</span> and
 Enterprise Performance Computing <span class="o">(</span>EPC<span class="o">)</span>
@@ -2509,7 +2566,7 @@ Examples:
 
 
 For additional <span class="nb">help</span> or support, please visit https://www.sylabs.io/docs/
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2521,7 +2578,61 @@ about subcommands. For example, to see the <strong>pull</strong> command help,</
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ singularity <span class="nb">help</span> pullPull an image from a URI
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span></pre></div></td><td class="code"><div><pre><span></span><code>$ singularity <span class="nb">help</span> pullPull an image from a URI
 
 Usage:
 singularity pull <span class="o">[</span>pull options...<span class="o">]</span> <span class="o">[</span>output file<span class="o">]</span> &lt;URI&gt;
@@ -2576,7 +2687,7 @@ $ singularity pull image.sif oras://&lt;username&gt;.azurecr.io/namespace/image:
 
 
 For additional <span class="nb">help</span> or support, please visit https://www.sylabs.io/docs/
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2610,10 +2721,12 @@ registries.</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ singularity pull library://sylabsed/linux/alpine
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$ singularity pull library://sylabsed/linux/alpine
 INFO:    Downloading library image
  <span class="m">2</span>.08 MiB / <span class="m">2</span>.08 MiB <span class="o">[===========================================================================================]</span> <span class="m">100</span>.00% <span class="m">4</span>.74 MiB/s 0s
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2624,10 +2737,12 @@ INFO:    Downloading library image
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ singularity pull --name my_alpine.sif library://sylabsed/linux/alpine
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$ singularity pull --name my_alpine.sif library://sylabsed/linux/alpine
 INFO:    Downloading library image
  <span class="m">2</span>.08 MiB / <span class="m">2</span>.08 MiB <span class="o">[===========================================================================================]</span> <span class="m">100</span>.00% <span class="m">9</span>.65 MiB/s 0s
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2640,7 +2755,17 @@ INFO:    Downloading library image
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ singularity pull docker://alpine
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>$ singularity pull docker://alpine
 INFO:    Converting OCI blobs to SIF format
 INFO:    Starting build...
 Getting image <span class="nb">source</span> signatures
@@ -2651,7 +2776,7 @@ Storing signatures
 <span class="m">2020</span>/08/20 <span class="m">15</span>:53:52  info unpack layer: sha256:df20fa9351a15782c64e6dddb2d4a6f50bf6d3688060a34c4014b0d9a752eb4c
 INFO:    Creating SIF file...
 INFO:    Build complete: alpine_latest.sif
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2666,8 +2791,8 @@ commands.</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ singularity pull library://sylabsed/examples/lolcow
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ singularity pull library://sylabsed/examples/lolcow
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2680,9 +2805,10 @@ and interact with it as if it is a virtual machine.</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code><span class="nv">$singularity</span> shell lolcow_latest.sif
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$singularity</span> shell lolcow_latest.sif
   Singularity&gt;
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2695,9 +2821,10 @@ system.</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>Singularity&gt;whoami
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Singularity&gt;whoami
 choiyj
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2708,9 +2835,10 @@ choiyj
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>Singularity&gt;exit
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Singularity&gt;exit
 $
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2724,7 +2852,15 @@ cowsay program within the lolcow_latest.sif container:</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ singularity <span class="nb">exec</span> lolcow_latest.sif cowsay container camp rocks
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>$ singularity <span class="nb">exec</span> lolcow_latest.sif cowsay container camp rocks
 ______________________
 &lt; container camp rocks &gt;
  ----------------------
@@ -2733,7 +2869,7 @@ ______________________
             <span class="o">(</span>__<span class="o">)</span><span class="se">\ </span>      <span class="o">)</span><span class="se">\/\</span>
                 <span class="o">||</span>----w <span class="p">|</span>
                 <span class="o">||</span>     <span class="o">||</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2744,7 +2880,15 @@ ______________________
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>Singularity&gt;  cowsay container camp rocks
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>Singularity&gt;  cowsay container camp rocks
  ______________________
 &lt; container camp rocks &gt;
  ----------------------
@@ -2753,7 +2897,7 @@ ______________________
             <span class="o">(</span>__<span class="o">)</span><span class="se">\ </span>      <span class="o">)</span><span class="se">\/\</span>
                 <span class="o">||</span>----w <span class="p">|</span>
                 <span class="o">||</span>     <span class="o">||</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2768,7 +2912,16 @@ the container as though it were an executable.</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ singularity run lolcow_latest.sif
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>$ singularity run lolcow_latest.sif
  _________________________________________
 / You<span class="err">&#39;</span>re ugly and your mother dresses you <span class="se">\</span>
 <span class="se">\ </span>funny.                                  /
@@ -2778,7 +2931,7 @@ the container as though it were an executable.</p>
             <span class="o">(</span>__<span class="o">)</span><span class="se">\ </span>      <span class="o">)</span><span class="se">\/\</span>
                 <span class="o">||</span>----w <span class="p">|</span>
                 <span class="o">||</span>     <span class="o">||</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2791,7 +2944,14 @@ as tarballs:</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ ls ~/.singularity
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>$ ls ~/.singularity
 cache/  docker/  metadata/
 $ ls .singularity/docker/
 sha256:0efe07335a049e6afcd757db2d17ba37a12b717eb807acb03ddf3cd756b9fc2a.tar.gz
@@ -2799,7 +2959,7 @@ sha256:43a98c1873995475a895f3d79f405232ef5230076b3f610c949c2e8341743af7.tar.gz
 sha256:6b1bb01b3a3b72463ae8ac5666d57b28f1a21d5256271910ac8df841aa04ecd1.tar.gz
 sha256:c2ca09a1934b951505ecc4d6b2e4ab7f9bf27bcdfb8999d0181deca74daf7683.tar.gz
 sha256:d6c3619d2153ffdefa4a9c19f15c5d566ce271b397a84537baa9ee45b24178f2.tar.gz
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2811,10 +2971,12 @@ location on your localhost as following:</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ mkdir -p <span class="nv">$SCRATCH</span>/singularity_tmp
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$ mkdir -p <span class="nv">$SCRATCH</span>/singularity_tmp
 $ mkdir -p <span class="nv">$SCRATCH</span>/singularity_scratch
 $ <span class="nv">SINGULARITY_TMPDIR</span><span class="o">=</span><span class="nv">$SCRATCH</span>/singularity_scratch <span class="nv">SINGULARITY_CACHEDIR</span><span class="o">=</span><span class="nv">$SCRATCH</span>/singularity_tmp singularity --debug pull --name ubuntu-tmpdir.sif docker://ubuntu
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2830,8 +2992,8 @@ command:</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ singularity build --sandbox ubuntu-latest/  docker://ubuntu
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ singularity build --sandbox ubuntu-latest/  docker://ubuntu
+</code></pre></div></td></tr></table></div>
 
 </div>
 
@@ -2845,8 +3007,8 @@ when you start a container.</p>
 
 <div class="codeContent panelContent pdl">
 
-<div class="highlight"><pre><span></span><code>$ singularity shell --writable ubuntu-latest/
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ singularity shell --writable ubuntu-latest/
+</code></pre></div></td></tr></table></div>
 
 </div>
 

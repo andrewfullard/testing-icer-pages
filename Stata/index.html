@@ -2317,15 +2317,36 @@
 Stata is not available by default, but it may be load easily using this
 command  (note you must type Stata with a capital 'S'</p>
 <p><strong>run stata batch</strong></p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span>$ module load Stata
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span>$ module load Stata
+</code></pre></div></td></tr></table></div>
 <p>This loads Stata SE version 15.  This is equivalent to using the command</p>
-<pre><code>[hpc@dev-intel18 ~]$ module load Stata/15.0.SE
-</code></pre>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[hpc@dev-intel18 ~]$ module load Stata/15.0.SE
+</code></pre></div></td></tr></table></div>
 <p>Stata has a command line version and a GUI (windowed) version.    To use
 the command line, type stata at the prompt.    You will see this :</p>
 <p><strong>Using Stata command line</strong></p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span>$ module load Stata
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span>$ module load Stata
 <span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span>$ stata
 
   ___  ____  ____  ____  ____ <span class="o">(</span>R<span class="o">)</span>
@@ -2347,14 +2368,14 @@ Notes:
       <span class="m">1</span>.  Unicode is supported<span class="p">;</span> see <span class="nb">help</span> unicode_advice.
 
 .
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>In which you may type Stata commands.  Type 'exit' to quit this
 version. </p>
 <p>To run a Stata do file from the command line in 'batch', you use the
 syntax</p>
 <p><strong>run stata batch</strong></p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span><span class="nv">$stata</span> -b <span class="k">do</span> dofilename.do
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span><span class="nv">$stata</span> -b <span class="k">do</span> dofilename.do
+</code></pre></div></td></tr></table></div>
 <h4 id="versions">Versions</h4>
 <p>Stata comes in several versions: IC, SE, and MP; see
 <a href="https://www.stata.com/products/which-stata-is-right-for-me/">https://www.stata.com/products/which-stata-is-right-for-me/</a>
@@ -2364,15 +2385,18 @@ restrictions (see below).     While the default version of Stata
 available when you load the module is Stata/SE, you currently have to
 use the command 'stata-se' to start the 'SE' version</p>
 <p><strong>run stata-se interactive session</strong></p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span><span class="nv">$module</span> load Stata/15.0.SE
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span><span class="nv">$module</span> load Stata/15.0.SE
 <span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span><span class="nv">$stata</span>-se  <span class="c1"># to run the interactive version</span>
 <span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span><span class="nv">$stata</span>-se -b <span class="k">do</span> dofilename.do  <span class="c1"># to run a do file </span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>However, to use the "MP" Version, you must load it explicitly. </p>
 <p><strong>run stata-mp interactive session</strong></p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span>$ module load Stata/15.0.MP
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span>$ module load Stata/15.0.MP
 <span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span>$ stata-mp
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>Note that even if you load Stata/MP or SE module, as above, if you just
 use the command 'stata' it will load the IC version.   To see which
 version of Stata you are current in, use the "about" command at the dot
@@ -2390,9 +2414,10 @@ via web site</a> ).
 Once an X11 or remote desktop client is connected, you can run xstata on
 a dev node:</p>
 <p><strong>run stata-mp interactive session</strong></p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span>$ module load Stata
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span>$ module load Stata
 <span class="o">[</span>hpc@dev-intel18 ~<span class="o">]</span>$ xstata
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p><img alt="img!" src="../attachments/11896244/11896243.png" /></p>
 <h4 id="variables-limits">Variables Limits</h4>
 <p>Even if you load the MP or SE versions, Stata limits the number of
@@ -2400,8 +2425,8 @@ variables to 5000 unless you tell it otherwise.    For information use
 the help set_maxvar command at the dot prompt.   You can set the maxvar
 for your session or in your do file with (for example to 6000)</p>
 <p><strong>run stata batch</strong></p>
-<div class="highlight"><pre><span></span><code>. <span class="nb">set</span> maxvar <span class="m">6000</span>
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>. <span class="nb">set</span> maxvar <span class="m">6000</span>
+</code></pre></div></td></tr></table></div>
 <p>There are other settings related to memory usage which are important as
 Stata attempts to be very conservative.  For more information use the
 Stata "memory" command</p>
@@ -2410,14 +2435,20 @@ Stata "memory" command</p>
 running jobs.  To copy a working example of Stata job file into your 
 home directory, you can use our getexample tool</p>
 <p><strong>Getting Stata Example</strong></p>
-<div class="highlight"><pre><span></span><code>module load powertools
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>module load powertools
 <span class="nb">cd</span> ~
 getexample STATA_example
 <span class="nb">cd</span> STATA_example
 
 <span class="c1"># look into the README file in this folder for details</span>
 cat README
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <h3 id="more-helps">More helps</h3>
 <p>For questions requiring deeper knowledge of statistics,  users could
 contact CSTAT services at 

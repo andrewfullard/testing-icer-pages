@@ -2287,7 +2287,28 @@
 <p>Here is a simple job script <code>g16.sb</code> for running Gaussian job
 <code>g16.com</code>:</p>
 <p><strong>g16.sb</strong></p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash --login</span>
 
 <span class="c1">#SBATCH –-job-name=GaussianJob</span>
 <span class="c1">#SBATCH –-ntasks=1</span>
@@ -2309,7 +2330,7 @@ scontrol show job <span class="nv">$SLURM_JOB_ID</span>
 
 <span class="c1"># Print out resource usage  </span>
 js -j <span class="nv">$SLURM_JOB_ID</span>           <span class="c1">### powetools command</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>where the Gaussian input file <code>g16.com</code> can be found from the previous
 section <a href="https://wiki.hpcc.msu.edu/display/ITH/Running+Gaussian+by+Command+Lines">Running Gaussian by Command Lines</a>.</p>
 <p>For the resource request (<code>#SBATCH</code> lines) above, since Gaussian

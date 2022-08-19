@@ -2516,11 +2516,14 @@ recently used HPCC resources. Due to the policy, if users had jobs
 running with many resources recently, their current pending jobs might
 wait longer than before. Users can find the FAIRSHARE contribution to a
 job priority by running command "<code>sprio -u $USER</code>":</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>UserID@dev-intel18 UserID<span class="o">]</span>$ sprio -u <span class="nv">$USER</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>UserID@dev-intel18 UserID<span class="o">]</span>$ sprio -u <span class="nv">$USER</span>
           JOBID PARTITION     USER   PRIORITY       SITE        AGE  FAIRSHARE        QOS                 TRES
        <span class="m">53381467</span> general-l   UserID      <span class="m">49432</span>          <span class="m">0</span>          <span class="m">0</span>      <span class="m">49318</span>          <span class="m">0</span>       <span class="nv">cpu</span><span class="o">=</span><span class="m">100</span>,mem<span class="o">=</span><span class="m">15</span>
        <span class="m">53381467</span> general-s   UserID      <span class="m">49432</span>          <span class="m">0</span>          <span class="m">0</span>      <span class="m">49318</span>          <span class="m">0</span>       <span class="nv">cpu</span><span class="o">=</span><span class="m">100</span>,mem<span class="o">=</span><span class="m">15</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>where it is found under <code>FAIRSHARE</code> column and the values are between
 60,000 and 0. More resources your jobs used recently, the less the
 values become and so are the priorities of your jobs. For other

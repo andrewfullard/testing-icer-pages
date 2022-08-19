@@ -2304,11 +2304,14 @@ on the desktop just like using your Windows or Mac PC. We can certainly
 do this through Open OnDemand. There are some app icons already created
 in the directory <code>/opt/software/OnDemand/Desktop-Icons</code>, where you can
 see them by listing the folder:</p>
-<div class="highlight"><pre><span></span><code>$ ls /opt/software/OnDemand/Desktop-Icons
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>$ ls /opt/software/OnDemand/Desktop-Icons
 ANSYS.desktop             Dolphin.desktop  GaussView.desktop  Maestro.desktop   rstudio.desktop  tecplot.desktop           VMD.desktop
 chromium-browser.desktop  firefox.desktop  GSEA.desktop       MATLAB.desktop    sas.desktop      Terminal.desktop
 COMSOL.desktop            Fluent.desktop   Jupyter.desktop    Nautilus.desktop  Stata.desktop    User<span class="err">&#39;</span>s Anaconda3.deskto
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>User can easily add the icons to their OnDemand interactive desktop by
 following the sections below.</p>
 <p>[ <a href="#use-command-lines">Use Command Lines</a> ] [ <a href="#use-interactive-desktop">Use Interactive
@@ -2319,9 +2322,10 @@ App Icons</a> ]</p>
 <p>You can simply copy them to your desktop directory <code>~/Desktop</code> .
 For example, if you would like to have MATLAB icon on your OnDemand
 desktop, you can run</p>
-<div class="highlight"><pre><span></span><code>$ mkdir -p ~/Desktop
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$ mkdir -p ~/Desktop
 $ cp /opt/software/OnDemand/Desktop-Icons/MATLAB.desktop ~/Desktop/
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>Once the apps' desktop files are copied, request an 
 <a href="https://ondemand.hpcc.msu.edu/pun/sys/dashboard/batch_connect/sys/bc_icer_desktop/session_contexts/new">Interactive Desktop</a>
 session as mentioned in the
@@ -2345,7 +2349,15 @@ It should show all app icons in the window. Right click on an app icon you would
 <h3 id="create-app-icons">Create App Icons</h3>
 <p>If your favorite app icons are not in the directory, you can try
 to use one them as an example</p>
-<div class="highlight"><pre><span></span><code>$ cat /opt/software/OnDemand/Desktop-Icons/MATLAB.desktop
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>$ cat /opt/software/OnDemand/Desktop-Icons/MATLAB.desktop
 
 <span class="o">[</span>Desktop Entry<span class="o">]</span>
 <span class="nv">Type</span><span class="o">=</span>Application
@@ -2354,12 +2366,14 @@ to use one them as an example</p>
 <span class="nv">Exec</span><span class="o">=</span>bash -c <span class="s2">&quot;module load MATLAB/2018a; matlab -desktop&quot;</span>
 <span class="nv">Terminal</span><span class="o">=</span><span class="nb">false</span>
 <span class="nv">GenericName</span><span class="o">=</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>and modify it. Change the following contents</p>
-<div class="highlight"><pre><span></span><code><span class="nv">Name</span><span class="o">=</span>&lt;Software Name&gt;
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">Name</span><span class="o">=</span>&lt;Software Name&gt;
 <span class="nv">Icon</span><span class="o">=</span>&lt;Location and File name of the Software Icon&gt;
 <span class="nv">Exec</span><span class="o">=</span>&lt;Commands to Run the Software&gt;
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>to your app's. Save the file with your app's file name in <code>~/Desktop</code>
 directory. Every time you launch an Interactive Desktop session, the
 icon shows on your desktop. If you have any question, please

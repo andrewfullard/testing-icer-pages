@@ -2296,13 +2296,18 @@
 <p>After you submit jobs, you can check their information and status
 in the queue. The simplest way is to use <strong>squeue</strong> command to list all
 of your jobs:</p>
-<div class="highlight"><pre><span></span><code>$ squeue -l -u <span class="nv">$USER</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$ squeue -l -u <span class="nv">$USER</span>
 Thu Aug  <span class="m">2</span> <span class="m">14</span>:45:57 <span class="m">2018</span>
              JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST<span class="o">(</span>REASON<span class="o">)</span>
               <span class="m">9405</span> general-s     Job1   nobody  RUNNING       <span class="m">0</span>:32  <span class="m">01</span>:00:00      <span class="m">1</span> lac-198
               <span class="m">9406</span> general-s Rmpi_tes   nobody  RUNNING       <span class="m">0</span>:11     <span class="m">30</span>:00      <span class="m">2</span> lac-<span class="o">[</span><span class="m">386</span>-387<span class="o">]</span>
               <span class="m">9290</span> general-l  LongJob   nobody  PENDING       <span class="m">0</span>:00  <span class="m">36</span>:00:00     <span class="m">40</span> <span class="o">(</span>Resources<span class="o">)</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>where the specification -l report more of the available information and
 -u specify which user's jobs to show. You may find a complete <strong>squeue</strong>
 specifications from
@@ -2311,26 +2316,41 @@ specifications from
 their jobs conveniently. Before using powertools commands, please make
 sure powertools module is loaded. (By default, the module should be
 loaded unless the user purge it.)</p>
-<div class="highlight"><pre><span></span><code>$ module list
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>$ module list
 
 Currently Loaded Modules:
   <span class="m">1</span><span class="o">)</span> powertools/1.2
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>One of the commands <strong>sq</strong> works the same as the above <strong>squeue</strong>
 command:</p>
-<div class="highlight"><pre><span></span><code>$ sq                         <span class="c1"># powertools command</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$ sq                         <span class="c1"># powertools command</span>
 Thu Aug  <span class="m">2</span> <span class="m">14</span>:48:51 <span class="m">2018</span>
              JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST<span class="o">(</span>REASON<span class="o">)</span>
               <span class="m">9405</span> general-s     Job1 username  RUNNING       <span class="m">0</span>:35  <span class="m">01</span>:00:00      <span class="m">1</span> lac-198
               <span class="m">9406</span> general-s Rmpi_tes username  RUNNING       <span class="m">0</span>:14     <span class="m">30</span>:00      <span class="m">2</span> lac-<span class="o">[</span><span class="m">386</span>-387<span class="o">]</span>
               <span class="m">9290</span> general-l  LongJob username  PENDING       <span class="m">0</span>:00  <span class="m">36</span>:00:00     <span class="m">40</span> <span class="o">(</span>Resources<span class="o">)</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>where it shows the job IDs, job partition, job name, username, job
 state, elapsed time, walltime limit, total number of nodes and the node
 list or the waiting reason for the user's each jobs. Users can also use
 <strong>qs</strong> command to see more information ( similar to "qstat -u $USER" in
 Torque):</p>
-<div class="highlight"><pre><span></span><code>$ qs                         <span class="c1"># powertools command</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>$ qs                         <span class="c1"># powertools command</span>
 Thu Aug  <span class="m">2</span> <span class="m">14</span>:49:27 <span class="m">2019</span>
                                                                                         Start_Time/
      JobID         User     Account     Name   Node CPUs  TotMem  Tres   WallTime  ST  Elapsed_Time  NodeList<span class="o">(</span>Reason<span class="o">)</span>
@@ -2338,7 +2358,7 @@ Thu Aug  <span class="m">2</span> <span class="m">14</span>:49:27 <span class="m
     <span class="m">60889405</span>    MyHPCCAcc   general       Job1    <span class="m">1</span>   <span class="m">16</span>      2G  gpu:1    <span class="m">3</span>:55:00  R      <span class="m">1</span>:49:24   lac-198
     <span class="m">60889496</span>    MyHPCCAcc   general  Rmpi_test    <span class="m">2</span>    <span class="m">8</span>   1500M   N/A       <span class="m">30</span>:00  R        <span class="m">29</span>:46   lac-<span class="o">[</span><span class="m">386</span>-387<span class="o">]</span>         
     <span class="m">60889290</span>    MyHPCCAcc  classres    LongJob   <span class="m">40</span>   <span class="m">80</span>    750M  k80:1 <span class="m">3</span>-00:00:00 PD <span class="m">08</span>-03T10:29:41 <span class="o">(</span>Resources<span class="o">)</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>where more items, such as, total number of CPUs, memory, gpu per node
 and job start time (for pending jobs) or elapsed time (for running jobs)
 are shown. For a complete usage of <strong>squeue</strong> command, please refer to
@@ -2347,8 +2367,8 @@ are shown. For a complete usage of <strong>squeue</strong> command, please refer
 <p>Besides the text listing of the jobs, SLURM also offer a command to
 show the <strong>squeue</strong> information with a graphical interface. Use the
 command <strong>sview</strong>:</p>
-<div class="highlight"><pre><span></span><code>$ sview
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ sview
+</code></pre></div></td></tr></table></div>
 <p>You will see an image of a job list displaying all jobs in the queue:</p>
 <p><img alt="img!" src="../attachments/20119992/20120950.png" /></p>
 <p>Click on each job, it will pop out another window and show the detailed

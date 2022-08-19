@@ -2331,11 +2331,11 @@
 
 <h1 id="alphafold-installed-in-hpcc">AlphaFold installed in HPCC</h1>
 <p>To use AlphaFold installed in HPCC, users can use the command:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100 ~<span class="o">]</span>$ ml spider AlphaFold
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100 ~<span class="o">]</span>$ ml spider AlphaFold
+</code></pre></div></td></tr></table></div>
 <p>to find all versions installed in HPCC and use the command:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100 ~<span class="o">]</span>$ ml spider AlphaFold/&lt;version&gt;
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100 ~<span class="o">]</span>$ ml spider AlphaFold/&lt;version&gt;
+</code></pre></div></td></tr></table></div>
 <p>to find how to load a specific AlphaFold version, where <code>&lt;version&gt;</code> is
 the version of AlphaFold to load. All AlphaFold versions use the same
 data structure and
@@ -2347,8 +2347,8 @@ encountered while running AlphaFold, this is mostly due to not enough
 memory in GPU cards (from the python package "jax"). Please try to
 request the high memory GPU card A100 (79GB) to run your AlphaFold jobs.
 You can also set the environment variable:</p>
-<pre><code>export XLA_PYTHON_CLIENT_ALLOCATOR=platform
-</code></pre>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>export XLA_PYTHON_CLIENT_ALLOCATOR=platform
+</code></pre></div></td></tr></table></div>
 <p>to see if the allocated memory is enough or not. Please see 
 <a href="https://jax.readthedocs.io/en/latest/gpu_memory_allocation.html">GPU memory allocation</a>
 for more information.</p>
@@ -2356,12 +2356,31 @@ for more information.</p>
 <p>Users can get an example of AlphaFold to run on HPCC nodes. After
 log into HPCC and ssh to a dev node with GPU cards, users can run the
 powertools command:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100 ~<span class="o">]</span>$ getexample AlphaFold
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100 ~<span class="o">]</span>$ getexample AlphaFold
+</code></pre></div></td></tr></table></div>
 <p>to copy the example directory <code>AlphaFold</code> in the current directory.
 After you cd to the directory, you should be able to see the files
 inside:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100 ~<span class="o">]</span>$ <span class="nb">cd</span> AlphaFold
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100 ~<span class="o">]</span>$ <span class="nb">cd</span> AlphaFold
 <span class="o">[</span>UserName@dev-amd20-v100 AlphaFold<span class="o">]</span>$ ls
 data.fasta  README  slurm_script.sb
 <span class="o">[</span>UserName@dev-amd20-v100 AlphaFold<span class="o">]</span>$ cat slurm_script.sb
@@ -2381,22 +2400,26 @@ alphafold --fasta_paths<span class="o">=</span><span class="nv">$PWD</span>/data
 
 scontrol show job <span class="si">${</span><span class="nv">SLURM_JOBID</span><span class="si">}</span>
 js -j <span class="si">${</span><span class="nv">SLURM_JOBID</span><span class="si">}</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>The job script file <code>slurm_script.sb</code> shows how to load the
 <code>AlphaFold</code> module and run the command <code>alphafold</code>. Since most of
 the specifications and variables have been set in the <code>alphafold</code>
 command script and the module file, 5 options:</p>
-<div class="highlight"><pre><span></span><code>--fasta_paths
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>--fasta_paths
 --output_dir
 --preset
 --max_template_date
 --model_names
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>for the job are specified in the command line. Users can look into the
 <a href="https://github.com/deepmind/alphafold">AlphaFold documentation</a>
 or use the commands:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100 AlphaFold<span class="o">]</span>$ alphafold --help
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>UserName@dev-amd20-v100 AlphaFold<span class="o">]</span>$ alphafold --help
+</code></pre></div></td></tr></table></div>
 <p>to find out how to use all options after you load the AlphaFold module.</p>
 
 

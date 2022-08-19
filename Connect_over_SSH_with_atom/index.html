@@ -2290,30 +2290,52 @@
 <p>Configuration: Package → Remote FTP → Create SFTP config file</p>
 <p><img alt="Screenshot 1" src="../attachments/connect_over_ssh_w_atom/ssh_atom_03.png" /></p>
 <p>Edit config files (You need to change, host, user, pass and maybe remote. host: rsync.hpcc.msu.edu, user, pass, and remote: your net it and password, and your home dir path)</p>
-<pre><code>{
-  "protocol": "sftp",
-  "host": "rsync.hpcc.msu.edu",   //
-  "port": 22,
-  "user": "your_net_id",          // your net_id is here
-  "pass": "your_pass_word",       // your password is here
-  "promptForPass": false,
-  "remote": "/",                  // default is root (/). You would like to change it to your home dir path such as /mnt/home/your_net_id or research path
-  "local": "",
-  "agent": "",
-  "privatekey": "",
-  "passphrase": "",
-  "hosthash": "",
-  "ignorehost": true,
-  "connTimeout": 10000,
-  "keepalive": 10000,
-  "keyboardInteractive": false,
-  "keyboardInteractiveForPass": false,
-  "remoteCommand": "",
-  "remoteShell": "",
-  "watch": [],
-  "watchTimeout": 500
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code>{
+  &quot;protocol&quot;: &quot;sftp&quot;,
+  &quot;host&quot;: &quot;rsync.hpcc.msu.edu&quot;,   //
+  &quot;port&quot;: 22,
+  &quot;user&quot;: &quot;your_net_id&quot;,          // your net_id is here
+  &quot;pass&quot;: &quot;your_pass_word&quot;,       // your password is here
+  &quot;promptForPass&quot;: false,
+  &quot;remote&quot;: &quot;/&quot;,                  // default is root (/). You would like to change it to your home dir path such as /mnt/home/your_net_id or research path
+  &quot;local&quot;: &quot;&quot;,
+  &quot;agent&quot;: &quot;&quot;,
+  &quot;privatekey&quot;: &quot;&quot;,
+  &quot;passphrase&quot;: &quot;&quot;,
+  &quot;hosthash&quot;: &quot;&quot;,
+  &quot;ignorehost&quot;: true,
+  &quot;connTimeout&quot;: 10000,
+  &quot;keepalive&quot;: 10000,
+  &quot;keyboardInteractive&quot;: false,
+  &quot;keyboardInteractiveForPass&quot;: false,
+  &quot;remoteCommand&quot;: &quot;&quot;,
+  &quot;remoteShell&quot;: &quot;&quot;,
+  &quot;watch&quot;: [],
+  &quot;watchTimeout&quot;: 500
 }
-</code></pre>
+</code></pre></div></td></tr></table></div>
 <p>Menu activation: Package → Remote FTP → Toggle</p>
 <p><img alt="Screenshot 1" src="../attachments/connect_over_ssh_w_atom/ssh_atom_04.png" /></p>
 <p>Click remote, and connect

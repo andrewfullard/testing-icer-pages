@@ -2382,17 +2382,43 @@ task, you can request memory using <code>--mem-per-cpu=1gb</code></p>
 <h4 id="create-a-temporary-file-for-node-list">Create a temporary file for node list</h4>
 <p>Inside the job, Fluent requires a file of a particular format ,and the
 slurm node file doesn't work.   This seems to work</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># create and save a unique temporary file </span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># create and save a unique temporary file </span>
 <span class="nv">FLUENTNODEFILE</span><span class="o">=</span><span class="sb">`</span>mktemp<span class="sb">`</span>
 <span class="c1"># fill that tmpfile with node list Fluent can use</span>
 scontrol show hostnames &gt; <span class="nv">$FLUENTNODEFILE</span>
 <span class="c1"># in your fluent command, use this parameter</span>
 -cnf<span class="o">=</span><span class="nv">$FLUENTNODEFILE</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>Example fluent Job script (using Intel compiler).   Increase tasks and
 memory as needed</p>
 <p><strong>Ansys/Fluent job</strong></p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/bash --login</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/usr/bin/bash --login</span>
 <span class="c1"># example 1 hour job with ntasks across any number of nodes</span>
 <span class="c1"># adjust the ram and tasks as needed</span>
 <span class="c1">#SBATCH --time=01:00:00</span>
@@ -2414,11 +2440,30 @@ module load ANSYS
 
 
 cfx5solve -def <span class="nv">$DEF_FILE</span> -parallel -par-dist <span class="nv">$NODEFILE</span> -start-method <span class="s2">&quot;Platform MPI Distributed Parallel&quot;</span>&gt; cfx5.log
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>After you have logged into a development nodes with an X11 terminal (or
 use the webrdp gateway as described above),  You may run ANSYS tools in
 parallel and interactively as follows.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># start a approximately 4 hour interactive job with 10 tasks.  Adjust tasks and memory as needed</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># start a approximately 4 hour interactive job with 10 tasks.  Adjust tasks and memory as needed</span>
 <span class="c1"># you&#39;ll have 4 hours to work. You must be in a X11 terminal for this to work</span>
 
  salloc --ntasks<span class="o">=</span><span class="m">10</span> --cpus-per-task<span class="o">=</span><span class="m">1</span> --mem-per-cpu<span class="o">=</span>1gb --time<span class="o">=</span><span class="m">3</span>:59:00 --x11 
@@ -2438,7 +2483,7 @@ runwb2
 <span class="c1"># after running workbench you can start fluent directly</span>
 <span class="c1"># note we are using Intel mpi</span>
 fluent 3ddp -t <span class="nv">$SLURM_NTASKS</span> -mpi<span class="o">=</span>intel -cnf<span class="o">=</span><span class="nv">$FLUENTNODEFILE</span> -ssh
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <h3 id="cfx5-solver">CFX5 Solver</h3>
 <p>This solver uses a different hosts file format for the par-dist
 parameter.  The following uses an example Definition file provided by
@@ -2448,7 +2493,38 @@ specify tasks and tasks-per-node (the example below does not specify
 tasks per node).    Code is taken from
 <a href="https://secure.cci.rpi.edu/wiki/index.php?title=CFX">https://secure.cci.rpi.edu/wiki/index.php?title=CFX</a>.</p>
 <p><strong>CFX5 Solver Example sbatch</strong></p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/bash --login</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/usr/bin/bash --login</span>
 <span class="c1"># example 1 hour job with ntasks across any number of nodes</span>
 <span class="c1"># adjust the ram and tasks as needed</span>
 <span class="c1">#SBATCH --time=01:00:00</span>
@@ -2480,7 +2556,7 @@ rm /tmp/hosts.<span class="nv">$SLURM_JOB_ID</span>
 
 
 <span class="c1"># output will be in a file named like StaticMixer_001.out and StaticMixer_001.res</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 
   

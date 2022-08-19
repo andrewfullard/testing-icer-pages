@@ -2361,7 +2361,14 @@
 <h2 id="installation">Installation</h2>
 <p>To install TensorFlow (the latest stable release) in a python virtual environment, follow the steps below. </p>
 <p><strong>Install TF 1.13.1</strong></p>
-<div class="highlight"><pre><span></span><code>module purge
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
 module load GCC/6.4.0-2.28  OpenMPI/2.1.2
 module load CUDA/10.0.130 cuDNN/7.5.0.56-CUDA-10.0.130 
 module load Python/3.6.4
@@ -2369,7 +2376,7 @@ module load Python/3.6.4
 virtualenv -p python3 tf-1.13.1-env
 <span class="nb">source</span> ~/tf-1.13.1-env/bin/activate
 pip install tensorflow-gpu
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>In the above pip install command, specifying tensorflow-gpu as the package name will install the latest stable release with GPU support. As of May 2019, the latest version is 1.13.1.</p>
 <p>Notes:</p>
 <ol>
@@ -2381,7 +2388,18 @@ pip install tensorflow-gpu
 <p>We will test TF 1.13.1 with the following commands (using <a
 href="https://github.com/tensorflow/models/tree/master/tutorials/image/cifar10_estimator"
 rel="nofollow">this cifar10 estimator tutorial</a>). </p>
-<div class="highlight"><pre><span></span><code>module purge
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
 module load GCC/6.4.0-2.28  OpenMPI/2.1.2
 module load CUDA/10.0.130 cuDNN/7.5.0.56-CUDA-10.0.130 
 module load Python/3.6.4
@@ -2393,7 +2411,7 @@ git clone https://github.com/tensorflow/models.git
 <span class="nb">cd</span> models/tutorials/image/cifar10_estimator
 python generate_cifar10_tfrecords.py --data-dir<span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/cifar-10-data
 python cifar10_main.py --data-dir<span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/cifar-10-data  --job-dir<span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/TMP_cifar10  --num-gpus<span class="o">=</span><span class="m">4</span>  --train-steps<span class="o">=</span><span class="m">1000</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>If you want to submit above commands through a SLURM job script, you
 will need add a directive line of</p>
 <p><code>#SBATCH --gres=gpu:4</code></p>
@@ -2405,7 +2423,30 @@ main part. See tutorial page "Submitting a TensorFlow job" for a job script exam
 <a href="https://www.tensorflow.org/guide/keras"
 rel="nofollow">https://www.tensorflow.org/guide/keras</a>):</p>
 <p><strong>test_keras.py</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -2429,15 +2470,20 @@ rel="nofollow">https://www.tensorflow.org/guide/keras</a>):</p>
 <span class="n">val_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">val_data</span><span class="p">,</span> <span class="n">val_labels</span><span class="p">))</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>To run this code:</p>
-<div class="highlight"><pre><span></span><code>module purge
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>module purge
 module load GCC/6.4.0-2.28  OpenMPI/2.1.2
 module load CUDA/10.0.130 cuDNN/7.5.0.56-CUDA-10.0.130
 module load Python/3.6.4
 <span class="nb">source</span> ~/tf-1.13.1-env/bin/activate
 python test_keras.py
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 
 
   
