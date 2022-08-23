@@ -2300,12 +2300,6 @@
 
 
 <h1 id="mapping-hpc-drives-with-samba">Mapping HPC drives with Samba</h1>
-<!--
-<div>
-
-<div>
--->
-
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <ol>
@@ -2327,58 +2321,25 @@ transferring large data sets, or use our Globus endpoint</p>
 </li>
 </ol>
 </div>
-<!--
-</div>
-
-</div>
-
-
-<div>
-
-<div>
-
-
-</div>
-
-</div>
-
--->
-
 <p>The following tutorial will show you how to map your HPC home or
 research directory using
 <a href="http://en.wikipedia.org/wiki/Cifs" rel="nofollow">SMB or CIFS
 File Sharing</a>.</p>
 <ul>
-<li><a href="#MappingHPCdriveswithSamba-DeterminingyourNetworkPath">Determining your Network
-    Path</a></li>
-<li><a href="#MappingHPCdriveswithSamba-Windows10">Windows 10</a><ul>
-<li><a href="#MappingHPCdriveswithSamba-Step1.EnableNetBIOSoverTCP/IPonWindows:">Step 1. Enable NetBIOS over TCP/IP on
-    Windows:</a></li>
-<li><a href="#MappingHPCdriveswithSamba-Step2.DisableSMB1">Step 2. Disable
-    SMB1</a><ul>
-<li><a href="#MappingHPCdriveswithSamba-DisableSambaV1protocolwithPowerShell">Disable Samba V1 protocol with
-    PowerShell</a></li>
+<li><a href="#determining-your-network-path">Determining your Network Path</a></li>
+<li><a href="#windows-10">Windows 10</a><ul>
+<li><a href="#command-line-windows-netbios-commands">Command-line Windows NetBIOS Commands</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#MappingHPCdriveswithSamba-Command-lineWindowsNetBIOSCommands">Command-line Windows NetBIOS
-    Commands</a></li>
-<li><a href="#MappingHPCdriveswithSamba-MacOSExample">MacOS Example</a></li>
-<li><a href="#MappingHPCdriveswithSamba-Linux">Linux</a></li>
-<li><a href="#MappingHPCdriveswithSamba-UbuntuMountExample">Ubuntu Mount
-    Example</a></li>
-<li><a href="#MappingHPCdriveswithSamba-UbuntuExample(OlderVersions)">Ubuntu Example (Older
-    Versions)</a></li>
-<li><a href="#MappingHPCdriveswithSamba-MoreInformation:">More Information:</a></li>
+<li><a href="#macos-example">MacOS Example</a></li>
+<li><a href="#linux">Linux</a></li>
+<li><a href="#ubuntu-mount-example">Ubuntu Mount Example</a></li>
+<li><a href="#ubuntu-example-older-versions">Ubuntu Example (Older Versions)</a></li>
+<li><a href="#more-information">More Information</a></li>
 </ul>
 <h1 id="determining-your-network-path">Determining your Network Path</h1>
 <p>We have the powertools command <strong><code>show-samba-paths</code></strong> to show all
 paths of your home and research space:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2423,11 +2384,6 @@ $ show-samba-paths
   education-data  <span class="p">|</span>  <span class="se">\\</span>ufs-12-b.hpcc.msu.edu<span class="se">\e</span>ducation-data          <span class="o">(</span>Windows<span class="o">)</span>
                   <span class="p">|</span>  smb://ufs-12-b.hpcc.msu.edu/education-data          <span class="o">(</span>Mac<span class="o">)</span>
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
 <p>where the paths are the same for Mac and Window computers but with
 different formats.</p>
 <!--

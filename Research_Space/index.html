@@ -2384,8 +2384,8 @@ Research Groups: Space    Space   Space     Space     Files     Files     Files 
 </code></pre></div></td></tr></table></div>
 <p>The group's research space is associated with an assigned group name and is located at
 <strong><code>/mnt/research/&lt;groupname&gt;</code></strong> 
-by default. It is accessible to all users who have been added to the group by the PI. Memebers of the group must set their user file mode creation mask and file permissions correctly such that the other group members have the appropriate access to the shared files in the research space. See the section 
-<strong><a href="#Using-a-research-space">Using a research space</a></strong>
+by default. It is accessible to all users who have been added to the group by the PI. Memebers of the group must set their user file mode creation mask and file permissions correctly such that the other group members have the appropriate access to the shared files in the research space. See the section
+<strong><a href="#using-a-research-space">Using a research space</a></strong>
 for more details.  </p>
 <p>All research space files are periodically, automatically backed up (except those files that a group has opted to store in a specially requested
 <strong><code>nodr</code></strong> 
@@ -2395,7 +2395,7 @@ containing the file paths and the period <em>i.e.</em>, the time frame, from whi
 <h3 id="using-a-research-space"><strong>Using a research space</strong></h3>
 <p><strong>To configure a research space such that all group members have the appropriate access to the files and directories contained within, it is important to read and follow the
 instructions below.</strong> </p>
-<p><strong>1. Ensure that all directroies created in a research space have the group ownership set to the
+<p><strong>1. Ensure that all directories created in a research space have the group ownership set to the
 <code>&lt;groupname&gt;</code> 
 and the set-group-ID (setgid) bit set to 
 <code>s</code> in the place of the executable bit on the group sector.</strong> By default, the group's research space 

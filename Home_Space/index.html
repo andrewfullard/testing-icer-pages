@@ -598,9 +598,61 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Home space
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Home space
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#incorrect-used-space" class="md-nav__link">
+    Incorrect Used Space
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#space-quota" class="md-nav__link">
+    Space quota
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actual-disk-usage-du-different-from-quota-results" class="md-nav__link">
+    Actual disk usage (du) different from quota results
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limit-on-number-of-files" class="md-nav__link">
+    Limit on number of files
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2284,6 +2336,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#incorrect-used-space" class="md-nav__link">
+    Incorrect Used Space
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#space-quota" class="md-nav__link">
+    Space quota
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actual-disk-usage-du-different-from-quota-results" class="md-nav__link">
+    Actual disk usage (du) different from quota results
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limit-on-number-of-files" class="md-nav__link">
+    Limit on number of files
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2300,21 +2388,44 @@
 
 
 <h1 id="home-space">Home Space</h1>
-<p>A user's home directory, or <strong>home space</strong>, is a private directory with a 
-default setting of accessable only to the user. To <strong>maintain user data 
-privacy</strong>, ICER strongly recommends that users <strong>do NOT open home space 
-access permission to other users</strong>. ICER staff does not access any files 
-in a user's home directory. A home space is automatically created for each 
-user when the HPCC account is activated.</p>
-<p>The initial limit on stroage is <strong>50GB</strong> and the initial 
-limit on the number of files conatined in the home space is <strong>1,000,000 files</strong>. 
-A user may request an increase in storage of up to 1TB of space at no cost by submitting a 
-<strong><a href="https://contact.icer.msu.edu/quota">Quota Increase Request</a></strong>
-form or an increase beyond 1TB for an annual fee by submitting a
-<strong><a href="https://contact.icer.msu.edu/large_quota">Large Quota Increase Request</a></strong>
-form. Use the 
-<strong><code>quota</code></strong>
-command to check the current space and file quotas. </p>
+<p>Each user account is given a home space for personal file storage.
+By default, It is set only accessible to the user and located at
+<code>/mnt/home/$USER</code> for every node, where <code>$USER</code> is the environment
+variable of the user's login name. It is often referred as “home
+directory” since this is the beginning directory after login of any HPCC
+node.</p>
+<p>Every home space starts with a 50 GB limit for file storage space
+and can not contain more than 1 million files. You can request and
+increase this up to 1TB by completing
+<a href="https://contact.icer.msu.edu/quota" rel="nofollow">Quota
+Increase Request</a> form. Storage space greater than 1TB is available
+for an annual fee paid through a MSU financial account. Users can find
+the fee and submit their request by
+<a href="https://contact.icer.msu.edu/large_quota" rel="nofollow">Large
+Quota Increase Request</a> form. To find out the quota and used space of
+your home directory, please check <strong>Space quota</strong> section. If you would
+like to store more than 1 million files in your home space, please refer
+to the following section <strong>Limit on number of files</strong>.</p>
+<p>All home directories are stored in the IBM General Parallel File
+System (GPFS) mounted on /mnt/ufs18. It is automatically backed-up
+except files saved in <strong><code>nodr</code></strong> space. To restore any file from backup,
+please submit a ticket and let us know the paths to the files or the
+directory with the time frame you would like them restored. To learn
+more information, please check the documentation of <a href="../ufs18_File_Systems/">ufs18 file system</a>.</p>
+<p>For the system security and user data privacy, we recommend that
+users do NOT open HOME directory access permission to others. When you
+report an issue about files saved in HOME, please attach them to your
+message for reference. ICER staffs do not access any files or
+directories in your home directory.</p>
+<h3 id="incorrect-used-space">Incorrect Used Space</h3>
+<p>Currently our home file system check quota function will sometimes cause
+a user's directory over the quota due to incorrect calculation of used
+space .  If you see this please open a ticket and we will work with you
+to temporarily increase your quota.  We continue to work with our vendor
+to correct this issue.</p>
+<h3 id="space-quota">Space quota</h3>
+<p>The only way to get quota information of home space is to run the
+command <code>quota</code> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -2325,9 +2436,42 @@ home directory: Space    Space   Space     Space     Files     Files     Files  
 -----------------------------------------------------------------------------------------------
 /mnt/home/<span class="nv">$USER</span>  50G      32G     18G       <span class="m">64</span>%       <span class="m">1048576</span>   <span class="m">432525</span>    <span class="m">616051</span>    <span class="m">59</span>%
 </code></pre></div></td></tr></table></div>
-<p>A user's home space is located at <code>/mnt/home/$USER</code>, where <code>$USER</code> is the 
-environment variable for the user's NetID, and is the defualt directory 
-after logining into any HPCC node.</p>
+<p>where all file spaces accessible to the user are listed, including home,
+research, scratch and ffs17. In each space, the information of quota,
+usage and availablility on space size and number of files can be found.
+If "Free" or "Available" is a negative value (such as "Space Available"
+in home directory of the above example), the usage is over the quota.
+Please remove, transfer or compress some files so the used space or the
+file count can be lower than the "Quota" value. Since GPFS uses a
+different compression algorithm, you may notice higher space size after
+files are copied to the ufs18 file system.</p>
+<h3 id="actual-disk-usage-du-different-from-quota-results">Actual disk usage (du) different from quota results</h3>
+<p>The new file system has a smallest file block size of 64k. This
+means that files between 2K and 64K will occupy 64K of space. This
+causes space usage inflated greatly for users with large amounts of
+small files. One suggested solution would be to compress many small
+files into one large file (larger than 64K). in this way, the number of
+files can also be reduced. If you still have any difficulty, a
+temporarily larger quota can be requested if your quota is at 1T with
+many small files.</p>
+<h3 id="limit-on-number-of-files">Limit on number of files</h3>
+<p>Besides the quota on the size of space, users are also limited to
+1 million files in their home or research directory. We need to set this
+limit because, with a great number of files, the file system will spend
+too much time on back-up to be able to function normally. If possible,
+users can compress many files into one to reduce the file number.</p>
+<p>If users do not wish to have the limit, they can request to have
+part of their home (or research space) moved under <code>nodr</code> space
+(<code>/mnt/ufs18/nodr/</code> or <code>/mnt/ufs18/nodr/research/</code>) where there is no
+limit on the file count yet no back-up on the files either. <strong>Users will
+be responsible for their own back-up in the <code>nodr</code> space.</strong></p>
+<p>By default, one half of the space quota is assigned to the
+requested <code>nodr</code> space. The quota of the original space under
+<code>/mnt/home/</code> (or <code>/mnt/research/</code>) is then donwsized to its half so the
+total space quota remains the same. A different size of <code>nodr</code> space can
+also be assigned according to user's request. Once this space is
+created, the path and the quota information can be found by the
+<strong><code>quota</code></strong> command mentioned above.</p>
 <p>All home space files are periodically, automatically backed up (except 
 those files that a user has opted to store in a specially requested 
 <strong><code>nodr</code></strong> space). To access file backups, please submit a 
