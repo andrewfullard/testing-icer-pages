@@ -13,7 +13,7 @@
     
     
       
-        <title>Virtual Terminals - MSU HPCC User Documentation</title>
+        <title>Tags - MSU HPCC User Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#virtual-terminals" class="md-skip">
+        <a href="#tags" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                Virtual Terminals
+                Tags
               
             </span>
           </div>
@@ -2243,11 +2243,73 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../tags/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Tags
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Tags
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    explanation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-guide" class="md-nav__link">
+    how-to guide
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial" class="md-nav__link">
+    tutorial
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2279,42 +2341,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gnu-screen" class="md-nav__link">
-    GNU Screen
+  <a href="#explanation" class="md-nav__link">
+    explanation
   </a>
-  
-    <nav class="md-nav" aria-label="GNU Screen">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#screen-commands" class="md-nav__link">
-    Screen Commands
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#detachingreattaching-screen-sessions" class="md-nav__link">
-    Detaching/Reattaching Screen Sessions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#screen-customizations" class="md-nav__link">
-    Screen customizations
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tmux" class="md-nav__link">
-    Tmux
+  <a href="#how-to-guide" class="md-nav__link">
+    how-to guide
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial" class="md-nav__link">
+    tutorial
   </a>
   
 </li>
@@ -2336,175 +2385,24 @@
 
 
 
-<h1 id="virtual-terminals">Virtual Terminals</h1>
-<h3 id="gnu-screen">GNU Screen</h3>
-<p>GNU Screen is a program that allows you to create a virtual terminal
-session inside a single terminal window. It is useful for dealing with
-multiple programs from a command line interface and for separating
-programs from the Unix shell that started the program.</p>
-<p>To start screen, simply type</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>screen
-</code></pre></div></td></tr></table></div>
-<p>at the command prompt. Even if it looks like nothing has happened, you
-are now in a new window within screen.   Describing the details of how
-screen works is beyond the scope of this entry, but it allows you to
-leave a session running even after you've logged out (or disconnected
-because of network issues).  </p>
-<p>One challenge with the 'screen' command is that by default you can't
-load any modules or other system commands.  That's because 'screen' does
-not run the shell profile commands (in /etc/profile and
-/etc/profile.d).  HPCC configures the modules system and several other
-system variables/settings in these profile scripts. Without running
-them, the module system won't work.</p>
-<p>However, you can ask screen to run this profile by including the line
-shell=-$SHELL in the screen config file ".screenrc" in your home
-directory.  To make a screen config file, try this (provided you don't
-already have a .screenrc file)</p>
-<p><strong>create default .screenrc</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span> <span class="s1">&#39;shell -$SHELL&#39;</span> &gt;&gt; ~/.screenrc
-</code></pre></div></td></tr></table></div>
-<p>You'll have to exit and restart screen to see the changes.</p>
-<h4 id="screen-commands">Screen Commands</h4>
-<p>To send commands to screen (instead of the window you're working in),
-you preface them with Ctrl-a, i.e., you type the Ctrl key and "a"
-together, release both keys, then type the next letter to invoke the
-command.</p>
+<h1 id="tags">Tags</h1>
+<p>Docs pages organized by tag.</p>
+<h2 id="explanation"><span class="md-tag">explanation</span></h2>
 <ul>
-<li>
-<p>Ctrl-A then:</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>?</td>
-<td>Display available screen commands</td>
-</tr>
-<tr>
-<td>"</td>
-<td>List running screen windows</td>
-</tr>
-<tr>
-<td>N</td>
-<td>Display number of current window</td>
-</tr>
-<tr>
-<td>c</td>
-<td>Open a new window</td>
-</tr>
-<tr>
-<td>[number]</td>
-<td>Switch to window [number]</td>
-</tr>
-<tr>
-<td>[</td>
-<td>Copy (so you can paste to another window)</td>
-</tr>
-<tr>
-<td>]</td>
-<td>Paste</td>
-</tr>
-<tr>
-<td>k</td>
-<td>Kill the current window</td>
-</tr>
-<tr>
-<td>Ctrl-\</td>
-<td>Quit and close all screen windows</td>
-</tr>
-<tr>
-<td>A</td>
-<td>Label the screen window</td>
-</tr>
-<tr>
-<td>M</td>
-<td>Monitor for activity</td>
-</tr>
-<tr>
-<td>d</td>
-<td>Detach the current screen session</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>Startup commands:</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>screen -ls</code></td>
-<td>List detached screen sessions on the server</td>
-</tr>
-<tr>
-<td>screen -S (name for new screen)</td>
-<td>Create a screen with specified name</td>
-</tr>
-<tr>
-<td><code>screen --r [id]</code></td>
-<td>Reattach the specified screen</td>
-</tr>
-</tbody>
-</table>
-</li>
+<li><a href="../File_Systems/">File Systems</a></li>
 </ul>
-<h4 id="detachingreattaching-screen-sessions">Detaching/Reattaching Screen Sessions</h4>
-<p>To detach a running screen session, type<br />
-<code>Ctrl-A d</code><br />
-This will detach the screen session with all of its windows but leave
-all of the related processes running. You can start and detach as many
-screen sessions as you wish, each with its own windows and processes.
-You can even logout of the server, and your screen sessions will
-continue running while you're gone.</p>
-<p>To reattach a screen session, find the id of the one you want with<br />
-<code>screen -ls</code><br />
-then reattach it with<br />
-<code>screen -r id</code></p>
-<p>If you don't remember which screen sessions you have opened on our
-cluster, you can type:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>module load powertools
-userinfo &lt;uid&gt;
-</code></pre></div></td></tr></table></div>
-<p>If you are running a licensed software (such as MATLAB) within a screen
-session, please remember to kill it when you're done developing for the
-day. This will help us better manage licenses for the MSU research
-community.</p>
-<h4 id="screen-customizations">Screen customizations</h4>
-<p>The attached file <a href="../attachments/1343518/1345822.txt">(click here)</a>
-includes customizations to screen that places an information bar at the bottom of
-the terminal. Many people find it very usefu.   View the file and copy
-selected or all lines to  your ".screenrc" file. </p>
-<p>See also <a href="http://tmux.sourceforge.net/">http://tmux.sourceforge.net/</a>.</p>
-<h3 id="tmux">Tmux</h3>
-<p>tmux is intended to be the modern, BSD-licensed alternative to screen.
-Both programs are available on HPCC. It allows splitting a window
-horizontally and vertically, and copying and pasting between multiple
-buffers. More information is available at
-<a href="http://tmux.sourceforge.net">http://tmux.sourceforge.net</a>.</p>
-<!--
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[screenrc.txt](attachments/1343518/1345822.txt) (text/plain)  
-
-</div>
--->
+<h2 id="how-to-guide"><span class="md-tag">how-to guide</span></h2>
+<ul>
+<li><a href="../CUDA_Example/">CUDA Example</a></li>
+</ul>
+<h2 id="reference"><span class="md-tag">reference</span></h2>
+<ul>
+<li><a href="../bi/">SLURM - buyin information</a></li>
+</ul>
+<h2 id="tutorial"><span class="md-tag">tutorial</span></h2>
+<ul>
+<li><a href="../Connect_to_HPCC_System/">Connect to the HPCC</a></li>
+</ul>
 
 
   
