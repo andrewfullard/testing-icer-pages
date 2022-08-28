@@ -9,11 +9,11 @@
       
       
       <link rel="icon" href="../assets/icer-small-logo-white.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
     
     
       
-        <title>Showing job steps - MSU HPCC User Documentation</title>
+        <title>Show Job Steps by sacct and srun Commands - MSU HPCC User Documentation</title>
       
     
     
@@ -50,7 +50,7 @@
   
 
 
-  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-689HG824HG"),document.addEventListener("DOMContentLoaded",function(){if(document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document.forms.feedback){var e,a=document.forms.feedback;for(e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}"undefined"!=typeof location$&&location$.subscribe(function(e){n("config","G-689HG824HG",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-689HG824HG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-689HG824HG"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-689HG824HG",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-689HG824HG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#showing-job-steps" class="md-skip">
+        <a href="#show-job-steps-by-sacct-and-srun-commands" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                Showing job steps
+                Show Job Steps by sacct and srun Commands
               
             </span>
           </div>
@@ -166,11 +166,8 @@
     <div id="MSUmasthead" role="banner">
         <!-- <a href="http://www.msu.edu"> -->
             <!-- if using a dark background change the img src to images/masthead-helmet-white.png-->
-            <!-- <img class="screen-msugraphic" alt="ICER masthead graphic"
-                src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/Header_Banner_small.jpg" /> previous-->
             <img class="screen-msugraphic" alt="ICER masthead graphic"
-                src="/assets/images/Header_Banner_small_v8.jpeg" />
-                <!--! might have to change the relative path to a linked path like above -->
+                src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/Header_Banner_small.jpg" />
         <!-- </a> -->
     </div>
     
@@ -292,137 +289,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Connect_over_SSH_with_atom/" class="md-nav__link">
-        SSH connection via Atom
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Connect_over_SSH_with_VS_Code/" class="md-nav__link">
-        SSH connection via VS Code
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SSH_Key-Based_Authentication/" class="md-nav__link">
-        SSH key
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Open_OnDemand/" class="md-nav__link">
-        Web access - Open OnDemand
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_8">
-          Other universities
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Other universities" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_8">
-          <span class="md-nav__icon md-icon"></span>
-          Other universities
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Information_for_Central_Michigan_University_and_Western_Michigan_University_Users/" class="md-nav__link">
-        Central Michigan U and Western Michigan U
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Kettering_Users/" class="md-nav__link">
-        Kettering U
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Oakland_University_Users/" class="md-nav__link">
-        Oakland U
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -479,20 +345,6 @@
     <li class="md-nav__item">
       <a href="../development_nodes/" class="md-nav__link">
         Development nodes
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../HPC_s_entire_layout_at_ICER/" class="md-nav__link">
-        HPCC layout
       </a>
     </li>
   
@@ -901,20 +753,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../User_Created_Modules/" class="md-nav__link">
-        User created modules
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -955,22 +793,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../Powertools/" class="md-nav__link">
-        Overview
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../getexample/" class="md-nav__link">
-        Get software usage examples
+        getexample
       </a>
     </li>
   
@@ -984,7 +808,7 @@
   
     <li class="md-nav__item">
       <a href="../bi/" class="md-nav__link">
-        SLURM - buyin information
+        bi - buyin information
       </a>
     </li>
   
@@ -998,21 +822,7 @@
   
     <li class="md-nav__item">
       <a href="../qs/" class="md-nav__link">
-        SLURM - display job list
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Display_Compute_Nodes_and_Job_Partitions_by_sinfo_command/" class="md-nav__link">
-        SLURM - node status and job partition
+        qs - display job list
       </a>
     </li>
   
@@ -1031,14 +841,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
       
       
       
@@ -1102,22 +910,50 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../Job_Constraints/" class="md-nav__link">
+        Job constraints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Example_SLURM_scripts/" class="md-nav__link">
+        Example job scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_4" type="checkbox" id="__nav_9_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_6" type="checkbox" id="__nav_9_6" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_9_4">
+        <label class="md-nav__link" for="__nav_9_6">
           Job policies
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Job policies" data-md-level="2">
-        <label class="md-nav__title" for="__nav_9_4">
+        <label class="md-nav__title" for="__nav_9_6">
           <span class="md-nav__icon md-icon"></span>
           Job policies
         </label>
@@ -1163,116 +999,22 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../Job_Constraints/" class="md-nav__link">
-        Job constraints
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Buy-In_Accounts_with_SLURM/" class="md-nav__link">
-        Buyin accounts
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Showing job steps
-      </a>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Scavenger_Queue/" class="md-nav__link">
-        Scavenger Queue
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Example_SLURM_scripts/" class="md-nav__link">
-        Example job scripts
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Job_with_Checkpointing_Run/" class="md-nav__link">
-        Checkpointing
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_11" type="checkbox" id="__nav_9_11" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_7" type="checkbox" id="__nav_9_7" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_9_11">
+        <label class="md-nav__link" for="__nav_9_7">
           Torque vs. SLURM comparisons
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Torque vs. SLURM comparisons" data-md-level="2">
-        <label class="md-nav__title" for="__nav_9_11">
+        <label class="md-nav__title" for="__nav_9_7">
           <span class="md-nav__icon md-icon"></span>
           Torque vs. SLURM comparisons
         </label>
@@ -1336,6 +1078,20 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scavenger_Queue/" class="md-nav__link">
+        Scavenger Queue
+      </a>
     </li>
   
 
@@ -1519,22 +1275,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../Load_the_software/" class="md-nav__link">
-        OrthoMCL: load module
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../MySQL_configuration/" class="md-nav__link">
-        OrthoMCL: MySQL configuration
+        MySQL configuration for OrthoMCL
       </a>
     </li>
   
@@ -1769,134 +1511,12 @@
       
       
         <label class="md-nav__link" for="__nav_10_4">
-          Perl
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Perl" data-md-level="2">
-        <label class="md-nav__title" for="__nav_10_4">
-          <span class="md-nav__icon md-icon"></span>
-          Perl
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Installing_Local_Perl_Modules_with_CPAN/" class="md-nav__link">
-        Installing Local Perl Modules with CPAN
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" type="checkbox" id="__nav_10_5" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_10_5">
-          Python
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Python" data-md-level="2">
-        <label class="md-nav__title" for="__nav_10_5">
-          <span class="md-nav__icon md-icon"></span>
-          Python
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Python/" class="md-nav__link">
-        Package management
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Using_conda/" class="md-nav__link">
-        Using Conda
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Using_Python_in_HPCC_with_virtualenv/" class="md-nav__link">
-        Using virtual env
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_6" type="checkbox" id="__nav_10_6" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_10_6">
           TensorFlow
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="TensorFlow" data-md-level="2">
-        <label class="md-nav__title" for="__nav_10_6">
+        <label class="md-nav__title" for="__nav_10_4">
           <span class="md-nav__icon md-icon"></span>
           TensorFlow
         </label>
@@ -1974,93 +1594,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_7" type="checkbox" id="__nav_10_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" type="checkbox" id="__nav_10_5" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_10_7">
-          Singularity
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Singularity" data-md-level="2">
-        <label class="md-nav__title" for="__nav_10_7">
-          <span class="md-nav__icon md-icon"></span>
-          Singularity
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../singularity_01/" class="md-nav__link">
-        Singularity I: Introduction
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Singularity_II._Running_a_container_on_HPC/" class="md-nav__link">
-        Singularity II: Running a container
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Singularity_III._Advanced_skills/" class="md-nav__link">
-        Singularity III: Advanced
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_8" type="checkbox" id="__nav_10_8" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_10_8">
+        <label class="md-nav__link" for="__nav_10_5">
           Gaussian
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Gaussian" data-md-level="2">
-        <label class="md-nav__title" for="__nav_10_8">
+        <label class="md-nav__title" for="__nav_10_5">
           <span class="md-nav__icon md-icon"></span>
           Gaussian
         </label>
@@ -2180,16 +1725,58 @@
       
       
         <label class="md-nav__link" for="__nav_11">
-          Training material
+          HPC tutorial series
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Training material" data-md-level="1">
+      <nav class="md-nav" aria-label="HPC tutorial series" data-md-level="1">
         <label class="md-nav__title" for="__nav_11">
           <span class="md-nav__icon md-icon"></span>
-          Training material
+          HPC tutorial series
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_over_SSH_with_atom/" class="md-nav__link">
+        Connect over SSH with Atom
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Connect_over_SSH_with_VS_Code/" class="md-nav__link">
+        Connect over SSH with VS_Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../singularity_01/" class="md-nav__link">
+        Singularity: I. Introduction
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -2240,49 +1827,7 @@
   
     <li class="md-nav__item">
       <a href="../4._Conditional_statements/" class="md-nav__link">
-        Conditional statements
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../workshop_slides/" class="md-nav__link">
-        Workshop slides
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Targeting_Cluster_Architectures/" class="md-nav__link">
-        Targeting Cluster Architectures
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../HPC_Concept/" class="md-nav__link">
-        HPC concepts
+        Condtional statements
       </a>
     </li>
   
@@ -2305,21 +1850,6 @@
     <li class="md-nav__item">
       <a href="../Frequently_Asked_Questions_FAQ_/" class="md-nav__link">
         FAQ
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tags/" class="md-nav__link">
-        Tags
       </a>
     </li>
   
@@ -2356,192 +1886,114 @@
               
                 
 
-  
 
+<h1 id="show-job-steps-by-sacct-and-srun-commands">Show Job Steps by sacct and srun Commands</h1>
+<p>One of the best things about SLURM is able to show the execution
+information of each command line in a job script. This is very helpful
+especially when users try to debug their work flow or test software with
+different settings. However, in order to get the right information,
+<strong>srun</strong> wrapper command needs to be used. For example, let's take a
+look at the following job script:</p>
+<pre><code class="language-bash">#!/bin/bash
 
+#SBATCH -N 4 -n 4 -c 2
+#SBATCH --time=00:05:00
+#SBATCH --mem=1G
 
-<h1 id="showing-job-steps">Showing job steps</h1>
-<p>SLURM provides commands to show the execution information of each command line in a job script. This can be helpful for debugging and testing. In order to get  such information, the wrapper command <code>srun</code> needs to be used. Let's take a look at the following job script:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
-
-<span class="c1">#SBATCH -N 4 -n 4 -c 2</span>
-<span class="c1">#SBATCH --time=00:05:00</span>
-<span class="c1">#SBATCH --mem=1G</span>
-
-module purge<span class="p">;</span> module load GCC/6.4.0-2.28 OpenMPI/2.1.2
+module purge; module load GCC/6.4.0-2.28 OpenMPI/2.1.2
 module list
 
 mpicc mpi-hello.c -o hello.exe
 
-echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;====== mpirun hello.exe ======&quot;</span>
-mpirun hello.exe                                            <span class="c1">#0 Step</span>
+echo; echo &quot;====== mpirun hello.exe ======&quot;
+mpirun hello.exe                                            #0 Step
 
-echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;====== srun hello.exe ======&quot;</span>
-srun hello.exe                                              <span class="c1">#1 Step</span>
+echo; echo &quot;====== srun hello.exe ======&quot;
+srun hello.exe                                              #1 Step
 
-echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;====== srun -n 8 -c 1 hello.exe ======&quot;</span>
-srun -n <span class="m">8</span> -c <span class="m">1</span> hello.exe                                    <span class="c1">#2 Step</span>
+echo; echo &quot;====== srun -n 8 -c 1 hello.exe ======&quot;
+srun -n 8 -c 1 hello.exe                                    #2 Step
 
-echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;====== srun  ======&quot;</span>
-srun NoSuchCommand                                          <span class="c1">#3 Step</span>
+echo; echo &quot;====== srun  ======&quot;
+srun NoSuchCommand                                          #3 Step
 
-echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;====== mpirun  ======&quot;</span>
-mpirun NoSuchCommand                                        <span class="c1">#4 Step</span>
+echo; echo &quot;====== mpirun  ======&quot;
+mpirun NoSuchCommand                                        #4 Step
 
-echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;====== scontrol show job </span><span class="nv">$SLURM_JOB_ID</span><span class="s2"> ======&quot;</span>
-srun -N <span class="m">1</span> -n <span class="m">1</span> -c <span class="m">1</span> scontrol show job <span class="nv">$SLURM_JOB_ID</span>         <span class="c1">#5 Step</span>
-</code></pre></div></td></tr></table></div>
+echo; echo &quot;====== scontrol show job $SLURM_JOB_ID ======&quot;
+srun -N 1 -n 1 -c 1 scontrol show job $SLURM_JOB_ID         #5 Step
+</code></pre>
 <p>Although there are many command lines, only 6 of them are executed with
-either <strong>mpirun</strong> or <strong>srun</strong> wrapper and marked with the comments (from step 0 to 5) in the end. SLURM can record each of the 6 executions as
+either <strong>mpirun</strong> or <strong>srun</strong> wrapper and marked with the comments (from
+#0 to #5 step) in the end. SLURM can record each of the 6 executions as
 a job step. Once the job is submitted by <strong>sbatch</strong> command and starts
 running, you can use <strong>sacct</strong> command to check the steps:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>$ sacct -j <span class="m">10732</span>
+<pre><code class="language-bash">$ sacct -j 10732
        JobID    JobName  Partition    Account  AllocCPUS      State ExitCode
 ------------ ---------- ---------- ---------- ---------- ---------- --------
-<span class="m">10732</span>              <span class="nb">test</span> general-l+   classres          <span class="m">8</span>  COMPLETED      <span class="m">0</span>:0
-<span class="m">10732</span>.batch       batch              classres          <span class="m">2</span>  COMPLETED      <span class="m">0</span>:0
-<span class="m">10732</span>.extern     extern              classres          <span class="m">8</span>  COMPLETED      <span class="m">0</span>:0
-<span class="m">10732</span>.0           orted              classres          <span class="m">6</span>  COMPLETED      <span class="m">0</span>:0
-<span class="m">10732</span>.1       hello.exe              classres          <span class="m">8</span>  COMPLETED      <span class="m">0</span>:0
-<span class="m">10732</span>.2       hello.exe              classres          <span class="m">8</span>  COMPLETED      <span class="m">0</span>:0
-<span class="m">10732</span>.3      NoSuchCom+              classres          <span class="m">8</span>     FAILED      <span class="m">2</span>:0
-<span class="m">10732</span>.4           orted              classres          <span class="m">6</span>  COMPLETED      <span class="m">0</span>:0
-<span class="m">10732</span>.5        scontrol              classres          <span class="m">1</span>  COMPLETED      <span class="m">0</span>:0
-</code></pre></div></td></tr></table></div>
+10732              test general-l+   classres          8  COMPLETED      0:0
+10732.batch       batch              classres          2  COMPLETED      0:0
+10732.extern     extern              classres          8  COMPLETED      0:0
+10732.0           orted              classres          6  COMPLETED      0:0
+10732.1       hello.exe              classres          8  COMPLETED      0:0
+10732.2       hello.exe              classres          8  COMPLETED      0:0
+10732.3      NoSuchCom+              classres          8     FAILED      2:0
+10732.4           orted              classres          6  COMPLETED      0:0
+10732.5        scontrol              classres          1  COMPLETED      0:0
+</code></pre>
 <p>where the Job has ID 10732 and the 6 steps are shown from JobID 10732.0
 to 10732.5.</p>
-<p>We can also use a powertools command <a href="../js/"><strong>js</strong></a> to see more detailed information (such as memory usage and a list of
+<p>Users can also use a powertools command
+<a href="../js/"><strong>js</strong></a>
+to see more detailed information (such as memory usage and a list of
 used nodes) about the steps:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span></pre></div></td><td class="code"><div><pre><span></span><code>$ js -j <span class="m">10732</span> -C5
+<pre><code class="language-bash">$ js -j 10732 -C5
 
-SLURM Job ID: <span class="nv">10732</span>
-<span class="o">===============================================================================================================================</span>
-          JobID <span class="p">|</span>               <span class="m">10732</span> <span class="p">|</span>         <span class="m">10732</span>.batch <span class="p">|</span>        <span class="m">10732</span>.extern <span class="p">|</span>             <span class="m">10732</span>.0 <span class="p">|</span>             <span class="m">10732</span>.1 <span class="p">|</span>
-        JobName <span class="p">|</span>                <span class="nb">test</span> <span class="p">|</span>               batch <span class="p">|</span>              extern <span class="p">|</span>               orted <span class="p">|</span>           hello.exe <span class="p">|</span>
-           User <span class="p">|</span>            changc81 <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>
-       NodeList <span class="p">|</span>       lac-<span class="o">[</span><span class="m">380</span>-383<span class="o">]</span> <span class="p">|</span>             lac-380 <span class="p">|</span>       lac-<span class="o">[</span><span class="m">380</span>-383<span class="o">]</span> <span class="p">|</span>       lac-<span class="o">[</span><span class="m">381</span>-383<span class="o">]</span> <span class="p">|</span>       lac-<span class="o">[</span><span class="m">380</span>-383<span class="o">]</span> <span class="p">|</span>
-         NNodes <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>                   <span class="m">1</span> <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>                   <span class="m">3</span> <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>
-         NTasks <span class="p">|</span>                     <span class="p">|</span>                   <span class="m">1</span> <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>                   <span class="m">3</span> <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>
-          NCPUS <span class="p">|</span>                   <span class="m">8</span> <span class="p">|</span>                   <span class="m">2</span> <span class="p">|</span>                   <span class="m">8</span> <span class="p">|</span>                   <span class="m">6</span> <span class="p">|</span>                   <span class="m">8</span> <span class="p">|</span>
-         ReqMem <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>
-      Timelimit <span class="p">|</span>            <span class="m">00</span>:05:00 <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>
-        Elapsed <span class="p">|</span>            <span class="m">00</span>:00:16 <span class="p">|</span>            <span class="m">00</span>:00:16 <span class="p">|</span>            <span class="m">00</span>:00:16 <span class="p">|</span>            <span class="m">00</span>:00:02 <span class="p">|</span>            <span class="m">00</span>:00:01 <span class="p">|</span>
-      SystemCPU <span class="p">|</span>           <span class="m">00</span>:03.283 <span class="p">|</span>           <span class="m">00</span>:00.562 <span class="p">|</span>           <span class="m">00</span>:00.001 <span class="p">|</span>           <span class="m">00</span>:00.646 <span class="p">|</span>           <span class="m">00</span>:00.572 <span class="p">|</span>
-        UserCPU <span class="p">|</span>           <span class="m">00</span>:02.119 <span class="p">|</span>           <span class="m">00</span>:00.753 <span class="p">|</span>           <span class="m">00</span>:00.003 <span class="p">|</span>           <span class="m">00</span>:00.396 <span class="p">|</span>           <span class="m">00</span>:00.281 <span class="p">|</span>
-       TotalCPU <span class="p">|</span>           <span class="m">00</span>:05.403 <span class="p">|</span>           <span class="m">00</span>:01.316 <span class="p">|</span>           <span class="m">00</span>:00.005 <span class="p">|</span>           <span class="m">00</span>:01.042 <span class="p">|</span>           <span class="m">00</span>:00.853 <span class="p">|</span>
-     AveCPULoad <span class="p">|</span>            <span class="m">0</span>.337687 <span class="p">|</span>             <span class="m">0</span>.08225 <span class="p">|</span>           <span class="m">0</span>.0003125 <span class="p">|</span>               <span class="m">0</span>.521 <span class="p">|</span>               <span class="m">0</span>.853 <span class="p">|</span>
-         MaxRSS <span class="p">|</span>                     <span class="p">|</span>              10409K <span class="p">|</span>                120K <span class="p">|</span>                861K <span class="p">|</span>                863K <span class="p">|</span>
-      MaxVMSize <span class="p">|</span>                     <span class="p">|</span>             652100K <span class="p">|</span>             173968K <span class="p">|</span>             324440K <span class="p">|</span>             324436K <span class="p">|</span>
-          Start <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:44 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:44 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:44 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:54 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:57 <span class="p">|</span>
-            End <span class="p">|</span> <span class="m">2018</span>-08-06T13:23:00 <span class="p">|</span> <span class="m">2018</span>-08-06T13:23:00 <span class="p">|</span> <span class="m">2018</span>-08-06T13:23:00 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:56 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:58 <span class="p">|</span>
-       ExitCode <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>
-          State <span class="p">|</span>           COMPLETED <span class="p">|</span>           COMPLETED <span class="p">|</span>           COMPLETED <span class="p">|</span>           COMPLETED <span class="p">|</span>           COMPLETED <span class="p">|</span>
-<span class="o">===============================================================================================================================</span>
-          JobID <span class="p">|</span>             <span class="m">10732</span>.2 <span class="p">|</span>             <span class="m">10732</span>.3 <span class="p">|</span>             <span class="m">10732</span>.4 <span class="p">|</span>             <span class="m">10732</span>.5 <span class="p">|</span>
-        JobName <span class="p">|</span>           hello.exe <span class="p">|</span>       NoSuchCommand <span class="p">|</span>               orted <span class="p">|</span>            scontrol <span class="p">|</span>
-           User <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>
-       NodeList <span class="p">|</span>       lac-<span class="o">[</span><span class="m">380</span>-383<span class="o">]</span> <span class="p">|</span>       lac-<span class="o">[</span><span class="m">380</span>-383<span class="o">]</span> <span class="p">|</span>       lac-<span class="o">[</span><span class="m">381</span>-383<span class="o">]</span> <span class="p">|</span>             lac-380 <span class="p">|</span>
-         NNodes <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>                   <span class="m">3</span> <span class="p">|</span>                   <span class="m">1</span> <span class="p">|</span>
-         NTasks <span class="p">|</span>                   <span class="m">8</span> <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>                   <span class="m">3</span> <span class="p">|</span>                   <span class="m">1</span> <span class="p">|</span>
-          NCPUS <span class="p">|</span>                   <span class="m">8</span> <span class="p">|</span>                   <span class="m">8</span> <span class="p">|</span>                   <span class="m">6</span> <span class="p">|</span>                   <span class="m">1</span> <span class="p">|</span>
-         ReqMem <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>
-      Timelimit <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>
-        Elapsed <span class="p">|</span>            <span class="m">00</span>:00:01 <span class="p">|</span>            <span class="m">00</span>:00:00 <span class="p">|</span>            <span class="m">00</span>:00:01 <span class="p">|</span>            <span class="m">00</span>:00:00 <span class="p">|</span>
-      SystemCPU <span class="p">|</span>           <span class="m">00</span>:01.141 <span class="p">|</span>           <span class="m">00</span>:00.051 <span class="p">|</span>           <span class="m">00</span>:00.289 <span class="p">|</span>           <span class="m">00</span>:00.017 <span class="p">|</span>
-        UserCPU <span class="p">|</span>           <span class="m">00</span>:00.521 <span class="p">|</span>           <span class="m">00</span>:00.031 <span class="p">|</span>           <span class="m">00</span>:00.096 <span class="p">|</span>           <span class="m">00</span>:00.035 <span class="p">|</span>
-       TotalCPU <span class="p">|</span>           <span class="m">00</span>:01.663 <span class="p">|</span>           <span class="m">00</span>:00.083 <span class="p">|</span>           <span class="m">00</span>:00.385 <span class="p">|</span>           <span class="m">00</span>:00.053 <span class="p">|</span>
-     AveCPULoad <span class="p">|</span>               <span class="m">1</span>.663 <span class="p">|</span>                     <span class="p">|</span>               <span class="m">0</span>.385 <span class="p">|</span>                     <span class="p">|</span>
-         MaxRSS <span class="p">|</span>              34812K <span class="p">|</span>                865K <span class="p">|</span>                865K <span class="p">|</span>                840K <span class="p">|</span>
-      MaxVMSize <span class="p">|</span>             324436K <span class="p">|</span>             324436K <span class="p">|</span>             324440K <span class="p">|</span>             324436K <span class="p">|</span>
-          Start <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:58 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:59 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:59 <span class="p">|</span> <span class="m">2018</span>-08-06T13:23:00 <span class="p">|</span>
-            End <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:59 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:59 <span class="p">|</span> <span class="m">2018</span>-08-06T13:23:00 <span class="p">|</span> <span class="m">2018</span>-08-06T13:23:00 <span class="p">|</span>
-       ExitCode <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>                 <span class="m">2</span>:0 <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>
-          State <span class="p">|</span>           COMPLETED <span class="p">|</span>              FAILED <span class="p">|</span>           COMPLETED <span class="p">|</span>           COMPLETED <span class="p">|</span>
-<span class="o">=========================================================================================================</span>
-</code></pre></div></td></tr></table></div>
+SLURM Job ID: 10732
+===============================================================================================================================
+          JobID |               10732 |         10732.batch |        10732.extern |             10732.0 |             10732.1 |
+        JobName |                test |               batch |              extern |               orted |           hello.exe |
+           User |            changc81 |                     |                     |                     |                     |
+       NodeList |       lac-[380-383] |             lac-380 |       lac-[380-383] |       lac-[381-383] |       lac-[380-383] |
+         NNodes |                   4 |                   1 |                   4 |                   3 |                   4 |
+         NTasks |                     |                   1 |                   4 |                   3 |                   4 |
+          NCPUS |                   8 |                   2 |                   8 |                   6 |                   8 |
+         ReqMem |                 1Gn |                 1Gn |                 1Gn |                 1Gn |                 1Gn |
+      Timelimit |            00:05:00 |                     |                     |                     |                     |
+        Elapsed |            00:00:16 |            00:00:16 |            00:00:16 |            00:00:02 |            00:00:01 |
+      SystemCPU |           00:03.283 |           00:00.562 |           00:00.001 |           00:00.646 |           00:00.572 |
+        UserCPU |           00:02.119 |           00:00.753 |           00:00.003 |           00:00.396 |           00:00.281 |
+       TotalCPU |           00:05.403 |           00:01.316 |           00:00.005 |           00:01.042 |           00:00.853 |
+     AveCPULoad |            0.337687 |             0.08225 |           0.0003125 |               0.521 |               0.853 |
+         MaxRSS |                     |              10409K |                120K |                861K |                863K |
+      MaxVMSize |                     |             652100K |             173968K |             324440K |             324436K |
+          Start | 2018-08-06T13:22:44 | 2018-08-06T13:22:44 | 2018-08-06T13:22:44 | 2018-08-06T13:22:54 | 2018-08-06T13:22:57 |
+            End | 2018-08-06T13:23:00 | 2018-08-06T13:23:00 | 2018-08-06T13:23:00 | 2018-08-06T13:22:56 | 2018-08-06T13:22:58 |
+       ExitCode |                 0:0 |                 0:0 |                 0:0 |                 0:0 |                 0:0 |
+          State |           COMPLETED |           COMPLETED |           COMPLETED |           COMPLETED |           COMPLETED |
+===============================================================================================================================
+          JobID |             10732.2 |             10732.3 |             10732.4 |             10732.5 |
+        JobName |           hello.exe |       NoSuchCommand |               orted |            scontrol |
+           User |                     |                     |                     |                     |
+       NodeList |       lac-[380-383] |       lac-[380-383] |       lac-[381-383] |             lac-380 |
+         NNodes |                   4 |                   4 |                   3 |                   1 |
+         NTasks |                   8 |                   4 |                   3 |                   1 |
+          NCPUS |                   8 |                   8 |                   6 |                   1 |
+         ReqMem |                 1Gn |                 1Gn |                 1Gn |                 1Gn |
+      Timelimit |                     |                     |                     |                     |
+        Elapsed |            00:00:01 |            00:00:00 |            00:00:01 |            00:00:00 |
+      SystemCPU |           00:01.141 |           00:00.051 |           00:00.289 |           00:00.017 |
+        UserCPU |           00:00.521 |           00:00.031 |           00:00.096 |           00:00.035 |
+       TotalCPU |           00:01.663 |           00:00.083 |           00:00.385 |           00:00.053 |
+     AveCPULoad |               1.663 |                     |               0.385 |                     |
+         MaxRSS |              34812K |                865K |                865K |                840K |
+      MaxVMSize |             324436K |             324436K |             324440K |             324436K |
+          Start | 2018-08-06T13:22:58 | 2018-08-06T13:22:59 | 2018-08-06T13:22:59 | 2018-08-06T13:23:00 |
+            End | 2018-08-06T13:22:59 | 2018-08-06T13:22:59 | 2018-08-06T13:23:00 | 2018-08-06T13:23:00 |
+       ExitCode |                 0:0 |                 2:0 |                 0:0 |                 0:0 |
+          State |           COMPLETED |              FAILED |           COMPLETED |           COMPLETED |
+=========================================================================================================
+</code></pre>
 <p>From the results above, we can see the executions by <strong>mpirun</strong> are
 different from <strong>srun</strong>. First of all, for <strong>mpirun</strong>, the JobName only
 show "orted" no matter what commands are used in the steps 10732.0 and
@@ -2560,85 +2012,7 @@ step 10732.1 (<strong>srun hello.exe</strong>). SLURM seems to get a good <stro
 information with <strong>srun</strong> but not with <strong>mpirun</strong>. If you wish to use
 the step information, do not forget to put <strong>srun</strong> in the command
 lines.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span></pre></div></td><td class="code"><div><pre><span></span><code>Currently Loaded Modules:
+<pre><code class="language-bash">Currently Loaded Modules:
   1) GCCcore/6.4.0   2) binutils/2.28   3) GCC/6.4.0-2.28   4) OpenMPI/2.1.1
 
 
@@ -2717,8 +2091,9 @@ JobId=10732 JobName=test
    StdIn=/dev/null
    StdOut=/mnt/home/changc81/GetExample/helloMPI/slurm-10732.out
    Power=
-</code></pre></div></td></tr></table></div>
-<p>For a complete instruction of <strong>sacct</strong> command, please refer to <a href="https://slurm.schedmd.com/sacct.html">the SLURM web site</a>.</p>
+</code></pre>
+<p>For a complete instruction of <strong>sacct</strong> command, please refer to
+<a href="https://slurm.schedmd.com/sacct.html">the SLURM web site</a>.</p>
 
 
   

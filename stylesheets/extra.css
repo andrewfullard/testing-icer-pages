@@ -275,3 +275,17 @@ If the margin is set differently for your site, fix the margin here to reflect t
   display: none;
 }
 
+
+
+/* override css for the search border */
+
+.md-search__input{
+  border: #fff solid 1.5px;
+  border-radius: 0.2rem;
+}
+
+.md-search__form{
+  border-radius: 0.2rem;
+}
+
+
