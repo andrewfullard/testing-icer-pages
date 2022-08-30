@@ -2370,13 +2370,9 @@ our main queue can run on any possible nodes, unless there are
 specifications on cluster constraints. Users only have to specify
 resource requirements and our scheduler can assign your job to an
 appropriate cluster.</p>
-<p>Prior to July 2018, the MSU HPCC used Torque exclusively for
-resource management, and Moab for job management. On October 15, 2018
-all clusters were upgraded to CentOS 7 and use the SLURM resource
-manager. They are connected to each other with scratch file system through
-Infiniband. Each node is also connected to the network file systems.
-(For example, your home and research space is available and identical on
-all nodes.)</p>
+<p>All clusters currently run CentOS 7 and use the SLURM resource
+manager. They are connected to each other with scratch and home file systems through
+Infiniband. Your home, research space, and scratch space is available and identical on all nodes.</p>
 <p>The following table lists nodes that are currently available to run jobs; jobs can be submitted from any of our dev-nodes.</p>
 <table>
 <thead>
