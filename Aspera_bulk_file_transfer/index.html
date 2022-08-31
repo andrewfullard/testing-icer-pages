@@ -1422,40 +1422,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Aspera bulk file transfer
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         Aspera bulk file transfer
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#modified-from-old-version" class="md-nav__link">
-    MODIFIED FROM OLD VERSION
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -2434,21 +2403,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#modified-from-old-version" class="md-nav__link">
-    MODIFIED FROM OLD VERSION
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2465,7 +2419,6 @@
 
 
 <h1 id="aspera-bulk-file-transfer">Aspera bulk file transfer</h1>
-<h3 id="modified-from-old-version">MODIFIED FROM OLD VERSION</h3>
 <p>The Aspera Connect application (ascp) is a useful file transfer tool for
 downloading or uploading large files in bulk between the HPCC and data
 repository sites such as those operated by NCBI.  In order to interact
@@ -2486,7 +2439,8 @@ to download "aspera connect".</p>
 <p>The installation will then be located in <code>~/.aspera/connect/</code>; and the
 command ascp is in <code>~/.aspera/connect/bin/</code></p>
 <p>Example use:</p>
-<p><code>~/.aspera/connect/bin/ascp -T -k 1 -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh anonftp@ftp.ncbi.nlm.nih.gov:/refseq/uniprotkb ~/NCBI_data</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>~/.aspera/connect/bin/ascp -T -k 1 -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh anonftp@ftp.ncbi.nlm.nih.gov:/refseq/uniprotkb ~/NCBI_data
+</code></pre></div></td></tr></table></div>
 <p>More instructions and examples can be found <a href="https://www.ibm.com/docs/en/aspera-connect">here</a>.</p>
 
 
