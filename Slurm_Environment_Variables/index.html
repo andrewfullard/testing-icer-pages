@@ -657,6 +657,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../filesystem_overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Home_Space/" class="md-nav__link">
         Home space
       </a>
@@ -2491,7 +2505,7 @@
 
 
 <h1 id="slurm-environment-variables">SLURM Environment Variables</h1>
-<p>The Slurm controller will set variables in the environment of the batch script. Here we make a list of them and the corresponding Torque/MOAB environment variables for the comparison.</p>
+<p>The Slurm controller will set variables in the environment of the batch script. Below is a list of SLURM variables and the corresponding Torque/MOAB environment variables for the comparison.</p>
 <table>
 <thead>
 <tr>
@@ -2504,10 +2518,10 @@
 <tr>
 <td align="left">SLURM_ARRAY_TASK_COUNT</td>
 <td align="left"></td>
-<td align="center">STotal number of tasks in a job array</td>
+<td align="center">Total number of tasks in a job array</td>
 </tr>
 <tr>
-<td align="left">SSLURM_ARRAY_TASK_ID</td>
+<td align="left">SLURM_ARRAY_TASK_ID</td>
 <td align="left">PBS_ARRAYID</td>
 <td align="center">Job array ID (index) number</td>
 </tr>
@@ -2562,7 +2576,7 @@
 <td align="center">Count of processors available to the job on this node.</td>
 </tr>
 <tr>
-<td align="left">]SLURM_JOB_DEPENDENCY</td>
+<td align="left">SLURM_JOB_DEPENDENCY</td>
 <td align="left"></td>
 <td align="center">Set to value of the --dependency option</td>
 </tr>
@@ -2640,7 +2654,7 @@ It is possible to pass variables into a SLURM job when you submit the job using 
 </code></pre></div></td></tr></table></div>
 <p>These are then available in your jobs as $REPS and $X</p>
 <h2 id="using-variables-to-set-slurm-job-name-and-output-files">Using variables to set SLURM job name and output files</h2>
-<p>SLURM does not support using variables in the #SBATCH lines within a job script (for example, <code>#SBATCH -N=$REPS</code> will NOT work).   A very limited number of variables are available in the #SBATCH just as %j for JOB ID.   However, values passed from the command line have precedence over values defined in the job script. and you could use variables in the command line.  For example, you could set the job name and output/error files can be passed on the sbatch command line:</p>
+<p>SLURM does not support using variables in the #SBATCH lines within a job script (for example, <code>#SBATCH -N=$REPS</code> will NOT work).   A very limited number of variables are available in the #SBATCH just as %j for JOB ID.   However, values passed from the command line have precedence over values defined in the job script and you could use variables in the command line.  For example, you could set the job name and output/error files can be passed on the sbatch command line:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>RUNTYPE=&#39;test&#39;
