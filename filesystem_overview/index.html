@@ -13,7 +13,7 @@
     
     
       
-        <title>Overview of HPCC file systems - MSU HPCC User Documentation</title>
+        <title>Overview - MSU HPCC User Documentation</title>
       
     
     
@@ -114,7 +114,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                Overview of HPCC file systems
+                Overview
               
             </span>
           </div>
@@ -629,12 +629,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -650,6 +652,30 @@
           File systems
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Overview
+      </a>
+      
+    </li>
+  
+
+            
           
             
               
@@ -2420,8 +2446,8 @@
 
 <h1 id="overview-of-hpcc-file-systems">Overview of HPCC file systems</h1>
 <p>Home, Research and Scratch are network file systems, meaning that each node in the cluster must go through the network switch to access these spaces. Please refer to individual wiki pages (<a href="../Home_Space/">Home</a>, <a href="../Research_Space/">Research</a>, <a href="../Scratch_File_Systems/">Scratch</a>) in this section for how to use them.</p>
-<p><code>/tmp</code> and <code>/mnt/local</code> are locally accessible in the hard drive of each node. The space is not affected by the network and has larger size compared with the RAMDISK <code>/dev/shm</code> which is located inside the node's RAM.  However, <code>/dev/shm</code> is the closest storage location for files. Files stored here take up some of the node's memory space. For more information, please have a look at <a href="../ufs18_File_Systems/">Local file system</a> and [Guidelines_for_Choosing_File_Storage_and_I_O.md]</p>
-<p>The ufs18 file system is a 2018 IBM General Parallel File System (GPFS) installed for the HPCC to store the home and research spaces. While it is faster and more stable, users need to learn its differences from other file systems and understand how to use it. Please see <a href="../ufs18_File_Systems/">UFS18 file system</a></p>
+<p><code>/tmp</code> and <code>/mnt/local</code> are locally accessible in the hard drive of each node. The space is not affected by the network and has larger size compared with the RAMDISK <code>/dev/shm</code> which is located inside the node's RAM.  However, <code>/dev/shm</code> is the closest storage location for files. Files stored here take up some of the node's memory space. For more information, please have a look at <a href="../ufs18_File_Systems/">Local file system</a> and <a href="../Guidelines_for_Choosing_File_Storage_and_I_O/">Guidelines for Choosing File Storage and I/O</a>.</p>
+<p>The ufs18 file system is a 2018 IBM General Parallel File System (GPFS) installed for the HPCC to store the home and research spaces. While it is faster and more stable, users need to learn its differences from other file systems and understand how to use it. Please see <a href="../ufs18_File_Systems/">UFS18 file system</a>.</p>
 <p>Data that are subject to external security requirements are considered sensitive data. These requirements may be imposed by regulations or contractual obligations. In either case, users that intend to store sensitive data on HPCC systems must work with us to ensure data security. For more information, check out our <a href="Sensitive_Data_on_the_HPCC">Sensitive data hosting</a> wiki page.</p>
 
 
