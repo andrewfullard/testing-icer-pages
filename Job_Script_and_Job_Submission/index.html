@@ -2618,9 +2618,10 @@
 
 
 <h1 id="general-rules-for-writing-a-job-script">General rules for writing a job script</h1>
-<p>The <code>sbatch</code> command is used for submitting batch jobs to the cluster (same as Torque's <code>qsub</code>). <code>sbatch</code> accepts a number of options either from the command line, or (more typically) from a batch job script. In this section, we will show you a simple job script and how to submit it to SLURM system.  Note the <code>sbatch</code> command only runs on development and compute nodes - it will not work on any gateway node.  </p>
+<p>The <code>sbatch</code> command is used for submitting batch jobs to the cluster (same as Torque's <code>qsub</code>). <code>sbatch</code> accepts a number of options either from the command line, or (more typically) from a batch job script. In this section, we will show you a simple job script and how to submit it to SLURM.  Note the <code>sbatch</code> command only runs on development and compute nodes - it will not work on any gateway node.  </p>
 <h2 id="job-script">Job script</h2>
 <p>A job script contains two parts: <strong>#SBATCH lines</strong> for resource request and <strong>command lines</strong> for job running. The script should be in plain text format.  Below is an example used to explain what each lines means. </p>
+<p>Note that the job script below <strong>is not intended to be used as your job template</strong> (more on that later)</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2661,7 +2662,7 @@ srun -n <span class="m">5</span> &lt;executable&gt;              <span class="c1
 scontrol show job <span class="nv">$SLURM_JOB_ID</span>     <span class="c1">### write job information to SLURM output file.</span>
 js -j <span class="nv">$SLURM_JOB_ID</span>                 <span class="c1">### write resource usage to SLURM output file (powertools command).</span>
 </code></pre></div></td></tr></table></div>
-<p>Note that the above job script <strong>is not intended to be used as your job template.</strong> Your job is most likely going to use much simpler resource specifications than shown above. For purpose of illustration, this job requests 10 minutes walltime, at least 1 at most 5 different nodes, a total of 5 parallel tasks (processes) in distributed memory, 2 cores per task for parallel
+<p>As was previously said, the above job script <strong>is not intended to be used as your job template.</strong> Your job is most likely going to use much simpler resource specifications than shown above. For purpose of illustration, this job requests 10 minutes walltime, at least 1 at most 5 different nodes, a total of 5 parallel tasks (processes) in distributed memory, 2 cores per task for parallel
 threads in shared memory and 2 GB memory per core (total 2 GB x
 5 tasks x 2 cpus-per-task = 20 GB) with job name "Name_of_Job". After
 this job starts, it first loads two modules: <code>GCC/6.4.0-2.28</code> and the
