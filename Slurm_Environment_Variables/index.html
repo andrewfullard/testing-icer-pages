@@ -2654,14 +2654,14 @@ It is possible to pass variables into a SLURM job when you submit the job using 
 </code></pre></div></td></tr></table></div>
 <p>These are then available in your jobs as $REPS and $X</p>
 <h2 id="using-variables-to-set-slurm-job-name-and-output-files">Using variables to set SLURM job name and output files</h2>
-<p>SLURM does not support using variables in the #SBATCH lines within a job script (for example, <code>#SBATCH -N=$REPS</code> will NOT work).   A very limited number of variables are available in the #SBATCH just as %j for JOB ID.   However, values passed from the command line have precedence over values defined in the job script and you could use variables in the command line.  For example, you could set the job name and output/error files can be passed on the sbatch command line:</p>
+<p>SLURM does not support using variables in the #SBATCH lines within a job script (for example, <code>#SBATCH -N=$REPS</code> will NOT work).   A very limited number of variables are available in the #SBATCH just as %j for JOB ID.   However, values passed from the command line have precedence over values defined in the job script and you can set certain SLURM variables in the command line.  For example, you could set the job name and output/error files can be passed on the sbatch command line:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>RUNTYPE=&#39;test&#39;
 RUNNUMBER=5
 sbatch --job-name=$RUNTYPE.$RUNNUMBER.run --output=$RUNTYPE.$RUNUMBER.txt --export=A=$A,b=$b jobscript.sbatch
 </code></pre></div></td></tr></table></div>
-<p>However note in this example, the output file doesn't have the job ID which is not available from the command line, only inside the sbatch shell script.  </p>
+<p>However note in this example, the output file doesn't have the job ID, which is not available from the command line, only inside the sbatch shell script.  </p>
 
 
   
