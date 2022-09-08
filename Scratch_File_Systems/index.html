@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scratch-file-systems" class="md-skip">
+        <a href="#scratch-space" class="md-skip">
           Skip to content
         </a>
       
@@ -735,22 +735,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#notice-on-using-scratch-systems" class="md-nav__link">
-    Notice on Using Scratch Systems
+  <a href="#using-a-scratch-space" class="md-nav__link">
+    Using a Scratch Space
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#copying-files-between-ls15-and-gs18" class="md-nav__link">
-    Copying Files between ls15 and gs18
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#change-default-scratch" class="md-nav__link">
-    Change Default SCRATCH
+  <a href="#time-limits-on-scratch-space" class="md-nav__link">
+    Time Limits on Scratch Space
   </a>
   
 </li>
@@ -2580,22 +2573,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#notice-on-using-scratch-systems" class="md-nav__link">
-    Notice on Using Scratch Systems
+  <a href="#using-a-scratch-space" class="md-nav__link">
+    Using a Scratch Space
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#copying-files-between-ls15-and-gs18" class="md-nav__link">
-    Copying Files between ls15 and gs18
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#change-default-scratch" class="md-nav__link">
-    Change Default SCRATCH
+  <a href="#time-limits-on-scratch-space" class="md-nav__link">
+    Time Limits on Scratch Space
   </a>
   
 </li>
@@ -2617,122 +2603,43 @@
 
 
 
-<h1 id="scratch-file-systems">Scratch File Systems</h1>
-<p>In addition to home and research files, we have file systems for
-temporary work called "scratch" available to users.  Right now, HPCC has
-two scratch file systems. One (gs18) is installed in November 2018 and
-based on the IBM General Parallel File System (GPFS). It is fast and
-reliable located at /mnt/gs18 with a capacity of 834 TB. The other
-(ls15) is installed in 2015 and based on Lustre file system (LFS). It is
-located at /mnt/ls15 with a capacity of 1.9 PB.  Both of them are housed
-in the new MSU data center and have a high speed network (infiniband)
-connection.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>A new scratch system (gs21) is install on June 2022 and will replace
-the old scratch system (gs18 and ls15). By July 31 2022, old scratch space
-will be retuired and not accessible. Users are requested to migrate their
-files from old scratch system to new scratch system before ls15 and gs18
-become unavailable. </p>
-</div>
-<p>Unlike the home and research directories, the scratch spaces are
-not intended for long-term storage and can not be accessed from the
-gateway node (except rsync gateway). Files saved in the systems have no
-back-up. Users should use it as a working space for temporary data file
-storage and save their results or data back to HOME or RESEARCH space
-after jobs finish running. Any file not modified in 45 days may be
-deleted to keep the system stable and available to all users. The quota
-of the space for each user is limited to total 50TB and less than 1
-Million files. Research groups can also have their scratch folders
-available. If you would like a folder for your research group please
-request one.  </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>New scratch system gs21 has the same quota and purge policies enforced as on gs18 and ls15.</p>
-</div>
-<p>HPCC users can find their scratch spaces from the two paths: </p>
-<p>ls15 scratch : <strong><code>/mnt/ls15/scratch/users/$USER</code> </strong> (or use
-variable<code>$SC15</code>)</p>
-<p>gs18 scratch : <code>/mnt/gs18/scratch/users/$USER</code>(or use
-variable<code>$SC18</code>or<code>$SCRATCH</code>) or the shortcut<strong> 
-<code>/mnt/scratch/$USER</code></strong>  </p>
-<p>where <code>$USER</code> is the system variable of your HPCC user id. Users can run
-"quota" command to check the usage limit of their two spaces.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>New gs21 scratch space can be found at
-<code>/mnt/gs21/scratch/$USER</code>(or use
-variable <code>$SCRATCH</code> or the shortcut<strong> 
-<code>/mnt/scratch/$USER</code></strong> after old scratch system retired).</p>
-</div>
-<p>To find out files in the scratch space almost getting purged, users
-can run the following commands:</p>
+<h1 id="scratch-space">Scratch Space</h1>
+<p>Each user is provided with a working directory know as <em>scratch space</em>. This space is intended for intensive input/output (I/O) operations <em>i.e.</em>, heavy reading and writing of data, involving very large files and/or a very large number of small files. Research groups may also <a href="https://contact.icer.msu.edu/contact">request a scratch space</a>. Unlike the <a href="../Home_Space/">home space</a> and <a href="../Research_Space/">research space</a>, the scratch space is <strong>not intended for long-term storage</strong> and <strong>cannot be accessed from a gateway node</strong>, with the exception of the
+<a href="../HPC_s_entire_layout_at_ICER/">rsync gateway</a> used for <a href="../File_transfer/">file transfer</a>. </p>
+<p>Data stored in a user's <strong>scratch space is not backed-up</strong>, and <strong>files in a scratch space with no I/O operations for 45 days will be automatically deleted</strong> to ensure the space is available to all users. 
+The limit on stroage is <strong>50TB</strong> and the initial limit on the number of files conatined in a research space is <strong>1,000,000</strong> files. </p>
+<p>A user's scratch space is available at <code>/mnt/scratch/$USER</code>, or use the bash environemntal variable <code>$SCRATCH</code>. Use the <code>quota</code> command to check a user's current space and file quotas.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>find <span class="nv">$SC18</span> -type f -mtime +40
-find <span class="nv">$SC15</span> -type f -mtime +40
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>$ quota
+
+Temporary Filesystems:
+---------------------------------------------------------------------------------------------------------------------------------------
+
+/mnt/scratch (/mnt/gs21)        Space Quota  Space Used   Space Free   Space % Used Filess Quota Files Used   Files Free   Files % Used
+                                51200G       0G           51200G       0%           1048576      1            1048575      0%       
 </code></pre></div></td></tr></table></div>
-<p>It will list files not modified more than 40 days. Users may set
-different days in the command to check their files.</p>
-<h3 id="notice-on-using-scratch-systems">Notice on Using Scratch Systems</h3>
-<hr />
-<p>The parallel file systems are designed for heavy reading and
-writing (I/O) of large files. Both of them are highly scalable and can
-sustain very high data transfer rates. It is a good choice for running
-parallel programs on multiple nodes with I/O access to many files. For
-many types of jobs, it's much faster than using your home or research
-folders. However, <em>for ls15 system, it is not good at handling high
-frequency I/O operations on a lot of small files</em>. For those type of
-jobs you can use gs18 or explore using
-<a href="../Local_File_Systems/">local file system</a>
-at $TMPDIR (/mnt/local) . Please
-contact us for more information if you find the Scratch file system is
-too slow for your work.</p>
-<p>Because the scratch space is intended for job running, it cannot
-be accessed from the general gateway nodes. That is, after you log in to
-HPCC (ssh to hpcc.msu.edu)
-and stay on the gateway. If you try to access scratch, you will
-receive an error  "No such file or directory."   To access scratch,
-please connect to a development node (e.g. ssh dev-intel16).  Your
-scratch folder is also available to all of the compute nodes and hence
-your jobs. To transfer files to/from your scratch folder in hpcc, please
-use our file transfer gateway with the host
-name <strong><code>rsync.hpcc.msu.edu</code>.</strong> See
-<a href="../File_and_Data_Transfer/">Transferring Files to the HPCC</a>
-for more information.</p>
-<h3 id="copying-files-between-ls15-and-gs18">Copying Files between ls15 and gs18</h3>
-<p>Users can copy files from ls15 to gs18 by 'cp' command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ cp -av /mnt/ls15/scratch/users/$USER /mnt/gs18/scratch/users/$USER
-</code></pre></div></td></tr></table></div>
-<p>or 'rsync' command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ rsync -av /mnt/ls15/scratch/users/$USER/ /mnt/gs18/scratch/users/$USER/
-</code></pre></div></td></tr></table></div>
-<p>rsync can be restarted and won't recopy files if you have to stop it or
-if it fails/interrupted during the copy.</p>
-<p>You can do this from any dev node. If you have many files this
-will take a long time so please plan to have your computer open during
-that time or use virtual terminal (such as screen). We are happy to help
-if you have any concerns or difficulty.  Please contact or visit us
-during office hours Mondays 1-2pm or Thursdays 1-2pm 1440 BPS building.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The methods used to copy files bewteen ls15 and gs18 mentioned above could be
-used to migrate files from old scatch system (ls15 and gs18) to new scratch (gs21).</p>
-</div>
-<h3 id="change-default-scratch">Change Default SCRATCH</h3>
-<hr />
-<p>If your scripts depend on the $SCRATCH variable to point to the
-ls15 scratch, as an immediate measure you can change it the value:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ export SCRATCH=/mnt/ls15/scratch/users/$USER
-</code></pre></div></td></tr></table></div>
-<p>We don't recommend this. (We recommend copying your files to gs18 or use
-$SC15 instead.) However, if your transition to ls15 takes a long time,
-you could add this command to your scripts or when you log-in.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>After migrating files from old scratch systems to the new scratch system, users may want
-to check if they have used any variables in their script files to point to the old
-scratch system and make the proper update to point to the new scratch system. </p>
-</div>
+<h2 id="using-a-scratch-space">Using a Scratch Space</h2>
+<p>Scratch Space can sustain high data transfer rates and is a good 
+choice for data files used in running parallel on multiple nodes with
+intensive I/O requirements. Jobs of this type will run much faster with 
+data accessed from a scratch space and users should follow the proceedure 
+below for best practice:    </p>
+<ol>
+<li><strong>Configure the job script and/or the main program for scratch space I/O using the path <code>/mnt/scratch/$USER</code> or the variable <code>$SCRATCH</code></strong></li>
+<li><strong>Copy input data from the home space or research space to scratch space; to maintain data integrity keep the original data files in the home space or research space</strong></li>
+<li><strong>Schedule the job and confirm sucessful completion of the I/O operations</strong></li>
+<li><strong>Move the resulting output data back to either the home space or research space</strong></li>
+<li><strong>Delete that data from the scratch space</strong> </li>
+</ol>
+<h2 id="time-limits-on-scratch-space">Time Limits on Scratch Space</h2>
+<p>Files in a scratch space with no I/O operations for 45 days will be automatically deleted to ensure the space is available to all users. To find files in a scratch space approaching the 45 day limit run the following command:</p>
+<p><code>find $SCRATCH -type f -mtime +40</code></p>
+<p>Here the <code>+40</code> arguement specifies files with no I/O for more than 40 days. Users may set this arguement to any number of days desired, upto the 45 day limit.</p>
 
 
   
