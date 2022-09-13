@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../assets/icer-small-logo-white.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.3">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.0">
     
     
       
@@ -17,13 +17,14 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.6b80c2a2.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.2e8b5541.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
+
     
     
     
@@ -56,6 +57,7 @@
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
 
+    
     
     
   </head>
@@ -139,7 +141,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -2594,10 +2596,11 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
   
 
 
@@ -2606,15 +2609,15 @@
 <h1 id="file-transfer">File transfer</h1>
 <p>This document highlights several simple methods to transfer files to the
 HPCC home and research directories.  There are two main systems for
-copying files.   First,  simply "<strong>hpcc.msu.edu</strong>"  which is our main
-log-in gateway.   It can be used for file transfer but may have high
+copying files. First,  simply "<strong>hpcc.msu.edu</strong>"  which is our main
+log-in gateway. It can be used for file transfer but may have high
 traffic, is not meant for demanding file transfers (very large files or
 many files), and cannot access the scratch disk (/mnt/ls15/scratch or
-/mnt/scratch).      We offer  a second gateway designed for file
+/mnt/scratch). We offer a second gateway designed for file
 transfer, and does have access to the scratch file system with the host
 name  "<strong>rsync.hpcc.msu.edu</strong>". Therefore we highly recommend you use
 rsync.hpcc.msu.edu for the 'host' or 'server' in all examples below, as
-it's the only way to transfer files from scratch.    Note that while
+it's the only way to transfer files from scratch. Note that while
 it's named for the popular unix 'rsync' command, it can be used for sftp
 or scp as well. </p>
 <ul>
@@ -2704,11 +2707,9 @@ different files, regardless of which is newer).</p>
 </code></pre></div></td></tr></table></div>
 </li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>the first time you use rsync, you might want to add the -n flag to
-do a dry run before any files are copied.</p>
-</div>
+<p><strong>!!! Note:</strong>
+    the first time you use rsync, you might want to add the -n flag to
+    do a dry run before any files are copied.</p>
 </li>
 <li>
 <p>Interactive file copy (sftp)</p>
@@ -2723,8 +2724,8 @@ and lls prints a list of files in the current directory. For the remote
 file system, the same three commands are available, minus the leading
 "l." Also available are commands to change permissions, rename files,
 and manipulate directories on the remote host. The two key commands are
-get example.txt, which copies the file in the remote working directory
-to the local working directory, and put example.txt, which copies the
+<code>get &lt;file&gt;</code>, which copies the file in the remote working directory
+to the local working directory, and <code>put &lt;file&gt;</code>, which copies the
 file in the local working directory to the remote working directory. The
 quit command closes the connection between hosts.</p>
 </li>
@@ -2759,10 +2760,12 @@ user's file space on the cluster.  Submitting the line</p>
 
 
 
-              
-            </article>
-            
-          </div>
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
       </main>
@@ -2812,7 +2815,7 @@ user's file space on the cluster.  Submitting the line</p>
     <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.2ab50757.min.js"></script>
+      <script src="../assets/javascripts/bundle.48f2be22.min.js"></script>
       
     
   </body>
