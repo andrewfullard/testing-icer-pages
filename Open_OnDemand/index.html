@@ -2617,18 +2617,19 @@ utilize the HPCC by providing easy web access with graphical user interfaces fro
 <li>Command-line shell access</li>
 </ul>
 <h2 id="connect-to-hpcc-ondemand">Connect to HPCC OnDemand</h2>
-<p>To connect to HPCC OnDemand, visit <a href="https://ondemand.hpcc.msu.edu/"><strong>https://ondemand.hpcc.msu.edu/</strong></a>
- It will first redirect to the <a href="https://www.cilogon.org/"><strong>CILogon</strong></a> website
-<a href="https://www.cilogon.org/" rel="nofollow"></a>
-for authentication.  </p>
+<p>To connect to HPCC OnDemand, visit <a href="https://ondemand.hpcc.msu.edu/"><strong>https://ondemand.hpcc.msu.edu/</strong></a>.
+ It will first redirect to the <a href="https://www.cilogon.org/"><strong>CILogon</strong></a> website for authentication.  </p>
 <p><img alt="CIlogon" src="../attachments/50692318/58786039.png" /></p>
 <p>From here, select "<strong>Michigan State University</strong>" as the
 identity provider and click "<strong>Log On</strong>". This will redirect you to a page
 where you can log in with your MSU credentials.  </p>
-<p><em>Note: A valid MSU email address with NetID and password are required to access HPCC
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A valid MSU email address with NetID and password are required to access HPCC
 OnDemand. This may prohibits the access of external collaborators.
 Please take this into consideration when you choose tools provided on
-HPCC OnDemand for your group projects involving external collaborators.</em>  </p>
+HPCC OnDemand for your group projects involving external collaborators. </p>
+</div>
 <p>After sign in, you will reach the HPCC OnDemand web portal with the following menu options:    </p>
 <p><img alt="Main Page" src="../attachments/50692318/50692320.png" /></p>
 <h3 id="files">Files</h3>
@@ -2641,27 +2642,33 @@ view, edit, and move files.  </p>
 <p><strong>Active Jobs:</strong> List jobs in the queue; monitor or manage those jobs</p>
 <p><img alt="ActiveJobs" src="../attachments/50692318/55607547.png" /></p>
 <p><strong>Job Composer:</strong> Submit a job script with resource requests and 
-command lines; create new from a job template, copy a previously job submission, 
-or select an existing job scripts from a specified directory</p>
+command lines; create new scripts from a job template, copy a previous job submission, 
+or select an existing job script from a specified directory</p>
 <p><img alt="JobComposer" src="../attachments/50692318/55607545.png" /></p>
 <h3 id="interactive-apps">Interactive Apps</h3>
 <p><strong>Desktops:</strong> Request an <code>Interactive Desktop</code>; once it starts, a graphical user interface (GUI) is provided for running GUI based applications</p>
 <p><img alt="InteractiveApps" src="../attachments/50692318/55607548.png" /></p>
 <p><strong>GUIs:</strong> Launch an HPCC provided, GUI based application directly</p>
 <ul>
-<li><strong>MATLAB</strong>: 2018a-2020b versions are available</li>
-<li><strong>Stata</strong>: 15SE and 15MP are available</li>
+<li><strong>MATLAB</strong>: 2018a-2021a versions are available</li>
+<li><strong>Stata</strong>: 15SE, 15MP, 17SE, 17MP are available</li>
 <li><strong>Jupyter notebook</strong>: By default, Python 3.7.2 will be used; choose 
     your own Python by selecting 'Launch Jupyter Notebook using
     the Anaconda installation in my home directory'</li>
-<li><strong>RStudio</strong>: Various versions are available (3.4.3\~ 4.0.0)</li>
+<li><strong>RStudio</strong>: Various versions are available (3.5.0\~ 4.1.2)</li>
 </ul>
-<p><em>Note: Please make sure you request enough memory. Otherwise, your interactive 
-session won't start or your running processes will be terminated prior to completion.</em>  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please make sure you request enough memory. Otherwise, your interactive 
+session won't start or your running processes will be terminated prior to completion. </p>
+</div>
 <h3 id="development-nodes">Development Nodes</h3>
 <p>Start a bash session a specified development node and input commands using the terminal's command line interface. </p>
 <p><img alt="DevelopmentNodes" src="../attachments/50692318/55607550.png" /></p>
-<p><em>Note: Currently, there is no remote graphical display capability while in the terminal i.e., no X11 forwarding. For GUI based applications, please use <a href="Interactive Apps">Interactive Apps</a> feature.</em> </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently, there is no remote graphical display capability while in the terminal i.e., no X11 forwarding. For GUI based applications, please use the <a href="#interactive-apps">Interactive Apps</a> feature. </p>
+</div>
 <h3 id="my-interactive-sessions">My Interactive Sessions</h3>
 <p>All of a user's interactive jobs are displayed, along with a description of the resources currently allocated to each job. User's may then manage aspects of those jobs using the asscociated action buttons.</p>
 <p><img alt="MyInteractiveJobs" src="../attachments/50692318/55607553.png" /></p>
