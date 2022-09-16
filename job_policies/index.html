@@ -2788,12 +2788,12 @@ of the buy-in group.</p>
 </ul>
 <h2 id="more-about-queue-time">More about queue time</h2>
 <h3 id="fairshare">Fairshare</h3>
-<p>As jobs wait in the queue, they accrue priority to run. Another factor that contributes to a job's priority value is fairshare.
+<p>As jobs wait in the queue, they accrue priority to run. Another factor that contributes to a job's priority value is Fairshare.
 The scheduler will attempt to ensure fair resource utilization of
 all HPCC users by adjusting the initial priorities of the users who have
 recently used HPCC resources. Due to the policy, if users had jobs
 running with many resources recently, their current pending jobs might
-wait longer than before. Users can find the FAIRSHARE contribution to a
+wait longer than before. Users can find the Fairshare contribution to a
 job priority by running command "<code>sprio -u $USER</code>":</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2804,8 +2804,9 @@ job priority by running command "<code>sprio -u $USER</code>":</p>
        <span class="m">53381467</span> general-s   UserID      <span class="m">49432</span>          <span class="m">0</span>          <span class="m">0</span>      <span class="m">49318</span>          <span class="m">0</span>       <span class="nv">cpu</span><span class="o">=</span><span class="m">100</span>,mem<span class="o">=</span><span class="m">15</span>
 </code></pre></div></td></tr></table></div>
 <p>where it is found under <code>FAIRSHARE</code> column and the values are between
-60,000 and 0. More resources your jobs used recently, the less the
-values become and so are the priorities of your jobs. For other
+60,000 (highest priority contribution) and 0 (lowest priority contribution). 
+The more resources your jobs used recently, the less your Faireshre value
+will become, resulting in lower overall priority for your jobs. For other
 contributions of <code>sprio</code> results, please check <a href="../job_priority_factors/">Job Priority Factors</a>.</p>
 <h3 id="shorter-jobs-can-run-on-more-nodes">Shorter jobs can run on more nodes</h3>
 <p>Jobs that request a total running (wall-clock) time of four hours
