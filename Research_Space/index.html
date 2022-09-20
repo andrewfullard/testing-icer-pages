@@ -2693,7 +2693,7 @@ Research Groups: Space    Space   Space     Space     Files     Files     Files 
 </code></pre></div></td></tr></table></div>
 <p>The group's research space is associated with an assigned group name and is located at
 <strong><code>/mnt/research/&lt;groupname&gt;</code></strong> 
-by default. It is accessible to all users who have been added to the group by the PI. Memebers of the group must set their user file mode creation mask and file permissions correctly such that the other group members have the appropriate access to the shared files in the research space. See the section
+by default. It is accessible to all users who have been added to the group by the PI. Members of the group must set their user file mode creation mask and file permissions correctly such that the other group members have the appropriate access to the shared files in the research space. See the section
 <strong><a href="#using-a-research-space">Using a research space</a></strong>
 for more details.  </p>
 <p>All research space files are periodically, automatically backed up (except those files that a group has opted to store in a specially requested
@@ -2706,10 +2706,10 @@ containing the file paths and the period <em>i.e.</em>, the time frame, from whi
 instructions below.</strong> </p>
 <p><strong>1. Ensure that all directories created in a research space have the group ownership set to the
 <code>&lt;groupname&gt;</code> 
-and the set-group-ID (setgid) bit set to 
+and the set-group-ID (<code>setgid</code>) bit set to 
 <code>s</code> in the place of the executable bit on the group sector.</strong> By default, the group's research space 
 <code>/mnt/research/&lt;groupname&gt;</code>
-is set with the correct group ownership and setgid bit. To check the group ownership and setgid bit of a directory within the research space use the 
+is set with the correct group ownership and <code>setgid</code> bit. To check the group ownership and <code>setgid</code> bit of a directory within the research space use the 
 <code>ls -ld &lt;path/to/directory&gt;</code>
 command.
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2718,15 +2718,15 @@ drwxrws--- <span class="m">9</span> &lt;username&gt; &lt;groupname&gt; <span cla
 </code></pre></div></td></tr></table></div>
 The letter 
 <code>s</code>
-in the permissions <code>drwxrws---</code> of the directory is the setgid bit which makes newly created sub-directories and files within inherit the group ownership of the parent directory rather than the primary group of the individual user. See the page 
+in the permissions <code>drwxrws---</code> of the directory is the <code>setgid</code> bit which makes newly created sub-directories and files within inherit the group ownership of the parent directory rather than the primary group of the individual user. See the page 
 <a href="../File_Permissions_on_HPCC/"><strong>File Permissions on HPCC</strong></a> for more details. If the settings of a sub-directory are not set correctly, the group may encounter a 
 <code>Disk quota exceeded</code> 
 error when creating or copying files. See the section 
 <strong><a href="#quotas-on-a-research-space">Quotas on a research space</a></strong> 
-for more details. Use the folliwng commands to ensure all directories and files in the group's research space have the proper settings:</p>
+for more details. Use the following commands to ensure all directories and files in the group's research space have the proper settings:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$ find /mnt/research/&lt;groupname&gt;/ -not -group &lt;groupname&gt; -print0 <span class="p">|</span>xargs -0 chgrp &lt;groupname&gt;
-$ find /mnt/research/&lt;groupname&gt;/ -type d -print0 <span class="p">|</span>xargs -0 chmod g+s
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$ find /mnt/research/&lt;groupname&gt;/ -not -group &lt;groupname&gt; -print0 <span class="p">|</span> xargs -0 chgrp &lt;groupname&gt;
+$ find /mnt/research/&lt;groupname&gt;/ -type d -print0 <span class="p">|</span> xargs -0 chmod g+s
 </code></pre></div></td></tr></table></div>
 <p><strong>2. Do not use the 
 <code>mv</code> command or the 
@@ -2740,14 +2740,14 @@ $ find /mnt/research/&lt;groupname&gt;/ -type d -print0 <span class="p">|</span>
 to transfer a directory 
 <code>testdir</code> from your local machine to the HPCC research space 
 <code>/mnt/research/&lt;groupname&gt;</code>
-. This will automatically configure the tranfered directory with the setgid bit.</p>
+. This will automatically configure the transferred directory with the <code>setgid</code> bit.</p>
 <p><strong>4. During a bash session set the user file mode creation mask to 
 <code>0007</code>
 or any lower value</strong>. Use the 
 <code>umask</code> command to set the file mode creation mask <em>e.g.</em>, </p>
 <p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ <span class="nb">umask</span> <span class="m">0007</span>
 </code></pre></div></td></tr></table></div>
-For the duration of the seesion, files and directories created by the user are now readable, writable and executable for all members of the research group. Alternatively, a user may run the following <a href="../Powertools/"><strong>Powertools</strong></a> 
+For the duration of the session, files and directories created by the user are now readable, writable and executable for all members of the research group. Alternatively, a user may run the following <a href="../Powertools/"><strong>Powertools</strong></a> 
 command one time to add the line 
 <code>umask 0002</code>  
 to the user's <strong>.bashrc</strong> file:</p>
@@ -2755,7 +2755,7 @@ to the user's <strong>.bashrc</strong> file:</p>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$ module load powertools
 $ umask_in_bash                
 </code></pre></div></td></tr></table></div>
-<p><strong>5. Ensure that each group member's currently active group ID is set to the research group of interest. </strong></p>
+<p><strong>5. Ensure that each group member's currently active group ID is set to the research group of interest.</strong></p>
 <p>Each time a group member logs in to the HPCC that user's group ID is set to the primary group ID assigned by default when a user's account was created. However, a user may be added to other research groups at the request of that group's PI. After a login, the user may then toggle between group memberships using the 
 <code>newgrp &lt;groupname&gt;</code> 
 command when needed. For more information, refer to the 
@@ -2764,8 +2764,8 @@ page. A user may request that the primary group ID be changed from the default 
 <strong><a href="https://contact.icer.msu.edu/contact">help ticket</a></strong>
 .</p>
 <h3 id="quotas-on-a-research-space"><strong>Quotas on a research space</strong></h3>
-<p>The space and file quotas on an research space are claculated by matching the group
-ownership settings of files stored on the HPCC to that of the research space group name. Hence, a user may not create files larger than 8 MB in a specified research space with a group ownership atribute different from that of the research space. Attempting to do so will likely result in a 
+<p>The space and file quotas on an research space are calculated by matching the group
+ownership settings of files stored on the HPCC to that of the research space group name. Hence, a user may not create files larger than 8 MB in a specified research space with a group ownership attribute different from that of the research space. Attempting to do so will likely result in a 
 <code>Disk quota exceeded</code> 
 error even though use of the 
 <code>quota</code> 
