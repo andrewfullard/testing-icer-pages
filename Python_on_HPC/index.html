@@ -2595,33 +2595,32 @@
 <p>Python is popular because it makes a great first impression; i) clean,
 clear syntax, ii) multi-paradigm, iii) interpreted, iv) duck typing,
 garbage collection, and most of all, v) instant productivity. It keeps
-up with users' needs. it has i) flexible, full-featured data structures
+up with users' needs. It has i) flexible, full-featured data structures
 ii) extensive standard libraries iii) reusable open-source package iv)
 package management tools v) good unit testing frameworks. </p>
-<p>In exchange of these user-friendliness and ease of use, Python
+<p>In exchange for user-friendliness and ease of use, Python
 becomes one of the slowest computer languages, primarily because it is
 an interpreted language, and allows a single thread to run in the
-interpreter's memory space at once. It is known that Python is typically
-30 to 300 times slower than C or Fortran. However, Python has the most
+interpreter's memory space at once. Python is typically
+30 to 300 times slower than C or Fortran. However, Python has a
 powerful and enthusiastic open-source community which continuously
 improves the capability of Python. </p>
 <p>In this tutorial, we want to</p>
 <ul>
-<li>explain what MSU HPC is doing to support Python users.</li>
-<li>provide guidance to help users improve Python performance at the
-    HPC.</li>
-<li>point out tools that support developers of Python in HPC.</li>
+<li>explain what the MSU HPCC is doing to support Python users.</li>
+<li>provide guidance to help users improve Python performance on the
+    HPCC.</li>
+<li>point out tools that support developers of Python on the HPCC.</li>
 </ul>
 <p>We assume that</p>
 <ul>
 <li>you know and use Python, or</li>
-<li>you know and use HPC and are curious about using Python in your own
-    HPC work.</li>
+<li>you know and use the HPCC and are curious about using Python in your own
+    HPCC work.</li>
 </ul>
-<p><a href="#how-to-use-python-on-hpc">How to use Python on HPC?</a></p>
+<p><a href="#how-to-use-python-on-the-hpcc">How to use Python on the HPCC?</a></p>
 <ul>
-<li><a href="#python-with-virtual-environments">Python with virtual
-    environments</a></li>
+<li><a href="#python-with-virtual-environments">Python with virtual environments</a></li>
 <li><a href="#python-with-conda">Python with Conda</a></li>
 <li><a href="#jupyter-notebook">Jupyter Notebook</a></li>
 </ul>
@@ -2634,7 +2633,7 @@ improves the capability of Python. </p>
 <li><a href="#profiling">Profiling</a></li>
 </ul>
 <p><a href="#other-python-resources">Other Python Resources</a></p>
-<h1 id="how-to-use-python-on-hpc">How to use Python on HPC?</h1>
+<h1 id="how-to-use-python-on-the-hpcc">How to use Python on the HPCC?</h1>
 <p>Python applications usually use packages and modules that require
 specific version of libraries. This means one installed application may
 conflict with another application due to using the same library but with
@@ -2645,20 +2644,19 @@ application by one global Python installation. To resolve this issue,</p>
     version of Python on our system in a self-contained directory of
     their home or research space.</li>
 <li>users can Install their own version of Python through
-    <u><a href="https://www.anaconda.com/distribution" rel="nofollow"
-    style="text-decoration: none;">Anaconda</a></u> in home or research
+    <a href="https://www.anaconda.com/distribution">Anaconda</a> in their home or research
     space. This gives users full control on their preferred versions of
     python and packages.</li>
 </ul>
 <h2 id="python-with-virtual-environments">Python with virtual environments</h2>
-<p>More details of how to use virtual environment can be found at <a href="../Using_Python_in_HPCC_with_virtualenv/">this page</a></p>
+<p>More details of how to use virtual environments can be found at <a href="../Using_Python_in_HPCC_with_virtualenv/">this page</a></p>
 <h2 id="python-with-conda">Python with Conda</h2>
-<p>To use Python on HPC, you have to load a Python module. A few helpful
-module commands would be <strong>module avail Python</strong>, <strong>module spider
-Python</strong>, and <strong>module load Python</strong>. For more information for our
+<p>To use Python on the HPCC, you have to load a Python module. A few helpful
+module commands would be <code>module avail Python</code>, <code>module spider Python</code>, 
+and <code>module load Python</code>. For more information for our
 module system can be found <a href="../Module_System_and_Software_Installation/">here</a></p>
 <h2 id="jupyter-notebook">Jupyter Notebook</h2>
-<p>For Jupyter notebook users, we have <a href="../Open_OnDemand/">the Open Ondemand platform</a>
+<p>For Jupyter notebook users, we have <a href="../Open_OnDemand/">the Open OnDemand platform</a>
  To connect to HPCC
 OnDemand, visit <a href="https://ondemand.hpcc.msu.edu">https://ondemand.hpcc.msu.edu</a>. After
 logging in, choose interactive apps, select Jupyter Notebook, request
@@ -2667,44 +2665,42 @@ requested resources are ready.</p>
 <p><img alt="img!" src="../attachments/50692451/50692466.png" style="height:400px" /></p>
 <p><img alt="img!" src="../attachments/50692451/50692467.png" style="height:600px" /></p>
 <h1 id="can-my-python-code-be-faster">Can my Python code be faster?</h1>
-<p>Now, you are ready to use Python on HPC. Now, let's learn a few tips to make your Python codes faster.</p>
+<p>Now, you are ready to use Python on the HPCC. Now, let's learn a few tips to make your Python codes faster.</p>
 <h2 id="vectorization">Vectorization</h2>
-<p>Vectorization speeds up the Python code without using loop. Instead of
-loop, NumPy can help in minimizing the running time of code efficiently.
-NumPy offers various operations are being performed over vector such as
-dot product, cross product, matrix multiplication.</p>
+<p>Vectorization speeds up Python code without using loops. Instead of
+loops, NumPy can help by minimizing the running time of code efficiently.
+NumPy offers various operations to be performed over vectors such as the
+dot product, cross product, and matrix multiplication. See the <a href="https://numpy.org/doc/stable/reference/arrays.html">Numpy array documentation</a> for more information.</p>
 <h2 id="numba">Numba</h2>
-<p>Numba compiles Python codes just in time with a few decorators, without
-much modification of codes. Performance tests can be found here and
-here. In addition, Numba offers automatic parallelization which is very
-easy to use. You just need to add on line
-decorator, @njit(parallel=True). For more information can be found here.
+<p><a href="https://numba.pydata.org/">Numba</a> compiles Python codes just in time with a few decorators, without
+much modification of code. In addition, Numba offers automatic parallelization which is very
+easy to use. You just need to add the one line
+decorator, <code>@njit(parallel=True)</code>. More information can be found <a href="https://numba.readthedocs.io/en/stable/user/parallel.html">here</a>.
 Numba also supports NVIDIA CUDA. It is easy to use (at least much easier
-to use than other programming languages). A well-written Jupyter
+to use than other programming languages). </p>
+<!-- A well-written Jupyter
 Notebook for performance tests among CPU vs GPU with NumPy, Numba and
-CUDA can be found here.</p>
+CUDA can be found here. -->
+
 <h2 id="use-threaded-libraries">Use Threaded Libraries</h2>
-<p>Packages like NumPy, SciPy are already built with MPI and tread support
+<p>Packages like NumPy and SciPy are already built with MPI and multithread support
 via BLAS/LAPACK, and MKL. In general, it is a plausible guess that most
-solvers have been already implemented in pure Python. In addition, many
-of famous threaded libraries and packages already have binds such as
-PyTrilinos, Petsc4py, Elemental, and SLEPc. So, don't try to reinvent
-wheels. If it is not new, probably it is already implemented in a very
-nice way.</p>
+solvers have already been implemented in pure Python. In addition, many
+major threaded libraries and packages already have binds such as
+PyTrilinos, Petsc4py, Elemental, and SLEPc. So, don't try to reinvent the
+wheel. If it is not new, it is probably already implemented for high performance.</p>
 <h2 id="mpi">MPI</h2>
 <p>Python has a package for MPI, mpi4py.</p>
 <p>It is</p>
 <ul>
 <li>a pythonic wrapping of the system's native MPI.</li>
-<li>providing almost all MPI-1, 2 and common MPI-3 features.</li>
+<li>a provider of almost all MPI-1, 2 and common MPI-3 features.</li>
 <li>very well maintained.</li>
 <li>distributed with major Python distributions.</li>
-<li>portalbe and scalable.</li>
-<li>requires only NumPy, Cython (build only), and MPI library.</li>
+<li>portable and scalable.</li>
+<li>dependent only on NumPy, Cython (build only), and MPI libraries.</li>
 </ul>
 <p>More information can be found <a href="https://mpi4py.readthedocs.io/en/stable/">here</a>.</p>
-<h2 id="profiling">Profiling</h2>
-<p>Will be added soon.</p>
 <h1 id="other-python-resources">Other Python Resources</h1>
 <p>The following are a few Python resource links.</p>
 <ul>
