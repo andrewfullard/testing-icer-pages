@@ -13,7 +13,7 @@
     
     
       
-        <title>Basic Mathematical Library Tests on AMD EPYC Processors - MSU HPCC User Documentation</title>
+        <title>Lab Noteboks - MSU HPCC User Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#basic-mathematical-library-tests-on-amd-epyc-processors" class="md-skip">
+        <a href="#lab-notebooks" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                Basic Mathematical Library Tests on AMD EPYC Processors
+                Lab Noteboks
               
             </span>
           </div>
@@ -2503,11 +2503,59 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../Lab_Notebooks/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Lab Noteboks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Lab Noteboks
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#important-use-at-your-own-risk" class="md-nav__link">
+    IMPORTANT: Use at your own risk!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notebooks" class="md-nav__link">
+    Notebooks
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2547,6 +2595,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#important-use-at-your-own-risk" class="md-nav__link">
+    IMPORTANT: Use at your own risk!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notebooks" class="md-nav__link">
+    Notebooks
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2563,87 +2633,11 @@
 
 
 
-<h1 id="basic-mathematical-library-tests-on-amd-epyc-processors">Basic Mathematical Library Tests on AMD EPYC Processors</h1>
-<p>This test runs many calculations of sine, cosine and logarithm
-functions in parallel. Each of the calculations is independent from the
-others and finally they get summed up. The test is executed by a C
-program written with OpenMP multi-threading and compiled with different
-compilers and libraries. Three letters (A, G and I) followed by a digit
-(1 or 2) are used to specify different tests:</p>
-<!--
-NOTE: the rows in the last column need to be merged. Markdown does not support it.
--->
-
-<table>
-<thead>
-<tr>
-<th>Letters</th>
-<th>First</th>
-<th>Second</th>
-<th>Digit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A</td>
-<td>AMD Compiler</td>
-<td>AMD basic mathematical Library</td>
-<td>1: all threads running in one socket</td>
-</tr>
-<tr>
-<td>G</td>
-<td>GNU Compiler</td>
-<td>GNU basic mathematical Library (-lm)</td>
-<td>2: threads evenly spread to two different sockets</td>
-</tr>
-<tr>
-<td>I</td>
-<td>Intel Compiler</td>
-<td>Intel basic mathematical Library (included in compiler)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>where the letter in the first and second position represents which
-compiler and basic mathematical library is in use respectively. The
-performance results are presented in the following figure:</p>
-<p><img alt="img!" src="../attachments/49152077/49152079.png" /></p>
-<p>where all timing values were derived by the average of running ten
-times. As you can see in the figure, the performance of the parallel
-scaling is almost linear for all compilers and the scaling efficiency1
-is strong (about 61% for AA1 and AA2). From the comparison of the timing
-results, Intel compiler with its library shows the best performance.
-However, GCC and AMD compilers with AMD basic mathematical library also
-performs well. In the results of 128 threads, the elapsed time of AMD
-compiler with AMD library are very closed to the time of Intel's. In the
-tests of spreading threads. we also find out all threads running on one
-socket has no difference from spreading them on two different sockets.</p>
-<p>The same C program was also compiled and run on an intel18 and an
-intel16 node. The timing of amd20 node with 128 threads is about 3 times
-faster than the performance of intel18 (with 40 threads) and 4.5 times
-faster than the performance of intel16 (with 28 threads). The decrease
-in timing is well prorated with the increase on thread number. </p>
-<!-- following line is removed because the page is no longer exist
-
-See the [parallel scaling web site](https://www.sharcnet.ca/help/index.php/Measuring_Parallel_Scaling_Performance)
-for the definition of scaling efficiency.
--->
-
-<!--
-<div class="pageSectionHeader">
-
-## Attachments:
-
-</div>
-
-<div class="greybox" align="left">
-
-<img src="images/icons/bullet_blue.gif" width="8" height="8" />
-[image2020-8-7_15-46-47.png](attachments/49152077/49152079.png)
-(image/png)  
-
-</div>
--->
+<h1 id="lab-notebooks">Lab Notebooks</h1>
+<h3 id="important-use-at-your-own-risk">IMPORTANT: Use at your own risk!</h3>
+<p>The following Lab Notebooks are intended as a record of how particular problems were solved at a particular time and not updated or maintained in any way to reflect current system setting or versions of installed software. If you are having a problem with software/topic addressed by one of these notebooks, they may provide a solution or at least a starting point, but their is no garuntee that worked here will work again.</p>
+<h3 id="notebooks">Notebooks</h3>
+<p><a href="../LabNotebook_AntiSmash/">Installing AntiSMASH</a></p>
 
 
   
