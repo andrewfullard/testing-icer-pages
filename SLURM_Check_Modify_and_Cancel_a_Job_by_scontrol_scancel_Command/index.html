@@ -13,7 +13,7 @@
     
     
       
-        <title>SLURM Check, Modify and Cancel a Job by scontrol & scancel Command - MSU HPCC User Documentation</title>
+        <title>SLURM Check, Modify and Cancel a Job using the scontrol & scancel commands - MSU HPCC User Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slurm-check-modify-and-cancel-a-job-by-scontrol-scancel-command" class="md-skip">
+        <a href="#slurm-check-modify-and-cancel-a-job-using-the-scontrol-scancel-commands" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                SLURM Check, Modify and Cancel a Job by scontrol & scancel Command
+                SLURM Check, Modify and Cancel a Job using the scontrol & scancel commands
               
             </span>
           </div>
@@ -2585,15 +2585,11 @@
 
 
 
-<h1 id="slurm-check-modify-and-cancel-a-job-by-scontrol-scancel-command">SLURM Check, Modify and Cancel a Job by scontrol &amp; scancel Command</h1>
+<h1 id="slurm-check-modify-and-cancel-a-job-using-the-scontrol-scancel-commands">SLURM Check, Modify and Cancel a Job using the scontrol &amp; scancel commands</h1>
 <h3 id="scontrol-command">scontrol command</h3>
-<p>Besides the brief listing of every jobs by <strong>squeue</strong> command,
-user can also see the detailed information of each job. Run SLURM
-command <strong>scontrol</strong> <strong>show</strong> with a job ID:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
+<p>Besides the brief listing of every job using the <code>squeue</code> command,
+a user can also see the detailed information of each job. Run the SLURM
+command <code>scontrol show</code> with a job ID:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2650,18 +2646,9 @@ command <strong>scontrol</strong> <strong>show</strong> with a job ID:</p>
    <span class="nv">StdOut</span><span class="o">=</span>/mnt/home/changc81/GetExample/helloMPI/slurm-8929.out
    <span class="nv">Power</span><span class="o">=</span>
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
 <p>You can check if the information is right for the job. If the job has
 not started to run and you would like change any specification, you can
-hold the job first by <strong>scontrol hold</strong> command:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
+hold the job first using the <code>scontrol hold</code> command:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -2672,36 +2659,16 @@ Fri Aug  <span class="m">3</span> <span class="m">12</span>:26:57 <span class="m
              JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST<span class="o">(</span>REASON<span class="o">)</span>
               <span class="m">8929</span> general-s     <span class="nb">test</span>   nobody  PENDING       <span class="m">0</span>:00      <span class="m">1</span>:00     <span class="m">80</span> <span class="o">(</span>JobHeldUser<span class="o">)</span>
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
-<p>where you can see from the results of the <strong>squeue</strong> command, the job is
-pending due to the user's hold. Now, you can choose the parts of
-information you want to change in <strong>scontrol show</strong> results. Put them in
-<strong>scontrol update</strong> command and modify the information after symbol
-<strong>"=</strong>" . For example, the command line</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
+<p>where you can see from the results of the <code>squeue</code> command, the job is
+pending due to the user's hold. You can choose the information you want to change in <code>scontrol show</code> results. Put them in the
+<code>scontrol update</code> command and modify the information after the <code>=</code> symbol. For example, the command line</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ scontrol update job <span class="m">8929</span>  <span class="nv">NumNodes</span><span class="o">=</span><span class="m">2</span>-2 <span class="nv">NumTasks</span><span class="o">=</span><span class="m">2</span> <span class="nv">Features</span><span class="o">=</span>intel16
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
 <p>will change the resource request of the job 8929 from 80 nodes and 80
 tasks with intel14 nodes to 2 nodes and 2 tasks with intel16 nodes.
-After the update, you can use <strong>scontrol show</strong> command again to verify
+After the update, you can use the <code>scontrol show</code> command again to verify
 the job setting. Once you are done with the update work, you can release
-the job hold by command <strong>scontrol release</strong>:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
+the job hold by command <code>scontrol release</code>:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -2712,18 +2679,9 @@ Fri Aug  <span class="m">3</span> <span class="m">13</span>:18:10 <span class="m
              JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST<span class="o">(</span>REASON<span class="o">)</span>
               <span class="m">8929</span> general-s     <span class="nb">test</span>   nobody  RUNNING       <span class="m">0</span>:07      <span class="m">1</span>:00      <span class="m">2</span> lac-<span class="o">[</span><span class="m">386</span>-387<span class="o">]</span>
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
-<p>The job is now running due to the change of the resource request by
-command <strong>scontrol update</strong>. Again, we can check the running job by the
-command:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
+<p>The job is now running due to the change of the resource request by the
+command <code>scontrol update</code>. Again, we can check the running job using the
+command <code>scontrol show</code>:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2782,33 +2740,19 @@ command:</p>
    <span class="nv">StdOut</span><span class="o">=</span>/mnt/home/changc81/GetExample/helloMPI/slurm-8929.out
    <span class="nv">Power</span><span class="o">=</span>
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
-<p>For a complete usage of <strong>scontrol</strong> command, please refer to
-<a href="https://slurm.schedmd.com/scontrol.html" rel="nofollow">the
-SLURM web site</a>.</p>
+<p>For complete usage information about the <code>scontrol</code> command, please refer to
+<a href="https://slurm.schedmd.com/scontrol.html">https://slurm.schedmd.com/scontrol.html</a> at the
+SLURM web site.</p>
 <h3 id="scancel-command">scancel command</h3>
 <p>If at any moment before the job complete, you would like to remove
-the job, you can use <strong>scancel</strong> command to cancel a job. For example,
-the command line</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
+the job, you can use the <code>scancel</code> command to cancel a job. For example,
+the command</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ scancel <span class="m">8929</span>
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
-<p>cancel the running of the job 8929. For a complete usage of <strong>scancel</strong>
+<p>will cancel job 8929. For a complete usage information about the <code>scancel</code>
 command, please refer to
-<a href="https://slurm.schedmd.com/scancel.html" rel="nofollow">the
-SLURM web site</a>.</p>
+<a href="https://slurm.schedmd.com/scancel.html">https://slurm.schedmd.com/scancel.html</a> at the
+SLURM web site.</p>
 
 
   
