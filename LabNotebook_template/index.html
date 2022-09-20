@@ -13,7 +13,7 @@
     
     
       
-        <title>Gaussian job with checkpointing - MSU HPCC User Documentation</title>
+        <title>LabNotebook template - MSU HPCC User Documentation</title>
       
     
     
@@ -77,11 +77,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#gaussian-job-with-checkpointing-run" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -116,7 +111,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                Gaussian job with checkpointing
+                LabNotebook template
               
             </span>
           </div>
@@ -1413,14 +1408,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
       
       
       
@@ -2134,14 +2127,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_9" type="checkbox" id="__nav_10_9" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_9" type="checkbox" id="__nav_10_9" >
       
       
       
@@ -2204,21 +2195,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Gaussian_Job_with_Checkpointing_Run/" class="md-nav__link">
         Gaussian job with checkpointing
       </a>
-      
     </li>
   
 
@@ -2572,8 +2553,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -2588,216 +2567,37 @@
                   
   
 
+  <nav class="md-tags" >
+    
+      
+      
+        <a href="../tags/#lab-notebook" class="md-tag">lab notebook</a>
+      
+    
+  </nav>
 
 
 
-<h1 id="gaussian-job-with-checkpointing-run">Gaussian Job with Checkpointing Run</h1>
-<p>For running a large system with Gaussian, it usually takes a long
-time and many resources to complete. It is a good idea to set up
-checkpointing so the calculation can keep going in case of any
-interruption due to walltime limit or possible system malfunction.
-Checkpointing function can save a snapshot of a Gaussian running state
-so it can restart from the previous calculation. Users can also divide a
-long-time job into many 4-hour short jobs since jobs with walltime less
-than or equal to 4 hours can use the buy-in nodes (55% of all nodes) in
-HPCC.</p>
-<p>In order to have an appropriate checkpointing run with Gaussian,
-an unified read-write file setting (<code>%RWF</code>) should be in the Link 0
-section of the input file. An example <code>water.gjf</code> is in the following:</p>
-<p><strong>water.gjf</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code>%NProcShared<span class="o">=</span><span class="m">2</span>
-%Mem<span class="o">=</span>3GB
-%RWF<span class="o">=</span>water.rwf
-%NoSave
-%chk<span class="o">=</span>water.chk
-<span class="c1">#P opt b3lyp/aug-cc-pVTZ</span>
 
-water molecules
+  <h1>LabNotebook template</h1>
 
-<span class="m">0</span> <span class="m">1</span>
-O   -2.12123400  <span class="m">1</span>.99409800 -1.27381200
-H    <span class="m">1</span>.52438600  <span class="m">0</span>.53672100  <span class="m">0</span>.67508800
-H    <span class="m">1</span>.76493000 -0.81527300 -0.18137000
-O   -1.12977500 -0.31430400 -0.37860700
-H   -1.76492800 -0.81528500  <span class="m">0</span>.18137200
-H   -1.52439700  <span class="m">0</span>.53670800 -0.67510100
-O    <span class="m">2</span>.89125300 -1.69896600 -1.06351900
-O    <span class="m">1</span>.12976700 -0.31428900  <span class="m">0</span>.37859300
-H    <span class="m">2</span>.99568600 -1.73945400 -2.01677200
-H    <span class="m">3</span>.39746100 -2.42787400 -0.69708600
-O   -2.89123000 -1.69896400  <span class="m">1</span>.06353700
-H   -2.99563400 -1.73945600  <span class="m">2</span>.01679300
-H   -2.43456700  <span class="m">2</span>.07972500 -2.17761600
-H   -2.58174600  <span class="m">2</span>.66131900 -0.75942800
-H   -3.39743400 -2.42788000  <span class="m">0</span>.69711700
-</code></pre></div></td></tr></table></div>
-<p>The input file requests geometry optimization of 5 water molecules with
-a very large basis set aug-cc-pVTZ. It will take about 25 CPU hours to
-finish the whole calculation. We have the setting on <code>%RWF</code> which
-specifies <code>water.rwf</code> file for checkpointing function besides
-<code>water.chk</code> file. Since the specification <code>%RWF</code> is placed before
-<code>%NoSave</code> line, the rwf file will be deleted if the calculation is
-normally completed without any error.</p>
-<p>In order to have several restart running after first running
-stops, we can build a restart Gaussian input file <code>restart.gjf</code> simply
-as</p>
-<p><strong>restart.gjf</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>%NProcShared<span class="o">=</span><span class="m">2</span>
-%Mem<span class="o">=</span>3GB
-%RWF<span class="o">=</span>waters.rwf
-%NoSave
-%chk<span class="o">=</span>waters.chk
-<span class="c1">#P Restart</span>
-</code></pre></div></td></tr></table></div>
-<p>Since all information about the calculation is recorded in the rwf file,
-a line with "Restart" is enough for Gaussian to restart from the
-previous job. This restart input file can also be created by the
-commands:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$ grep <span class="s1">&#39;^%&#39;</span> waters.gjf &gt; restart.gjf
-$ <span class="nb">echo</span> -e <span class="s1">&#39;#P Restart\n&#39;</span> &gt;&gt; restart.gjf
-</code></pre></div></td></tr></table></div>
-<p>where we simply "<code>grep</code>" the lines starting with "<code>%</code>" sign in
-<code>water.gjf</code> and put them to the Gaussian restart file with
-"<code>#P Restart</code>" line in the end.</p>
-<p>Now we need a job script to submit the Gaussian calculation. The
-script needs to keep submitting jobs to restart the previous calculation
-until it is completed. Here is a job script <code>water.sb</code> which can do the
-work:</p>
-<p><strong>water.sb</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#SBATCH –-job-name=LongJob</span>
-<span class="c1">#SBATCH –-ntasks=1</span>
-<span class="c1">#SBATCH –-cpus-per-task=2</span>
-<span class="c1">#SBATCH --mem=5G</span>
-<span class="c1">#SBATCH –-time=04:00:00</span>
-
-module load Gaussian/g16 powertools
-<span class="nv">OutputFile</span><span class="o">=</span><span class="s2">&quot;water-</span><span class="si">${</span><span class="nv">SLURM_JOBID</span><span class="si">}</span><span class="s2">.log&quot;</span>             <span class="c1"># Gaussian output file name for each job</span>
-
-<span class="c1"># How many seconds before end of job to submit another</span>
-<span class="nv">BeforeEnd</span><span class="o">=</span><span class="m">300</span>                                       <span class="c1"># 5 minutes</span>
-
-<span class="c1"># The background script to keep job submission until calculation is completed</span>
-<span class="o">(</span>sleep <span class="k">$((</span><span class="m">4</span><span class="o">*</span><span class="m">60</span><span class="o">*</span><span class="m">60</span> <span class="o">-</span> BeforeEnd<span class="k">))</span>                     <span class="c1"># sleep until the time before end of job</span>
-js -j <span class="si">${</span><span class="nv">SLURM_JOBID</span><span class="si">}</span>                                <span class="c1"># print out resource usage</span>
-cat <span class="si">${</span><span class="nv">OutputFile</span><span class="si">}</span> &gt;&gt; water.log                      <span class="c1"># collect Gaussian outputs into one file</span>
-<span class="nb">echo</span> -e <span class="s2">&quot;\n\n====== Gaussian calculation on job </span><span class="si">${</span><span class="nv">SLURM_JOBID</span><span class="si">}</span><span class="s2"> stops. ======\n\n&quot;</span> &gt;&gt; water.log
-<span class="nb">echo</span> <span class="s2">&quot;The Gaussian calculation has not completed. Submit another job to keep doing it.&quot;</span>
-sbatch water.sb                                     <span class="c1"># submit another job</span>
-scancel <span class="si">${</span><span class="nv">SLURM_JOBID</span><span class="si">}</span>  <span class="o">)</span><span class="p">&amp;</span>                          <span class="c1"># job stops if g16 command is not finished</span>
-
-<span class="c1"># Whether this is a restart job or not</span>
-<span class="k">if</span> <span class="o">[</span> -f water.rwf <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> -f water.chk <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-   <span class="nv">InputFile</span><span class="o">=</span><span class="s2">&quot;restart.gjf&quot;</span>
-<span class="k">else</span>
-   <span class="nv">InputFile</span><span class="o">=</span><span class="s2">&quot;water.gjf&quot;</span>
-<span class="k">fi</span>
-
-g16 &lt; <span class="si">${</span><span class="nv">InputFile</span><span class="si">}</span> &gt; <span class="si">${</span><span class="nv">OutputFile</span><span class="si">}</span>
-
-<span class="c1"># The following commands are not executed unless g16 command is completed.</span>
-<span class="c1"># Print out resource usage </span>
-js -j <span class="nv">$SLURM_JOB_ID</span>           <span class="c1">### powetools command</span>
-
-cat <span class="si">${</span><span class="nv">OutputFile</span><span class="si">}</span> &gt;&gt; water.log 
-<span class="nb">echo</span> -e <span class="s2">&quot;\n\n====== Gaussian calculation is completed on job </span><span class="si">${</span><span class="nv">SLURM_JOBID</span><span class="si">}</span><span class="s2">. ======\n\n&quot;</span> &gt;&gt; water.log
-</code></pre></div></td></tr></table></div>
-<p>where a background script in <code>(---)&amp;</code> from line 14 to 20 is added to
-keep submitting job<code>s</code>.</p>
-<p>Once the job is started, the background script is running at the
-same time as the foreground script. The background script is in sleep
-for 3 hours and 55 minutes first. During this time, the foreground
-script runs the Gaussian calculation or restart the previous calculation
-if the checkpointing files (<code>water.rwf</code> and <code>water.chk</code>) exist. After 5
-minutes before the end of the job, the background is awake to print out
-the resource usage and Gaussian output. It submits another job and stop
-the current running job in line 19 and 20 if the g16 command in line 29
-is not completed. If the g16 command is finished before the background
-is awake, the job will keep executing all command lines after line 30
-and finish. There will be no more job submitted.</p>
-<p>Since the rwf file usually takes a lot of file space, it is
-suggested to run checkpointing jobs in scratch space in case your home
-or research space is over quota. Users can create a directory in their
-scratch space. Copy all files (<code>water,gjf</code>, <code>restart.gjf</code> and
-<code>water.sb</code>) and submit their job script there. Please check your job
-running frequently. Make sure to copy necessary files back to home or
-research directory from time to time since files on scratch will be
-purged if they have not been modified for 45 days.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is as a <strong>Lab Notebook</strong> which describes how to solve a specific problem at a specific time.
+Please keep this in mind as you read and use the content. Please pay close attention to the date, version
+information and other details.</p>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 16, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 20, 2022</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 13, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 20, 2022</span>
       
     
   </small>
