@@ -2600,21 +2600,20 @@ updating your netid password before opening a ticket</p>
 </li>
 <li>
 <p>This will only work if your computer has a university IP address. If
-you are off campus, you can use
-<a href="https://vpn.msu.edu/dana-na/auth/url_default/welcome.cgi"
-rel="nofollow">MSU VPN</a> to obtain an MSU IP, which is available to
+you are off campus, you can use the
+<a href="https://vpn.msu.edu/dana-na/auth/url_default/welcome.cgi">MSU VPN</a>
+ to obtain an MSU IP, which is available to
 all graduate students, staff and faculty. </p>
 </li>
 <li>
-<p>If file transfer speed is a concern please use the sftp protocol for
-transferring large data sets, or use our Globus endpoint</p>
+<p>If file transfer speed is a concern please use the <a href="../SFTP_Mapping_on_HPCC_file_systems/">sftp protocol</a> for
+transferring large data sets, or use our <a href="../Transferring_data_with_Globus/">Globus endpoint</a>.</p>
 </li>
 </ol>
 </div>
 <p>The following tutorial will show you how to map your HPC home or
 research directory using
-<a href="http://en.wikipedia.org/wiki/Cifs" rel="nofollow">SMB or CIFS
-File Sharing</a>.</p>
+<a href="http://en.wikipedia.org/wiki/Cifs">SMB or CIFS File Sharing</a>.</p>
 <ul>
 <li><a href="#determining-your-network-path">Determining your Network Path</a></li>
 <li><a href="#windows-10">Windows 10</a><ul>
@@ -3036,8 +3035,11 @@ class="wysiwyg-unknown-macro" />
 <img alt="img!" src="../attachments/11895818/11895785.png" /> <img alt="img!" src="../attachments/11895818/11895784.png" /></li>
 <li>Click on Change adapter settings</li>
 <li>Right click on your Network interface and click on Properties</li>
-<li>Follow the steps from 1d. in the Windows 7 instruction above to
-    enable NetBIOS over TCP/IP.</li>
+<li>Select the <strong>Internet Protocol version 4 (TCP/IPv4)</strong></li>
+<li>Click the <strong>Advanced</strong> button under the General tab.</li>
+<li>Click the <strong>WINS</strong> tab.  </li>
+<li>Click the <strong>Enable NetBIOS Over TCP/IP</strong> button.
+    Click <strong>Ok</strong></li>
 </ul>
 <h3 id="step-2-disable-smb1">Step 2. Disable SMB1</h3>
 <h4 id="disable-samba-v1-protocol-with-powershell">Disable Samba V1 protocol with PowerShell</h4>
@@ -3046,7 +3048,7 @@ class="wysiwyg-unknown-macro" />
 <div>
 
 This step must be completed or your client will not be able to map the
-drive. If you have other mounts on on the HPC cluster and they are using
+drive. If you have other mounts on the HPC cluster and they are using
 samba V1 they will stop working.
 
 </div>
@@ -3055,7 +3057,7 @@ samba V1 they will stop working.
 
 <ol>
 <li>
-<p>Press the windows start button</p>
+<p>Press the Windows start button</p>
 </li>
 <li>
 <p>In the search box type "power shell"<br />
@@ -3465,7 +3467,7 @@ shot 2010-04-16 at 8.57.19 AM.png](attachments/11895818/11895811.png)
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 20, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 22, 2022</span>
       
         <br>
         Created:
