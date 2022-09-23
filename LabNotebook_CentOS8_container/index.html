@@ -77,6 +77,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#introducion" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2554,6 +2559,55 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducion" class="md-nav__link">
+    Introducion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-a-centos8-image" class="md-nav__link">
+    Getting a CentOS8 image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pymesh-03-in-centos8-container" class="md-nav__link">
+    Pymesh 0.3 in CentOS8 Container
+  </a>
+  
+    <nav class="md-nav" aria-label="Pymesh 0.3 in CentOS8 Container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-singularity-container" class="md-nav__link">
+    Setup Singularity Container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-pymesh-withing-the-container" class="md-nav__link">
+    Install Pymesh withing the container
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2567,12 +2621,69 @@
                   
   
 
+  <nav class="md-tags" >
+    
+      
+      
+        <a href="../tags/#lab-notebook" class="md-tag">lab notebook</a>
+      
+    
+      
+      
+        <a href="../tags/#singularity" class="md-tag">singularity</a>
+      
+    
+      
+      
+        <a href="../tags/#centos8" class="md-tag">centos8</a>
+      
+    
+  </nav>
+
 
 
 
   <h1>LabNotebook CentOS8 container</h1>
 
-
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is as a <strong>Lab Notebook</strong> which describes how to solve a specific problem at a specific time.
+Please keep this in mind as you read and use the content. Please pay close attention to the date, version
+information and other details.</p>
+</div>
+<h2 id="introducion">Introducion</h2>
+<p><fill this in later, for now record the commands that worked for the proof of concept container></p>
+<h2 id="getting-a-centos8-image">Getting a CentOS8 image</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code># This works for now but
+# Probably want to update/find different OS since centos8 hit end of life at the end of 2021
+# As of current, most similar OS with GLIBC &gt; 2.17
+singularity pull centos8.sif docker://centos:8.3.2011
+</code></pre></div></td></tr></table></div>
+<h2 id="pymesh-03-in-centos8-container">Pymesh 0.3 in CentOS8 Container</h2>
+<h4 id="setup-singularity-container">Setup Singularity Container</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code># Need to clean up these commands after putting overlay_start_fakeroot in powertools
+# OR switch back to vanilla overlay_start, that will probably work
+overlay_build 5 singpul_oldpython_overlay.img
+overlay_install_conda singpul_oldpython_overlay.img https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh ../singularity_pull_images/centos8.sif 
+../powertools_tmp_dev/overlay_start_fakeroot singpul_oldpython_overlay.img ../singularity_pull_images/centos8.sif 
+</code></pre></div></td></tr></table></div>
+<h4 id="install-pymesh-withing-the-container">Install Pymesh withing the container</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>conda create -n pymesh2 python=3.6 pymesh2=0.3    # Need an older version of python for pymesh 0.3
+conda init
+source ~/.bashrc                                  # Need to manually update shell post conda init
+conda activate pymesh2
+</code></pre></div></td></tr></table></div>
+<p>Check by runnig 'import pymesh' within python</p>
 
   <hr>
 <div class="md-source-file">
