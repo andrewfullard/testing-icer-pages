@@ -2652,9 +2652,9 @@
 <h1 id="display-compute-nodes-and-job-partitions-by-sinfo-command">Display Compute Nodes and Job Partitions by sinfo command</h1>
 <h3 id="information-of-compute-nodes">Information of Compute Nodes</h3>
 <p>If you would like to run a job with a lot of resources, it is a
-good idea to check available resources, such as how many cores and how
-much memory for each node and how many nodes available, so the job will
-not wait for too much time. Users can use SLURM command <strong>sinfo</strong> to get
+good idea to check available resources, such as which nodes are available
+as well as how many cores and how much memory is availabe on those nodes, 
+so the job will not wait for too much time. Users can use SLURM command <strong>sinfo</strong> to get
 a list of nodes controlled by the job scheduler. Such as, running the
 command <strong>sinfo -N -r -l</strong>, where the specifications <strong>-N</strong> for showing
 nodes, <strong>-r</strong> for showing nodes only responsive to SLURM and <strong>-l</strong> for
@@ -2716,12 +2716,11 @@ vim-002          ccg           MIXED        <span class="m">66</span>.14: <span 
 
 <span class="nv">Summary</span>  <span class="o">=</span>&gt;   <span class="m">60</span>.3%<span class="o">(</span>buyin<span class="o">)</span>   <span class="m">97</span>.4%<span class="o">(</span><span class="m">773</span><span class="o">)</span>     <span class="m">51</span>.2%: <span class="m">61</span>.9%<span class="o">(</span><span class="m">22816</span><span class="o">)</span>      <span class="m">73</span>.1%<span class="o">(</span> 142Tb<span class="o">)</span>    <span class="m">72</span>%<span class="o">(</span><span class="m">526</span><span class="o">)</span>   Usage%<span class="o">(</span>Total
 </code></pre></div></td></tr></table></div>
-<p>The result shows many items about the compute nodes, including node
-names, buy-in Accounts, node states, CPU cores, memory, GPU and the
-reason to cause the node unavailable. The result of <strong>node_status</strong> is a
-good reference to find out how many nodes available for your jobs.</p>
-<p>If you need more information of a particular node, you can use
-<strong>scontrol show</strong> <strong>node -a</strong> command to see a whole list of the node:</p>
+<p>The result of <strong>node_status</strong> is a good reference to find out how many nodes available for your 
+jobs as it displays important information like cluding node names, buyin accounts, node states, 
+CPU cores, memory, GPU and the reason to cause the node unavailable.</p>
+<p>If you need more complete details of a particular node, you can use
+<strong>scontrol show</strong> <strong>node -a <node_name></strong> command:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2759,11 +2758,11 @@ good reference to find out how many nodes available for your jobs.</p>
    <span class="nv">Reason</span><span class="o">=</span>Currently being imaged <span class="o">[</span>fordste5@2019-02-11T09:49:30<span class="o">]</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="slurm-partitions-for-jobs">SLURM Partitions for Jobs</h3>
-<p>One of the important setups of a node is to determine what kind of
+<p>One of the important detail about is  node is  what kind of
 jobs can run on it. For example, if a node is a buy-in node, only jobs
 with walltime equal to or less than 4 hours can run for a non-buyin
-users. We can check the summary of all partitions with <strong>-s</strong>
-specification:</p>
+users. We can check the summary of all partitions using <strong>sinfo</strong> with 
+the <strong>-s</strong> specification:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -2835,7 +2834,7 @@ vim-002        <span class="m">1</span> general-short   allocated  <span class="
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 20, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 26, 2022</span>
       
         <br>
         Created:
