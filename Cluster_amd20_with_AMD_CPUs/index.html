@@ -2588,6 +2588,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#basic-architecture-information" class="md-nav__link">
+    Basic architecture information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amd20-network-topology" class="md-nav__link">
+    AMD20 network topology.
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2615,7 +2629,7 @@ the node performance from our test results for user reference.</p>
 <h4 id="running-jobs-on-amd20-test-nodes"><a href="../Running_Jobs_on_amd20_Test_Nodes/">Running Jobs on amd20 Test Nodes</a></h4>
 <h4 id="basic-mathematical-library-tests-on-amd-epyc-processors"><a href="../Basic_Mathematical_Library_Tests_on_AMD_EPYC_Processors/">Basic Mathematical Library Tests on AMD EPYC Processors</a></h4>
 <h4 id="amd-optimizing-cpu-libraries-and-compilers"><a href="../AMD_Optimizing_CPU_Libraries_and_Compilers/">AMD Optimizing CPU Libraries and Compilers</a></h4>
-<p>Basic architecture information</p>
+<h3 id="basic-architecture-information">Basic architecture information</h3>
 <p>The AMD CPU contains 2 sockets with CPU packages with 4 NUMA nodes in
 each socket, and 16 cores in each NUMA node. Each NUMA core contains two
 "Core Complex Dies", which have two four-core "Core-Complex" modules.
@@ -2628,7 +2642,7 @@ Each four-core Core-Complex shares a 16 MB L3 cache.</p>
 <p>A 1 TB amd20 node.</p>
 <p>Generally, cores within the same L3 cache have the lowest latency,
 followed by in-NUMA cores, other cores on the same socket, and cores on
-the other socket are slower. The Slurm job scheduler on the HPCC will
+the other socket are slower. The SLURM job scheduler on the HPCC will
 try to keep within the same NUMA node by default. One option to try
 during testing is to use OpenMP within the L3 node, and MPI for
 everything else. When using newer versions of OpenMPI, you can use the
@@ -2644,7 +2658,7 @@ TF from 96->128 when going from 3 cores per L3 to 4.</p>
 <p>Each node has a 100 gigabit HDR100 connection. There are 52-56 nodes per
 switch:</p>
 <p><img alt="img!" src="../attachments/49152003/50692211.png" /></p>
-<p>AMD20 network topology.</p>
+<h3 id="amd20-network-topology">AMD20 network topology.</h3>
 <p>You can figure out by using scontrol show node and looking at</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2716,7 +2730,7 @@ amr-002,amr,gbe,amd20,ib,rack-Z21
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 20, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 26, 2022</span>
       
         <br>
         Created:
