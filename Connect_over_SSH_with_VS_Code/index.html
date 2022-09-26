@@ -379,7 +379,21 @@
       
         <li class="md-nav__item">
   <a href="#prerequistes" class="md-nav__link">
-    prerequistes
+    Prerequistes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-hppc-with-vs-code" class="md-nav__link">
+    Connecting to HPPC with VS Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-on-hpcc-with-vs-code" class="md-nav__link">
+    Working on HPCC with VS Code
   </a>
   
 </li>
@@ -2612,7 +2626,21 @@
       
         <li class="md-nav__item">
   <a href="#prerequistes" class="md-nav__link">
-    prerequistes
+    Prerequistes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-hppc-with-vs-code" class="md-nav__link">
+    Connecting to HPPC with VS Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-on-hpcc-with-vs-code" class="md-nav__link">
+    Working on HPCC with VS Code
   </a>
   
 </li>
@@ -2637,11 +2665,12 @@
 
 <h1 id="connect-over-ssh-with-vs-code">Connect over SSH with VS Code</h1>
 <p>VS Code allows you to work on remote servers from your local machine. </p>
-<h3 id="prerequistes">prerequistes</h3>
+<h3 id="prerequistes">Prerequistes</h3>
 <ul>
 <li>Install VS Code (Click <a href="https://code.visualstudio.com/"rel="nofollow">HERE</a>)</li>
 <li>~/.ssh/config</li>
 </ul>
+<h3 id="connecting-to-hppc-with-vs-code">Connecting to HPPC with VS Code</h3>
 <p>Because we need to hop twice (your local machine -&gt; gateway -&gt; dev node), we need an ssh config file. The following is an example config which defines intel18 and k80 dev node. With this file, you can connect dev node from your local machine with 'ssh intel18' or 'ssh k80'.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2677,6 +2706,7 @@ Host k80
 <img alt="Screenshot 1" src="../attachments/connect_over_ssh_w_vs_code/ssh_vs_code_03.png" /></p>
 <p>A new VS Code window will pop up. When you are successfully connected, bottom left of the VS Code will show server information such as 'SSH: intel18'.
 <img alt="Screenshot 1" src="../attachments/connect_over_ssh_w_vs_code/ssh_vs_code_04.png" /></p>
+<h3 id="working-on-hpcc-with-vs-code">Working on HPCC with VS Code</h3>
 <p>Now that you are connected, you can run commands and codes from VS Code. When you are connected to the HPC, all files created through VS Code will be saved to the HPC, not on your local machine.</p>
 <p>To test the ability to run remote code, let's create a Python file 'hello.py' with VS Code. Click 'New file' and create a file with the following contest to the file:
 <img alt="Screenshot 1" src="../attachments/connect_over_ssh_w_vs_code/ssh_vs_code_05.png" /></p>
@@ -2693,11 +2723,11 @@ Host k80
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 20, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 26, 2022</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 20, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 21, 2022</span>
       
     
   </small>
