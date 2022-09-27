@@ -2671,6 +2671,15 @@
                   
   
 
+  <nav class="md-tags" >
+    
+      
+      
+        <a href="../tags/#how-to-guide" class="md-tag">how-to guide</a>
+      
+    
+  </nav>
+
 
 
 
@@ -2684,84 +2693,46 @@ difference between Docker and Singularity.</p>
 <p>Docker:</p>
 <ul>
 <li>Inside a Docker image, the user's privilege is escalated to root on
-    the host system. This privilege is not supported by most HPCC
+    the host system. This privilege is not supported by most HPCCs
     including MSU HPCC. It means that Docker will not be installed on
     our system. </li>
 </ul>
 <p>Singularity:</p>
 <ul>
-<li>User has root privileges if elevated with "sudo" when a container
+<li>User has root privileges if elevated with <code>sudo</code> when a container
     runs.</li>
 <li>Can run and modify Docker images and containers</li>
 </ul>
-<p>These key difference make Singularity be installed on most HPCC. In
+<p>These key difference mean that Singularity is installed on most HPCCs. In
 addition, virtually all Docker containers can be run through
-Singularity, users can effectively run Docker on MSU HPCC.</p>
-<div class="toc-macro rbtoc1642531361356">
-
--   [Installation](#Singularity:I.Introduction-Installation)
--   [Check Installation](#Singularity:I.Introduction-CheckInstallation)
--   [Downloading pre-built
-    images](#Singularity:I.Introduction-Downloadingpre-builtimages)
-    -   [Pulling an images from Sylabs cloud
-        library](#Singularity:I.Introduction-PullinganimagesfromSylabscloudlibrary)
-    -   [Pulling an images from Docker
-        hub](#Singularity:I.Introduction-PullinganimagesfromDockerhub)
--   [Interact with
-    images](#Singularity:I.Introduction-Interactwithimages)
-    -   [shell](#Singularity:I.Introduction-shell)
-    -   [exec](#Singularity:I.Introduction-exec)
-    -   [run](#Singularity:I.Introduction-run)
--   [Cache setting](#Singularity:I.Introduction-Cachesetting)
--   [Creating writable containers with --sandbox
-    options](#Singularity:I.Introduction-Creatingwritablecontainerswith--sandboxoptions)
-
-</div>
-
+Singularity, so users can effectively run Docker on MSU HPCC.</p>
 <h3 id="installation">Installation</h3>
-<p>Singularity exits as two major version, 2 and 3. Current version on MSU
+<p>Singularity exits as two major versions, 2 and 3. The current version on the MSU
 HPCC is 3.8.0. Therefore, in this tutorial, I will use version 3.</p>
 <p>To Install Singularity on your local machine, click here: </p>
-<p><a
-href="https://www.sylabs.io/guides/3.0/user-guide/installation.html#installation"
-style="text-decoration: none;"
-rel="nofollow">https://www.sylabs.io/guides/3.0/user-guide/installation.html#installation</a></p>
+<p><a href="https://www.sylabs.io/guides/3.0/user-guide/installation.html#installation">https://www.sylabs.io/guides/3.0/user-guide/installation.html#installation</a></p>
 <ul>
 <li>The version of singularity on MSU HPCC is currently 3.8.0. The
     official documentation for this version is at
-    <a href="index" style="text-decoration: none;"
-    rel="nofollow">https://www.sylabs.io/guides/3.8/user-guide/index.html</a>. All
-    singularity commands are built into the system such as 'singularity
-    shell' and 'singularity exec', which means you can invoke these
+    <a href="https://www.sylabs.io/guides/3.8/user-guide/index.html">https://www.sylabs.io/guides/3.8/user-guide/index.html</a>. All
+    singularity commands are built into the system such as <code>singularity
+    shell</code> and <code>singularity exec</code>, which means you can invoke these
     commands directly from the command line.</li>
 </ul>
 <h3 id="check-installation">Check Installation</h3>
-<p>When you install Singularity on your local machine, then you can check
+<p>When you install Singularity on your local machine, you can check
 the installation with</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$ singularity pull shub://vsoch/hello-world
 INFO:    Downloading shub image
  <span class="m">59</span>.75 MiB / <span class="m">59</span>.75 MiB <span class="o">[========================================================================================]</span> <span class="m">100</span>.00% <span class="m">10</span>.46 MiB/s 5s
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
 <p>In the above example, I used the Singularity Hub “unique resource
-identifier,” or <code>uri</code>, "<code>shub://"</code> which tells the software to run an
+identifier,” or <code>uri</code>, <code>shub://</code> which tells the software to run an
 image from Singularity Hub.</p>
-<p>To get help, you can use the <strong>help</strong> command which gives a general
+<p>To get help, you can use the <code>help</code> command which gives a general
 overview of Singularity options and subcommands as follows:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2874,17 +2845,8 @@ Examples:
 
 For additional <span class="nb">help</span> or support, please visit https://www.sylabs.io/docs/
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
-<p>You can use the <strong>help</strong> command if you want to see the information
-about subcommands. For example, to see the <strong>pull</strong> command help,</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
+<p>You can use the <code>help</code> command if you want to see the information
+about subcommands. For example, to see the <code>pull</code> command help,</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2995,73 +2957,44 @@ $ singularity pull image.sif oras://&lt;username&gt;.azurecr.io/namespace/image:
 
 For additional <span class="nb">help</span> or support, please visit https://www.sylabs.io/docs/
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
 <h3 id="downloading-pre-built-images">Downloading pre-built images</h3>
 <p>I already downloaded a pre-built image "hello-world" from shub, one of
-the registries, using <strong>pull</strong> command. This is the easiest way to use
+the registries, using the <code>pull</code> command. This is the easiest way to use
 Singularity.</p>
-<p>You can use the <strong><code>pull</code></strong> command to download pre-built images from a
+<p>You can use the <code>pull</code> command to download pre-built images from a
 number of Container Registries, here we’ll be focusing on the
-<a href="https://www.singularity-hub.org/"
-style="text-decoration: none;" rel="nofollow">Singularity-Hub</a> or
-<a href="https://hub.docker.com/" style="text-decoration: none;"
-rel="nofollow">DockerHub</a>. The following are some of container
+<a href="https://www.singularity-hub.org/">Singularity-Hub</a> or
+<a href="https://hub.docker.com/">DockerHub</a>. The following are some of the container
 registries.</p>
 <ul>
-<li>library - images hosted on Sylabs Cloud</li>
-<li>shub - images hosted on Singularity Hub</li>
-<li>docker - images hosted on Docker Hub</li>
-<li>localimage - images saved on your machine</li>
-<li>yum - yum based systems such as CentOS and Scientific Linux</li>
-<li>debootstrap - apt based systems such as Debian and Ubuntu</li>
-<li>arch - Arch Linux</li>
-<li>busybox - BusyBox</li>
-<li>zypper - zypper based systems such as Suse and OpenSuse</li>
+<li><code>library</code>- images hosted on Sylabs Cloud</li>
+<li><code>shub</code>- images hosted on Singularity Hub</li>
+<li><code>docker</code>- images hosted on Docker Hub</li>
+<li><code>localimage</code>- images saved on your machine</li>
+<li><code>yum</code>- yum based systems such as CentOS and Scientific Linux</li>
+<li><code>debootstrap</code>- apt based systems such as Debian and Ubuntu</li>
+<li><code>arch</code>- Arch Linux</li>
+<li><code>busybox</code>- BusyBox</li>
+<li><code>zypper</code>- zypper based systems such as Suse and OpenSuse</li>
 </ul>
 <h4 id="pulling-an-images-from-sylabs-cloud-library">Pulling an images from Sylabs cloud library</h4>
 <p>In this example, I will pull a base Alpine container from Sylabs cloud:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$ singularity pull library://sylabsed/linux/alpine
 INFO:    Downloading library image
  <span class="m">2</span>.08 MiB / <span class="m">2</span>.08 MiB <span class="o">[===========================================================================================]</span> <span class="m">100</span>.00% <span class="m">4</span>.74 MiB/s 0s
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
 <p>You can rename the container using the –name flag:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$ singularity pull --name my_alpine.sif library://sylabsed/linux/alpine
 INFO:    Downloading library image
  <span class="m">2</span>.08 MiB / <span class="m">2</span>.08 MiB <span class="o">[===========================================================================================]</span> <span class="m">100</span>.00% <span class="m">9</span>.65 MiB/s 0s
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
-<p>The above example will save the image as "my_alpine.sif"</p>
+<p>The above example will save the image as <code>my_alpine.sif</code></p>
 <h4 id="pulling-an-images-from-docker-hub">Pulling an images from Docker hub</h4>
 <p>This example pulls an Alpine image from Docker hub</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3084,81 +3017,36 @@ Storing signatures
 INFO:    Creating SIF file...
 INFO:    Build complete: alpine_latest.sif
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
 <h3 id="interact-with-images">Interact with images</h3>
-<p>You can interact with images with <strong>shell</strong>, <strong>exec</strong>, and <strong>run</strong>
+<p>You can interact with images with <code>shell</code>, <code>exec</code>, and <code>run</code>
 commands.</p>
 <p>To learn how to interact with images, let's first pull an image
-"lolcow_latest.sif" from the libray.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
+<code>lolcow_latest.sif</code> from the libray.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ singularity pull library://sylabsed/examples/lolcow
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
 <h4 id="shell">shell</h4>
-<p>The shell command allows you to spawn a new shell within your container
+<p>The <code>shell</code> command allows you to spawn a new shell within your container
 and interact with it as if it is a virtual machine.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">$singularity</span> shell lolcow_latest.sif
   Singularity&gt;
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
 <p>The change in prompt indicates that you have entered the container. Once
 inside of a container, you are the same user as you are on the host
 system.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Singularity&gt;whoami
 choiyj
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
-<p>To exit from a container, type <strong>exit</strong>.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
+<p>To exit from a container, type <code>exit</code>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Singularity&gt;exit
 $
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
 <h4 id="exec">exec</h4>
-<p>The exec command allows you to execute a custom command within a
+<p>The <code>exec</code> command allows you to execute a custom command within a
 container by specifying the image file. For instance, to execute the
-cowsay program within the lolcow_latest.sif container:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
+cowsay program within the <code>lolcow_latest.sif</code> container:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -3177,16 +3065,7 @@ ______________________
                 <span class="o">||</span>----w <span class="p">|</span>
                 <span class="o">||</span>     <span class="o">||</span>
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
-<p>You can also use shell command to run the program in the container.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
+<p>You can also use the <code>shell</code> command to run the program in the container.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -3205,20 +3084,11 @@ ______________________
                 <span class="o">||</span>----w <span class="p">|</span>
                 <span class="o">||</span>     <span class="o">||</span>
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
 <h4 id="run">run</h4>
 <p>Singularity containers contain runscripts. These are user defined
 scripts which define the actions of a container when user runs it. The
 runscript can be performed with the run command, or simply by calling
 the container as though it were an executable.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3239,18 +3109,9 @@ the container as though it were an executable.</p>
                 <span class="o">||</span>----w <span class="p">|</span>
                 <span class="o">||</span>     <span class="o">||</span>
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
 <h3 id="cache-setting">Cache setting</h3>
 <p>By default, Singularity uses a temporary directory to save Docker files
 as tarballs:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -3267,66 +3128,35 @@ sha256:6b1bb01b3a3b72463ae8ac5666d57b28f1a21d5256271910ac8df841aa04ecd1.tar.gz
 sha256:c2ca09a1934b951505ecc4d6b2e4ab7f9bf27bcdfb8999d0181deca74daf7683.tar.gz
 sha256:d6c3619d2153ffdefa4a9c19f15c5d566ce271b397a84537baa9ee45b24178f2.tar.gz
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
 <p>You can change these by theses cache directories by specifying the
 location on your localhost as following:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$ mkdir -p <span class="nv">$SCRATCH</span>/singularity_tmp
 $ mkdir -p <span class="nv">$SCRATCH</span>/singularity_scratch
 $ <span class="nv">SINGULARITY_TMPDIR</span><span class="o">=</span><span class="nv">$SCRATCH</span>/singularity_scratch <span class="nv">SINGULARITY_CACHEDIR</span><span class="o">=</span><span class="nv">$SCRATCH</span>/singularity_tmp singularity --debug pull --name ubuntu-tmpdir.sif docker://ubuntu
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
 <h3 id="creating-writable-containers-with-sandbox-options">Creating writable containers with --sandbox options</h3>
 <p>If you want to build a container within a writable directory (called a
-<em>sandbox</em>), you can do that with <strong>--sandbox</strong> option. We’ve already
+<em>sandbox</em>), you can do that with <code>--sandbox</code> option. We’ve already
 covered how you can pull an existing container from Docker Hub, but we
 can also build a Singularity container from docker using the build
 command:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ singularity build --sandbox ubuntu-latest/  docker://ubuntu
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
-
-<p>With <strong>--sandbox</strong> option, you can changes and write files within the
+<p>With the <code>--sandbox</code> option, you can changes and write files within the
 directory, but those changes will not remain when you finished using the
-container. To make those changes persistent, use <strong>--writable</strong> option
+container. To make those changes persistent, use <code>--writable</code> option
 when you start a container.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ singularity shell --writable ubuntu-latest/
 </code></pre></div></td></tr></table></div>
-
-</div>
-
-</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 23, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 27, 2022</span>
       
         <br>
         Created:
