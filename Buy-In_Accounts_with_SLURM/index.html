@@ -1284,8 +1284,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-non-default-account" class="md-nav__link">
-    Using Non-Default Account
+  <a href="#using-non-default-accounts" class="md-nav__link">
+    Using Non-Default Accounts
   </a>
   
 </li>
@@ -2653,8 +2653,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-non-default-account" class="md-nav__link">
-    Using Non-Default Account
+  <a href="#using-non-default-accounts" class="md-nav__link">
+    Using Non-Default Accounts
   </a>
   
 </li>
@@ -2735,7 +2735,7 @@ will assemble the partition list automatically.</p>
 <h2 id="default-account">Default Account</h2>
 <p>When submitting a job without specifying an account, your default
 account is used. You can check your default account using the
-buyin_status power tool.</p>
+<code>buyin_status</code> power tool.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -2748,12 +2748,12 @@ User:     fordste5
 Accounts: test1_classres test1 classres
 Default:  classres
 </code></pre></div></td></tr></table></div>
-<p>User fordste5 has a default account of classres. If fordste5 submits a
-job without specifying an account, it will be submitted to the classres
+<p>User <code>fordste5</code> has a default account of <code>classres</code>. If <code>fordste5</code> submits a
+job without specifying an account, it will be submitted to the <code>classres</code>
 partition. If the job requested four hours or less of wall time, it will
-be submitted to the general-short partition as well. Jobs submitted by
-users with a default account of 'general' will be queued in the
-general-long and general-short partitions.</p>
+be submitted to the <code>general-short</code> partition as well. Jobs submitted by
+users with a default account of <code>general</code> will be queued in the
+<code>general-long</code> and <code>general-short</code> partitions.</p>
 <table>
 <thead>
 <tr>
@@ -2788,8 +2788,8 @@ general-long and general-short partitions.</p>
 </tbody>
 </table>
 <p>where <code>&lt;buyin&gt;</code> is the name of buyin account.</p>
-<h2 id="using-non-default-account">Using Non-Default Account</h2>
-<p>You can see what accounts you have access to using the buyin_status
+<h2 id="using-non-default-accounts">Using Non-Default Accounts</h2>
+<p>You can see what accounts you have access to using the <code>buyin_status</code>
 powertool:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2803,16 +2803,16 @@ User:     fordste5
 Accounts: test1_classres test1 classres
 Default:  classres
 </code></pre></div></td></tr></table></div>
-<p>This output shows that fordste5 is a member of the test1_classres,
-test1, and classres buy-in accounts. Both test1 and classres correspond
+<p>This output shows that <code>fordste5</code> is a member of the <code>test1_classres</code>,
+<code>test1</code>, <code>and classres</code> buy-in accounts. Both <code>test1</code> and <code>classres</code> correspond
 to partitions with the same name.</p>
-<p>Because fordste5 has a default account of classres, if they want to
-submit jobs to test1, they will have to explicitly specify the test1
-account at submission. This is done by using either using the '-A test1'
-option for srun/sbatch/salloc, or by adding the '#SBATCH -A test1'
+<p>Because <code>fordste5</code> has a default account of <code>classres</code>, if they want to
+submit jobs to <code>test1</code>, they will have to explicitly specify the <code>test1</code>
+account at submission. This is done by using either using the <code>-A test1</code>
+option for <code>srun/sbatch/salloc</code>, or by adding the <code>#SBATCH -A test1</code>
 directive to their batch script.</p>
 <h2 id="checking-the-status-of-buy-ins">Checking the Status of Buy-Ins</h2>
-<p>The status of buy-ins can be viewed with the buyin_status powertool.</p>
+<p>The status of buy-ins can be viewed with the <code>buyin_status</code> powertool.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2892,7 +2892,7 @@ managers listed on the Moab account.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 23, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 27, 2022</span>
       
         <br>
         Created:
