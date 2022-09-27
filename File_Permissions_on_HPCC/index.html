@@ -2670,7 +2670,7 @@ the read and write permission</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod g-rw FileName
 </code></pre></div></td></tr></table></div>
 <p>To add the ability for other users to write to a file or directory (this
-allows all users on the HPC to see read this file if it's in a shared
+allows all users on the HPC to see and read this file if it's in a shared
 folder which we don't recommend).</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod o+w FileName
 </code></pre></div></td></tr></table></div>
@@ -2704,11 +2704,11 @@ available on any HPCC system:</p>
 <h1 id="filesystem-specific-differences">Filesystem-specific differences</h1>
 <h3 id="home">Home</h3>
 <p>Your home directory has default permissions that allow only you to have
-access. Other users , whether they are in your primary group or not, are
+access. Other users, whether they are in your primary group or not, are
 not allowed access to the contents of your home directory by default. If
 you wish to allow other users access to your home directory, you will
-need to change permissions on it.<br />
-To allow every member of a group access to read your home directory,
+need to change permissions on it.  </p>
+<p>To allow every member of a group access to read your home directory,
 use:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>chmod g+rx ~
 </code></pre></div></td></tr></table></div>
@@ -2772,7 +2772,7 @@ https://www.computerhope.com/unix/uumask.htm</a></p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 21, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 27, 2022</span>
       
         <br>
         Created:
