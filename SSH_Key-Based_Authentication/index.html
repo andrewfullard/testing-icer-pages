@@ -3619,18 +3619,18 @@
 
 
 
-<h1 id="ssh-key-based-authentication">SSH Key-Based Authentication</h1>
-<p>While the most common way of login to the HPCC is using the username/password pair, a more secure authentication method is to use SSH keys. Although setting up your keys is a little more complex, it is a one-time investment. The HPCC provides key-based authentication as an option, in addition to the usual password-based login. </p>
+<h1 id="ssh-key-based-authentication">SSH key-based authentication</h1>
+<p>While the most common way of login to the HPCC is by using the username/password pair, a more secure authentication method is the use of SSH keys. Although setting up your keys is a little more complex, it is a one-time investment. The HPCC provides key-based authentication as an option, in addition to the usual password-based login. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 </div>
 <p>Starting in October 2022, login to our rsync gateway (<code>rsync.hpcc.msu.edu</code>)  will accept SSH keys as the ONLY authentication method. Username/password won't work.</p>
 <h2 id="generating-ssh-keypairs">Generating SSH keypairs</h2>
-<p>An SSH keypair consists of a private key and a public key. Your private key is a secret key just like your password which you should not share with anyone. On the other hand, your public key can be made publicly available in the same way that your name can be made public. The public key is stored on the server you log into (that is, the HPCC), while the private key is store on your own computer. When a user attempts to log in, an encryption process starts on the HPCC using the public key. With your private key, your computer will be able to decrypt the encrypted message sent from the HPCC. When everything matches up, your login is approved.</p>
+<p>An SSH keypair consists of a private key and a public key. Your private key is a secret key just like your password which you should not share with anyone. On the other hand, your public key can be made publicly available in the same way that your name can be made public. The public key is stored on the server you attempt to log into (that is, the HPCC), while the private key is stored on your own computer. When a user attempts to log in, an encryption process starts on the HPCC side, using the public key. With your private key, your computer will be able to decrypt the encrypted message sent from the HPCC. When everything matches up, your login is approved.</p>
 <p>SSH tool suites usually provide a utility for generating these keypairs. On a Mac, you can <a href="https://docs.tritondatacenter.com/public-cloud/getting-started/ssh-keys/generating-an-ssh-key-manually/manually-generating-your-ssh-key-in-mac-os-x">run the command <code>ssh-keygen</code> in Terminal</a>. On a Windows computer, you can <a href="https://www.ssh.com/academy/ssh/putty/windows/puttygen">use PuTTYgen to generate SSH key pairs</a>. When you use these utilities, you will be given an option for protecting your private key with a passphrase. Please do this, as it will prevent your private key from being used by a malicious individual if it is ever stolen. </p>
-<p>To generate the keypair from command line (e.g., after open a terminal on Mac), run</p>
+<p>To generate a keypair from command line (e.g., after opening a terminal on Mac), run</p>
 <p><code>ssh-keygen -t rsa</code></p>
-<p>After you have set a passphrase and it has generated the keys, you will find the key files in the <code>.ssh</code> directory under your home directory. By default, file <code>id_rsa</code> is the private key file and <code>id_rsa.pub</code> the public key file.</p>
+<p>After you have set a passphrase and it has generated the keys, you will find the key files in the <code>.ssh</code> directory under your home directory. By default,  <code>id_rsa</code> is the private key file and <code>id_rsa.pub</code> the public key file.</p>
 <!-- !!! Note
     Use at least 2048 bits for an RSA key. This is usually the default key
     length, but can be specified with the '-b' option when generating your
@@ -3639,24 +3639,23 @@
     ssh-keygen -t rsa -b 2048 -->
 
 <h2 id="uploading-your-public-key-to-the-hpcc">Uploading your public key to the HPCC</h2>
-<p>If you are seeking to login to HPCC with key-based authentication from
-your local computer, then you will need to perform the following:</p>
+<p>In order to login to HPCC with key-based authentication from your local computer,  you will need to perform the following:</p>
 <ol>
 <li>
 <p>Log on to HPCC gateway <code>gateway.hpcc.msu.edu</code></p>
 </li>
 <li>
-<p>On the HPCC, make sure you have a directory named <code>.ssh</code> under your home directory. If not, create one by <code>mkdir ~/.ssh</code>.</p>
+<p>On the HPCC, make sure you have a directory named <code>.ssh</code> under your home directory. If not, create one by <code>mkdir ~/.ssh</code></p>
 </li>
 <li>
-<p>Upload your pub key <code>id_rsa.pub</code> from your computer to <code>gateway.hpcc.msu.edu</code>. There are multiple ways to do so, as given <a href="../File_transfer/">here</a>.</p>
+<p>Upload your public key <code>id_rsa.pub</code> from your computer to <code>gateway.hpcc.msu.edu</code>. There are multiple ways to do so, as given <a href="../File_transfer/">here</a>.</p>
 </li>
 <li>
-<p>Append the pub key file to another file <code>~/.ssh/authorized_keys</code>. In order to do so, assuming that the pub key file has been copied to your home directory from Step 3. Now, you can run the following command</p>
-<p><code>cat ~/work-pubkey &gt;&gt; ~/.ssh/authorized_keys</code></p>
+<p>Append the public key file to another file <code>~/.ssh/authorized_keys</code>. In order to do so, assuming that the pub key file has been copied to your home directory from Step  3, you can run the following command</p>
+<p><code>cat ~/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</code></p>
 </li>
 <li>
-<p>Set the permissions appropriately by running </p>
+<p>Set correct permissions by running </p>
 <p><code>chmod 700 ~/.ssh</code>  </p>
 <p><code>chmod 600 ~/.ssh/authorized_keys</code></p>
 </li>
