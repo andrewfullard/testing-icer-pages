@@ -17,7 +17,7 @@
     
     
       
-        <title>Expansion - MSU HPCC User Documentation</title>
+        <title>Running the SSH agent - MSU HPCC User Documentation</title>
       
     
     
@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#3-expansion" class="md-skip">
+        <a href="#running-the-ssh-agent" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +119,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                Expansion
+                Running the SSH agent
               
             </span>
           </div>
@@ -3126,17 +3126,15 @@
       
   
   
-    
-  
   
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" checked>
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
         
         
           <label class="md-nav__link" for="__nav_11">
@@ -3267,17 +3265,15 @@
                 
   
   
-    
-  
   
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_3" type="checkbox" id="__nav_11_3" checked>
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_3" type="checkbox" id="__nav_11_3" >
         
         
           <label class="md-nav__link" for="__nav_11_3">
@@ -3303,18 +3299,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../3._Expansion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3324,7 +3311,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -3546,223 +3532,80 @@
 
 
 
-<h1 id="3-expansion">3. Expansion</h1>
-<p>When we type a command with arguments/inputs and press the enter key,
-shell does several things to the arguments/input text before it actually
-carries out the command. This action is called <em>expansion</em>. With
-expansion, the arguments expands into something else before the shell
-acts on it with the command. Let's see an example with <strong>echo</strong> command.
-We already learned <strong>echo</strong> command in the previous section. As you
-know, echo prints out its text arguments on standard output.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$ <span class="nb">echo</span> hello world!
-hello world!
+<h1 id="running-the-ssh-agent">Running the SSH agent</h1>
+<p>Although there are ways to use some private keys directly with your SSH
+client, you will likely want to run a SSH agent to manage any private
+keys that you have protected with passphrases. On HPCC and most other
+Unix systems, there is a program called <code>ssh-agent</code> for doing this. 
+you install the full PuTTY SSH suite on Windows, then you will have a
+similar utility called <code>Pageant</code>. If you are using Mac OSX, then see
+<a href="https://www.backarapper.com/add-ssh-keys-to-ssh-agent-on-startup-in-macos/">Adding a Private Key to Your Mac OSX Keychain</a>.</p>
+<p>What an SSH agent does is cache your private keys and allow your SSH
+clients to refer to this cache when attempting to establish new
+sessions. When you attempt a key-based connection to a remote SSH
+server, that server will look up the public keys in your authorized keys
+file on that remote machine and then challenge the connecting client to
+prove that it has a matching private key by decrypting a message
+encrypted with a public key. Your client will refer to the cache of
+private keys maintained by your SSH agent, for the purpose of decrypting
+this challenge message. If it finds the matching private key and is thus
+able to decrypt the challenge message from the remote SSH server, then
+you will be allowed to login once the client has proven this to the
+server. This all happens without you noticing anything different...
+except that you no longer need to type in your password during login.</p>
+<p>To start <code>ssh-agent</code> on a Unix system using a Bourne shell-compatible
+shell (the default on HPCC), you can use the following command:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">eval</span> <span class="sb">`</span>ssh-agent<span class="sb">`</span>
 </code></pre></div></td></tr></table></div>
-<p>Let's use <strong>echo</strong> with '*':</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$ <span class="nb">echo</span> *
-hello.c hello.qsub hello.sb README
+<p>This starts the agent and sets some Unix environment variables that tell
+the SSH client, <code>ssh</code>, where to talk to the running agent process. The
+equivalent command for those using a C shell-compatible shell is:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">eval</span> <span class="sb">`</span>ssh-agent -c<span class="sb">`</span>
 </code></pre></div></td></tr></table></div>
-<p>Instead of print '*', it prints out all file names in the directory
-because shell expands '*' into something else before the <strong>echo</strong>
-command acts to the argument (in this case '*').</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>$ ls
-hello.c hello.qsub hello.sb README
-
-$ <span class="nb">echo</span> h*
-hello.c hello.qsub hello.sb
+<p>Once it is running, you will want to load your private key(s) into the
+agent's cache. For example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh-add
 </code></pre></div></td></tr></table></div>
-<p>'\~' is another special character with a special meaning. It expands
-into the name of the home directory of the user:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$ <span class="nb">echo</span> ~
-$ temp_user_01
+<p>will prompt your for the passphrase on <code>~/.ssh/id_rsa</code> and load it into
+the agent's cache. If you are on some other system and have multiple
+keys pairs, then you may wish to load additional keys; for example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh-add ~/.ssh/id_rsa_hpcc ~/.ssh/id_rsa_hpcc_vcs ~/.ssh/id_rsa_nersc
 </code></pre></div></td></tr></table></div>
-<p>The shell allows arithmetic by expansion. Arithmetic expansion uses the
-form <strong>$((expression))</strong>. Look at the example.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$ <span class="nb">echo</span> <span class="k">$((</span><span class="m">1</span> <span class="o">+</span> <span class="m">1</span><span class="k">))</span>
-<span class="m">2</span>
+<p>Once you have <code>ssh-agent</code> running and have some private keys loaded,
+then you should be able to make key-based connections to other systems
+where you have placed your corresponding public keys into the authorized
+keys files... no password necessary. Try it.</p>
+<p>You don't want to leave stray <code>ssh-agent</code> processes running when you
+logout. To clean up after yourself, you can use:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">eval</span> <span class="sb">`</span>ssh-agent -k<span class="sb">`</span>
 </code></pre></div></td></tr></table></div>
-<p>Please keep in mind that arithmetic expansions allows only integers.
-Arithmetic expression can be nested, and spaces are allowed.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>$ <span class="nb">echo</span> <span class="k">$((</span> <span class="m">7</span><span class="o">*(</span> <span class="m">2</span> <span class="o">+</span> <span class="m">2</span> <span class="o">)</span> <span class="k">))</span>
-<span class="m">28</span>
-$ <span class="nb">echo</span> <span class="k">$((</span><span class="m">7</span><span class="o">*(</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="k">))</span><span class="o">)</span>
-<span class="m">28</span>
+<p>with Bourne shells and</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">eval</span> <span class="sb">`</span>ssh-agent -c -k<span class="sb">`</span>
 </code></pre></div></td></tr></table></div>
-<p>Brace expansion is useful when you write a shell script or batch script.
-The brace expression can contain a comma separated list of characters,
-strings, or integers. Here is a few examples.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>$ <span class="nb">echo</span> srt-<span class="o">{</span>a,b,c<span class="o">}</span>-end
-srt-a-end srt-b-end srt-c-end
-
-$ <span class="nb">echo</span> number_<span class="o">{</span><span class="m">1</span>..5<span class="o">}</span>
-number_1 number_2 number_3 number_4 number_5
-
-$ <span class="nb">echo</span> <span class="o">{</span>A..Z<span class="o">}</span>
-A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
-
-$ <span class="nb">echo</span> a<span class="o">{</span>A<span class="o">{</span><span class="m">1</span>,5<span class="o">}</span>,B<span class="o">{</span><span class="m">6</span>..10<span class="o">}}</span>b
-aA1b aA5b aB6b aB7b aB8b aB9b aB10b
+<p>with C shells.</p>
+<p>If you find yourself using the agent frequently, then you may wish to
+consider adding the <code>ssh-agent</code> startup and shutdown commands to your
+shell control files. For Bourne shells, you would want to add</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">eval</span> <span class="sb">`</span>ssh-agent<span class="sb">`</span>
 </code></pre></div></td></tr></table></div>
-<p>The next example is creating multiple directories with a brace
-expansion.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>$ mkdir Photos
-$ <span class="nb">cd</span> Photos/
-Photos$ mkdir <span class="o">{</span><span class="m">2020</span>..2021<span class="o">}</span>-<span class="o">{</span><span class="m">01</span>..12<span class="o">}</span>
-Photos$ ls
-<span class="m">2020</span>-01/  <span class="m">2020</span>-03/  <span class="m">2020</span>-05/  <span class="m">2020</span>-07/  <span class="m">2020</span>-09/  <span class="m">2020</span>-11/  <span class="m">2021</span>-01/  <span class="m">2021</span>-03/  <span class="m">2021</span>-05/  <span class="m">2021</span>-07/  <span class="m">2021</span>-09/  <span class="m">2021</span>-11/
-<span class="m">2020</span>-02/  <span class="m">2020</span>-04/  <span class="m">2020</span>-06/  <span class="m">2020</span>-08/  <span class="m">2020</span>-10/  <span class="m">2020</span>-12/  <span class="m">2021</span>-02/  <span class="m">2021</span>-04/  <span class="m">2021</span>-06/  <span class="m">2021</span>-08/  <span class="m">2021</span>-10/  <span class="m">2021</span>-12/
-Photos$
+<p>to <code>~/.bash_profile</code> and</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">eval</span> <span class="sb">`</span>ssh-agent -k<span class="sb">`</span>
 </code></pre></div></td></tr></table></div>
-<p>Expansion also allows us to use the output of a command.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$ <span class="nb">echo</span> <span class="k">$(</span>ls <span class="p">|</span>grep <span class="m">2020</span><span class="k">)</span>
-<span class="m">2020</span>-01/ <span class="m">2020</span>-02/ <span class="m">2020</span>-03/ <span class="m">2020</span>-04/ <span class="m">2020</span>-05/ <span class="m">2020</span>-06/ <span class="m">2020</span>-07/ <span class="m">2020</span>-08/ <span class="m">2020</span>-09/ <span class="m">2020</span>-10/ <span class="m">2020</span>-11/ <span class="m">2020</span>-12/
+<p>to <code>~/.bash_logout</code>. For C shells, you would want to add</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">eval</span> <span class="sb">`</span>ssh-agent -c<span class="sb">`</span>
 </code></pre></div></td></tr></table></div>
-<p>Next, let's learn how to control expansion. </p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>$ <span class="nb">echo</span> This is a      <span class="nb">test</span>
-This is a <span class="nb">test</span>
-
-$ <span class="nb">echo</span> The total is <span class="nv">$100</span>.00
-The total is <span class="m">00</span>.00
+<p>to your <code>~/.login</code> file and</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">eval</span> <span class="sb">`</span>ssh-agent -c -k<span class="sb">`</span>
 </code></pre></div></td></tr></table></div>
-<p>In the first example, the shell removes extra space from the <strong>echo</strong>
-command's argument. In the second example, '$1' is interpreted the first
-input parameter which is not defined here, and therefore, it is replaced
-as empty string. With quoting, we can suppress unwanted expansions.</p>
-<p>First, let's learn about double quotes. If we place text inside double
-quotes, all special characters lose their special meaning, and treated
-as ordinary characters. However "$" "\" (backslash) and "`" (back
-quote) are exceptions.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>$ <span class="nb">echo</span> <span class="s2">&quot;This is a     test&quot;</span>
-This is a     <span class="nb">test</span>
-
-$ ls two words.txt
-ls: cannot access two: No such file or directory
-ls: cannot access words.txt: No such file or directory
-<span class="o">(</span>base<span class="o">)</span> dev-intel16-k80:shell$ ls <span class="s2">&quot;two words.txt&quot;</span>
-two words.txt
-</code></pre></div></td></tr></table></div>
-<p>If you want to suppress all expansions, you need to use single quotes.
-Next three examples show how quoting give different results.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>$ <span class="nb">echo</span> text ~/*.txt <span class="o">{</span><span class="m">1</span>..5<span class="o">}</span> <span class="k">$(</span><span class="nb">echo</span> foo<span class="k">)</span> <span class="k">$((</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="k">))</span> <span class="k">$(</span>date<span class="k">)</span>
-text /mnt/home/user_name/hostfile.txt /mnt/home/choiyj/powertools.txt <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> foo <span class="m">4</span> Tue Jan <span class="m">19</span> <span class="m">15</span>:10:00 EST <span class="m">2021</span>
-
-$ <span class="nb">echo</span> <span class="s2">&quot;text ~/*.txt {1..5} </span><span class="k">$(</span><span class="nb">echo</span> foo<span class="k">)</span><span class="s2"> </span><span class="k">$((</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="k">))</span><span class="s2"> </span><span class="k">$(</span>date<span class="k">)</span><span class="s2">&quot;</span>
-text ~/*.txt <span class="o">{</span><span class="m">1</span>..5<span class="o">}</span> foo <span class="m">4</span> Tue Jan <span class="m">19</span> <span class="m">15</span>:10:09 EST <span class="m">2021</span>
-$ <span class="nb">echo</span> <span class="s1">&#39;text ~/*.txt {1..5} $(echo foo) $((2+2)) $(date)&#39;</span>
-text ~/*.txt <span class="o">{</span><span class="m">1</span>..5<span class="o">}</span> <span class="k">$(</span><span class="nb">echo</span> foo<span class="k">)</span> <span class="k">$((</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="k">))</span> <span class="k">$(</span>date<span class="k">)</span>
-</code></pre></div></td></tr></table></div>
-<p>A backslash is useful when we wan to quote a single character. A
-backslash is called the escape character. Next example shows how quoting
-and an escape character work.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>$ <span class="nb">echo</span> The balance of <span class="k">$(</span>date<span class="k">)</span> is <span class="nv">$100</span>
-The balance of Tue Jan <span class="m">19</span> <span class="m">15</span>:15:36 EST <span class="m">2021</span> is <span class="m">00</span>
-
-$ <span class="nb">echo</span> <span class="s2">&quot;The balance of </span><span class="k">$(</span>date<span class="k">)</span><span class="s2"> is </span><span class="nv">$100</span><span class="s2">&quot;</span>
-The balance of Tue Jan <span class="m">19</span> <span class="m">15</span>:15:48 EST <span class="m">2021</span> is <span class="m">00</span>
-
-$ <span class="nb">echo</span> <span class="s1">&#39;The balance of $(date) is $100&#39;</span>
-The balance of <span class="k">$(</span>date<span class="k">)</span> is <span class="nv">$100</span>
-
-$ <span class="nb">echo</span> <span class="s2">&quot;The balance of </span><span class="k">$(</span>date<span class="k">)</span><span class="s2"> is \$100&quot;</span>
-The balance of Tue Jan <span class="m">19</span> <span class="m">15</span>:16:09 EST <span class="m">2021</span> is <span class="nv">$100</span>
-
-$ <span class="nb">echo</span> <span class="s1">&#39;The balance of $(date) is \$100&#39;</span>
-The balance of <span class="k">$(</span>date<span class="k">)</span> is <span class="se">\$</span><span class="m">100</span>
-</code></pre></div></td></tr></table></div>
-<p>The table show the most frequently used escape characters.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Escape Character</td>
-<td>Name</td>
-<td>usage</td>
-</tr>
-<tr>
-<td>\n</td>
-<td>newline</td>
-<td>Adding blank lines to text</td>
-</tr>
-<tr>
-<td>\t</td>
-<td>tab</td>
-<td>Inserting horizontal tabs to text</td>
-</tr>
-<tr>
-<td>\a</td>
-<td>alert</td>
-<td>Making the user terminal beep</td>
-</tr>
-<tr>
-<td>\\</td>
-<td>backslash</td>
-<td>Inserting a backslash</td>
-</tr>
-</tbody>
-</table>
+<p>to your <code>~/.logout</code> file.</p>
+<p>You should NOT add the <code>ssh-add</code> command to your shell initialization
+file. You should still plan on running this command by hand. As it
+issues prompts to your terminal, it is not a good idea to run it during
+shell initialization as the shell may not have fully configured your
+terminal yet.</p>
+<p>Another way of managing <code>ssh-agent</code> is via a program called <code>keychain</code>.
+You can learn more at
+the <a href="http://www.funtoo.org/Keychain">Keychain web site</a>.</p>
 
   
     
@@ -3778,7 +3621,7 @@ The balance of <span class="k">$(</span>date<span class="k">)</span> is <span cl
         <span class="md-icon" title="Date of last update">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 26, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 28, 2022</span>
       </span>
     
     
@@ -3786,7 +3629,7 @@ The balance of <span class="k">$(</span>date<span class="k">)</span> is <span cl
         <span class="md-icon" title="Date of creation">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 26, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 28, 2022</span>
       </span>
     
     
