@@ -13,7 +13,7 @@
       
       
       <link rel="icon" href="../assets/icer-small-logo-white.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3+insiders-4.23.5">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3+insiders-4.23.5">
     
     
       
@@ -1122,6 +1122,30 @@
       Using FileZilla for Mac and Windows
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Using FileZilla for Mac and Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-password-based-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      General password-based setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-based-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key-based setup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3590,6 +3614,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Using FileZilla for Mac and Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-password-based-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      General password-based setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-based-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key-based setup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3620,53 +3668,49 @@
 
 
 <h1 id="file-transfer">File transfer</h1>
-<p>This document highlights several simple methods to transfer files to the
-HPCC home and research directories.  There are two main systems for
-copying files. First,  simply "<strong>hpcc.msu.edu</strong>"  which is our main
-log-in gateway. It can be used for file transfer but may have high
-traffic, is not meant for demanding file transfers (very large files or
-many files), and cannot access the scratch disk (/mnt/ls15/scratch or
-/mnt/scratch). We offer a second gateway designed for file
-transfer, and does have access to the scratch file system with the host
-name  "<strong>rsync.hpcc.msu.edu</strong>". Therefore we highly recommend you use
-rsync.hpcc.msu.edu for the 'host' or 'server' in all examples below, as
-it's the only way to transfer files from scratch. Note that while
-it's named for the popular unix 'rsync' command, it can be used for sftp
-or scp as well. </p>
-<ul>
-<li><a href="#using-filezilla-for-mac-and-windows">Using FileZilla for Mac and Windows</a></li>
-<li><a href="#using-linux-commands">Using Linux commands</a></li>
-</ul>
-<h2 id="using-filezilla-for-mac-and-windows">Using FileZilla for Mac and Windows</h2>
-<hr />
-<p>FileZilla is a GUI application.</p>
+<p>This document highlights several simple methods to transfer files to the HPCC home and research directories. There are two main gateway systems for copying files. </p>
 <ol>
-<li>Download and install the appropriate (free) Filezilla client from
+<li>
+<p><code>hpcc.msu.edu</code>: this is our login gateway. While it can be used for file transfer, it's not intended for high volumes of files. More importantly, the scratch space is not mounted there and so you can't access your files on scratch.</p>
+</li>
+<li>
+<p><code>rsync.hpcc.msu.edu</code>: It has access to scratch, and is dedicated to file transfer. Although this gateway is named by the popular unix 'rsync' command, it can be used for "sftp" or "scp" as well. <strong>Starting in October 2022, login to the rsync gateway will accept SSH keys as the ONLY authentication method. Username/password won't work.</strong> Please refer to the <a href="../SSH_Key-Based_Authentication/">SSH key tutorial</a> for setting up your keypair.</p>
+</li>
+</ol>
+<h2 id="using-filezilla-for-mac-and-windows">Using FileZilla for Mac and Windows</h2>
+<h3 id="general-password-based-setup">General password-based setup</h3>
+<p>FileZilla is a GUI application for copying files between a remote host and your computer.</p>
+<ol>
+<li>Download and install the appropriate (free) FileZilla client from
     <a href="https://filezilla-project.org/download.php?show_all=1">https://filezilla-project.org/download.php?show_all=1</a>
     and select your operating system version.  Mac users will have to
     'unzip' the file and move the application into your Applications
-    folder.    </li>
-<li>To use, launch the program. </li>
-<li>In the top dialog boxes, enter:<ul>
-<li>(Host) rsync.hpcc.msu.edu</li>
-<li>(Username) <code>&lt;your username&gt;</code></li>
+    folder.</li>
+<li>To use, launch the program.</li>
+<li>
+<p>In the top dialog boxes, enter:</p>
+<ul>
+<li>(Host) r<code>sync.hpcc.msu.edu</code></li>
+<li>(Username) <code>&lt;your HPCC username&gt;</code></li>
 <li>(Password) <code>&lt;your password&gt;</code></li>
-<li>(Port) 22<br />
-    Then click connect or quickconnect. The first time you use this,
-    you will have to accept the host certificate.</li>
+<li>(Port) 22  </li>
 </ul>
+<p>Then click connect or quickconnect. The first time you use this,
+    you will have to accept the host certificate.
+4.  Once connected, the left column displays files on your local
+computer, the right column displays files on HPCC.
+5.  You can select the appropriate directories by double clicking
+through each tree. Files can be dragged and dropped from one column
+to the next. By dragging files from the left column to the right,
+you are uploading files to HPCC from your local computer. By
+dragging files from the right column to the left, you can download
+files from HPCC to your local computer.</p>
 </li>
-<li>Once connected, the left column displays files on your local
-    computer, the right column displays files on hpcc.</li>
-<li>You can select the appropriate directories by double clicking
-    through each tree. Files can be dragged and dropped from one column
-    to the next. By dragging files from the left column to the right,
-    you are uploading files to HPCC from your local computer. By
-    dragging files from the right column to the left, you can download
-    files from HPCC to your local computer.</li>
 </ol>
+<h3 id="key-based-setup">Key-based setup</h3>
+<p>As mentioned above, password authentication will be disabled in October 2022. See the screenshot below for how to set up your FileZilla using SSH keys. If you haven't generated them, please refer to the <a href="../SSH_Key-Based_Authentication/">SSH key tutorial</a> for how.</p>
+<p><img alt="img!" src="../attachments/FileZillaKeySetup.png" /></p>
 <h2 id="using-linux-commands">Using Linux commands</h2>
-<hr />
 <p>A number of different command-line utilities are available to OS X and
 Linux users. Each of them has its own advantages.</p>
 <ol>
@@ -3782,7 +3826,7 @@ user's file space on the cluster.  Submitting the line</p>
         <span class="md-icon" title="Date of last update">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 13, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 30, 2022</span>
       </span>
     
     
