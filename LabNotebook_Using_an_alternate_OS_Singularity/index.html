@@ -17,7 +17,7 @@
     
     
       
-        <title>LabNotebook CentOS8 container - MSU HPCC User Documentation</title>
+        <title>LabNotebook Using an alternate OS Singularity - MSU HPCC User Documentation</title>
       
     
     
@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introducion" class="md-skip">
+        <a href="#lab-notebook-using-an-alternate-os-via-singularity" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +119,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                LabNotebook CentOS8 container
+                LabNotebook Using an alternate OS Singularity
               
             </span>
           </div>
@@ -3521,9 +3521,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introducion" class="md-nav__link">
+  <a href="#lab-notebook-using-an-alternate-os-via-singularity" class="md-nav__link">
     <span class="md-ellipsis">
-      Introducion
+      Lab Notebook --- Using an alternate OS via Singularity
     </span>
   </a>
   
@@ -3626,7 +3626,7 @@
 
 
 
-  <h1>LabNotebook CentOS8 container</h1>
+  <h1>LabNotebook Using an alternate OS Singularity</h1>
 
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -3634,7 +3634,7 @@
 Please keep this in mind as you read and use the content. Please pay close attention to the date, version
 information and other details.</p>
 </div>
-<h2 id="introducion">Introducion</h2>
+<h2 id="lab-notebook-using-an-alternate-os-via-singularity">Lab Notebook --- Using an alternate OS via Singularity</h2>
 <p>Occasionally, I run into a peice of software which needs a newer version of GLIBC (&gt; 2.17) to be installed. Rather than try to upgrade GLIBC (which seems complicated and can go very poorly, see <a href="https://www.linuxquestions.org/questions/linux-general-1/regarding-distribution-kernel-version-gcc-version-glib-version-358882/">this thread for a general idea</a>), its alot easier to run a different OS image in a container and run the software there. For this, we will use Singularity, which functions similarly to Docker, but is available on HPCC because unlike Docker it doesn't give you root privledges on the host system. Futhremore, its alot easier to work with than a virtual box (used them in the past, they can be fun but a lot of overhead + issues sharing files). Finally, you can run environment managers like Conda with Singularity to layer package management on top of the alternate OS, or do things like work with a downgraded python, all without affecting any system level install.</p>
 <p>Below, I will go through obtaining a CentOS8 image which has an updated GLIBC, building an overlay, and installing conda in that overlay, and building a conda environment for pymesh (version 0.3) as an example of this process</p>
 <div class="admonition note">
