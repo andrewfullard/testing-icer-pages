@@ -3671,45 +3671,54 @@
 <p>This document highlights several simple methods to transfer files to the HPCC home and research directories. There are two main gateway systems for copying files. </p>
 <ol>
 <li>
-<p><code>hpcc.msu.edu</code>: this is our login gateway. While it can be used for file transfer, it's not intended for high volumes of files. More importantly, the scratch space is not mounted there and so you can't access your files on scratch.</p>
+<p><code>hpcc.msu.edu</code>: This is our login gateway. While it can be used for file transfer, it's not intended for high volumes of files. More importantly, the scratch space is not mounted there and so you can't access your files on scratch.</p>
 </li>
 <li>
-<p><code>rsync.hpcc.msu.edu</code>: It has access to scratch, and is dedicated to file transfer. Although this gateway is named by the popular unix 'rsync' command, it can be used for "sftp" or "scp" as well. <strong>Starting in October 2022, login to the rsync gateway will accept SSH keys as the ONLY authentication method. Username/password won't work.</strong> Please refer to the <a href="../SSH_Key-Based_Authentication/">SSH key tutorial</a> for setting up your keypair.</p>
+<p><code>rsync.hpcc.msu.edu</code>: It has access to scratch, and is dedicated to file transfer. Although this gateway is named by the popular Linux "rsync" command, it can be used for "sftp" or "scp" as well. <strong>Starting in October 2022, login to the rsync gateway will accept SSH keys as the ONLY authentication method. Username/password won't work.</strong> Please refer to the <a href="../SSH_Key-Based_Authentication/">SSH key tutorial</a> for setting up your keypair.</p>
 </li>
 </ol>
 <h2 id="using-filezilla-for-mac-and-windows">Using FileZilla for Mac and Windows</h2>
 <h3 id="general-password-based-setup">General password-based setup</h3>
 <p>FileZilla is a GUI application for copying files between a remote host and your computer.</p>
 <ol>
-<li>Download and install the appropriate (free) FileZilla client from
+<li>
+<p>Download and install the appropriate (free) FileZilla client from
     <a href="https://filezilla-project.org/download.php?show_all=1">https://filezilla-project.org/download.php?show_all=1</a>
-    and select your operating system version.  Mac users will have to
+    and select your operating system version. Mac users will have to
     'unzip' the file and move the application into your Applications
-    folder.</li>
-<li>To use, launch the program.</li>
+    folder.</p>
+</li>
+<li>
+<p>To use, launch the program.</p>
+</li>
 <li>
 <p>In the top dialog boxes, enter:</p>
 <ul>
-<li>(Host) r<code>sync.hpcc.msu.edu</code></li>
+<li>(Host) <code>rsync.hpcc.msu.edu</code></li>
 <li>(Username) <code>&lt;your HPCC username&gt;</code></li>
 <li>(Password) <code>&lt;your password&gt;</code></li>
 <li>(Port) 22  </li>
 </ul>
 <p>Then click connect or quickconnect. The first time you use this,
-    you will have to accept the host certificate.
-4.  Once connected, the left column displays files on your local
-computer, the right column displays files on HPCC.
-5.  You can select the appropriate directories by double clicking
-through each tree. Files can be dragged and dropped from one column
-to the next. By dragging files from the left column to the right,
-you are uploading files to HPCC from your local computer. By
-dragging files from the right column to the left, you can download
-files from HPCC to your local computer.</p>
+    you will have to accept the host certificate.</p>
+</li>
+<li>
+<p>Once connected, the left column displays files on your local
+    computer, the right column displays files on HPCC.</p>
+</li>
+<li>
+<p>You can select the appropriate directories by double clicking
+    through each tree. Files can be dragged and dropped from one column
+    to the next. By dragging files from the left column to the right,
+    you are uploading files to HPCC from your local computer. By
+    dragging files from the right column to the left, you can download
+    files from HPCC to your local computer.</p>
 </li>
 </ol>
 <h3 id="key-based-setup">Key-based setup</h3>
-<p>As mentioned above, password authentication will be disabled in October 2022. See the screenshot below for how to set up your FileZilla using SSH keys. If you haven't generated them, please refer to the <a href="../SSH_Key-Based_Authentication/">SSH key tutorial</a> for how.</p>
+<p>As mentioned above, password authentication will be disabled in October 2022. See the screenshot below for how to set up your FileZilla using SSH keys. If you haven't generated them, please refer to the <a href="../SSH_Key-Based_Authentication/">SSH key tutorial</a> for how. </p>
 <p><img alt="img!" src="../attachments/FileZillaKeySetup.png" /></p>
+<p>Fore more detailed steps, check out this FileZilla doc: <a href="https://filezillapro.com/docs/v3/basic-usage-instructions/ssh-private-keys-for-sftp/">How to Use SSH Private Keys for SFTP</a></p>
 <h2 id="using-linux-commands">Using Linux commands</h2>
 <p>A number of different command-line utilities are available to OS X and
 Linux users. Each of them has its own advantages.</p>
