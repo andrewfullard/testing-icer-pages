@@ -3654,6 +3654,7 @@ another Notebook)</p>
 # As of current, most similar OS with GLIBC &gt; 2.17
 singularity pull centos8.sif docker://centos:8.3.2011
 </code></pre></div></td></tr></table></div>
+<p>I keep my images in a folder called "singularity_pull_images" so, below replace "../singularity_pull_images" with whever your images are kept</p>
 <h2 id="pymesh-03-in-centos8-container">Pymesh 0.3 in CentOS8 Container</h2>
 <p>Now what we have an image, we can make an 'overlay' which is basically a 'filesystem inside a singe file'. This both cuts down on the number of files used on your home directory AND help silo off environments/installs/etc that are associated with a particular Singularity image (although this last step isn't really necessary, but it helps). Also, you generally have more acess to the filesystem in the overlay, meaning you can install things outside of your home directory in the overlay.</p>
 <p>For now, we will make an overlay, install conda in that overlay and then use the overlay to contain all the files for pymesh and its dependencies</p>
