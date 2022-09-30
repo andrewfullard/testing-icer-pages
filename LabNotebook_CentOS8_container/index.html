@@ -3558,9 +3558,27 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#install-pymesh-withing-the-container" class="md-nav__link">
+  <a href="#install-pymesh-within-the-container" class="md-nav__link">
     <span class="md-ellipsis">
-      Install Pymesh withing the container
+      Install Pymesh within the container
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-install-using-nose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check install using nose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endnote" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endnote
     </span>
   </a>
   
@@ -3617,38 +3635,79 @@ Please keep this in mind as you read and use the content. Please pay close atten
 information and other details.</p>
 </div>
 <h2 id="introducion">Introducion</h2>
-<p><fill this in later, for now record the commands that worked for the proof of concept container></p>
+<p>Occasionally, I run into a peice of software which needs a newer version of GLIBC (&gt; 2.17) to be installed. Rather than try to upgrade GLIBC (which seems complicated and can go very poorly, see <a href="https://www.linuxquestions.org/questions/linux-general-1/regarding-distribution-kernel-version-gcc-version-glib-version-358882/">this thread for a general idea</a>), its alot easier to run a different OS image in a container and run the software there. For this, we will use Singularity, which functions similarly to Docker, but is available on HPCC because unlike Docker it doesn't give you root privledges on the host system. Futhremore, its alot easier to work with than a virtual box (used them in the past, they can be fun but a lot of overhead + issues sharing files). Finally, you can run environment managers like Conda with Singularity to layer package management on top of the alternate OS, or do things like work with a downgraded python, all without affecting any system level install.</p>
+<p>Below, I will go through obtaining a CentOS8 image which has an updated GLIBC, building an overlay, and installing conda in that overlay, and building a conda environment for pymesh (version 0.3) as an example of this process</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is very brief and direct explanation of installing something
+in a Singularity image. A more general explanation of Singularity
+images, overlay, etc will be added in the future (probably as 
+another Notebook)</p>
+</div>
 <h2 id="getting-a-centos8-image">Getting a CentOS8 image</h2>
+<p>You can pull a Docker built image directly using Singularity. The code below will grab a CentOS8 image with a new GLIBC which is needed from the pymesh 0.3 version on conda.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code># This works for now but
-# Probably want to update/find different OS since centos8 hit end of life at the end of 2021
+# Probably want to update/find different OS since centos8 hit end of life at the end of 2021, probably centOS9
 # As of current, most similar OS with GLIBC &gt; 2.17
 singularity pull centos8.sif docker://centos:8.3.2011
 </code></pre></div></td></tr></table></div>
 <h2 id="pymesh-03-in-centos8-container">Pymesh 0.3 in CentOS8 Container</h2>
+<p>Now what we have an image, we can make an 'overlay' which is basically a 'filesystem inside a singe file'. This both cuts down on the number of files used on your home directory AND help silo off environments/installs/etc that are associated with a particular Singularity image (although this last step isn't really necessary, but it helps). Also, you generally have more acess to the filesystem in the overlay, meaning you can install things outside of your home directory in the overlay.</p>
+<p>For now, we will make an overlay, install conda in that overlay and then use the overlay to contain all the files for pymesh and its dependencies</p>
 <h4 id="setup-singularity-container">Setup Singularity Container</h4>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code># Need to clean up these commands after putting overlay_start_fakeroot in powertools
-# OR switch back to vanilla overlay_start, that will probably work
-overlay_build 5 singpul_oldpython_overlay.img
-overlay_install_conda singpul_oldpython_overlay.img https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh ../singularity_pull_images/centos8.sif 
-../powertools_tmp_dev/overlay_start_fakeroot singpul_oldpython_overlay.img ../singularity_pull_images/centos8.sif 
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code># The following commands are in powertools, which should be loaded by default; otherwise you will need to run &#39;module load powertools&#39;
+overlay_build 5 overlay.img
+overlay_install_conda overlay.img https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh ../singularity_pull_images/centos8.sif 
+
+# Now we access our overlay within our CentOS8 image
+overlay_start overlay.img ../singularity_pull_images/centos8.sif 
+
+# After this, your prompt should be &#39;Singularity&gt;&#39;
 </code></pre></div></td></tr></table></div>
-<h4 id="install-pymesh-withing-the-container">Install Pymesh withing the container</h4>
+<h4 id="install-pymesh-within-the-container">Install Pymesh within the container</h4>
+<p>Now that we are inside of our container, we can install pymesh. Using the CentOS8 image, we shouldn't get a GLIBC error, but we still need an older version of python (CentOS8 uses 3.9, pymesh needs 3.6). So, we will make conda enviroment with an older python (which is alot easier that trying to downgrade the system python of the Singularity image)</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>conda create -n pymesh2 python=3.6 pymesh2=0.3    # Need an older version of python for pymesh 0.3
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code># Need an older version of python for pymesh 0.3
+conda create -n pymesh2 python=3.6 pymesh2=0.3    
+
+# Now, activate our new environmet
 conda init
 source ~/.bashrc                                  # Need to manually update shell post conda init
 conda activate pymesh2
+
+# After this your prompt should be &#39;(pymesh2) Singularity&gt;&#39;
 </code></pre></div></td></tr></table></div>
-<p>Check by runnig 'import pymesh' within python</p>
+<h4 id="check-install-using-nose">Check install using nose</h4>
+<p>Now, within our conda environment, <strong>within</strong> our Singualrity container, lets install the nose package (unit testing in python) and run the test from the pymesh github (https://github.com/PyMesh/PyMesh)</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code># From within the pymesh2 environment
+conda install nose
+python -c &quot;import pymesh; pymesh.test()&quot;
+
+# You should get a couple warning and a couple S (skipped) tests, pretty sure this is fine
+</code></pre></div></td></tr></table></div>
+<h4 id="endnote">Endnote</h4>
+<p>This solution might seem (overly) complicated, because at the end we are running a conda environment inside of Singularity container. However, this allows us to use an older python version (via conda) and an alternative OS/GLIBC (via Singularity), either of which is an issue which is difficult to solve (downgrade python/upgrade GLIBC) and which it is <em>not</em> difficult to really screw things up by attempting</p>
 
   
     
@@ -3664,7 +3723,7 @@ conda activate pymesh2
         <span class="md-icon" title="Date of last update">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 23, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 30, 2022</span>
       </span>
     
     
