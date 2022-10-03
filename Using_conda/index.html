@@ -8,16 +8,20 @@
       
       
       
+      
+        
+      
+      
       <link rel="icon" href="../assets/icer-small-logo-white.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3+insiders-4.23.5">
     
     
       
-        <title>Using conda - MSU HPCC User Documentation</title>
+        <title>Using Conda - MSU HPCC User Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.20d9efc8.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.fb3608a7.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
@@ -44,6 +48,18 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-689HG824HG"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-689HG824HG",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-689HG824HG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -58,7 +74,6 @@
     
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
-    
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -104,7 +119,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                Using conda
+                Using Conda
               
             </span>
           </div>
@@ -156,8 +171,11 @@
     <div id="MSUmasthead" role="banner">
         <!-- <a href="http://www.msu.edu"> -->
             <!-- if using a dark background change the img src to images/masthead-helmet-white.png-->
+            <!-- <img class="screen-msugraphic" alt="ICER masthead graphic"
+                src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/Header_Banner_small.jpg" /> previous-->
             <img class="screen-msugraphic" alt="ICER masthead graphic"
-                src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/Header_Banner_small.jpg" />
+                src="/assets/images/Header_Banner_small_v8.jpeg" />
+                <!--! might have to change the relative path to a linked path like above -->
         <!-- </a> -->
     </div>
     
@@ -182,6 +200,7 @@
                     
 
 
+
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="MSU HPCC User Documentation" class="md-nav__button md-logo" aria-label="MSU HPCC User Documentation" data-md-component="logo">
@@ -196,14 +215,19 @@
     
       
       
-      
-
   
   
   
     <li class="md-nav__item">
       <a href=".." class="md-nav__link">
-        Home
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
       </a>
     </li>
   
@@ -211,1627 +235,3407 @@
     
       
       
-      
-
   
   
   
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2">
-          Access the HPCC
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Access the HPCC" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
-          <span class="md-nav__icon md-icon"></span>
-          Access the HPCC
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        
+        
+          <label class="md-nav__link" for="__nav_2">
+            
+  
+  <span class="md-ellipsis">
+    Access the HPCC
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Access the HPCC" data-md-level="1">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Access the HPCC
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../accessHPCC_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
   
   
   
     <li class="md-nav__item">
       <a href="../obtain_an_hpcc_account/" class="md-nav__link">
-        Obtain an HPCC account
+        
+  
+  <span class="md-ellipsis">
+    Obtain an HPCC account
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Web_Site_Access_to_HPCC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick start - web access
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
   
   
   
     <li class="md-nav__item">
       <a href="../install_ssh_client/" class="md-nav__link">
-        Install an SSH client
+        
+  
+  <span class="md-ellipsis">
+    Install an SSH client
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
   
   
   
     <li class="md-nav__item">
       <a href="../Connect_to_HPCC_System/" class="md-nav__link">
-        Connect to the HPCC
-      </a>
-    </li>
+        
   
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
+  <span class="md-ellipsis">
+    Connect to the HPCC
     
-      
-      
-      
+  </span>
+  
 
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3">
-          HPCC resources
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="HPCC resources" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          HPCC resources
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2018_cluster_resources/" class="md-nav__link">
-        Cluster resources
       </a>
     </li>
   
 
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../development_nodes/" class="md-nav__link">
-        Development nodes
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_4">
-          Computing environment
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Computing environment" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          Computing environment
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Linux_Shell/" class="md-nav__link">
-        Linux shells
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../File_Permissions_on_HPCC/" class="md-nav__link">
-        File permissions
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Change_Primary_Group/" class="md-nav__link">
-        Change primary group
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Collaborative_Research/" class="md-nav__link">
-        Collaborative research
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5">
-          File systems
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="File systems" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          File systems
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Home_Space/" class="md-nav__link">
-        Home space
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Research_Space/" class="md-nav__link">
-        Research space
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Scratch_File_Systems/" class="md-nav__link">
-        Scratch space
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Local_File_Systems/" class="md-nav__link">
-        Local file system
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ufs18_File_Systems/" class="md-nav__link">
-        UFS18 file system
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Guidelines_for_Choosing_File_Storage_and_I_O/" class="md-nav__link">
-        Guidelines for choosing file systems and I/O
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Sensitive_Data_on_the_HPCC/" class="md-nav__link">
-        Sensitive data storage
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_6">
-          File transfer
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="File transfer" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
-          <span class="md-nav__icon md-icon"></span>
-          File transfer
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../File_transfer/" class="md-nav__link">
-        File transfer
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Transferring_data_with_Globus/" class="md-nav__link">
-        Using Globus
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Rclone_-_rsync_for_cloud_storage/" class="md-nav__link">
-        Using Rclone
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Mapping_HPC_drives_with_SSHFS/" class="md-nav__link">
-        Mapping drives using Samba
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Mapping_HPC_drives_with_Samba/" class="md-nav__link">
-        Mapping drives using SSHFS
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SFTP_Mapping_on_HPCC_file_systems/" class="md-nav__link">
-        Mapping drives using SFTP
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Science_DMZ/" class="md-nav__link">
-        Science DMZ
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_7">
-          Software module system
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Software module system" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
-          <span class="md-nav__icon md-icon"></span>
-          Software module system
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../How_to_find_and_load_software_modules/" class="md-nav__link">
-        Loading software modules
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_8">
-          Powertools
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Powertools" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
-          <span class="md-nav__icon md-icon"></span>
-          Powertools
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../getexample/" class="md-nav__link">
-        getexample
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../bi/" class="md-nav__link">
-        bi - buyin information
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../qs/" class="md-nav__link">
-        qs - display job list
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_9">
-          Job submission by SLURM
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Job submission by SLURM" data-md-level="1">
-        <label class="md-nav__title" for="__nav_9">
-          <span class="md-nav__icon md-icon"></span>
-          Job submission by SLURM
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SLURM_overview/" class="md-nav__link">
-        Overview
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Slurm_Environment_Variables/" class="md-nav__link">
-        SLURM environment variables
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Job_Script_and_Job_Submission/" class="md-nav__link">
-        General rules for writing a job script
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Job_Constraints/" class="md-nav__link">
-        Job constraints
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Example_SLURM_scripts/" class="md-nav__link">
-        Example job scripts
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_6" type="checkbox" id="__nav_9_6" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_9_6">
-          Job policies
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Job policies" data-md-level="2">
-        <label class="md-nav__title" for="__nav_9_6">
-          <span class="md-nav__icon md-icon"></span>
-          Job policies
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../job_policies/" class="md-nav__link">
-        Job policies
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../job_priority_factors/" class="md-nav__link">
-        Job priority factors
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_7" type="checkbox" id="__nav_9_7" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_9_7">
-          Torque vs. SLURM comparisons
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Torque vs. SLURM comparisons" data-md-level="2">
-        <label class="md-nav__title" for="__nav_9_7">
-          <span class="md-nav__icon md-icon"></span>
-          Torque vs. SLURM comparisons
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Torque_vs._SLURM/" class="md-nav__link">
-        Overview
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Specifications_of_Job_submission/" class="md-nav__link">
-        Specifications of job submission
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../System_Commands/" class="md-nav__link">
-        System commands
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Environment_Variables/" class="md-nav__link">
-        Environment variables
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Scavenger_Queue/" class="md-nav__link">
-        Scavenger Queue
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_10">
-          Software tutorials
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Software tutorials" data-md-level="1">
-        <label class="md-nav__title" for="__nav_10">
-          <span class="md-nav__icon md-icon"></span>
-          Software tutorials
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_1" type="checkbox" id="__nav_10_1" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_10_1">
-          Bioinformatics
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Bioinformatics" data-md-level="2">
-        <label class="md-nav__title" for="__nav_10_1">
-          <span class="md-nav__icon md-icon"></span>
-          Bioinformatics
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ABySS/" class="md-nav__link">
-        ABySS
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Assembly_of_PacBio_long_reads_with_Canu/" class="md-nav__link">
-        Assembly of PacBio long reads with Canu
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BLAST_BLAST%2B_with_Multiple_Processors/" class="md-nav__link">
-        BLAST/BLAST+
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../GATK4/" class="md-nav__link">
-        GATK4
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../HTSeq/" class="md-nav__link">
-        HTSeq
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Mothur/" class="md-nav__link">
-        Mothur
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../NCBI_Entrez_Direct_tools/" class="md-nav__link">
-        NCBI eDirect
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../MySQL_configuration/" class="md-nav__link">
-        MySQL configuration for OrthoMCL
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../orthomcl-pipeline/" class="md-nav__link">
-        OrthoMCL pipeline
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../QIIME_2/" class="md-nav__link">
-        QIIME 2
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RNA_seq_example/" class="md-nav__link">
-        RNA-seq
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Trimmomatic/" class="md-nav__link">
-        Trimmomatic
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Trinity_for_RNA-seq_de_novo_assembly/" class="md-nav__link">
-        Trinity for RNA-seq de novo assembly
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_2" type="checkbox" id="__nav_10_2" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_10_2">
-          R
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="R" data-md-level="2">
-        <label class="md-nav__title" for="__nav_10_2">
-          <span class="md-nav__icon md-icon"></span>
-          R
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RCentOS7generalinfo/" class="md-nav__link">
-        General information
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../R_others/" class="md-nav__link">
-        Some packages and other information
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../R_workshop_tutorial/" class="md-nav__link">
-        R workshop
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_3" type="checkbox" id="__nav_10_3" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_10_3">
-          TensorFlow
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="TensorFlow" data-md-level="2">
-        <label class="md-nav__title" for="__nav_10_3">
-          <span class="md-nav__icon md-icon"></span>
-          TensorFlow
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Installing_TensorFlow_1.x_with_virtualenv/" class="md-nav__link">
-        Installing TF 1.x
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../TensorFlow_2.5_installation_as_of_Jul_2021_/" class="md-nav__link">
-        Installing TF 2.5
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Installing_TensorFlow_using_anaconda/" class="md-nav__link">
-        Installing TF using anaconda
-      </a>
-    </li>
-  
-
-            
-          
-            
               
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Submitting_a_TensorFlow_job/" class="md-nav__link">
-        Submitting a TF job
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4" type="checkbox" id="__nav_10_4" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_10_4">
-          Gaussian
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Gaussian" data-md-level="2">
-        <label class="md-nav__title" for="__nav_10_4">
-          <span class="md-nav__icon md-icon"></span>
-          Gaussian
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Gaussian_Access/" class="md-nav__link">
-        Gaussian access
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Running_Gaussian_by_Command_Lines/" class="md-nav__link">
-        Running Gaussian from command line
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Gaussian_Job_Script/" class="md-nav__link">
-        Gaussian job script
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Gaussian_Job_with_Checkpointing_Run/" class="md-nav__link">
-        Gaussian job with checkpointing
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Gaussian_on_HPCC/" class="md-nav__link">
-        Gaussian workshop slides
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" type="checkbox" id="__nav_10_5" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_10_5">
-          COMSOL
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="COMSOL" data-md-level="2">
-        <label class="md-nav__title" for="__nav_10_5">
-          <span class="md-nav__icon md-icon"></span>
-          COMSOL
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../COMSOL/" class="md-nav__link">
-        COMSOL
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_11">
-          HPC tutorial series
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="HPC tutorial series" data-md-level="1">
-        <label class="md-nav__title" for="__nav_11">
-          <span class="md-nav__icon md-icon"></span>
-          HPC tutorial series
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
             
               
+                
   
   
   
     <li class="md-nav__item">
       <a href="../Connect_over_SSH_with_atom/" class="md-nav__link">
-        Connect over SSH with Atom
+        
+  
+  <span class="md-ellipsis">
+    SSH connection via Atom
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
   
   
   
     <li class="md-nav__item">
       <a href="../Connect_over_SSH_with_VS_Code/" class="md-nav__link">
-        Connect over SSH with VS_Code
+        
+  
+  <span class="md-ellipsis">
+    SSH connection via VS Code
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../An_SSH_tunneling_via_multiple_hops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSH tunneling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSH_Key-Based_Authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSH keys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+        
+        
+          <label class="md-nav__link" for="__nav_2_10">
+            
+  
+  <span class="md-ellipsis">
+    Other universities
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Other universities" data-md-level="2">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            Other universities
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Information_for_Central_Michigan_University_and_Western_Michigan_University_Users/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Central Michigan U and Western Michigan U
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kettering_Users/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kettering U
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Oakland_University_Users/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Oakland U
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        
+        
+          <label class="md-nav__link" for="__nav_3">
+            
+  
+  <span class="md-ellipsis">
+    HPCC resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="HPCC resources" data-md-level="1">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            HPCC resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2018_cluster_resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cluster resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development_nodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development nodes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HPC_s_entire_layout_at_ICER/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPCC layout
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ICER_HPC_Classroom_Support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classroom support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        
+        
+          <label class="md-nav__link" for="__nav_4">
+            
+  
+  <span class="md-ellipsis">
+    Computing environment
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Computing environment" data-md-level="1">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Computing environment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux_Shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux shells
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_Permissions_on_HPCC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File permissions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Change_Primary_Group/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Change primary group
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Collaborative_Research/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Collaborative research
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        
+        
+          <label class="md-nav__link" for="__nav_5">
+            
+  
+  <span class="md-ellipsis">
+    File systems
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="File systems" data-md-level="1">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            File systems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../filesystem_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Home_Space/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home space
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Research_Space/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Research space
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scratch_File_Systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scratch space
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Local_File_Systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Local file system
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ufs18_File_Systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UFS18 file system
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Guidelines_for_Choosing_File_Storage_and_I_O/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guidelines for choosing file systems and I/O
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sensitive_Data_on_the_HPCC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sensitive data storage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        
+        
+          <label class="md-nav__link" for="__nav_6">
+            
+  
+  <span class="md-ellipsis">
+    File transfer
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="File transfer" data-md-level="1">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            File transfer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File_transfer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File transfer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Transferring_data_with_Globus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Globus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rclone_-_rsync_for_cloud_storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Rclone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping_HPC_drives_with_Samba/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapping drives using Samba
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping_HPC_drives_with_SSHFS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapping drives using SSHFS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SFTP_Mapping_on_HPCC_file_systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapping drives using SFTP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Science_DMZ/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Science DMZ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        
+        
+          <label class="md-nav__link" for="__nav_7">
+            
+  
+  <span class="md-ellipsis">
+    Software module system
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Software module system" data-md-level="1">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Software module system
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How_to_find_and_load_software_modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Loading software modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../User_Created_Modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User created modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+        
+        
+          <label class="md-nav__link" for="__nav_8">
+            
+  
+  <span class="md-ellipsis">
+    Powertools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Powertools" data-md-level="1">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Powertools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Powertools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getexample/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get software usage examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SLURM - buyin information
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SLURM - display job list
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Display_Compute_Nodes_and_Job_Partitions_by_sinfo_command/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SLURM - node status and job partition
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+        
+        
+          <label class="md-nav__link" for="__nav_9">
+            
+  
+  <span class="md-ellipsis">
+    Job submission by SLURM
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Job submission by SLURM" data-md-level="1">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Job submission by SLURM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SLURM_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm_Environment_Variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SLURM environment variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job_Script_and_Job_Submission/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    General rules for writing a job script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_4" type="checkbox" id="__nav_9_4" >
+        
+        
+          <label class="md-nav__link" for="__nav_9_4">
+            
+  
+  <span class="md-ellipsis">
+    Job policies
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Job policies" data-md-level="2">
+          <label class="md-nav__title" for="__nav_9_4">
+            <span class="md-nav__icon md-icon"></span>
+            Job policies
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../job_policies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Job policies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../job_priority_factors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Job priority factors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job_Constraints/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Job constraints
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Buy-In_Accounts_with_SLURM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Buyin accounts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Show_Job_Steps_by_sacct_and_srun_Commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Showing job steps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SLURM_Check_Modify_and_Cancel_a_Job_by_scontrol_scancel_Command/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Controlling jobs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scavenger_Queue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scavenger Queue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Example_SLURM_scripts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Example job scripts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Job_with_Checkpointing_Run/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Checkpointing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_12" type="checkbox" id="__nav_9_12" >
+        
+        
+          <label class="md-nav__link" for="__nav_9_12">
+            
+  
+  <span class="md-ellipsis">
+    Torque vs. SLURM comparisons
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Torque vs. SLURM comparisons" data-md-level="2">
+          <label class="md-nav__title" for="__nav_9_12">
+            <span class="md-nav__icon md-icon"></span>
+            Torque vs. SLURM comparisons
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Torque_vs._SLURM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Specifications_of_Job_submission/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Specifications of job submission
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System_Commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    System commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Environment_Variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Environment variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" checked>
+        
+        
+          <label class="md-nav__link" for="__nav_10">
+            
+  
+  <span class="md-ellipsis">
+    Software tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Software tutorials" data-md-level="1">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Software tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_1" type="checkbox" id="__nav_10_1" >
+        
+        
+          <label class="md-nav__link" for="__nav_10_1">
+            
+  
+  <span class="md-ellipsis">
+    Bioinformatics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Bioinformatics" data-md-level="2">
+          <label class="md-nav__title" for="__nav_10_1">
+            <span class="md-nav__icon md-icon"></span>
+            Bioinformatics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Aspera_bulk_file_transfer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aspera bulk file transfer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ABySS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ABySS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Assembly_of_PacBio_long_reads_with_Canu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assembly of PacBio long reads with Canu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLAST_BLAST%2B_with_Multiple_Processors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BLAST/BLAST+
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GATK4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GATK4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTSeq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTSeq
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mothur/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mothur
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NCBI_Entrez_Direct_tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NCBI eDirect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Load_the_software/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OrthoMCL: load module
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL_configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OrthoMCL: MySQL configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orthomcl-pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OrthoMCL pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QIIME_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QIIME 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RNA_seq_example/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RNA-seq
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trimmomatic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trimmomatic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trinity_for_RNA-seq_de_novo_assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trinity for RNA-seq de novo assembly
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_2" type="checkbox" id="__nav_10_2" >
+        
+        
+          <label class="md-nav__link" for="__nav_10_2">
+            
+  
+  <span class="md-ellipsis">
+    AlphaFold
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="AlphaFold" data-md-level="2">
+          <label class="md-nav__title" for="__nav_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            AlphaFold
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AlphaFold_installed_in_HPCC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AlphaFold on HPCC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alphafold_via_Singularity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AlphaFold via Singularity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_3" type="checkbox" id="__nav_10_3" >
+        
+        
+          <label class="md-nav__link" for="__nav_10_3">
+            
+  
+  <span class="md-ellipsis">
+    R
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="R" data-md-level="2">
+          <label class="md-nav__title" for="__nav_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            R
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RCentOS7generalinfo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    General information
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R_others/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Some packages and other information
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R_workshop_tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    R workshop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Matlab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matlab
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" type="checkbox" id="__nav_10_5" >
+        
+        
+          <label class="md-nav__link" for="__nav_10_5">
+            
+  
+  <span class="md-ellipsis">
+    Perl
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Perl" data-md-level="2">
+          <label class="md-nav__title" for="__nav_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            Perl
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installing_Local_Perl_Modules_with_CPAN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing Local Perl Modules with CPAN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_6" type="checkbox" id="__nav_10_6" checked>
+        
+        
+          <label class="md-nav__link" for="__nav_10_6">
+            
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Python" data-md-level="2">
+          <label class="md-nav__title" for="__nav_10_6">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Package management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Using Conda
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Using Conda
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-of-anaconda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation of Anaconda
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-setup-for-anaconda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module Setup for Anaconda
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-conda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing conda
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Environments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Python
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Packages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Packages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-a-package-with-pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing a Package with pip
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-commercial-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Commercial Packages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removing-packages-environments-or-conda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removing Packages, Environments, or conda
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Using_Python_in_HPCC_with_virtualenv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using virtual env
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python_on_HPC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python on HPCC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_7" type="checkbox" id="__nav_10_7" >
+        
+        
+          <label class="md-nav__link" for="__nav_10_7">
+            
+  
+  <span class="md-ellipsis">
+    TensorFlow
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="TensorFlow" data-md-level="2">
+          <label class="md-nav__title" for="__nav_10_7">
+            <span class="md-nav__icon md-icon"></span>
+            TensorFlow
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installing_TensorFlow_1.x_with_virtualenv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing TF 1.x
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow_2.5_installation_as_of_Jul_2021_/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing TF 2.5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installing_TensorFlow_using_anaconda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing TF using anaconda
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Submitting_a_TensorFlow_job/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Submitting a TF job
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_8" type="checkbox" id="__nav_10_8" >
+        
+        
+          <label class="md-nav__link" for="__nav_10_8">
+            
+  
+  <span class="md-ellipsis">
+    Singularity
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Singularity" data-md-level="2">
+          <label class="md-nav__title" for="__nav_10_8">
+            <span class="md-nav__icon md-icon"></span>
+            Singularity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
   
   
   
     <li class="md-nav__item">
       <a href="../singularity_01/" class="md-nav__link">
-        Singularity: I. Introduction
+        
+  
+  <span class="md-ellipsis">
+    Singularity I: Introduction
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity_II._Running_a_container_on_HPC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Singularity II: Running a container
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity_III._Advanced_skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Singularity III: Advanced
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_9" type="checkbox" id="__nav_10_9" >
+        
+        
+          <label class="md-nav__link" for="__nav_10_9">
+            
+  
+  <span class="md-ellipsis">
+    Gaussian
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Gaussian" data-md-level="2">
+          <label class="md-nav__title" for="__nav_10_9">
+            <span class="md-nav__icon md-icon"></span>
+            Gaussian
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Access/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gaussian access
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Running_Gaussian_by_Command_Lines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running Gaussian from command line
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Job_Script/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gaussian job script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_Job_with_Checkpointing_Run/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gaussian job with checkpointing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gaussian_on_HPCC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gaussian workshop slides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../COMSOL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    COMSOL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ANSYS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ANSYS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+        
+        
+          <label class="md-nav__link" for="__nav_11">
+            
+  
+  <span class="md-ellipsis">
+    Training material
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Training material" data-md-level="1">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Training material
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshop_slides/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Workshop slides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_2" type="checkbox" id="__nav_11_2" >
+        
+        
+          <label class="md-nav__link" for="__nav_11_2">
+            
+  
+  <span class="md-ellipsis">
+    Programming
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Programming" data-md-level="2">
+          <label class="md-nav__title" for="__nav_11_2">
+            <span class="md-nav__icon md-icon"></span>
+            Programming
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
   
   
   
     <li class="md-nav__item">
       <a href="../using_DDD/" class="md-nav__link">
-        Using DDD
+        
+  
+  <span class="md-ellipsis">
+    Using DDD
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
   
   
   
     <li class="md-nav__item">
       <a href="../make/" class="md-nav__link">
-        make
+        
+  
+  <span class="md-ellipsis">
+    make
+    
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
             
               
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_3" type="checkbox" id="__nav_11_3" >
+        
+        
+          <label class="md-nav__link" for="__nav_11_3">
+            
+  
+  <span class="md-ellipsis">
+    Shell scripting
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Shell scripting" data-md-level="2">
+          <label class="md-nav__title" for="__nav_11_3">
+            <span class="md-nav__icon md-icon"></span>
+            Shell scripting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
   
   
   
     <li class="md-nav__item">
       <a href="../3._Expansion/" class="md-nav__link">
-        Expansion
+        
+  
+  <span class="md-ellipsis">
+    Expansion
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
   
   
   
     <li class="md-nav__item">
       <a href="../4._Conditional_statements/" class="md-nav__link">
-        Condtional statements
+        
+  
+  <span class="md-ellipsis">
+    Conditional statements
+    
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_4" type="checkbox" id="__nav_11_4" >
+        
+        
+          <label class="md-nav__link" for="__nav_11_4">
+            
+  
+  <span class="md-ellipsis">
+    Others
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Others" data-md-level="2">
+          <label class="md-nav__title" for="__nav_11_4">
+            <span class="md-nav__icon md-icon"></span>
+            Others
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Targeting_Cluster_Architectures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Targeting Cluster Architectures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HPC_Concept/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPC concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_12">
-          FAQ
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="FAQ" data-md-level="1">
-        <label class="md-nav__title" for="__nav_12">
-          <span class="md-nav__icon md-icon"></span>
-          FAQ
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
   
   
   
     <li class="md-nav__item">
       <a href="../Frequently_Asked_Questions_FAQ_/" class="md-nav__link">
-        FAQ
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
-        </ul>
-      </nav>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab_Notebooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab Notebooks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tags
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1864,21 +3668,99 @@
       
         <li class="md-nav__item">
   <a href="#introduction" class="md-nav__link">
-    Introduction
+    <span class="md-ellipsis">
+      Introduction
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#installation-of-anaconda" class="md-nav__link">
-    Installation of Anaconda
+    <span class="md-ellipsis">
+      Installation of Anaconda
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#module-setup-for-anaconda" class="md-nav__link">
-    Module Setup for Anaconda
+    <span class="md-ellipsis">
+      Module Setup for Anaconda
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-conda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing conda
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Environments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Python
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Packages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Packages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-a-package-with-pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing a Package with pip
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-commercial-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Commercial Packages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removing-packages-environments-or-conda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removing Packages, Environments, or conda
+    </span>
   </a>
   
 </li>
@@ -1896,48 +3778,18 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+
+
 
 
 <h1 id="using-conda">Using conda</h1>
-<div class="toc-macro rbtoc1642531360834">
-
--   [Introduction](#Usingconda-Introduction)
--   [Installation of Anaconda](#Usingconda-InstallationofAnaconda)
--   [Module Setup for Anaconda](#Usingconda-ModuleSetupforAnaconda)
--   [CentOS 7 migration note](#Usingconda-CentOS7migrationnote)
--   [Managing conda](#Usingconda-Managingconda)
--   [Managing Environments](#Usingconda-ManagingEnvironments)
--   [Managing Python](#Usingconda-ManagingPython)
--   [Managing Packages](#Usingconda-ManagingPackages)
--   [Installing Packages from
-    Anaconda.org](#Usingconda-InstallingPackagesfromAnaconda.org)
--   [Installing a Package with
-    pip](#Usingconda-InstallingaPackagewithpip)
--   [Installing Commercial
-    Packages](#Usingconda-InstallingCommercialPackages)
--   [Removing Packages, Environments, or
-    conda](#Usingconda-RemovingPackages,Environments,orconda)
-
-</div>
-
-<div class="has-no-icon">
-
-Note!
-
-<div>
-
-This wiki is based on conda version prior to 4.6. It may not apply to
-4.6 and later versions (where, for example, conda environment is
-activated by conda activate ) . Check the manual before you start using
-conda.
-
-</div>
-
-</div>
-
-<h2 id="introduction"><strong>Introduction</strong></h2>
-<hr />
-<p>Anaconda is a distribution of python that containss a free,
+<p>This wiki is based on conda version prior to 4.6. <strong>It may not apply to
+4.6 and later versions</strong> (where, for example, conda environment is
+activated by conda activate ). Check the manual before you start using
+conda.</p>
+<h2 id="introduction">Introduction</h2>
+<p>Anaconda is a distribution of python that contains a free,
 easy-to-install package manager, environment manager and Python
 distribution with a collection of 1,000+ open source packages with free
 community support. Conda is the package and environment manager that
@@ -1948,85 +3800,55 @@ does any software which will be installed using it.  This allows users
 to have full control of their programs.</p>
 <p>This wiki serves only as a mini-version of conda tutorial. You are
 highly recommended to read the User Guide.</p>
-<p>Before you dive into conda, here is a quick example showing how to use
-conda to install and run a program called "macs2". First we go to
+<p>conda to install and run a program called "macs2". First we go to
 <a href="https://anaconda.org" rel="nofollow">Anaconda Cloud</a> to
 search for it. Once it's found, we pick a source and click on the link
 to get the installation command
 (i.e., <code>conda install -c bioconda macs2</code> below)</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Installation of macs2**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">export PATH=$PATH:$HOME/anaconda3/bin
+<p><strong>Installation of macs2</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>export PATH=$PATH:$HOME/anaconda3/bin
 conda create --name macs2
 source activate macs2
 conda install -c bioconda macs2 
 source deactivate
-</code></pre>
-
-
-</div>
-
-</div>
-
+</code></pre></div></td></tr></table></div>
 <p>To launch it later on (for example, in your SLURM job submission
 script):</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Using it**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">export PATH=$PATH:$HOME/anaconda3/bin
+<p><strong>Using it</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>export PATH=$PATH:$HOME/anaconda3/bin
 source activate macs2
 #[your commands]
 source deactivate
-</code></pre>
-
-
-</div>
-
-</div>
-
-<h2 id="installation-of-anaconda"><strong>Installation of Anaconda</strong></h2>
-<hr />
-<p>Visit  <a href="https://docs.anaconda.com/anaconda/install/linux"
+</code></pre></div></td></tr></table></div>
+<h2 id="installation-of-anaconda">Installation of Anaconda</h2>
+<p>Visit <a href="https://docs.anaconda.com/anaconda/install/linux"
 rel="nofollow">https://docs.anaconda.com/anaconda/install/linux</a> for
 installation instruction. And Linux installers are available
 from <a href="https://www.anaconda.com/download/#linux"
 rel="nofollow">https://www.anaconda.com/download/#linux</a></p>
 <p>Note:</p>
-<p>1) Always choose the 64-bit version for use on HPCC.</p>
+<p>1) Choose 64-Bit (x86) Installer.</p>
 <p>2) Version 2 or 3? You should choose python2 or python3 depending on
 what your software requirements are.  Some libraries/packages only work
 on Python 2 so you should check with the python package you ultimately
 want to use.  If you don't know, select the latest version 3. </p>
-<p>3) Anaconda now partners with Microsoft and asks if you want to install
+<p>3) Anaconda now partners with Microsoft and asks if you want to install
 "VSCode"  THIS WILL NOT WORK.  The installation requires administrative
 privileges that you don't have.  </p>
-<p>You can download directly into your home directory by first getting the
+<p>You can download the install file directly into your home directory by first getting the
 URL of the download (right-click on the download link and select "copy
-link address" or "copy link location").  Then open a terminal to the
-HPCC, and use this command</p>
-<p>curl -O</p>
-<p>Once the installer with a file name <code>Anaconda-&lt;version&gt;-x86_64.sh</code> is
-downloaded, you can run the command: </p>
-<p>bash Anaconda--x86_64.sh</p>
+link address" or "copy link location").  Then open a terminal to log onto a dev-node, and use this command:</p>
+<p><code>curl -O &lt;download link&gt;</code> </p>
+<p>An example link can be: https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh</p>
+<p>Once the file <code>Anaconda3-2022.05-Linux-x86_64.sh</code> is downloaded, you can run the command: </p>
+<p><code>bash Anaconda3-2022.05-Linux-x86_64.sh</code></p>
 <p>During Installation the installer will ask you</p>
 <ol>
 <li>Accept licence agreement : you must type yes to agree.  We can not
@@ -2043,205 +3865,84 @@ downloaded, you can run the command: </p>
 </ol>
 <p>Please remember where Anaconda is installed in the step 2 above. The
 installation path will be used for module setup in the next section.</p>
-<div>
-
-<div>
-
-In case your installed Anaconda is auto-activated on startup, please run
-the command:
-
-`conda config --set auto_activate_base false`
-
-after close and re-open your current shell. Please read the next section
-for the setup and the start-up of your Anaconda.
-
-</div>
-
-</div>
-
-<h2 id="module-setup-for-anaconda"><strong>Module Setup for Anaconda </strong></h2>
-<hr />
+<p>In case your installed Anaconda is auto-activated on startup, please run
+the command:</p>
+<p><code>conda config --set auto_activate_base false</code></p>
+<p>after close and re-open your current shell. Please read the next section
+for the setup and the start-up of your Anaconda.</p>
+<h2 id="module-setup-for-anaconda">Module Setup for Anaconda</h2>
 <p>In order to have no conflict between user-installed Anaconda and
-system-installed Python versions, a setup in the $HOME/.bashrc file for
-module system is necessary. The .bashrc file under your home directory
+system-installed Python versions, a setup in the <code>$HOME/.bashrc</code> file for
+module system is necessary. The <code>.bashrc</code>file under your home directory
 can be used to do environment setting for every time you log in to a
-HPCC node. You can modify the file by an editor program (such as, nano,
-vim, ...) for Anaconda setup:</p>
-<ul>
-<li>
-<p>Please check if any conda initialization or setup script is in the
-    \~/.bashrc file. The script starts with "<code># &gt;&gt;&gt; conda init &gt;&gt;&gt;</code>" and
-    ends with "<code># &lt;&lt;&lt; conda init &lt;&lt;&lt;</code>":</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<p>``` bash</p>
-<h1 id="conda-init">&gt;&gt;&gt; conda init &gt;&gt;&gt;</h1>
-<h1 id="contents-within-this-block-are-managed-by-conda-init">!! Contents within this block are managed by 'conda init' !!</h1>
-<p>__conda_setup= ... ...
+HPCC node. You can modify the file by an editor program (such as nano,
+vim) for Anaconda setup:</p>
+<p>(1) Please check if any conda initialization or setup script is in the
+    <code>~/.bashrc</code> file. The script starts with <code># &gt;&gt;&gt; conda init &gt;&gt;&gt;</code> and
+    ends with <code># &lt;&lt;&lt; conda init &lt;&lt;&lt;</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code># &gt;&gt;&gt; conda init &gt;&gt;&gt;
+# !! Contents within this block are managed by &#39;conda init&#39; !!
+__conda_setup= ... ...
 ... ...
 ... ...
-unset __conda_setup</p>
-<h1 id="conda-init_1">&lt;&lt;&lt; conda init &lt;&lt;&lt;</h1>
-<p>```</p>
-</div>
-</div>
-<p>If there is, please remove or comment all of the command lines out
-(by adding the sign "<code>#</code>" in its front). If there is any <code>export</code>
-command line to add the installed Anaconda bin path to <code>PATH</code>
-environment variable, please also comment it out.</p>
-</li>
-<li>
-<p>If your installed Anaconda path is \~/anaconda3 or \~/anaconda2, you
-    can skip this step and go to the next one. If not, please set the
-    variable "<code>CONDA3PATH</code>" to be the place of installed Anaconda3 by
-    adding the command line:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<p><code>bash
-export CONDA3PATH=&lt;your installed Anaconda3 path&gt;</code></p>
-</div>
-</div>
-<p>in the \~/.bashrc file. If you have Anaconda2 installed, you may set
-the variable "<code>CONDA2PATH</code>" to be the installed path of Anaconda2.
-After the environment setup, please save the \~/.bashrc file. Log
+unset __conda_setup
+# &lt;&lt;&lt; conda init &lt;&lt;&lt;
+</code></pre></div></td></tr></table></div>
+<p>If there is, please remove or comment all of the command lines out (by adding the sign "<code>#</code>" in its front). If there is any <code>export</code> command line to add the installed Anaconda bin path to <code>PATH</code> environment variable, please also comment it out.</p>
+<p>(2) If your installed Anaconda path is <code>~/anaconda3</code> or <code>~/anaconda2</code>, you
+can skip this step and go to the next one. If not, please set the
+variable <code>CONDA3PATH</code> to be the place of installed Anaconda3 by
+adding the command line:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>export CONDA3PATH=&lt;your installed Anaconda3 path&gt;
+</code></pre></div></td></tr></table></div>
+<p>in the <code>~/.bashrc</code> file. If you have Anaconda2 installed, you may set
+the variable <code>CONDA2PATH</code> to be the installed path of Anaconda2.
+After the environment setup, please save the <code>~/.bashrc</code> file. Log
 out and log into a dev node.</p>
-</li>
-<li>
-<p>Whenever you want to use Anaconda3 commands, just run:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<p><code>bash
-module load Conda/3</code></p>
-</div>
-</div>
-<p>to initiate conda and <code>CONDA3PATH</code> is in your <code>PATH</code> variable.
-Loading the module will also replace any loaded Python module so
-there is no conflict. If <code>CONDA2PATH</code> variable is set up, please
-load <code>Conda/2</code> module for using Anaconda2.</p>
-</li>
-<li>
-<p>If you would like to have your installed Anaconda3 to be the default
-    Python program when your session starts up, you can add the command:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<p><code>bash
-module load Conda/3 2&gt; /dev/null</code></p>
-</div>
-</div>
-<p>to the  \~/.bashrc file after "<code>export CONDA3PATH=...</code>" command
-line. Using Conda module can also avoid a conflict with Web-based
-Remote Desktop gateway. If anaconda2 is installed, you can use
-<code>Conda/2</code> instead of <code>Conda/3</code> module.</p>
-</li>
-</ul>
-<h2 id="centos-7-migration-note"><strong>CentOS 7 migration note</strong></h2>
-<hr />
-<p>If you have previously installed Anaconda on our system prior to the
-upgrade (e.g. on CentOS 6), you will most likely have to reinstall
-Anaconda using the new development nodes, for example dev-intel18. An
-installation of Anaconda on CentOS 6 may not be compatible with CentOS 7
-unless it is re-installed. Most users installed Anaconda because Numpy,
-Scipy and Panda on our CentOS 6 version had issues. Python on the new
-system is more complete and you may consider simply using "module load
-Python" instead (which loads Python 3).</p>
-<h2 id="managing-conda"><strong>Managing conda</strong></h2>
-<hr />
+<p>(3) Whenever you want to use Anaconda3 commands, just run:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module load Conda/3
+</code></pre></div></td></tr></table></div>
+<p>to initiate conda and <code>CONDA3PATH</code> is in your <code>PATH</code> variable. Loading the module will also replace any loaded Python module so
+there is no conflict. If <code>CONDA2PATH</code> variable is set up, please load <code>Conda/2</code> module for using Anaconda2.</p>
+<p>(4) If you would like to have your installed Anaconda3 to be the default Python program when your session starts up, you can add the command:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>module load Conda/3 2&gt; /dev/null
+</code></pre></div></td></tr></table></div>
+<p>to the  <code>~/.bashrc</code> file after <code>export CONDA3PATH=...</code> command line. Using Conda module can also avoid a conflict with Web-based Remote Desktop gateway. If anaconda2 is installed, you can use <code>Conda/2</code> instead of <code>Conda/3</code> module.</p>
+<h2 id="managing-conda">Managing conda</h2>
 <p>To manage conda, you should use a Terminal window to check the
 following.</p>
 <p>You can begin by checking if conda is installed by using the command: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Checking the version**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda --version
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Checking the version</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda --version
+</code></pre></div></td></tr></table></div>
 <p>If it is installed, the number of the version you have installed should
 show up after the previous command in Terminal.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Version example**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda 4.2.9
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Version example</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda <span class="m">4</span>.2.9
+</code></pre></div></td></tr></table></div>
 <p>If there’s an error message, check to see if you’re logged into the same
 account that you used to install Anaconda or Miniconda. You can update
 conda to the current version by typing in to your command line the
 following in line 1:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Updating conda**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda update conda
-Proceed ([y]/n)?
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Updating conda</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>conda update conda
+Proceed <span class="o">([</span>y<span class="o">]</span>/n<span class="o">)</span>?
+</code></pre></div></td></tr></table></div>
 <p>Line 2 asks you if you wish to proceed. </p>
 <p>Type ‘y’ and hit Enter to update.</p>
-<h2 id="managing-environments"><strong>Managing Environments</strong></h2>
-<hr />
+<h2 id="managing-environments">Managing Environments</h2>
 <p>You will use a Terminal window for the following steps.</p>
 <p>To create an environment, use the following command:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Creating an environment**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda create --name testing biopython
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Creating an environment</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda create --name testing biopython
+</code></pre></div></td></tr></table></div>
 <p>Two things to note from this: you can replace ‘testing’ with whatever
 name you want, and biopython is just the program that was chosen for
 this. If your program is not yet installed, you will be prompted to
@@ -2250,375 +3951,101 @@ prompted if you want to update conda. Type ‘y’ and hit "Enter" to
 confirm that you want to install the package. To activate this new
 environment, choose the appropriate command (keep in mind that our
 environment name is ‘testing’):</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Activate an environment**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">source activate testing
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Activate an environment</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">source</span> activate testing
+</code></pre></div></td></tr></table></div>
 <p>To deactivate an environment and return to the root, use the following
 command:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Deactivating an environment**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">source deactivate testing
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Deactivating an environment</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">source</span> deactivate testing
+</code></pre></div></td></tr></table></div>
 <p>Now let’s say you want to create a new environment and install a
 different version of Python along with a couple of packages. We will use
 the Astroid and Babel packages.</p>
 <p>Run this command:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Environment with multiple packages**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda create --name test2 python=3.5 astroid babel
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Environment with multiple packages</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda create --name test2 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.5 astroid babel
+</code></pre></div></td></tr></table></div>
 <p>Your new environment is named ‘test2’ (which can be interchanged for
 whatever name you like when you’re running an environment) and it has
 Python 3, Astroid, and Babel installed.</p>
 <p>If you wish to find out more about the create command, run: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**create help**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda create --help
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>create help</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda create --help
+</code></pre></div></td></tr></table></div>
 <p>To display your environments, use the command: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Displaying environments**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda info --envs
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Displaying environments</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda info --envs
+</code></pre></div></td></tr></table></div>
 <p>Your environments should be outputted, and there will be an asterisk
 next to the active environment.</p>
 <p>Your current environment should be in (parentheses) or [brackets] in
 front of your prompt. To switch to another environment, just use the
 activate command with the environment name. If you wish to make a copy
 of an environment, use the following command: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Copying an environment**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda create --name hello --clone testing
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Copying an environment</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda create --name hello --clone testing
+</code></pre></div></td></tr></table></div>
 <p>You can verify that the clone was made by displaying your environments.</p>
 <p>You can delete an environment by using: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Deleting an environment**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash"> conda remove --name hello --all
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Deleting an environment</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code> conda remove --name hello --all
+</code></pre></div></td></tr></table></div>
 <p>Since we don’t want a clone of testing, we decided to delete it. You can
 check that it is deleted by displaying your environments.</p>
-<h2 id="managing-python"><strong>Managing Python</strong></h2>
-<hr />
+<h2 id="managing-python">Managing Python</h2>
 <p>Use a Terminal window again for these steps.</p>
 <p>You can search for which versions of Python are available to be
 installed by using the command: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Searching for available Python versions**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda search --full-name python
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Searching for available Python versions</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda search --full-name python
+</code></pre></div></td></tr></table></div>
 <p>“--full-name” lists only the packages whose full name is exactly
 ‘python’.</p>
 <p>If you want to search packages which contain the text ‘python’, but that
 is not its full name, use the command: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Versions with the word "python"**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda search python
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Versions with the word "python"</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda search python
+</code></pre></div></td></tr></table></div>
 <p>We will go over how to install a new verison of Python without
 overwriting our original Python version.<strong> </strong>Let’s start off by creating
 a new environment called py3.<strong> </strong>Use the create command:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Environment for installing a new version of Python**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda create --name py3 python=3
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Environment for installing a new version of Python</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda create --name py3 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>
+</code></pre></div></td></tr></table></div>
 <p>If you get prompted to install a new package, type ‘y’ and hit
 "Enter".<strong> </strong>Display your list of environments with</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Displaying new environment**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda info --envs
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Displaying new environment</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda info --envs
+</code></pre></div></td></tr></table></div>
 <p>to check if py3 was successfully created, and activate py3 by using: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Activating py3**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">source activate py3
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Activating py3</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">source</span> activate py3
+</code></pre></div></td></tr></table></div>
 <p>Now check the version of Python being used with: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Checking py3's Python version**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">python --version
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Checking py3's Python version</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>python --version
+</code></pre></div></td></tr></table></div>
 <p>Now we can switch to one of our previous environments that we first made
 when installing conda. Let’s switch back to testing.<strong> </strong>Using the
 command: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Switching to an environment with a different Python version**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">source activate testing
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Switching to an environment with a different Python version</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">source</span> activate testing
+</code></pre></div></td></tr></table></div>
 <p>Now you check which version we are using with the same used earlier.</p>
 <p>This should show the same version that was used when you first installed
 conda.</p>
 <p>Now let’s deactivate testing with the command: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Deactivating testing**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">source deactivate testing
-</code></pre>
-
-
-</div>
-
-</div>
-
-<h2 id="managing-packages"><strong>Managing Packages</strong></h2>
-<hr />
+<p><strong>Deactivating testing</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">source</span> deactivate testing
+</code></pre></div></td></tr></table></div>
+<h2 id="managing-packages">Managing Packages</h2>
 <p>Use the Terminal window for this section.</p>
 <p>The following command will allow you to see the packages installed in
 your environment: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Listing packages command**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda list
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Listing packages command</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda list
+</code></pre></div></td></tr></table></div>
 <p>This website provides a list of packages available to
 install: <a href="http://docs.continuum.io/anaconda/pkg-docs.html"
 rel="nofollow">http://docs.continuum.io/anaconda/pkg-docs.html</a></p>
@@ -2627,95 +4054,26 @@ rel="nofollow">http://docs.continuum.io/anaconda/pkg-docs.html</a></p>
 screen-scraping/MIT.</p>
 <p>To search if this package is available to be installed, try to use the
 following command: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Searching for a package**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda search beautifulsoup4
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Searching for a package</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda search beautifulsoup4
+</code></pre></div></td></tr></table></div>
 <p>If it displays the package, then it is available to install. Use the
 following command to install a package: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Install a Package**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda install --name test2 beautifulsoup4
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Install a Package</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda install --name test2 beautifulsoup4
+</code></pre></div></td></tr></table></div>
 <p>You will be prompted if you want to proceed. Type ‘y’ and hit "Enter"</p>
 <p>Now activate the environment that this package was installed in, in this
 case test2: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Activating environment with the new package**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">source activate test2
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Activating environment with the new package</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">source</span> activate test2
+</code></pre></div></td></tr></table></div>
 <p>Now let’s check if the package is installed by using:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Listing the packages**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash"> conda list
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Listing the packages</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code> conda list
+</code></pre></div></td></tr></table></div>
 <p>It should be listed if it is installed.</p>
-<h2 id="installing-packages-from-anacondaorg"><strong>Installing Packages from <a href="http://Anaconda.org" rel="nofollow">Anaconda.org</a></strong></h2>
-<hr />
+<h2 id="installing-packages">Installing Packages</h2>
 <p>Use the Terminal window and an internet browser for this section.</p>
 <p>Not all packages can be installed with conda install, so we can pull
 packages
@@ -2733,245 +4091,112 @@ the package. We can ignore this one and click on
 ‘bottleneck<sub>1.2.1</sub>’.  At the middle to bottom portion of the
 page, there should be a command listed to install this package. In this
 case, the command is:</p>
-<pre><code>conda install -c conda-forge bottleneck
-</code></pre>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda install -c conda-forge bottleneck
+</code></pre></div></td></tr></table></div>
 <p>Activate your test2 environment and enter this command to install
 bottleneck.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Installing a package from Anaconda.org**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">source activate test2
+<p><strong>Installing a package from Anaconda.org</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">source</span> activate test2
 conda install -c conda-forge bottleneck
-</code></pre>
-
-
-</div>
-
-</div>
-
+</code></pre></div></td></tr></table></div>
 <p>You will be prompted if you want to proceed, again type ‘y’ and hit
 "Enter". We can now check if the new package is installed.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda list
-</code></pre>
-
-
-</div>
-
-</div>
-
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda list
+</code></pre></div></td></tr></table></div>
 <p>If it is installed, it show in the Terminal window after using the
 previous command.</p>
-<h2 id="installing-a-package-with-pip"><strong>Installing a Package with pip</strong></h2>
-<hr />
+<h2 id="installing-a-package-with-pip">Installing a Package with pip</h2>
 <p>Pip is used to install packages that are not available from conda
 or <a href="http://anaconda.org" rel="nofollow">anaconda.org</a>. It is
 only used as a package manager and does not manage environments. If you
 don’t have the environment ‘test2’ (or whatever environment you want to
 install a package in) active, activate it now. We will install a program
 named ‘see’ into this environment. The command for this is: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Installing with pip**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">pip install see
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Installing with pip</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pip install see
+</code></pre></div></td></tr></table></div>
 <p>Now use the listing packages command to check if ‘see’ is installed.</p>
 <p>Note: You can replace ‘see’ with whatever pip package that you are
 trying to install. This is just an example.</p>
-<h2 id="installing-commercial-packages"><strong>Installing Commercial Packages</strong></h2>
-<hr />
+<h2 id="installing-commercial-packages">Installing Commercial Packages</h2>
 <p>If you wish to install a commercial package, follow the format for
 installing packages from conda, which was described earlier in this
 document in the "Managing Packages" section.</p>
-<h2 id="removing-packages-environments-or-conda"><strong>Removing Packages, Environments, or conda</strong></h2>
-<hr />
+<h2 id="removing-packages-environments-or-conda">Removing Packages, Environments, or conda</h2>
 <p>To remove a package from an environment, use the following command:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Removing a package from an environment**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda remove --name ENVIRONMENT_NAME PACKAGE_NAME
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Removing a package from an environment</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda remove --name ENVIRONMENT_NAME PACKAGE_NAME
+</code></pre></div></td></tr></table></div>
 <p>You would replace ENIVRONMENT_NAME with the name of your environment,
 and also replace PACKAGE_NAME with the name of the package. For an
 example, we will remove the ‘astroid’ package from test2: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Ex. Removing a package**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda remove --name test2 astroid
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Ex. Removing a package</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda remove --name test2 astroid
+</code></pre></div></td></tr></table></div>
 <p>You will be prompted if you want to proceed, type ‘y’ and hit "Enter".
 Now use the list command to check if ‘astroid’ has been removed.</p>
 <p>To remove an environment, use the command:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Removing an environment**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda remove --name ENVIRONMENT_NAME --all
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Removing an environment</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda remove --name ENVIRONMENT_NAME --all
+</code></pre></div></td></tr></table></div>
 <p>Replace ENVIRONMENT_NAME with the environment you want to remove. For an
 example, we will create a new environment called ‘trash’. Remembering
 how to create an environment from before, use the command: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Ex. Removing an Environment**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda create --name trash python=3.5
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Ex. Removing an Environment</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda create --name trash <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.5
+</code></pre></div></td></tr></table></div>
 <p>Check that this environment exists by using: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Ex. Removing an Environment**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda info --envs
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Ex. Removing an Environment</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda info --envs
+</code></pre></div></td></tr></table></div>
 <p>Now we run: </p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Ex. Removing an Environment**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">conda remove --name trash --all
-</code></pre>
-
-
-</div>
-
-</div>
-
+<p><strong>Ex. Removing an Environment</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>conda remove --name trash --all
+</code></pre></div></td></tr></table></div>
 <p>You will be prompted to proceed, type ‘y’ and hit "Enter". Now check if
 the environment exists by looking at all of your environments again with
 the same command used a moment ago.</p>
 <p>The environment ‘trash’ should no longer be there.</p>
 <p>If you want to remove anaconda or miniconda, you can use the following
 commands:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeHeader panelHeader pdl"
-style="border-bottom-width: 1px;">
-
-**Removing anaconda or miniconda**
-
-</div>
-
-<div class="codeContent panelContent pdl">
-
-
-<pre><code class="language-bash">rm -rf ~/miniconda
+<p><strong>Removing anaconda or miniconda</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>rm -rf ~/miniconda
 rm -rf ~/anaconda
-</code></pre>
+</code></pre></div></td></tr></table></div>
+
+  
+    
+  
+  
+    
+  
 
 
-</div>
+  <aside class="md-source-file">
+    
+      <span class="md-source-file__fact">
+        <span class="md-icon" title="Date of last update">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+        </span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 2, 2022</span>
+      </span>
+    
+    
+      <span class="md-source-file__fact">
+        <span class="md-icon" title="Date of creation">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+        </span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 3, 2022</span>
+      </span>
+    
+    
+    
+  </aside>
 
-</div>
 
+  
 
 
 
@@ -2981,21 +4206,23 @@ rm -rf ~/anaconda
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
       
 
-    <!-- <footer class="MSUwrapper light-background" id="MSUstandardFooter" role="contentinfo">
-
+    <footer class="MSUwrapper light-background" id="MSUstandardFooter" role="contentinfo">
+        <!-- class ’light-background' sets link colors -->
         <div class="fourMSUcolumns" id="standard-footer-MSU-wordmark">
             <a href="http://www.msu.edu">
-
+                <!-- Use green MSU wordmark -->
                 <img alt="Michigan State University Wordmark" class="screen-msuwordmark"
                     src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/msu-wordmark-green.png" height="47" width="221" />
             </a>
         </div>
         <div class="twelveMSUcolumns">
+            <!-- change the css to using nth child instead of classes!!!!!!-->
             <div id="standard-footer-site-links">
                 <ul>
             <li><a href="http://icer.msu.edu/contact">Contact Information</a></li>
@@ -3019,86 +4246,17 @@ rm -rf ~/anaconda
                 </ul>
             </div>
         </div>
-    </footer> -->
-
-    <div id="page" class="page with-navigation">
-
-
-      <div class="everything-wrapper">
-  
-        <footer role="contentinfo">
-  
-          <section class="footer-lower">
-            <div class="container-narrow">
-              <div class="padded-plain-block">
-  
-                <div class="media-lg-only">
-                  <div class="media-lg-only__media media-lg-only--msu">
-                    <a href="http://www.msu.edu/" aria-label="Michigan State University Homepage Link" target="_blank"
-                      class="neg-ext">
-                      <!-- <img
-                        src="images/msu-wordmark-logo.svg"
-                        alt="Michigan State University logo">
-                    </a> -->
-                   <img
-                        src="assets/images/msu-wordmark-logo.svg"
-                        alt="Michigan State University logo">
-                    </a>
-                  </div>
-  
-                  <div class="media-lg-only__content">
-                    <div role="navigation" aria-label="ICER Contact Information">
-                      <ul class="horiz-link-list footer-list-lg">
-                        <li>Call us: <a href="tel:+1-517-353-9309" class="phone-link">(517) 353-9309</a></li>
-                        <li><a href="https://icer.msu.edu/contact">Contact Information</a></li>
-                        <!-- <li><a href="https://icer.msu.edu/sitemap">Site Map</a></li> #### might have to add a different mkdocs feature for site maps-->
-                        <li><a href="https://msu.edu/privacy" class="ext" target="_blank">Privacy Statement<span
-                              class="ext"><span class="element-invisible"> (link is external)</span></span></a></li>
-                        <li><a href="https://msu.edu/accessibility" class="ext" target="_blank">Site
-                            Accessibility<span class="ext"><span class="element-invisible"> (link is
-                                external)</span></span></a></li>
-                      </ul>
-                    </div>
-  
-                    <hr class="footer-hr">
-  
-                    <div role="navigation" aria-label="MSU Contact Information">
-                      <ul class="horiz-link-list footer-list-sm">
-                        <li>Call MSU: <a href="tel:+1-517-355-1855" class="phone-link footer-lime-link">(517) 355-1855</a>
-                        </li>
-                        <li>Visit: <a href="http://www.msu.edu/" target="_blank"
-                            class="neg-ext footer-lime-link ext">msu.edu<span class="ext"><span class="element-invisible">
-                                (link is external)</span></span></a></li>
-                        <li>MSU is an affirmative-action, equal-opportunity employer.</li>
-                      </ul>
-                    </div>
-  
-                    <ul class="horiz-link-list footer-list-sm">
-                      <li><strong>SPARTANS WILL.</strong></li>
-                      <li>© Michigan State University Board of Trustees</li>
-                    </ul>
-                  </div>
-                </div>
-  
-              </div>
-            </div>
-          </section>
-        </footer>
-  
-      </div>
-    </div>
-
-
+    </footer>
 
     </div>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.720157f5.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.078830c0.min.js"></script>
+      <script src="../assets/javascripts/bundle.0d3e07ec.min.js"></script>
       
     
   </body>
