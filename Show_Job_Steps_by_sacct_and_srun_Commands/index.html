@@ -8,20 +8,16 @@
       
       
       
-      
-        
-      
-      
       <link rel="icon" href="../assets/icer-small-logo-white.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3+insiders-4.23.5">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
-        <title>Showing job steps - MSU HPCC User Documentation</title>
+        <title>Show Job Steps by sacct and srun Commands - MSU HPCC User Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.fb3608a7.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
@@ -48,18 +44,6 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-  
-
-
-  
-  
-
-
-  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-689HG824HG"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-689HG824HG",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-689HG824HG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
-
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
 
     
     
@@ -75,13 +59,14 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
         
-        <a href="#showing-job-steps" class="md-skip">
+        <a href="#show-job-steps-by-sacct-and-srun-commands" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +104,7 @@
           <div class="md-header__topic" data-md-component="header-topic">
             <span class="md-ellipsis">
               
-                Showing job steps
+                Show Job Steps by sacct and srun Commands
               
             </span>
           </div>
@@ -171,11 +156,8 @@
     <div id="MSUmasthead" role="banner">
         <!-- <a href="http://www.msu.edu"> -->
             <!-- if using a dark background change the img src to images/masthead-helmet-white.png-->
-            <!-- <img class="screen-msugraphic" alt="ICER masthead graphic"
-                src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/Header_Banner_small.jpg" /> previous-->
             <img class="screen-msugraphic" alt="ICER masthead graphic"
-                src="/assets/images/Header_Banner_small_v8.jpeg" />
-                <!--! might have to change the relative path to a linked path like above -->
+                src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/Header_Banner_small.jpg" />
         <!-- </a> -->
     </div>
     
@@ -200,7 +182,6 @@
                     
 
 
-
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="MSU HPCC User Documentation" class="md-nav__button md-logo" aria-label="MSU HPCC User Documentation" data-md-component="logo">
@@ -215,19 +196,14 @@
     
       
       
+      
+
   
   
   
     <li class="md-nav__item">
       <a href=".." class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
+        Home
       </a>
     </li>
   
@@ -235,3275 +211,1627 @@
     
       
       
+      
+
   
   
   
-    
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
-        
-        
-          <label class="md-nav__link" for="__nav_2">
-            
-  
-  <span class="md-ellipsis">
-    Access the HPCC
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="Access the HPCC" data-md-level="1">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            Access the HPCC
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Access the HPCC
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Access the HPCC" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Access the HPCC
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
               
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../accessHPCC_overview/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Overview
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
   
   
   
     <li class="md-nav__item">
       <a href="../obtain_an_hpcc_account/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Obtain an HPCC account
-    
-  </span>
-  
-
+        Obtain an HPCC account
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Web_Site_Access_to_HPCC/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Quick start - web access
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
   
   
   
     <li class="md-nav__item">
       <a href="../install_ssh_client/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Install an SSH client
-    
-  </span>
-  
-
+        Install an SSH client
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Connect_to_HPCC_System/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Connect to the HPCC
-    
-  </span>
-  
-
+        Connect to the HPCC
       </a>
     </li>
   
 
-              
             
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Connect_over_SSH_with_atom/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    SSH connection via Atom
-    
-  </span>
-  
-
-      </a>
+          
+        </ul>
+      </nav>
     </li>
   
 
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Connect_over_SSH_with_VS_Code/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    SSH connection via VS Code
     
-  </span>
-  
+      
+      
+      
 
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
   
   
   
-    <li class="md-nav__item">
-      <a href="../An_SSH_tunneling_via_multiple_hops/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    SSH tunneling
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SSH_Key-Based_Authentication/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    SSH keys
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
-        
-        
-          <label class="md-nav__link" for="__nav_2_10">
-            
-  
-  <span class="md-ellipsis">
-    Other universities
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="Other universities" data-md-level="2">
-          <label class="md-nav__title" for="__nav_2_10">
-            <span class="md-nav__icon md-icon"></span>
-            Other universities
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Information_for_Central_Michigan_University_and_Western_Michigan_University_Users/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Central Michigan U and Western Michigan U
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Kettering_Users/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Kettering U
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Oakland_University_Users/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Oakland U
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
-  
-  
-  
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-        
-        
-          <label class="md-nav__link" for="__nav_3">
-            
-  
-  <span class="md-ellipsis">
-    HPCC resources
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="HPCC resources" data-md-level="1">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            HPCC resources
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+      
+        <label class="md-nav__link" for="__nav_3">
+          HPCC resources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="HPCC resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          HPCC resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../2018_cluster_resources/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Cluster resources
-    
-  </span>
-  
-
+        Cluster resources
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../development_nodes/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Development nodes
-    
-  </span>
-  
-
+        Development nodes
       </a>
     </li>
   
 
-              
             
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../HPC_s_entire_layout_at_ICER/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    HPCC layout
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ICER_HPC_Classroom_Support/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Classroom support
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
+          
+        </ul>
+      </nav>
     </li>
   
 
     
       
       
+      
+
   
   
   
-    
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
-        
-        
-          <label class="md-nav__link" for="__nav_4">
-            
-  
-  <span class="md-ellipsis">
-    Computing environment
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="Computing environment" data-md-level="1">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Computing environment
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Computing environment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Computing environment" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Computing environment
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Linux_Shell/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Linux shells
-    
-  </span>
-  
-
+        Linux shells
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../File_Permissions_on_HPCC/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    File permissions
-    
-  </span>
-  
-
+        File permissions
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Change_Primary_Group/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Change primary group
-    
-  </span>
-  
-
+        Change primary group
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Collaborative_Research/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Collaborative research
-    
-  </span>
-  
-
+        Collaborative research
       </a>
     </li>
   
 
-              
             
-          </ul>
-        </nav>
-      
+          
+        </ul>
+      </nav>
     </li>
   
 
     
       
       
+      
+
   
   
   
-    
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
-        
-        
-          <label class="md-nav__link" for="__nav_5">
-            
-  
-  <span class="md-ellipsis">
-    File systems
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="File systems" data-md-level="1">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            File systems
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          File systems
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="File systems" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          File systems
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
               
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../filesystem_overview/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Overview
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Home_Space/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Home space
-    
-  </span>
-  
-
+        Home space
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Research_Space/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Research space
-    
-  </span>
-  
-
+        Research space
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Scratch_File_Systems/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Scratch space
-    
-  </span>
-  
-
+        Scratch space
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Local_File_Systems/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Local file system
-    
-  </span>
-  
-
+        Local file system
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../ufs18_File_Systems/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    UFS18 file system
-    
-  </span>
-  
-
+        UFS18 file system
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Guidelines_for_Choosing_File_Storage_and_I_O/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Guidelines for choosing file systems and I/O
-    
-  </span>
-  
-
+        Guidelines for choosing file systems and I/O
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Sensitive_Data_on_the_HPCC/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Sensitive data storage
-    
-  </span>
-  
-
+        Sensitive data storage
       </a>
     </li>
   
 
-              
             
-          </ul>
-        </nav>
-      
+          
+        </ul>
+      </nav>
     </li>
   
 
     
       
       
+      
+
   
   
   
-    
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
-        
-        
-          <label class="md-nav__link" for="__nav_6">
-            
-  
-  <span class="md-ellipsis">
-    File transfer
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="File transfer" data-md-level="1">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            File transfer
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          File transfer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="File transfer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          File transfer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../File_transfer/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    File transfer
-    
-  </span>
-  
-
+        File transfer
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Transferring_data_with_Globus/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Using Globus
-    
-  </span>
-  
-
+        Using Globus
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Rclone_-_rsync_for_cloud_storage/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Using Rclone
-    
-  </span>
-  
-
+        Using Rclone
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Mapping_HPC_drives_with_Samba/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Mapping drives using Samba
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Mapping_HPC_drives_with_SSHFS/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Mapping drives using SSHFS
-    
-  </span>
-  
-
+        Mapping drives using Samba
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mapping_HPC_drives_with_Samba/" class="md-nav__link">
+        Mapping drives using SSHFS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
       <a href="../SFTP_Mapping_on_HPCC_file_systems/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Mapping drives using SFTP
-    
-  </span>
-  
-
+        Mapping drives using SFTP
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Science_DMZ/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Science DMZ
-    
-  </span>
-  
-
+        Science DMZ
       </a>
     </li>
   
 
-              
             
-          </ul>
-        </nav>
-      
+          
+        </ul>
+      </nav>
     </li>
   
 
     
       
       
+      
+
   
   
   
-    
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
-        
-        
-          <label class="md-nav__link" for="__nav_7">
-            
-  
-  <span class="md-ellipsis">
-    Software module system
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="Software module system" data-md-level="1">
-          <label class="md-nav__title" for="__nav_7">
-            <span class="md-nav__icon md-icon"></span>
-            Software module system
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Software module system
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software module system" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Software module system
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../How_to_find_and_load_software_modules/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Loading software modules
-    
-  </span>
-  
-
+        Loading software modules
       </a>
     </li>
   
 
-              
             
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../User_Created_Modules/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    User created modules
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
+          
+        </ul>
+      </nav>
     </li>
   
 
     
       
       
+      
+
   
   
   
-    
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
-        
-        
-          <label class="md-nav__link" for="__nav_8">
-            
-  
-  <span class="md-ellipsis">
-    Powertools
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="Powertools" data-md-level="1">
-          <label class="md-nav__title" for="__nav_8">
-            <span class="md-nav__icon md-icon"></span>
-            Powertools
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Powertools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Powertools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Powertools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
               
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Powertools/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Overview
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
   
   
   
     <li class="md-nav__item">
       <a href="../getexample/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Get software usage examples
-    
-  </span>
-  
-
+        getexample
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../bi/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    SLURM - buyin information
-    
-  </span>
-  
-
+        bi - buyin information
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../qs/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    SLURM - display job list
-    
-  </span>
-  
-
+        qs - display job list
       </a>
     </li>
   
 
-              
             
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Display_Compute_Nodes_and_Job_Partitions_by_sinfo_command/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    SLURM - node status and job partition
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
+          
+        </ul>
+      </nav>
     </li>
   
 
     
       
       
-  
-  
-    
-  
-  
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
-        
-        
-          <label class="md-nav__link" for="__nav_9">
-            
-  
-  <span class="md-ellipsis">
-    Job submission by SLURM
-    
-  </span>
-  
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="Job submission by SLURM" data-md-level="1">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            Job submission by SLURM
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Job submission by SLURM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Job submission by SLURM" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Job submission by SLURM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../SLURM_overview/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Overview
-    
-  </span>
-  
-
+        Overview
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Slurm_Environment_Variables/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    SLURM environment variables
-    
-  </span>
-  
-
+        SLURM environment variables
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Job_Script_and_Job_Submission/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    General rules for writing a job script
-    
-  </span>
-  
-
+        General rules for writing a job script
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
-  
-  
-  
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_4" type="checkbox" id="__nav_9_4" >
-        
-        
-          <label class="md-nav__link" for="__nav_9_4">
-            
-  
-  <span class="md-ellipsis">
-    Job policies
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="Job policies" data-md-level="2">
-          <label class="md-nav__title" for="__nav_9_4">
-            <span class="md-nav__icon md-icon"></span>
-            Job policies
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../job_policies/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Job policies
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../job_priority_factors/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Job priority factors
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Job_Constraints/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Job constraints
-    
-  </span>
-  
-
+        Job constraints
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Buy-In_Accounts_with_SLURM/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Buyin accounts
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    Showing job steps
-    
-  </span>
-  
-
-      </a>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SLURM_Check_Modify_and_Cancel_a_Job_by_scontrol_scancel_Command/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Controlling jobs
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Scavenger_Queue/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Scavenger Queue
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Example_SLURM_scripts/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Example job scripts
-    
-  </span>
-  
-
+        Example job scripts
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_6" type="checkbox" id="__nav_9_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_6">
+          Job policies
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Job policies" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_6">
+          <span class="md-nav__icon md-icon"></span>
+          Job policies
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../Job_with_Checkpointing_Run/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Checkpointing
-    
-  </span>
-  
-
+      <a href="../job_policies/" class="md-nav__link">
+        Job policies
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
-    
-    
+    <li class="md-nav__item">
+      <a href="../job_priority_factors/" class="md-nav__link">
+        Job priority factors
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_12" type="checkbox" id="__nav_9_12" >
-        
-        
-          <label class="md-nav__link" for="__nav_9_12">
-            
-  
-  <span class="md-ellipsis">
-    Torque vs. SLURM comparisons
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="Torque vs. SLURM comparisons" data-md-level="2">
-          <label class="md-nav__title" for="__nav_9_12">
-            <span class="md-nav__icon md-icon"></span>
-            Torque vs. SLURM comparisons
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_7" type="checkbox" id="__nav_9_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_7">
+          Torque vs. SLURM comparisons
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Torque vs. SLURM comparisons" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_7">
+          <span class="md-nav__icon md-icon"></span>
+          Torque vs. SLURM comparisons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Torque_vs._SLURM/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Overview
-    
-  </span>
-  
-
+        Overview
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Specifications_of_Job_submission/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Specifications of job submission
-    
-  </span>
-  
-
+        Specifications of job submission
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../System_Commands/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    System commands
-    
-  </span>
-  
-
+        System commands
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Environment_Variables/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Environment variables
-    
-  </span>
-  
-
+        Environment variables
       </a>
     </li>
   
 
-              
             
-          </ul>
-        </nav>
-      
+          
+        </ul>
+      </nav>
     </li>
   
 
-              
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
-        
-        
-          <label class="md-nav__link" for="__nav_10">
-            
-  
-  <span class="md-ellipsis">
-    Software tutorials
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="Software tutorials" data-md-level="1">
-          <label class="md-nav__title" for="__nav_10">
-            <span class="md-nav__icon md-icon"></span>
-            Software tutorials
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          
             
               
-                
-  
-  
-  
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_1" type="checkbox" id="__nav_10_1" >
-        
-        
-          <label class="md-nav__link" for="__nav_10_1">
-            
-  
-  <span class="md-ellipsis">
-    Bioinformatics
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="Bioinformatics" data-md-level="2">
-          <label class="md-nav__title" for="__nav_10_1">
-            <span class="md-nav__icon md-icon"></span>
-            Bioinformatics
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
   
   
   
     <li class="md-nav__item">
-      <a href="../Aspera_bulk_file_transfer/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Aspera bulk file transfer
-    
-  </span>
-  
-
+      <a href="../Scavenger_Queue/" class="md-nav__link">
+        Scavenger Queue
       </a>
     </li>
   
 
-              
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Software tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Software tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
               
-                
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_1" type="checkbox" id="__nav_10_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_1">
+          Bioinformatics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bioinformatics" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_1">
+          <span class="md-nav__icon md-icon"></span>
+          Bioinformatics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
   
   
   
     <li class="md-nav__item">
       <a href="../ABySS/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    ABySS
-    
-  </span>
-  
-
+        ABySS
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Assembly_of_PacBio_long_reads_with_Canu/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Assembly of PacBio long reads with Canu
-    
-  </span>
-  
-
+        Assembly of PacBio long reads with Canu
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../BLAST_BLAST%2B_with_Multiple_Processors/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    BLAST/BLAST+
-    
-  </span>
-  
-
+        BLAST/BLAST+
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../GATK4/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    GATK4
-    
-  </span>
-  
-
+        GATK4
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../HTSeq/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    HTSeq
-    
-  </span>
-  
-
+        HTSeq
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Mothur/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Mothur
-    
-  </span>
-  
-
+        Mothur
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../NCBI_Entrez_Direct_tools/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    NCBI eDirect
-    
-  </span>
-  
-
+        NCBI eDirect
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Load_the_software/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    OrthoMCL: load module
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
   
   
   
     <li class="md-nav__item">
       <a href="../MySQL_configuration/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    OrthoMCL: MySQL configuration
-    
-  </span>
-  
-
+        MySQL configuration for OrthoMCL
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../orthomcl-pipeline/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    OrthoMCL pipeline
-    
-  </span>
-  
-
+        OrthoMCL pipeline
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../QIIME_2/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    QIIME 2
-    
-  </span>
-  
-
+        QIIME 2
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../RNA_seq_example/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    RNA-seq
-    
-  </span>
-  
-
+        RNA-seq
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Trimmomatic/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Trimmomatic
-    
-  </span>
-  
-
+        Trimmomatic
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Trinity_for_RNA-seq_de_novo_assembly/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Trinity for RNA-seq de novo assembly
-    
-  </span>
-  
-
+        Trinity for RNA-seq de novo assembly
       </a>
     </li>
   
 
-              
             
-          </ul>
-        </nav>
-      
+          
+        </ul>
+      </nav>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
-    
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_2" type="checkbox" id="__nav_10_2" >
-        
-        
-          <label class="md-nav__link" for="__nav_10_2">
-            
-  
-  <span class="md-ellipsis">
-    AlphaFold
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="AlphaFold" data-md-level="2">
-          <label class="md-nav__title" for="__nav_10_2">
-            <span class="md-nav__icon md-icon"></span>
-            AlphaFold
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../AlphaFold_installed_in_HPCC/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    AlphaFold on HPCC
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Alphafold_via_Singularity/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    AlphaFold via Singularity
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_2" type="checkbox" id="__nav_10_2" >
       
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_3" type="checkbox" id="__nav_10_3" >
-        
-        
-          <label class="md-nav__link" for="__nav_10_3">
-            
-  
-  <span class="md-ellipsis">
-    R
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="R" data-md-level="2">
-          <label class="md-nav__title" for="__nav_10_3">
-            <span class="md-nav__icon md-icon"></span>
-            R
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_2">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="R" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_2">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../RCentOS7generalinfo/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    General information
-    
-  </span>
-  
-
+        General information
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../R_others/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Some packages and other information
-    
-  </span>
-  
-
+        Some packages and other information
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../R_workshop_tutorial/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    R workshop
-    
-  </span>
-  
-
+        R workshop
       </a>
     </li>
   
 
-              
             
-          </ul>
-        </nav>
-      
+          
+        </ul>
+      </nav>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
-    <li class="md-nav__item">
-      <a href="../Matlab/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Matlab
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" type="checkbox" id="__nav_10_5" >
-        
-        
-          <label class="md-nav__link" for="__nav_10_5">
-            
-  
-  <span class="md-ellipsis">
-    Perl
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="Perl" data-md-level="2">
-          <label class="md-nav__title" for="__nav_10_5">
-            <span class="md-nav__icon md-icon"></span>
-            Perl
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Installing_Local_Perl_Modules_with_CPAN/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Installing Local Perl Modules with CPAN
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_3" type="checkbox" id="__nav_10_3" >
       
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_6" type="checkbox" id="__nav_10_6" >
-        
-        
-          <label class="md-nav__link" for="__nav_10_6">
-            
-  
-  <span class="md-ellipsis">
-    Python
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="Python" data-md-level="2">
-          <label class="md-nav__title" for="__nav_10_6">
-            <span class="md-nav__icon md-icon"></span>
-            Python
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Python/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Package management
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Using_conda/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Using Conda
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Using_Python_in_HPCC_with_virtualenv/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Using virtual env
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Python_on_HPC/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Python on HPCC
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_7" type="checkbox" id="__nav_10_7" >
-        
-        
-          <label class="md-nav__link" for="__nav_10_7">
-            
-  
-  <span class="md-ellipsis">
-    TensorFlow
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="TensorFlow" data-md-level="2">
-          <label class="md-nav__title" for="__nav_10_7">
-            <span class="md-nav__icon md-icon"></span>
-            TensorFlow
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+      
+        <label class="md-nav__link" for="__nav_10_3">
+          TensorFlow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="TensorFlow" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_3">
+          <span class="md-nav__icon md-icon"></span>
+          TensorFlow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Installing_TensorFlow_1.x_with_virtualenv/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Installing TF 1.x
-    
-  </span>
-  
-
+        Installing TF 1.x
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../TensorFlow_2.5_installation_as_of_Jul_2021_/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Installing TF 2.5
-    
-  </span>
-  
-
+        Installing TF 2.5
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Installing_TensorFlow_using_anaconda/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Installing TF using anaconda
-    
-  </span>
-  
-
+        Installing TF using anaconda
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Submitting_a_TensorFlow_job/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Submitting a TF job
-    
-  </span>
-  
-
+        Submitting a TF job
       </a>
     </li>
   
 
-              
             
-          </ul>
-        </nav>
-      
+          
+        </ul>
+      </nav>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
-    
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_8" type="checkbox" id="__nav_10_8" >
-        
-        
-          <label class="md-nav__link" for="__nav_10_8">
-            
-  
-  <span class="md-ellipsis">
-    Singularity
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="Singularity" data-md-level="2">
-          <label class="md-nav__title" for="__nav_10_8">
-            <span class="md-nav__icon md-icon"></span>
-            Singularity
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../singularity_01/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Singularity I: Introduction
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Singularity_II._Running_a_container_on_HPC/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Singularity II: Running a container
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Singularity_III._Advanced_skills/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Singularity III: Advanced
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4" type="checkbox" id="__nav_10_4" >
       
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_9" type="checkbox" id="__nav_10_9" >
-        
-        
-          <label class="md-nav__link" for="__nav_10_9">
-            
-  
-  <span class="md-ellipsis">
-    Gaussian
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="Gaussian" data-md-level="2">
-          <label class="md-nav__title" for="__nav_10_9">
-            <span class="md-nav__icon md-icon"></span>
-            Gaussian
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_4">
+          Gaussian
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gaussian" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_4">
+          <span class="md-nav__icon md-icon"></span>
+          Gaussian
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Gaussian_Access/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Gaussian access
-    
-  </span>
-  
-
+        Gaussian access
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Running_Gaussian_by_Command_Lines/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Running Gaussian from command line
-    
-  </span>
-  
-
+        Running Gaussian from command line
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Gaussian_Job_Script/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Gaussian job script
-    
-  </span>
-  
-
+        Gaussian job script
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Gaussian_Job_with_Checkpointing_Run/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Gaussian job with checkpointing
-    
-  </span>
-  
-
+        Gaussian job with checkpointing
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../Gaussian_on_HPCC/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Gaussian workshop slides
-    
-  </span>
-  
-
+        Gaussian workshop slides
       </a>
     </li>
   
 
-              
             
-          </ul>
-        </nav>
-      
+          
+        </ul>
+      </nav>
     </li>
   
 
-              
+            
+          
             
               
-                
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" type="checkbox" id="__nav_10_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_5">
+          COMSOL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="COMSOL" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_5">
+          <span class="md-nav__icon md-icon"></span>
+          COMSOL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
   
   
   
     <li class="md-nav__item">
       <a href="../COMSOL/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    COMSOL
-    
-  </span>
-  
-
+        COMSOL
       </a>
     </li>
   
 
-              
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          HPC tutorial series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="HPC tutorial series" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          HPC tutorial series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
-      <a href="../ANSYS/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    ANSYS
-    
-  </span>
-  
-
+      <a href="../Connect_over_SSH_with_atom/" class="md-nav__link">
+        Connect over SSH with Atom
       </a>
     </li>
   
 
-              
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
-        
-        
-          <label class="md-nav__link" for="__nav_11">
-            
-  
-  <span class="md-ellipsis">
-    Training material
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="Training material" data-md-level="1">
-          <label class="md-nav__title" for="__nav_11">
-            <span class="md-nav__icon md-icon"></span>
-            Training material
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
-      <a href="../workshop_slides/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Workshop slides
-    
-  </span>
-  
-
+      <a href="../Connect_over_SSH_with_VS_Code/" class="md-nav__link">
+        Connect over SSH with VS_Code
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_2" type="checkbox" id="__nav_11_2" >
-        
-        
-          <label class="md-nav__link" for="__nav_11_2">
-            
-  
-  <span class="md-ellipsis">
-    Programming
-    
-  </span>
+    <li class="md-nav__item">
+      <a href="../singularity_01/" class="md-nav__link">
+        Singularity: I. Introduction
+      </a>
+    </li>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="Programming" data-md-level="2">
-          <label class="md-nav__title" for="__nav_11_2">
-            <span class="md-nav__icon md-icon"></span>
-            Programming
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../using_DDD/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Using DDD
-    
-  </span>
-  
-
+        Using DDD
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../make/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    make
-    
-  </span>
-  
-
+        make
       </a>
     </li>
   
 
-              
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
+          
             
               
-                
-  
-  
-  
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_3" type="checkbox" id="__nav_11_3" >
-        
-        
-          <label class="md-nav__link" for="__nav_11_3">
-            
-  
-  <span class="md-ellipsis">
-    Shell scripting
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="Shell scripting" data-md-level="2">
-          <label class="md-nav__title" for="__nav_11_3">
-            <span class="md-nav__icon md-icon"></span>
-            Shell scripting
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
   
   
   
     <li class="md-nav__item">
       <a href="../3._Expansion/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Expansion
-    
-  </span>
-  
-
+        Expansion
       </a>
     </li>
   
 
-              
+            
+          
             
               
-                
   
   
   
     <li class="md-nav__item">
       <a href="../4._Conditional_statements/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Conditional statements
-    
-  </span>
-  
-
+        Condtional statements
       </a>
     </li>
   
 
-              
             
-          </ul>
-        </nav>
-      
+          
+        </ul>
+      </nav>
     </li>
   
 
-              
-            
-              
-                
-  
-  
-  
     
-    
+      
+      
+      
+
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
-        
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_4" type="checkbox" id="__nav_11_4" >
-        
-        
-          <label class="md-nav__link" for="__nav_11_4">
-            
-  
-  <span class="md-ellipsis">
-    Others
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" aria-label="Others" data-md-level="2">
-          <label class="md-nav__title" for="__nav_11_4">
-            <span class="md-nav__icon md-icon"></span>
-            Others
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Targeting_Cluster_Architectures/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Targeting Cluster Architectures
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../HPC_Concept/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    HPC concepts
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
       
       
+      
+      
+        <label class="md-nav__link" for="__nav_12">
+          FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
   
   
   
     <li class="md-nav__item">
       <a href="../Frequently_Asked_Questions_FAQ_/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    FAQ
-    
-  </span>
-  
-
+        FAQ
       </a>
     </li>
   
 
-    
-      
-      
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lab_Notebooks/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Lab Notebooks
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tags/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Tags
-    
-  </span>
-  
-
-      </a>
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -3539,193 +1867,115 @@
               <article class="md-content__inner md-typeset">
                 
                   
-  
 
 
+<h1 id="show-job-steps-by-sacct-and-srun-commands">Show Job Steps by sacct and srun Commands</h1>
+<p>One of the best things about SLURM is able to show the execution
+information of each command line in a job script. This is very helpful
+especially when users try to debug their work flow or test software with
+different settings. However, in order to get the right information,
+<strong>srun</strong> wrapper command needs to be used. For example, let's take a
+look at the following job script:</p>
+<pre><code class="language-bash">#!/bin/bash
 
+#SBATCH -N 4 -n 4 -c 2
+#SBATCH --time=00:05:00
+#SBATCH --mem=1G
 
-<h1 id="showing-job-steps">Showing job steps</h1>
-<p>SLURM provides commands to show the execution information of each command line in a job script. This can be helpful for debugging and testing. In order to get  such information, the wrapper command <code>srun</code> needs to be used. Let's take a look at the following job script:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
-
-<span class="c1">#SBATCH -N 4 -n 4 -c 2</span>
-<span class="c1">#SBATCH --time=00:05:00</span>
-<span class="c1">#SBATCH --mem=1G</span>
-
-module purge<span class="p">;</span> module load GCC/6.4.0-2.28 OpenMPI/2.1.2
+module purge; module load GCC/6.4.0-2.28 OpenMPI/2.1.2
 module list
 
 mpicc mpi-hello.c -o hello.exe
 
-echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;====== mpirun hello.exe ======&quot;</span>
-mpirun hello.exe                                            <span class="c1">#0 Step</span>
+echo; echo &quot;====== mpirun hello.exe ======&quot;
+mpirun hello.exe                                            #0 Step
 
-echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;====== srun hello.exe ======&quot;</span>
-srun hello.exe                                              <span class="c1">#1 Step</span>
+echo; echo &quot;====== srun hello.exe ======&quot;
+srun hello.exe                                              #1 Step
 
-echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;====== srun -n 8 -c 1 hello.exe ======&quot;</span>
-srun -n <span class="m">8</span> -c <span class="m">1</span> hello.exe                                    <span class="c1">#2 Step</span>
+echo; echo &quot;====== srun -n 8 -c 1 hello.exe ======&quot;
+srun -n 8 -c 1 hello.exe                                    #2 Step
 
-echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;====== srun  ======&quot;</span>
-srun NoSuchCommand                                          <span class="c1">#3 Step</span>
+echo; echo &quot;====== srun  ======&quot;
+srun NoSuchCommand                                          #3 Step
 
-echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;====== mpirun  ======&quot;</span>
-mpirun NoSuchCommand                                        <span class="c1">#4 Step</span>
+echo; echo &quot;====== mpirun  ======&quot;
+mpirun NoSuchCommand                                        #4 Step
 
-echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;====== scontrol show job </span><span class="nv">$SLURM_JOB_ID</span><span class="s2"> ======&quot;</span>
-srun -N <span class="m">1</span> -n <span class="m">1</span> -c <span class="m">1</span> scontrol show job <span class="nv">$SLURM_JOB_ID</span>         <span class="c1">#5 Step</span>
-</code></pre></div></td></tr></table></div>
+echo; echo &quot;====== scontrol show job $SLURM_JOB_ID ======&quot;
+srun -N 1 -n 1 -c 1 scontrol show job $SLURM_JOB_ID         #5 Step
+</code></pre>
 <p>Although there are many command lines, only 6 of them are executed with
-either <strong>mpirun</strong> or <strong>srun</strong> wrapper and marked with the comments (from step 0 to 5) in the end. SLURM can record each of the 6 executions as
+either <strong>mpirun</strong> or <strong>srun</strong> wrapper and marked with the comments (from
+#0 to #5 step) in the end. SLURM can record each of the 6 executions as
 a job step. Once the job is submitted by <strong>sbatch</strong> command and starts
 running, you can use <strong>sacct</strong> command to check the steps:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>$ sacct -j <span class="m">10732</span>
+<pre><code class="language-bash">$ sacct -j 10732
        JobID    JobName  Partition    Account  AllocCPUS      State ExitCode
 ------------ ---------- ---------- ---------- ---------- ---------- --------
-<span class="m">10732</span>              <span class="nb">test</span> general-l+   classres          <span class="m">8</span>  COMPLETED      <span class="m">0</span>:0
-<span class="m">10732</span>.batch       batch              classres          <span class="m">2</span>  COMPLETED      <span class="m">0</span>:0
-<span class="m">10732</span>.extern     extern              classres          <span class="m">8</span>  COMPLETED      <span class="m">0</span>:0
-<span class="m">10732</span>.0           orted              classres          <span class="m">6</span>  COMPLETED      <span class="m">0</span>:0
-<span class="m">10732</span>.1       hello.exe              classres          <span class="m">8</span>  COMPLETED      <span class="m">0</span>:0
-<span class="m">10732</span>.2       hello.exe              classres          <span class="m">8</span>  COMPLETED      <span class="m">0</span>:0
-<span class="m">10732</span>.3      NoSuchCom+              classres          <span class="m">8</span>     FAILED      <span class="m">2</span>:0
-<span class="m">10732</span>.4           orted              classres          <span class="m">6</span>  COMPLETED      <span class="m">0</span>:0
-<span class="m">10732</span>.5        scontrol              classres          <span class="m">1</span>  COMPLETED      <span class="m">0</span>:0
-</code></pre></div></td></tr></table></div>
+10732              test general-l+   classres          8  COMPLETED      0:0
+10732.batch       batch              classres          2  COMPLETED      0:0
+10732.extern     extern              classres          8  COMPLETED      0:0
+10732.0           orted              classres          6  COMPLETED      0:0
+10732.1       hello.exe              classres          8  COMPLETED      0:0
+10732.2       hello.exe              classres          8  COMPLETED      0:0
+10732.3      NoSuchCom+              classres          8     FAILED      2:0
+10732.4           orted              classres          6  COMPLETED      0:0
+10732.5        scontrol              classres          1  COMPLETED      0:0
+</code></pre>
 <p>where the Job has ID 10732 and the 6 steps are shown from JobID 10732.0
 to 10732.5.</p>
-<p>We can also use a powertools command <a href="../js/"><strong>js</strong></a> to see more detailed information (such as memory usage and a list of
+<p>Users can also use a powertools command
+<a href="../js/"><strong>js</strong></a>
+to see more detailed information (such as memory usage and a list of
 used nodes) about the steps:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span></pre></div></td><td class="code"><div><pre><span></span><code>$ js -j <span class="m">10732</span> -C5
+<pre><code class="language-bash">$ js -j 10732 -C5
 
-SLURM Job ID: <span class="nv">10732</span>
-<span class="o">===============================================================================================================================</span>
-          JobID <span class="p">|</span>               <span class="m">10732</span> <span class="p">|</span>         <span class="m">10732</span>.batch <span class="p">|</span>        <span class="m">10732</span>.extern <span class="p">|</span>             <span class="m">10732</span>.0 <span class="p">|</span>             <span class="m">10732</span>.1 <span class="p">|</span>
-        JobName <span class="p">|</span>                <span class="nb">test</span> <span class="p">|</span>               batch <span class="p">|</span>              extern <span class="p">|</span>               orted <span class="p">|</span>           hello.exe <span class="p">|</span>
-           User <span class="p">|</span>            changc81 <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>
-       NodeList <span class="p">|</span>       lac-<span class="o">[</span><span class="m">380</span>-383<span class="o">]</span> <span class="p">|</span>             lac-380 <span class="p">|</span>       lac-<span class="o">[</span><span class="m">380</span>-383<span class="o">]</span> <span class="p">|</span>       lac-<span class="o">[</span><span class="m">381</span>-383<span class="o">]</span> <span class="p">|</span>       lac-<span class="o">[</span><span class="m">380</span>-383<span class="o">]</span> <span class="p">|</span>
-         NNodes <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>                   <span class="m">1</span> <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>                   <span class="m">3</span> <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>
-         NTasks <span class="p">|</span>                     <span class="p">|</span>                   <span class="m">1</span> <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>                   <span class="m">3</span> <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>
-          NCPUS <span class="p">|</span>                   <span class="m">8</span> <span class="p">|</span>                   <span class="m">2</span> <span class="p">|</span>                   <span class="m">8</span> <span class="p">|</span>                   <span class="m">6</span> <span class="p">|</span>                   <span class="m">8</span> <span class="p">|</span>
-         ReqMem <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>
-      Timelimit <span class="p">|</span>            <span class="m">00</span>:05:00 <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>
-        Elapsed <span class="p">|</span>            <span class="m">00</span>:00:16 <span class="p">|</span>            <span class="m">00</span>:00:16 <span class="p">|</span>            <span class="m">00</span>:00:16 <span class="p">|</span>            <span class="m">00</span>:00:02 <span class="p">|</span>            <span class="m">00</span>:00:01 <span class="p">|</span>
-      SystemCPU <span class="p">|</span>           <span class="m">00</span>:03.283 <span class="p">|</span>           <span class="m">00</span>:00.562 <span class="p">|</span>           <span class="m">00</span>:00.001 <span class="p">|</span>           <span class="m">00</span>:00.646 <span class="p">|</span>           <span class="m">00</span>:00.572 <span class="p">|</span>
-        UserCPU <span class="p">|</span>           <span class="m">00</span>:02.119 <span class="p">|</span>           <span class="m">00</span>:00.753 <span class="p">|</span>           <span class="m">00</span>:00.003 <span class="p">|</span>           <span class="m">00</span>:00.396 <span class="p">|</span>           <span class="m">00</span>:00.281 <span class="p">|</span>
-       TotalCPU <span class="p">|</span>           <span class="m">00</span>:05.403 <span class="p">|</span>           <span class="m">00</span>:01.316 <span class="p">|</span>           <span class="m">00</span>:00.005 <span class="p">|</span>           <span class="m">00</span>:01.042 <span class="p">|</span>           <span class="m">00</span>:00.853 <span class="p">|</span>
-     AveCPULoad <span class="p">|</span>            <span class="m">0</span>.337687 <span class="p">|</span>             <span class="m">0</span>.08225 <span class="p">|</span>           <span class="m">0</span>.0003125 <span class="p">|</span>               <span class="m">0</span>.521 <span class="p">|</span>               <span class="m">0</span>.853 <span class="p">|</span>
-         MaxRSS <span class="p">|</span>                     <span class="p">|</span>              10409K <span class="p">|</span>                120K <span class="p">|</span>                861K <span class="p">|</span>                863K <span class="p">|</span>
-      MaxVMSize <span class="p">|</span>                     <span class="p">|</span>             652100K <span class="p">|</span>             173968K <span class="p">|</span>             324440K <span class="p">|</span>             324436K <span class="p">|</span>
-          Start <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:44 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:44 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:44 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:54 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:57 <span class="p">|</span>
-            End <span class="p">|</span> <span class="m">2018</span>-08-06T13:23:00 <span class="p">|</span> <span class="m">2018</span>-08-06T13:23:00 <span class="p">|</span> <span class="m">2018</span>-08-06T13:23:00 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:56 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:58 <span class="p">|</span>
-       ExitCode <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>
-          State <span class="p">|</span>           COMPLETED <span class="p">|</span>           COMPLETED <span class="p">|</span>           COMPLETED <span class="p">|</span>           COMPLETED <span class="p">|</span>           COMPLETED <span class="p">|</span>
-<span class="o">===============================================================================================================================</span>
-          JobID <span class="p">|</span>             <span class="m">10732</span>.2 <span class="p">|</span>             <span class="m">10732</span>.3 <span class="p">|</span>             <span class="m">10732</span>.4 <span class="p">|</span>             <span class="m">10732</span>.5 <span class="p">|</span>
-        JobName <span class="p">|</span>           hello.exe <span class="p">|</span>       NoSuchCommand <span class="p">|</span>               orted <span class="p">|</span>            scontrol <span class="p">|</span>
-           User <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>
-       NodeList <span class="p">|</span>       lac-<span class="o">[</span><span class="m">380</span>-383<span class="o">]</span> <span class="p">|</span>       lac-<span class="o">[</span><span class="m">380</span>-383<span class="o">]</span> <span class="p">|</span>       lac-<span class="o">[</span><span class="m">381</span>-383<span class="o">]</span> <span class="p">|</span>             lac-380 <span class="p">|</span>
-         NNodes <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>                   <span class="m">3</span> <span class="p">|</span>                   <span class="m">1</span> <span class="p">|</span>
-         NTasks <span class="p">|</span>                   <span class="m">8</span> <span class="p">|</span>                   <span class="m">4</span> <span class="p">|</span>                   <span class="m">3</span> <span class="p">|</span>                   <span class="m">1</span> <span class="p">|</span>
-          NCPUS <span class="p">|</span>                   <span class="m">8</span> <span class="p">|</span>                   <span class="m">8</span> <span class="p">|</span>                   <span class="m">6</span> <span class="p">|</span>                   <span class="m">1</span> <span class="p">|</span>
-         ReqMem <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>                 1Gn <span class="p">|</span>
-      Timelimit <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>                     <span class="p">|</span>
-        Elapsed <span class="p">|</span>            <span class="m">00</span>:00:01 <span class="p">|</span>            <span class="m">00</span>:00:00 <span class="p">|</span>            <span class="m">00</span>:00:01 <span class="p">|</span>            <span class="m">00</span>:00:00 <span class="p">|</span>
-      SystemCPU <span class="p">|</span>           <span class="m">00</span>:01.141 <span class="p">|</span>           <span class="m">00</span>:00.051 <span class="p">|</span>           <span class="m">00</span>:00.289 <span class="p">|</span>           <span class="m">00</span>:00.017 <span class="p">|</span>
-        UserCPU <span class="p">|</span>           <span class="m">00</span>:00.521 <span class="p">|</span>           <span class="m">00</span>:00.031 <span class="p">|</span>           <span class="m">00</span>:00.096 <span class="p">|</span>           <span class="m">00</span>:00.035 <span class="p">|</span>
-       TotalCPU <span class="p">|</span>           <span class="m">00</span>:01.663 <span class="p">|</span>           <span class="m">00</span>:00.083 <span class="p">|</span>           <span class="m">00</span>:00.385 <span class="p">|</span>           <span class="m">00</span>:00.053 <span class="p">|</span>
-     AveCPULoad <span class="p">|</span>               <span class="m">1</span>.663 <span class="p">|</span>                     <span class="p">|</span>               <span class="m">0</span>.385 <span class="p">|</span>                     <span class="p">|</span>
-         MaxRSS <span class="p">|</span>              34812K <span class="p">|</span>                865K <span class="p">|</span>                865K <span class="p">|</span>                840K <span class="p">|</span>
-      MaxVMSize <span class="p">|</span>             324436K <span class="p">|</span>             324436K <span class="p">|</span>             324440K <span class="p">|</span>             324436K <span class="p">|</span>
-          Start <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:58 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:59 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:59 <span class="p">|</span> <span class="m">2018</span>-08-06T13:23:00 <span class="p">|</span>
-            End <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:59 <span class="p">|</span> <span class="m">2018</span>-08-06T13:22:59 <span class="p">|</span> <span class="m">2018</span>-08-06T13:23:00 <span class="p">|</span> <span class="m">2018</span>-08-06T13:23:00 <span class="p">|</span>
-       ExitCode <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>                 <span class="m">2</span>:0 <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>                 <span class="m">0</span>:0 <span class="p">|</span>
-          State <span class="p">|</span>           COMPLETED <span class="p">|</span>              FAILED <span class="p">|</span>           COMPLETED <span class="p">|</span>           COMPLETED <span class="p">|</span>
-<span class="o">=========================================================================================================</span>
-</code></pre></div></td></tr></table></div>
+SLURM Job ID: 10732
+===============================================================================================================================
+          JobID |               10732 |         10732.batch |        10732.extern |             10732.0 |             10732.1 |
+        JobName |                test |               batch |              extern |               orted |           hello.exe |
+           User |            changc81 |                     |                     |                     |                     |
+       NodeList |       lac-[380-383] |             lac-380 |       lac-[380-383] |       lac-[381-383] |       lac-[380-383] |
+         NNodes |                   4 |                   1 |                   4 |                   3 |                   4 |
+         NTasks |                     |                   1 |                   4 |                   3 |                   4 |
+          NCPUS |                   8 |                   2 |                   8 |                   6 |                   8 |
+         ReqMem |                 1Gn |                 1Gn |                 1Gn |                 1Gn |                 1Gn |
+      Timelimit |            00:05:00 |                     |                     |                     |                     |
+        Elapsed |            00:00:16 |            00:00:16 |            00:00:16 |            00:00:02 |            00:00:01 |
+      SystemCPU |           00:03.283 |           00:00.562 |           00:00.001 |           00:00.646 |           00:00.572 |
+        UserCPU |           00:02.119 |           00:00.753 |           00:00.003 |           00:00.396 |           00:00.281 |
+       TotalCPU |           00:05.403 |           00:01.316 |           00:00.005 |           00:01.042 |           00:00.853 |
+     AveCPULoad |            0.337687 |             0.08225 |           0.0003125 |               0.521 |               0.853 |
+         MaxRSS |                     |              10409K |                120K |                861K |                863K |
+      MaxVMSize |                     |             652100K |             173968K |             324440K |             324436K |
+          Start | 2018-08-06T13:22:44 | 2018-08-06T13:22:44 | 2018-08-06T13:22:44 | 2018-08-06T13:22:54 | 2018-08-06T13:22:57 |
+            End | 2018-08-06T13:23:00 | 2018-08-06T13:23:00 | 2018-08-06T13:23:00 | 2018-08-06T13:22:56 | 2018-08-06T13:22:58 |
+       ExitCode |                 0:0 |                 0:0 |                 0:0 |                 0:0 |                 0:0 |
+          State |           COMPLETED |           COMPLETED |           COMPLETED |           COMPLETED |           COMPLETED |
+===============================================================================================================================
+          JobID |             10732.2 |             10732.3 |             10732.4 |             10732.5 |
+        JobName |           hello.exe |       NoSuchCommand |               orted |            scontrol |
+           User |                     |                     |                     |                     |
+       NodeList |       lac-[380-383] |       lac-[380-383] |       lac-[381-383] |             lac-380 |
+         NNodes |                   4 |                   4 |                   3 |                   1 |
+         NTasks |                   8 |                   4 |                   3 |                   1 |
+          NCPUS |                   8 |                   8 |                   6 |                   1 |
+         ReqMem |                 1Gn |                 1Gn |                 1Gn |                 1Gn |
+      Timelimit |                     |                     |                     |                     |
+        Elapsed |            00:00:01 |            00:00:00 |            00:00:01 |            00:00:00 |
+      SystemCPU |           00:01.141 |           00:00.051 |           00:00.289 |           00:00.017 |
+        UserCPU |           00:00.521 |           00:00.031 |           00:00.096 |           00:00.035 |
+       TotalCPU |           00:01.663 |           00:00.083 |           00:00.385 |           00:00.053 |
+     AveCPULoad |               1.663 |                     |               0.385 |                     |
+         MaxRSS |              34812K |                865K |                865K |                840K |
+      MaxVMSize |             324436K |             324436K |             324440K |             324436K |
+          Start | 2018-08-06T13:22:58 | 2018-08-06T13:22:59 | 2018-08-06T13:22:59 | 2018-08-06T13:23:00 |
+            End | 2018-08-06T13:22:59 | 2018-08-06T13:22:59 | 2018-08-06T13:23:00 | 2018-08-06T13:23:00 |
+       ExitCode |                 0:0 |                 2:0 |                 0:0 |                 0:0 |
+          State |           COMPLETED |              FAILED |           COMPLETED |           COMPLETED |
+=========================================================================================================
+</code></pre>
 <p>From the results above, we can see the executions by <strong>mpirun</strong> are
 different from <strong>srun</strong>. First of all, for <strong>mpirun</strong>, the JobName only
 show "orted" no matter what commands are used in the steps 10732.0 and
@@ -3744,85 +1994,7 @@ step 10732.1 (<strong>srun hello.exe</strong>). SLURM seems to get a good <stro
 information with <strong>srun</strong> but not with <strong>mpirun</strong>. If you wish to use
 the step information, do not forget to put <strong>srun</strong> in the command
 lines.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span></pre></div></td><td class="code"><div><pre><span></span><code>Currently Loaded Modules:
+<pre><code class="language-bash">Currently Loaded Modules:
   1) GCCcore/6.4.0   2) binutils/2.28   3) GCC/6.4.0-2.28   4) OpenMPI/2.1.1
 
 
@@ -3901,40 +2073,10 @@ JobId=10732 JobName=test
    StdIn=/dev/null
    StdOut=/mnt/home/changc81/GetExample/helloMPI/slurm-10732.out
    Power=
-</code></pre></div></td></tr></table></div>
-<p>For a complete instruction of <strong>sacct</strong> command, please refer to <a href="https://slurm.schedmd.com/sacct.html">the SLURM web site</a>.</p>
+</code></pre>
+<p>For a complete instruction of <strong>sacct</strong> command, please refer to
+<a href="https://slurm.schedmd.com/sacct.html">the SLURM web site</a>.</p>
 
-  
-    
-  
-  
-    
-  
-
-
-  <aside class="md-source-file">
-    
-      <span class="md-source-file__fact">
-        <span class="md-icon" title="Date of last update">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
-        </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 9, 2022</span>
-      </span>
-    
-    
-      <span class="md-source-file__fact">
-        <span class="md-icon" title="Date of creation">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
-        </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 23, 2022</span>
-      </span>
-    
-    
-    
-  </aside>
-
-
-  
 
 
 
@@ -3944,23 +2086,21 @@ JobId=10732 JobName=test
             </div>
           
           
-<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
       
 
-    <footer class="MSUwrapper light-background" id="MSUstandardFooter" role="contentinfo">
-        <!-- class ’light-background' sets link colors -->
+    <!-- <footer class="MSUwrapper light-background" id="MSUstandardFooter" role="contentinfo">
+
         <div class="fourMSUcolumns" id="standard-footer-MSU-wordmark">
             <a href="http://www.msu.edu">
-                <!-- Use green MSU wordmark -->
+
                 <img alt="Michigan State University Wordmark" class="screen-msuwordmark"
                     src="https://msu-icer.github.io/hpcc-user-documentation/assets/images/msu-wordmark-green.png" height="47" width="221" />
             </a>
         </div>
         <div class="twelveMSUcolumns">
-            <!-- change the css to using nth child instead of classes!!!!!!-->
             <div id="standard-footer-site-links">
                 <ul>
             <li><a href="http://icer.msu.edu/contact">Contact Information</a></li>
@@ -3984,17 +2124,86 @@ JobId=10732 JobName=test
                 </ul>
             </div>
         </div>
-    </footer>
+    </footer> -->
+
+    <div id="page" class="page with-navigation">
+
+
+      <div class="everything-wrapper">
+  
+        <footer role="contentinfo">
+  
+          <section class="footer-lower">
+            <div class="container-narrow">
+              <div class="padded-plain-block">
+  
+                <div class="media-lg-only">
+                  <div class="media-lg-only__media media-lg-only--msu">
+                    <a href="http://www.msu.edu/" aria-label="Michigan State University Homepage Link" target="_blank"
+                      class="neg-ext">
+                      <!-- <img
+                        src="images/msu-wordmark-logo.svg"
+                        alt="Michigan State University logo">
+                    </a> -->
+                   <img
+                        src="assets/images/msu-wordmark-logo.svg"
+                        alt="Michigan State University logo">
+                    </a>
+                  </div>
+  
+                  <div class="media-lg-only__content">
+                    <div role="navigation" aria-label="ICER Contact Information">
+                      <ul class="horiz-link-list footer-list-lg">
+                        <li>Call us: <a href="tel:+1-517-353-9309" class="phone-link">(517) 353-9309</a></li>
+                        <li><a href="https://icer.msu.edu/contact">Contact Information</a></li>
+                        <li><a href="https://icer.msu.edu/sitemap">Site Map</a></li>
+                        <li><a href="http://vprgs.msu.edu/privacy" class="ext" target="_blank">Privacy Statement<span
+                              class="ext"><span class="element-invisible"> (link is external)</span></span></a></li>
+                        <li><a href="http://vprgs.msu.edu/accessibility" class="ext" target="_blank">Site
+                            Accessibility<span class="ext"><span class="element-invisible"> (link is
+                                external)</span></span></a></li>
+                      </ul>
+                    </div>
+  
+                    <hr class="footer-hr">
+  
+                    <div role="navigation" aria-label="MSU Contact Information">
+                      <ul class="horiz-link-list footer-list-sm">
+                        <li>Call MSU: <a href="tel:+1-517-355-1855" class="phone-link footer-lime-link">(517) 355-1855</a>
+                        </li>
+                        <li>Visit: <a href="http://www.msu.edu/" target="_blank"
+                            class="neg-ext footer-lime-link ext">msu.edu<span class="ext"><span class="element-invisible">
+                                (link is external)</span></span></a></li>
+                        <li>MSU is an affirmative-action, equal-opportunity employer.</li>
+                      </ul>
+                    </div>
+  
+                    <ul class="horiz-link-list footer-list-sm">
+                      <li><strong>SPARTANS WILL.</strong></li>
+                      <li>© Michigan State University Board of Trustees</li>
+                    </ul>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+          </section>
+        </footer>
+  
+      </div>
+    </div>
+
+
 
     </div>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.720157f5.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.0d3e07ec.min.js"></script>
+      <script src="../assets/javascripts/bundle.078830c0.min.js"></script>
       
     
   </body>
