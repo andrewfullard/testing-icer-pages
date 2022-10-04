@@ -3603,18 +3603,18 @@
 
 <h1 id="sftp-mapping-on-hpcc-file-systems">SFTP Mapping on HPCC file systems</h1>
 <p>SFTP Net Drive is the software which can map remote HPCC file
-systems on your local Windows computers via SFTP. (Mac computer is not
-available.) Once connected, you can browse and work with files on HPCC
+systems on your local Windows computers via SFTP. (Mac OS is not
+supported.) Once connected, you can browse and work with files on HPCC
 as if they were on a hard drive of your local machine. In order words,
 they do not need to be downloaded and uploaded when users read or modify
-them by their local computers.</p>
+them using their local computers.</p>
 <p>HPCC users can use the 
 <a href="https://www.nsoftware.com/download/download.aspx?sku=NDXC-A&amp;type=free">download site</a>
 to get a free version of SFTP Net
 Drive. Once it is downloaded and executed, users can do its setup. In
 the main menu (below), you can choose your own <code>Profile</code> name and
-<code>Drive Letter</code>. Make sure <code>Sever</code> is set up as
-<strong>http://rsync.hpcc.msu.edu</strong>
+<code>Drive Letter</code>. Make sure the <code>Server</code> is set to
+<code>http://rsync.hpcc.msu.edu</code>
 <code>Username</code> and <code>Password</code> are the
 same as your HPCC login.</p>
 <p><img alt="img!" src="../attachments/32768001/32768002.png" /></p>
@@ -3629,7 +3629,7 @@ initiation time can be adjusted on <code>Timeout</code>. You can also set up
 <p><img alt="img!" src="../attachments/32768001/32768004.png" /></p>
 <p>For <code>Drive</code>, if you would like, you may set up a different <code>Root folder</code>
 to start with other than your home folder. You might want to click on
-<code>Handle case-sensitive filenames</code> since HPCC file system is
+<code>Handle case-sensitive filenames</code> since the HPCC file system is
 case-sensitive. If you would like to show hidden files, you can click on
 <code>Show files started with dot</code>.</p>
 <p><img alt="img!" src="../attachments/32768001/32768005.png" /></p>
@@ -3639,7 +3639,7 @@ become <code>Disconnect</code>:</p>
 <p><img alt="img!" src="../attachments/32768001/32768006.png" /></p>
 <p>Now, open the file explorer and click on <code>This PC</code>. You should find the
 HPCC file system shown in the <code>Network locations</code> area with the
-<code>Profile</code> name and the <code>Driver Letter</code> of your input:</p>
+<code>Profile</code> name and the <code>Drive Letter</code> of your input:</p>
 <p><img alt="img!" src="../attachments/32768001/32768009.png" /></p>
 <h3 id="mapping-hpcc-drive-with-more-spaces">Mapping HPCC Drive with More Spaces</h3>
 <p>If you would like to do SFTP mapping with more than one space in
@@ -3648,7 +3648,7 @@ setting. For example, you want to map your home space and research space
 on your local Windows computer. You can set the <code>Root folder</code> to be your
 home folder as the setup above. Use a
 <a href="../install_ssh_client/">ssh client</a>
-to connect to HPCC or
+to connect to the HPCC or
 <a href="../Web_Site_Access_to_HPCC/">Web Site Access to HPCC</a>
 to run a command line on a dev node:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>username@dev-intel14-phi ~<span class="o">]</span>$ ln -s /mnt/research/&lt;Research Name&gt; &lt;Research Name&gt;
@@ -3713,7 +3713,7 @@ create more static links in your home folder by the same way.</p>
         <span class="md-icon" title="Date of last update">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 3, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 4, 2022</span>
       </span>
     
     
