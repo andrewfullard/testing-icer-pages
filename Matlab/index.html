@@ -2687,18 +2687,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#running-the-matlab-on-intel14-nodes" class="md-nav__link">
+  <a href="#running-matlab-on-intel14-nodes" class="md-nav__link">
     <span class="md-ellipsis">
-      Running the MATLAB on intel14 nodes
+      Running MATLAB on intel14 nodes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-the-matlab-with-python" class="md-nav__link">
+  <a href="#using-matlab-with-python" class="md-nav__link">
     <span class="md-ellipsis">
-      Using the MATLAB with Python
+      Using MATLAB with Python
     </span>
   </a>
   
@@ -3878,18 +3878,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#running-the-matlab-on-intel14-nodes" class="md-nav__link">
+  <a href="#running-matlab-on-intel14-nodes" class="md-nav__link">
     <span class="md-ellipsis">
-      Running the MATLAB on intel14 nodes
+      Running MATLAB on intel14 nodes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-the-matlab-with-python" class="md-nav__link">
+  <a href="#using-matlab-with-python" class="md-nav__link">
     <span class="md-ellipsis">
-      Using the MATLAB with Python
+      Using MATLAB with Python
     </span>
   </a>
   
@@ -3928,7 +3928,7 @@ MATLAB/2018a is loaded. Other available version of MATLAB can be discovered by t
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>    hpc@dev-intel18:~&gt; module spider MATLAB
 </code></pre></div></td></tr></table></div>
 <p>and then switching to a different version, for example, to switch
-from 2018a to 2017a, one can directly load the the version as</p>
+from 2018a to 2019a, one can directly load the the version as</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>hpc@dev-intel18:~&gt; module load MATLAB/2019a
 </code></pre></div></td></tr></table></div>
 <ul>
@@ -3937,31 +3937,30 @@ from 2018a to 2017a, one can directly load the the version as</p>
     called, MATLAB will automatically spawn as many threads as the
     number of cores on the machine. To avoid over utilizing compute
     nodes on HPCC, user should set the max number of threads by using
-    “maxNumCompThreads(N)” in matlab where N is the maximum number of
+    <code>maxNumCompThreads(N)</code> in matlab where N is the maximum number of
     threads matlab would use in the session. User could also use option
-    "-SingleCompThread" to launch matlab session that would only use
-    single thread. Without the option, matlab session will potentially
+    <code>-SingleCompThread</code> to launch matlab session that would only use a
+    single thread. Without these option, matlab session will potentially
     spawn as many as 28 (on intel16 nodes) or 20 (on intel14 nodes)
     threads when a built-in multi-threaded function is called. To allow
     the multi-thread functions in matlab, users need to do the
     following:<ol>
 <li>Specify the maximum number of compute threads to be used with
-     " <strong><em>maxNumCompThreads(N) " </em></strong>at the beginning of the matlab
+     <code>maxNumCompThreads(N)</code> at the beginning of the matlab
     program where N is the maximum number of threads in the program.
-    For example, <strong><em>maxNumCompThreads(4)</em></strong> will set the maximum
+    For example, <code>maxNumCompThreads(4)</code> will set the maximum
     number of threads used in the program to four.  </li>
-<li>If submit to run as batch job, specify "<strong><em>--cpus-per-task=N</em></strong>"
+<li>If submitting to run as batch job, specify <code>--cpus-per-task=N</code>
     in your job script where N should match the maximum number of
-    compute threads set in "<strong><em>maxNumCompThreads(N)".</em> </strong></li>
+    compute threads set in <code>maxNumCompThreads(N)</code>.</li>
 </ol>
 </li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Starting Nov. 1, 2018 on new HPCC system, the matlab default setting of
-using single compute thread is changed. “matlab-mt” and “matlab”
-commands would be the same for current versions and "matlab-mt" will no
-longer exist from later versions starting 2019.</p>
+using a single compute thread is changed. <code>matlab-mt</code> and <code>matlab</code>
+commands would be the same for 2018 and older versions and <code>matlab-mt</code> will no longer exist from later versions starting 2019.</p>
 </div>
 <ul>
 <li>HPCC has many toolboxes installed. To see a list of installed
@@ -3990,30 +3989,30 @@ longer exist from later versions starting 2019.</p>
     ......
 </code></pre></div></td></tr></table></div>
 <h2 id="running-matlab-on-scratch-space">Running MATLAB on Scratch Space</h2>
-<p>It is strongly recommended that iCER users run programs on scratch
+<p>It is strongly recommended that iCER users run programs on the scratch
 space. This may improve the speed of job execution as well as the
 whole system's performance. MATLAB users should carefully check
 whether any temporary files involved in the program execution need
 to be stored in scratch space. For example, if you use the Matlab
 compiler to make a Matlab program into a standalone program, you
-need to set the environment variable MCR_CACHE_ROOT in the scratch
-directory with: <strong>export MCR_CACHE_ROOT=$SCRATCH</strong> before starting
+need to set the environment variable <code>MCR_CACHE_ROOT</code> in the scratch
+directory with: <code>export MCR_CACHE_ROOT=$SCRATCH</code> before starting
 the execution. This line should be added to the your job script
 before the line where you specify the task you want to run. This
 setting will override the default setting by MATLAB Compiler
 Runtime. By default, a directory for temporary data cache used by
 the MATLAB Compiler Runtime is created at user's home directory
-$HOME. Without this setting, users may run into the situation that
-the program running on scratch space  frequently access to its cache
-space in the home space which will greatly slow down the execution
-of the code, and as well, may potentially slow down the whole system
+<code>$HOME</code>. Without this setting, users may run into the situation that
+the program running on scratch space frequently accesses its cache
+space in the home space, which will greatly slow down the execution
+of the code, and may potentially slow down the whole system
 or even cause system instability.  </p>
 <h2 id="running-matlab-interactively">Running MATLAB Interactively</h2>
 <p>In this document, we refer to an interactive session as one that
 involves a user typing commands into the MATLAB command windows.</p>
 <h3 id="short-sessions-two-hours">Short Sessions (&lt; two hours)</h3>
 <ul>
-<li>ssh to one of the dev nodes and run Matlab:</li>
+<li><code>ssh</code> to one of the dev nodes and run Matlab:</li>
 </ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -4048,13 +4047,7 @@ two hours.</p>
 <h3 id="long-sessions-two-hours">Long Sessions (&gt; two hours)</h3>
 <p>Longer interactive sessions are possible, but are not recommended.
 Modify the following commands to suit your requirements.</p>
-<ul>
-<li>
 <p>If graphics are not required,</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-</li>
-</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -4075,14 +4068,7 @@ Modify the following commands to suit your requirements.</p>
 
     hpc@dev-intel18:-&gt; matlab -nodisplay 
 </code></pre></div></td></tr></table></div>
-<ul>
-<li>
-<p>If graphics are required, add the option "–x11" to the salloc
-    command:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-</li>
-</ul>
+<p>If graphics are required, add the option <code>–x11</code> to the <code>salloc</code> command:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>    hpc@dev-intel18:-&gt; salloc --nodes=1 --ntasks=1 --cpus-per-task=1 --mem=2gb --time=04:00:00 --x11
 </code></pre></div></td></tr></table></div>
 <div class="admonition warning">
@@ -4090,7 +4076,7 @@ Modify the following commands to suit your requirements.</p>
 <p>The above commands submit a job to the cluster. If the resources are
 not immediately available, you will have to wait till the requested
 resources are available. Requesting a job for four hours or less
-will typically be scheduled relatively quickly. User may need to
+will typically be scheduled relatively quickly. Users may need to
 adjust the resources accordingly with the usage of the MATLAB
 program.</p>
 </div>
@@ -4100,13 +4086,13 @@ program.</p>
 window. From a development node, type</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>hpc@dev-intel16:~&gt; matlab -nodisplay -r &quot;myMatlab&quot; &amp;
 </code></pre></div></td></tr></table></div>
-<p>"myMatlab.m" will start running in background.</p>
+<p><code>myMatlab.m</code> will start running in the background.</p>
 <h3 id="long-jobs-two-hours">Long Jobs (> two hours)</h3>
 <h4 id="single-matlab-job">Single MATLAB Job</h4>
 <p>To submit jobs to the cluster, a job script needs to be written. And
 submitted to the queue. The following<br />
 sample job script file can be modified to suit your needs:</p>
-<p>myJob.sbatch</p>
+<p><code>myJob.sbatch</code></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -4122,32 +4108,32 @@ cd $SLURM_SUBMIT_DIR                            # go to the directory where this
 matlab -nodisplay -r &quot;myMatlab&quot;
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>myJobName is a string to make your job easier to identify it when
+<li><code>myJobName</code> is a string to make your job easier to identify it when
     managing or monitoring your jobs.</li>
-<li>--nodes=1 because you are running one matlab client in the job. If
+<li><code>--nodes=1</code> because you are running one matlab client in the job. If
     you want put multiple matlab run in a single job script, you may
     request more nodes for the job.</li>
-<li>--cpus-per-task=1 here because the matlab script "MyMatlab.m" does
-    not use multi cores. If you are using multicore parallel, you may
+<li><code>--cpus-per-task=1</code> here because the matlab script <code>MyMatlab.m</code> does
+    not use multiple threads. If you are using multiple threads, you may
     need to request more cpus.</li>
-<li>02:05:00 is the number of hours:minutes:seconds your job needs to
+<li><code>02:05:00</code> is the number of <code>hours:minutes:seconds</code> your job needs to
     run. If it runs longer than this, it will be killed. If you request
     more time than you need, your job may be delayed while the scheduler
     finds a time to run it. If you don't know how long your job needs,
     you will have to make a guess and use the real running time to
     improve this number on future runs. The maximum walltime that can be
-    requested is 168:00:00.</li>
-<li>--mem=550mb reserves 550 Maga bytes of total memory for the job. We
-    recommend user to serve at least 550mb for each session plus the
+    requested is <code>168:00:00</code>.</li>
+<li><code>--mem=550mb</code> reserves 550 megabytes of total memory for the job. We
+    recommend user to serve at least 550 MB for each session plus the
     total size of data variables used in the computation. User could
     click <a href="https://www.mathworks.com/support/requirements/matlab-parallel-server.html#:~:text=Minimum%20of%202%20GB%20RAM,to%20accommodate%20temporary%20data%20directories.">here</a> to see the recommendation of the matlab
     requirement by Mathworks.</li>
-<li>myMatlab is the name of your matlab script without the .m extension</li>
+<li><code>myMatlab</code> is the name of your matlab script without the .m extension</li>
 </ul>
 <p>Submit your job with:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>hpc@dev-intel16:~&gt; sbatch myJob.sbatch
 </code></pre></div></td></tr></table></div>
-<p>"myJob.sbatch" is the name of your job script as shown above.</p>
+<p><code>myJob.sbatch</code> is the name of your job script as shown above.</p>
 <h2 id="using-the-matlab-parallel-computing-toolbox">Using the MATLAB Parallel Computing Toolbox</h2>
 <p>The MATLAB Parallel Computing Toolbox (PCT) provides users several
 parallel computing features. </p>
@@ -4156,29 +4142,29 @@ parallel computing features. </p>
 <p>Parallel for-loops (parfor) .  (User could run "module load
     powertools; getexample MATLAB_parfor" to down load a directory
     "MATLAB_parfor" which contains an example of using parpool and
-    parfor with "local" profile)</p>
+    parfor with the "local" profile)</p>
 </li>
 <li>
-<p>Support GPU computing</p>
+<p>Support for GPU computing</p>
 </li>
 <li>
 <p>Offload computing from your laptop to HPCC cluster (with MATLAB
     Distributed Computing Server) </p>
 </li>
 <li>
-<p>Distributed arrays and spmd (single-program-multiple-data) for large
+<p>Distributed arrays and <code>spmd</code> (single-program-multiple-data) for large
     dataset handling and data-parallel algorithms</p>
 <p>(1) One GPU card will be used for each worker. In order to use
-multiple GPUs, user need to use spmd capability that each instance
+multiple GPUs, user need to use <code>spmd</code> capability that each instance
 of the program will use one card and multiple instances of the
 program take multiple cards.</p>
 <p>(2) If you use GPU capability, you need to have matlab run on a
-node with GPU. dev-intel14-k20, dev-intel16-k80 are the develop
-nodes with GPU. To request for GPU, use
-"–gres=gpu:\&lt;type>:\&lt;number>" to request certain number and type
-of GPU. "#SBATCH --gres=gpu:k20:1" is an example to request one k20
+node with GPU. dev-intel14-k20, dev-intel16-k80, and dev-amd20-v100 are the develop
+nodes with GPUs. To request GPUs, use
+<code>–gres=gpu:&lt;type&gt;:&lt;number&gt;</code> to request a number and type
+of GPU. <code>#SBATCH --gres=gpu:k20:1</code> is an example to request one k20
 GPU. Valid GPU type are k20, k80 and v100. Note that type is
-optional. But the number of GPU is necessary.</p>
+optional, but the number of GPU is necessary.</p>
 </li>
 </ul>
 <h2 id="using-the-matlab-parallel-server">Using the MATLAB Parallel Server</h2>
@@ -4217,39 +4203,33 @@ steps.</p>
     when it pass all the validation tests.</p>
 </li>
 </ol>
-<p>(1) Since we switch to SLURM scheduler, the command "configCluster"
-used to configure the cluster on HPCC no longer works. The class
-"ClusterInfo" does not work either.</p>
-<p>(2) Starting from version 2018a, MATLAB supports SLURM scheduler.
+<p>Starting from version 2018a, MATLAB supports the SLURM scheduler.
 Please refer to Mathworks' document for how to configure the cluster
-with SLURM scheduler
-<a href="https://www.mathworks.com/help/mdce/configure-parallel-computing-products-for-supported-third-party-schedulers-pbs-pro-platform-lsf-torque.html">here</a>.</p>
+with the SLURM scheduler
+<a href="https://www.mathworks.com/help/mdce/configure-parallel-computing-products-for-supported-third-party-schedulers-pbs-pro-platform-lsf-torque.html">here</a>. Previous versions of MATLAB are not recommended for use with the HPCC scheduler.</p>
 <h2 id="using-the-matlab-thread-based-worker-pool">Using the MATLAB thread-based worker pool</h2>
 <p>Started from Matlab version R2020a, thread-based worker pool is
-introduced. Please refer to the <a
-href="https://www.mathworks.com/help/parallel-computing/parallel.threadpool.html"
-rel="nofollow">document<a> for
+introduced. Please refer to <a href="https://www.mathworks.com/help/parallel-computing/parallel.threadpool.html">this document</a> for
 more details. On HPCC, we provide our users an example showing how to
-use thread-base pool with parfor, as well as the comparison between
+use thread-base pool with <code>parfor</code>, as well as the comparison between
 process-based and thread-based pools. To obtain the example, module load
-"powertools" and "MATLAB/2020a", then run "getexample
-MATLAB_threadPool". </p>
+<code>powertools</code> and <code>MATLAB/2020a</code>, then run <code>getexample MATLAB_threadPool</code>. </p>
 <h2 id="running-the-matlab2020a-on-amd-nodes">Running the MATLAB/2020a on AMD nodes</h2>
-<p>There is a bug in MATLAB/2020a that would lead to "segmentation fault"
-on AMD node associated with java virtual machine. The patch may be
-introduce in next release. If you find that the code works on other
-version but crashed in 2020a version, you may try the workaround that
+<p>There is a bug in MATLAB/2020a that will lead to a "segmentation fault"
+on AMD node associated with the Java virtual machine. The patch may be
+introduced in the next release. If you find that the code works on other
+version but crashes in 2020a version, you may try the workaround that
 launch the matlab session without java virtual machine as the following:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>hpc@eval-epyc19 ~]$ matlab -nodisplay -nojvm -r &quot;myExample&quot;
 </code></pre></div></td></tr></table></div>
-<h2 id="running-the-matlab-on-intel14-nodes">Running the MATLAB on intel14 nodes</h2>
+<h2 id="running-matlab-on-intel14-nodes">Running MATLAB on intel14 nodes</h2>
 <p>There is an existing problem of running some functions on Intel14
 nodes. If you run into 'Illegal instruction detected' error, please use
 a node of other type. Please add constrain to exclude intel14 type of
 compute nodes when submit to SLURM. For example:
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>#SBATCH --constraint=[intel16|intel18|amd20]
 </code></pre></div></td></tr></table></div></p>
-<h2 id="using-the-matlab-with-python">Using the MATLAB with Python</h2>
+<h2 id="using-matlab-with-python">Using MATLAB with Python</h2>
 <p><a href="https://www.mathworks.com/campaigns/offers/matlab-python-cheat-sheets.html?s_v1=41575&amp;elqem=3644189_EM_NA_DIR_22-01_MOE-EDU&amp;elqTrackId=34b76d429da64510a62e451f34bee44d&amp;elq=2311bc59dea9450fa1d52bb1e3446db8&amp;elqaid=41575&amp;elqat=1&amp;elqCampaignId=15309">Here</a> is the link to the cheat sheets provided by the
 Mathworks for users' reference.</p>
 
@@ -4267,7 +4247,7 @@ Mathworks for users' reference.</p>
         <span class="md-icon" title="Date of last update">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 11, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 4, 2022</span>
       </span>
     
     
